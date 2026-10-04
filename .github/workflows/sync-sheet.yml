@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  actions: write
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -31,3 +32,8 @@ jobs:
           git add data/places.json
           git commit -m "data: スプレッドシートからスナップショット更新 ($(date -u +%Y-%m-%d))"
           git push
+      - name: Pages を再デプロイ（bot の push では自動起動しないため）
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: git diff --quiet HEAD~1 -- data/places.json || gh workflow run pages.yml --ref "${GITHUB_REF_NAME}" 

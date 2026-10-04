@@ -5,6 +5,7 @@
   const CFG = Object.assign({
     SHEET_ID: '', SHEET_NAME: 'places', DATA_URL: 'data/places.json', BACKGROUND_URL: 'data/background.json',
     GITHUB_REPO: '', FORM_URL: '', CONTACT_EMAIL: '', MAP_CENTER: [33.098, 129.988], MAP_ZOOM: 15, SITE_TITLE: '', OPERATOR: '',
+    SHOW_RATINGS: false, ORIGINS: [],
   }, window.TOFU_CONFIG || {});
 
   const CAT_ORDER = ['restaurant', 'hotel', 'tofu_maker', 'shop', 'onsen', 'other'];
@@ -13,7 +14,7 @@
 
   const state = {
     all: [], visible: [], byId: {}, meta: {}, source: 'json', loadError: '',
-    map: null, markers: {}, markerLayer: null, meMarker: null, selectedId: null, pick: null, background: null,
+    map: null, markers: {}, markerLayer: null, meMarker: null, me: null, selectedId: null, pick: null, background: null,
     filters: { q: '', cats: new Set(), svcs: new Set(), tofu: '', price: PRICE_MAX, unverified: true, bounds: false },
     sort: 'category',
   };
@@ -38,7 +39,7 @@
     initMap();
     bindEvents();
     try {
-      await loadData();
+      await loadLocalData();          // まず同梱データを即表示
     } catch (e) {
       console.error(e);
       state.loadError = String(e && e.message || e);
@@ -49,6 +50,20 @@
     const sel = new URLSearchParams(location.hash.replace(/^#/, '')).get('place');
     if (sel && state.byId[sel]) selectPlace(sel, { pan: true });
     updateDataBadge();
+    if (CFG.SHEET_ID) {              // スプレッドシート（正本）は裏で取得して差し替える
+      const ok = await loadSheetData();
+      if (ok) {
+        const f = state.filters;
+        buildDynamicControls();
+        $('#tofu-select').value = f.tofu;
+        const r = $('#price-range'); if (f.price < Number(r.max)) r.value = f.price; updatePriceOutput();
+        applyFilters({});
+        if (state.selectedId && state.byId[state.selectedId]) renderDetail(state.byId[state.selectedId]);
+        else if (state.selectedId) closeDetail();
+        updateDataBadge();
+      }
+    }
+    if (new URLSearchParams(location.search).get('check') === '1') renderCheckPanel();
   }
 
   // ------------------------------------------------------------------ データ読込
@@ -58,45 +73,71 @@
     return fetch(url, { signal: ctrl ? ctrl.signal : undefined, cache: 'no-store' }).finally(() => clearTimeout(t));
   }
 
-  async function loadData() {
-    let places = null;
-    if (CFG.SHEET_ID) {
-      try {
-        const url = 'https://docs.google.com/spreadsheets/d/' + encodeURIComponent(CFG.SHEET_ID) +
-          '/gviz/tq?tqx=out:csv&headers=1' + (CFG.SHEET_NAME ? '&sheet=' + encodeURIComponent(CFG.SHEET_NAME) : '');
-        const res = await fetchWithTimeout(url, 10000);
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const text = await res.text();
-        const rows = S.csvToObjects(text);
-        if (!rows.length || !('名称' in rows[0])) throw new Error('シートの見出し行（名称 など）が見つかりません');
-        places = rows.map(S.rowToPlace).filter((p) => p.name);
-        state.source = 'sheet';
-        state.meta = { updated: new Date().toISOString().slice(0, 10) };
-      } catch (e) {
-        console.warn('スプレッドシートの取得に失敗したため同梱データを使います:', e);
-      }
-    }
-    if (!places) {
-      let json = window.__TOFU_DATA__ || null;   // 1ファイル版（dist/index.html）では埋め込みデータを使う
-      if (!json) {
-        const res = await fetch(CFG.DATA_URL, { cache: 'no-cache' });
-        if (!res.ok) throw new Error('data の取得に失敗しました (HTTP ' + res.status + ')');
-        json = await res.json();
-      }
-      places = (json.places || []).map(S.normalizePlace);
-      state.meta = json.meta || {};
-      state.source = 'json';
-    }
+  function setPlaces(places, source, meta) {
+    state.allRaw = places;
     state.all = places.filter((p) => p.status !== 'hidden');
     state.byId = {};
     state.all.forEach((p) => { state.byId[p.id] = p; });
+    state.source = source;
+    state.meta = meta || {};
+  }
+
+  async function loadLocalData() {
+    let json = window.__TOFU_DATA__ || null;   // 1ファイル版（dist/index.html）では埋め込みデータを使う
+    if (!json) {
+      const res = await fetch(CFG.DATA_URL, { cache: 'no-cache' });
+      if (!res.ok) throw new Error('data の取得に失敗しました (HTTP ' + res.status + ')');
+      json = await res.json();
+    }
+    setPlaces((json.places || []).map(S.normalizePlace), 'json', json.meta || {});
+  }
+
+  async function loadSheetData() {
+    try {
+      const url = 'https://docs.google.com/spreadsheets/d/' + encodeURIComponent(CFG.SHEET_ID) +
+        '/gviz/tq?tqx=out:csv&headers=1' + (CFG.SHEET_NAME ? '&sheet=' + encodeURIComponent(CFG.SHEET_NAME) : '');
+      const res = await fetchWithTimeout(url, 10000);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const text = await res.text();
+      const rows = S.csvToObjects(text);
+      if (!rows.length || !('名称' in rows[0])) throw new Error('シートの見出し行（名称 など）が見つかりません');
+      const places = rows.map(S.rowToPlace).filter((p) => p.name);
+      if (!places.length) throw new Error('シートに行がありません');
+      setPlaces(places, 'sheet', { updated: new Date().toISOString().slice(0, 10) });
+      return true;
+    } catch (e) {
+      console.warn('スプレッドシートの取得に失敗したため同梱データを表示しています:', e);
+      state.sheetError = String(e && e.message || e);
+      return false;
+    }
+  }
+
+  // ?check=1 で開くと、編集者向けにデータの入力エラー・不足を一覧表示する（GitHub 不要の自己点検用）
+  function renderCheckPanel() {
+    const places = state.allRaw || state.all;
+    const errs = S.validateAll(places);
+    const warns = [];
+    places.forEach((p) => {
+      if (p.id_generated) warns.push('[' + p.name + '] id が空です（名称から自動生成: ' + p.id + '）。固定したい場合はシートの id 列に書いてください');
+      if (!hasGeo(p)) warns.push('[' + p.name + '] 緯度・経度が空です（地図に出ません）');
+      if (p.status === 'published' && p.sources.length === 0) warns.push('[' + p.name + '] 出典がありません');
+      if (p.status === 'published' && p.yudofu === 'confirmed' && !p.menu.length && p.category !== 'other') warns.push('[' + p.name + '] メニューがありません');
+    });
+    const el = document.createElement('div');
+    el.className = 'check-panel';
+    el.innerHTML = '<h3>データ点検（' + (state.source === 'sheet' ? 'スプレッドシート' : '同梱データ') + '・' + places.length + ' 件）' + (state.sheetError ? ' <span class="badge warn">シート取得失敗: ' + esc(state.sheetError) + '</span>' : '') + '</h3>' +
+      '<p><b>エラー ' + errs.length + ' 件</b>（該当行は地図に正しく出ません）</p><ul>' + errs.map((e) => '<li>' + esc(e) + '</li>').join('') + '</ul>' +
+      '<p><b>注意 ' + warns.length + ' 件</b></p><ul>' + warns.map((w) => '<li>' + esc(w) + '</li>').join('') + '</ul>' +
+      '<button type="button" class="btn btn-small" id="btn-check-close">閉じる</button>';
+    document.body.appendChild(el);
+    $('#btn-check-close').addEventListener('click', () => el.remove());
   }
 
   function updateDataBadge() {
     const b = $('#data-badge');
     if (state.loadError) { b.textContent = 'データを読み込めませんでした'; b.title = state.loadError; return; }
     if (state.source === 'sheet') { b.textContent = 'データ: スプレッドシート（最新）'; b.classList.add('live'); }
-    else b.textContent = 'データ: 同梱スナップショット' + (state.meta.updated ? '（' + state.meta.updated + '）' : '');
+    else { b.textContent = 'データ: 同梱スナップショット' + (state.meta.updated ? '（' + state.meta.updated + '）' : ''); if (state.sheetError) b.title = 'スプレッドシートの取得に失敗: ' + state.sheetError; }
   }
 
   // ------------------------------------------------------------------ 地図
@@ -183,11 +224,28 @@
     toast('現在地を取得中…');
     navigator.geolocation.getCurrentPosition((pos) => {
       const ll = [pos.coords.latitude, pos.coords.longitude];
+      state.me = ll;
       if (state.meMarker) state.meMarker.setLatLng(ll);
       else state.meMarker = L.marker(ll, { icon: L.divIcon({ className: 'pin-icon', html: '<div class="me-dot"></div>', iconSize: [16, 16], iconAnchor: [8, 8] }), interactive: false }).addTo(state.map);
       state.map.setView(ll, Math.max(state.map.getZoom(), 15));
-      toast('現在地を表示しました');
-    }, () => toast('現在地を取得できませんでした（位置情報の許可を確認してください）'), { enableHighAccuracy: true, timeout: 10000 });
+      if (state.sort !== 'distance') { state.sort = 'distance'; $('#sort-select').value = 'distance'; }
+      applyFilters({});
+      toast('現在地を表示しました（近い順に並べ替え）');
+    }, () => { toast('現在地を取得できませんでした（位置情報の許可を確認してください）'); if (state.sort === 'distance') { state.sort = 'category'; $('#sort-select').value = 'category'; applyFilters({}); } }, { enableHighAccuracy: true, timeout: 10000 });
+  }
+
+  function distanceM(p) {
+    const o = state.me;
+    if (!o || !hasGeo(p)) return null;
+    const R = 6371000, toR = (d) => (d * Math.PI) / 180;
+    const dLat = toR(p.lat - o[0]), dLng = toR(p.lng - o[1]);
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(toR(o[0])) * Math.cos(toR(p.lat)) * Math.sin(dLng / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(h));
+  }
+  function fmtDistance(m) {
+    if (m == null) return '';
+    if (m < 2000) return '徒歩約' + Math.max(1, Math.round(m / 80)) + '分・' + Math.round(m / 10) * 10 + 'm';
+    return '約' + (m / 1000).toFixed(1) + 'km';
   }
 
   // ------------------------------------------------------------------ 絞り込み
@@ -200,7 +258,11 @@
     const fc = $('#f-category');
     fc.innerHTML = CAT_ORDER.map((c) => '<option value="' + c + '">' + esc(catLabel(c)) + '</option>').join('');
     if (!CFG.GITHUB_REPO) $('#btn-send-github').hidden = true;
-    if (CFG.FORM_URL) $('#btn-send-form').hidden = false;
+    if (CFG.FORM_URL) {   // Google フォームがあれば主導線にする（アカウント不要）
+      const bf = $('#btn-send-form'); bf.hidden = false; bf.classList.add('btn-primary'); bf.textContent = 'Google フォームで送信（アカウント不要）';
+      const bg = $('#btn-send-github'); bg.classList.remove('btn-primary'); bg.textContent = 'GitHub で送信';
+      $('#send-help').textContent = '「Google フォームで送信」は内容をコピーしてフォームを開きます。貼り付けて送信してください。送られた情報は編集者が確認してから地図に反映します。';
+    }
     if (CFG.CONTACT_EMAIL) $('#btn-send-mail').hidden = false;
   }
 
@@ -252,6 +314,7 @@
       if (s === 'name') return byName(a, b);
       if (s === 'price') { const pa = a.price_min == null ? 1e12 : a.price_min, pb = b.price_min == null ? 1e12 : b.price_min; return pa - pb || byName(a, b); }
       if (s === 'updated') return (b.updated_at || '').localeCompare(a.updated_at || '') || byName(a, b);
+      if (s === 'distance') { const da = distanceM(a), db = distanceM(b); return (da == null ? 1e12 : da) - (db == null ? 1e12 : db) || byName(a, b); }
       return CAT_ORDER.indexOf(a.category) - CAT_ORDER.indexOf(b.category) || byName(a, b);
     });
   }
@@ -313,6 +376,7 @@
       if (!isConfirmed(p)) badges.push('<span class="badge warn">' + (p.yudofu === 'none' ? '提供なし' : '要確認') + '</span>');
       if (hasGeo(p) && p.geo_precision !== 'exact') badges.push('<span class="badge" title="住所から推定した概略位置です">位置は概略</span>');
       if (!hasGeo(p)) badges.push('<span class="badge" title="座標が未登録のため地図に表示されません">位置未確定</span>');
+      const dist = distanceM(p); if (dist != null) badges.push('<span class="badge ok">' + fmtDistance(dist) + '</span>');
       if (p.tofu_source.name) badges.push('<span class="badge tofu">豆腐: ' + esc(p.tofu_source.name) + '</span>');
       p.service.slice(0, 3).forEach((s) => badges.push('<span class="badge">' + esc(s) + '</span>'));
       return '<li class="card' + (p.id === state.selectedId ? ' selected' : '') + '" data-id="' + esc(p.id) + '" style="--c:' + catVar(p.category) + '" tabindex="0" role="button">' +
@@ -412,7 +476,7 @@
       p.features.length ? '<section><h3>特徴</h3><div class="tag-list">' + p.features.map((f) => '<span class="tag">' + esc(f) + '</span>').join('') + '</div></section>' : '',
       p.description ? '<section><h3>紹介</h3><p>' + esc(p.description) + '</p></section>' : '',
       users.length ? '<section><h3>この豆腐を使っている場所</h3><ul class="related-list">' + users.map((u) => '<li data-goto="' + esc(u.id) + '">' + esc(u.name) + ' <span class="muted small">' + esc(catLabel(u.category)) + '</span></li>').join('') + '</ul></section>' : '',
-      ratings.length ? '<section><h3>各サイトの評価</h3><div class="rating-row">' + ratings.join('') + '</div><p class="muted small">数値は各サイト掲載時点のもの。詳細は各サイトでご確認ください。</p></section>' : '',
+      CFG.SHOW_RATINGS && ratings.length ? '<section><h3>各サイトの評価</h3><div class="rating-row">' + ratings.join('') + '</div><p class="muted small">数値は各サイト掲載時点のもの。詳細は各サイトでご確認ください。</p></section>' : '',
       links.length ? '<section><h3>リンク</h3><ul class="link-list">' + links.join('') + '</ul></section>' : '',
       '<section><h3>出典</h3>' + (sources ? '<ul class="source-list">' + sources + '</ul>' : '<p class="muted">出典が登録されていません（要確認）。</p>') + '</section>',
       '<div class="detail-foot"><span>' + (p.updated_at ? '最終更新 ' + esc(p.updated_at) : '') + '</span><span><button type="button" class="btn btn-small" id="btn-fix">情報を修正する</button> <button type="button" class="btn btn-small btn-ghost" id="btn-fix-pos">位置を修正する</button></span></div>',
@@ -616,7 +680,7 @@
     $('#price-range').addEventListener('input', (e) => { state.filters.price = Number(e.target.value); updatePriceOutput(); applyFilters({}); });
     $('#chk-unverified').addEventListener('change', (e) => { state.filters.unverified = e.target.checked; applyFilters({}); });
     $('#chk-bounds').addEventListener('change', (e) => { state.filters.bounds = e.target.checked; applyFilters({}); });
-    $('#sort-select').addEventListener('change', (e) => { state.sort = e.target.value; applyFilters({}); });
+    $('#sort-select').addEventListener('change', (e) => { state.sort = e.target.value; if (state.sort === 'distance' && !state.me) locateMe(); else applyFilters({}); });
     $('#list').addEventListener('click', (e) => { const card = e.target.closest('.card'); if (card) selectPlace(card.dataset.id, { pan: true, scroll: false }); });
     $('#list').addEventListener('keydown', (e) => { const card = e.target.closest('.card'); if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); selectPlace(card.dataset.id, { pan: true, scroll: false }); } });
     $('#btn-locate').addEventListener('click', locateMe);

@@ -249,6 +249,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .about-body table { border-collapse: collapse; font-size: .9rem; }
 .about-body td, .about-body th { border-bottom: 1px solid var(--line); padding: 4px 8px; text-align: left; vertical-align: top; }
 
+.check-panel { position: fixed; left: 12px; right: 12px; bottom: 12px; max-height: 45vh; overflow: auto; background: var(--bg-elev); border: 2px solid var(--warn); border-radius: var(--radius-sm); padding: 12px 16px; z-index: 2500; font-size: .85rem; box-shadow: var(--shadow); }
+.check-panel h3 { margin: 0 0 6px; font-size: 1rem; }
+.check-panel ul { margin: 0 0 8px; padding-left: 1.2em; }
 .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--fg); color: var(--bg); padding: 10px 18px; border-radius: 999px; z-index: 4000; box-shadow: var(--shadow); font-size: .9rem; }
 
 /* モバイル */

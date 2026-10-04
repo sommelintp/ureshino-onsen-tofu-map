@@ -33,7 +33,7 @@
     { key: 'name', header: '名称', type: 'string', required: true },
     { key: 'name_kana', header: 'よみ', type: 'string' },
     { key: 'category', header: '種別', type: 'enum', values: labelMap(CATEGORIES), required: true },
-    { key: 'status', header: '公開状態', type: 'enum', values: STATUS, default: 'published' },
+    { key: 'status', header: '公開状態', type: 'enum', values: STATUS, default: 'needs_review', help: '空欄は「要確認」扱い（入力途中の行がそのまま公開されないように）' },
     { key: 'yudofu', header: '湯どうふ提供', type: 'enum', values: YUDOFU, default: 'unverified' },
     { key: 'address', header: '住所', type: 'string' },
     { key: 'lat', header: '緯度', type: 'number' },
@@ -228,10 +228,11 @@
   function normalizePlace(input) {
     const p = JSON.parse(JSON.stringify(input || {}));
     p.name = trim(p.name);
+    p.id_generated = !trim(p.id);
     p.id = trim(p.id) || hashId(p.name);
     p.name_kana = trim(p.name_kana);
     p.category = CATEGORIES[p.category] ? p.category : enumFromLabel(labelMapCache.categories, p.category, 'other');
-    p.status = STATUS[p.status] ? p.status : 'published';
+    p.status = STATUS[p.status] ? p.status : 'needs_review';
     p.yudofu = YUDOFU[p.yudofu] ? p.yudofu : 'unverified';
     p.geo_precision = GEO_PRECISION[p.geo_precision] ? p.geo_precision : (p.lat != null && p.lng != null ? 'approx' : 'unknown');
     p.confidence = CONFIDENCE[p.confidence] ? p.confidence : 'medium';

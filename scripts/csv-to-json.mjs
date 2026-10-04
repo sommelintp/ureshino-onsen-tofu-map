@@ -27,6 +27,7 @@ if (sheetId && sheetId !== true) {
 const rows = S.csvToObjects(csv);
 if (!rows.length || !('名称' in rows[0])) { console.error('見出し行に「名称」がありません。シートの1行目が見出しになっているか確認してください'); process.exit(2); }
 const places = rows.map(S.rowToPlace).filter((p) => p.name);
+places.filter((p) => p.id_generated).forEach((p) => console.warn(`注意: [${p.name}] id が空のため名称から生成しました (${p.id})。名称を変えると id も変わるので、シートの id 列に固定値を入れてください`));
 const errs = S.validateAll(places);
 if (errs.length) {
   console.error(`検証エラー ${errs.length} 件（修正してから再実行してください）:`);
