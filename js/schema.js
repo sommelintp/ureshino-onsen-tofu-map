@@ -101,32 +101,32 @@
   }
   function trim(s) { return s == null ? '' : String(s).replace(/^\s+|\s+$/g, ''); }
   function splitLines(cell) {
-    return trim(cell).split(/\r?\n|;|；/).map(trim).filter(Boolean);
+    return trim(cell).split(/\r?\n/).map(trim).filter(Boolean);
   }
   function splitPipe(line) {
     return String(line).split(/\s*[|｜]\s*/).map(trim);
   }
+  // 「1,300円」「¥1,080」「1000〜1500円」→ 最初の数値（範囲は下限）
   function toNumber(v) {
     if (v == null || v === '') return null;
     if (typeof v === 'number') return isFinite(v) ? v : null;
-    const s = String(v).replace(/[０-９]/g, (d) => String.fromCharCode(d.charCodeAt(0) - 0xfee0))
-      .replace(/[,，¥￥円~～\s]/g, '').replace(/円.*$/, '');
+    const s = String(v).replace(/[０-９．]/g, (d) => (d === '．' ? '.' : String.fromCharCode(d.charCodeAt(0) - 0xfee0)))
+      .replace(/[,，¥￥\s]/g, '');
     const m = s.match(/-?\d+(\.\d+)?/);
     return m ? parseFloat(m[0]) : null;
   }
+  function nfkc(s) { return typeof String.prototype.normalize === 'function' ? trim(s).normalize('NFKC') : trim(s); }
   function isUrl(s) { return /^https?:\/\/\S+$/i.test(trim(s)); }
 
-  // enum: ラベル・キー・別名から内部キーへ
+  // enum: ラベルまたはキーに「完全一致」したときだけ採用（「未公開」が「公開」扱いにならないように）。
+  // 種別（category）だけは別名の部分一致を許す。一致しなければ fallback を返し、呼び出し側で不正値として記録する。
   function enumFromLabel(colOrValues, text, fallback) {
     const values = colOrValues.values || colOrValues;
-    const t = trim(text);
+    const t = nfkc(text);
     if (!t) return fallback;
     const lower = t.toLowerCase();
     for (const k of Object.keys(values)) {
       if (k === lower || values[k] === t) return k;
-    }
-    for (const k of Object.keys(values)) {
-      if (t.indexOf(values[k]) >= 0 || values[k].indexOf(t) >= 0) return k;
     }
     if (values === labelMapCache.categories) {
       for (const k of Object.keys(CATEGORIES)) {
@@ -180,13 +180,22 @@
 
   // ---- 行 ⇄ オブジェクト ------------------------------------------------------
   function rowToPlace(row) {
-    const place = {};
+    const place = { _invalid: [] };
+    // 緯度セルに「33.0970, 129.9836」や Google マップの URL を貼った場合は自動で分解する
+    const latRaw = trim(row['緯度']);
+    if (latRaw && !trim(row['経度'])) {
+      const g = coordsFromGoogleMapsUrl(latRaw) || (function () { const m = latRaw.match(/(-?\d+\.\d+)\s*[,、\s]\s*(-?\d+\.\d+)/); return m ? { lat: parseFloat(m[1]), lng: parseFloat(m[2]) } : null; })();
+      if (g) { row = Object.assign({}, row, { '緯度': String(g.lat), '経度': String(g.lng) }); }
+    }
     COLUMNS.forEach((col) => {
       const raw = row[col.header];
       let v;
       switch (col.type) {
         case 'number': v = toNumber(raw); break;
-        case 'enum': v = enumFromLabel(col, raw, col.default); break;
+        case 'enum':
+          v = enumFromLabel(col, raw, null);
+          if (v == null) { if (trim(raw)) place._invalid.push(col.header + ': 「' + trim(raw) + '」は選択肢にありません（' + Object.values(col.values).join(' / ') + '）'); v = col.default; }
+          break;
         case 'list': v = splitLines(raw); break;
         case 'menu': v = parseMenu(raw); break;
         case 'links': v = parseLinks(raw); break;
@@ -227,6 +236,7 @@
   // 欠損の補完・派生値の計算（JSON/シート両方の入口で呼ぶ）
   function normalizePlace(input) {
     const p = JSON.parse(JSON.stringify(input || {}));
+    p._invalid = Array.isArray(p._invalid) ? p._invalid : [];
     p.name = trim(p.name);
     p.id_generated = !trim(p.id);
     p.id = trim(p.id) || hashId(p.name);
@@ -282,6 +292,8 @@
     const errs = [];
     const where = '[' + (index != null ? index + ': ' : '') + (p.name || p.id || '?') + '] ';
     if (!p.name) errs.push(where + '名称がありません');
+    (p._invalid || []).forEach((m) => errs.push(where + m));
+    if (p.status === 'published' && p.yudofu === 'unverified') errs.push(where + '「公開」なのに湯どうふ提供が「未確認」です（要確認にするか、確認して「確認済み」に）');
     if (!CATEGORIES[p.category]) errs.push(where + '種別が不正です: ' + p.category);
     if (!STATUS[p.status]) errs.push(where + '公開状態が不正です: ' + p.status);
     if (!YUDOFU[p.yudofu]) errs.push(where + '湯どうふ提供が不正です: ' + p.yudofu);

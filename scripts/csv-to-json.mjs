@@ -35,7 +35,14 @@ if (errs.length) {
   process.exit(1);
 }
 const prev = existsSync(DATA_PATH) ? readJSON(DATA_PATH) : { meta: {} };
-const next = { meta: Object.assign({}, prev.meta, { updated: today(), source: sheetId ? 'google-sheets' : 'csv' }), places: places.map(stripDerived) };
+// 「非公開」の行は公開スナップショットに含めない（シートが正本）
+const publicPlaces = places.filter((p) => p.status !== 'hidden');
+const prevCount = (prev.places || []).length;
+if (prevCount && publicPlaces.length < prevCount * 0.7 && !process.argv.includes('--force')) {
+  console.error(`件数が大きく減っています（前回 ${prevCount} 件 → 今回 ${publicPlaces.length} 件）。シートの取り違え・タブ名の変更の可能性があるため書き込みません（意図した変更なら --force）`);
+  process.exit(4);
+}
+const next = { meta: Object.assign({}, prev.meta, { updated: today(), source: sheetId ? 'google-sheets' : 'csv' }), places: publicPlaces.map(stripDerived) };
 const same = JSON.stringify(prev.places || []) === JSON.stringify(next.places);
 if (check) { console.log(same ? '差分なし' : '差分あり'); process.exit(same ? 0 : 3); }
 if (same) { console.log('差分なし（書き込みませんでした）'); process.exit(0); }

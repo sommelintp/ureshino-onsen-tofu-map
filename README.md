@@ -57,7 +57,7 @@ Issue フォームは [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE) にあり
 - 保存するとサイトは次の読み込みから新しいデータを表示します（キャッシュなし）
 
 列の意味・入力規則・よくある質問は [docs/editor-guide.md](docs/editor-guide.md) を参照してください。
-GitHub が使える編集者は `data/places.json` を直接編集して Pull Request を送ってもよいです（CI が検証します）。
+`config.js` の `SHEET_ID` を設定してシート運用に移行した後は、`data/places.json` は毎日シートから上書きされる **スナップショット（bot 専用）** になります。データの修正は必ずシート側で行ってください（移行前の今は `data/places.json` を直接編集して Pull Request を送っても構いません。CI が検証します）。
 
 ## 公開・運用のセットアップ（管理者）
 
@@ -123,5 +123,5 @@ JSON のキーとスプレッドシートの日本語見出しの対応・パー
 ## ライセンス
 
 - コード: [MIT](LICENSE)
-- データ（`data/`）: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)
+- データ（`data/`）: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)（[data/LICENSE](data/LICENSE)）
 - 地図タイル: [地理院タイル](https://maps.gsi.go.jp/development/ichiran.html)、[OpenStreetMap](https://www.openstreetmap.org/copyright)（© OpenStreetMap contributors）

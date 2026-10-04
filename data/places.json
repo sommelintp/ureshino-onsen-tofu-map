@@ -4,7 +4,8 @@
   "updated": "2026-10-04",
   "version": 1,
   "license": "CC BY 4.0",
-  "note": "初期データは 2026-10-04 時点のWeb検索結果（各ページの要約）に基づく。各項目の出典を参照のこと。座標「概略」は町丁目の代表点。"
+  "note": "初期データは 2026-10-04 時点のWeb検索結果（各ページの要約）に基づく。各項目の出典を参照のこと。座標「概略」は町丁目の代表点。",
+  "attribution": "嬉野温泉 湯どうふマップ（CC BY 4.0）"
  },
  "places": [
   {
@@ -6113,7 +6114,7 @@
    "name": "嬉野温泉公衆浴場 シーボルトの湯",
    "name_kana": "しーぼるとのゆ",
    "category": "onsen",
-   "status": "published",
+   "status": "needs_review",
    "yudofu": "unverified",
    "address": "佐賀県嬉野市嬉野町大字下宿乙818-2",
    "lat": 33.099522,
