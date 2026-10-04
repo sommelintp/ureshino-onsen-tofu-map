@@ -61,7 +61,7 @@ Issue フォームは [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE) にあり
 
 ## 公開・運用のセットアップ（管理者）
 
-1. **GitHub Pages**: リポジトリの Settings → Pages → Build and deployment を **GitHub Actions** にする。`main` に push すると [pages.yml](.github/workflows/pages.yml) が公開します。
+1. **GitHub Pages**: リポジトリの Settings（`https://github.com/sommelintp/ureshino-onsen-tofu-map/settings/pages`）→ Pages → Build and deployment → Source を **GitHub Actions** にする（アカウント設定の Pages ではなくリポジトリ側）。既定ブランチに push すると [pages.yml](.github/workflows/pages.yml) が公開します。初回は Actions タブ →「Deploy to GitHub Pages」→「Run workflow」で手動実行もできます。
 2. **スプレッドシート**（作成済み: [嬉野温泉 湯どうふマップ データ](https://docs.google.com/spreadsheets/d/1BlTnAfIig9Zj76Qv0a5tHG7JfKfjU4yrGzZ0DLq9zTo/edit)、ID `1BlTnAfIig9Zj76Qv0a5tHG7JfKfjU4yrGzZ0DLq9zTo`）:
    - 現在は見出し行＋例1行だけ入っています。[data/places.csv](data/places.csv) をダウンロードし、シートで **ファイル → インポート → アップロード → 「現在のシートを置換」** で全59件を取り込んでください（`npm run csv` で再生成できます）。
    - シートの共有を「**リンクを知っている全員（閲覧者）**」にする（サイトが読み取るため）。編集者は個別にメールアドレスで「編集者」として追加。
