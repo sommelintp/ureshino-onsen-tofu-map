@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>嬉野温泉 湯どうふマップ</title>
+  <meta name="description" content="佐賀県嬉野市で名物「温泉湯どうふ」が食べられる・買える場所の地図。メニューと価格、使用している豆腐と温泉、出典付き。みんなで情報を追加できます。">
+  <meta property="og:title" content="嬉野温泉 湯どうふマップ">
+  <meta property="og:description" content="嬉野市の温泉湯どうふを出す飲食店・旅館・豆腐店・温泉施設を地図で。価格・使用豆腐・使用温泉・出典つき。">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f6efe4">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f6efe4'/%3E%3Crect x='14' y='22' width='36' height='24' rx='4' fill='%23fff' stroke='%23b45309' stroke-width='3'/%3E%3Cpath d='M18 18c3-4 6-4 9 0s6 4 9 0 6-4 9 0' fill='none' stroke='%230f766e' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRYsP5WMBpBjxQfZ4EADkw0A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="view-map">
+  <a class="skip-link" href="#list">一覧へスキップ</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <h1><span class="brand-icon" aria-hidden="true">♨</span><span id="site-title">嬉野温泉 湯どうふマップ</span></h1>
+      <p class="tagline">嬉野市で「温泉湯どうふ」が食べられる・買える場所を、価格・使用豆腐・使用温泉・出典つきで。</p>
+    </div>
+    <div class="header-actions">
+      <span class="data-badge" id="data-badge" title="データの取得元">読み込み中…</span>
+      <button class="btn btn-ghost" id="btn-about" type="button">温泉湯どうふとは</button>
+      <button class="btn btn-primary" id="btn-contribute" type="button">＋ 情報を追加・修正</button>
+    </div>
+  </header>
+
+  <nav class="mobile-tabs" aria-label="表示切替">
+    <button type="button" class="tab active" data-view="map">地図</button>
+    <button type="button" class="tab" data-view="list">一覧 <span class="count" id="tab-count"></span></button>
+  </nav>
+
+  <main class="layout">
+    <section class="sidebar" aria-label="絞り込みと一覧">
+      <div class="filters" id="filters">
+        <div class="search-row">
+          <input type="search" id="q" placeholder="店名・メニュー・豆腐・特徴で検索" aria-label="検索" autocomplete="off">
+          <button type="button" class="btn btn-ghost btn-small" id="btn-reset" title="絞り込みを解除">リセット</button>
+        </div>
+        <div class="chip-group" id="cat-chips" role="group" aria-label="種別"></div>
+        <details class="more-filters">
+          <summary>さらに絞り込む <span class="active-filters" id="active-filters"></span></summary>
+          <div class="filter-block">
+            <div class="filter-label">提供形態</div>
+            <div class="chip-group" id="svc-chips" role="group" aria-label="提供形態"></div>
+          </div>
+          <div class="filter-block two-col">
+            <label>使用豆腐
+              <select id="tofu-select"><option value="">すべて</option></select>
+            </label>
+            <label>予算（メニュー最安値）
+              <div class="range-row">
+                <input type="range" id="price-range" min="500" max="10000" step="100" value="10000">
+                <output for="price-range" id="price-output">上限なし</output>
+              </div>
+            </label>
+          </div>
+          <div class="filter-block checks">
+            <label><input type="checkbox" id="chk-unverified" checked> 要確認・未確認の場所も表示</label>
+            <label><input type="checkbox" id="chk-bounds"> 地図の表示範囲だけ表示</label>
+          </div>
+        </details>
+      </div>
+      <div class="list-header">
+        <span id="count-line">読み込み中…</span>
+        <select id="sort-select" aria-label="並び順">
+          <option value="category">種別順</option>
+          <option value="name">名前順</option>
+          <option value="price">価格が安い順</option>
+          <option value="updated">更新が新しい順</option>
+        </select>
+      </div>
+      <ol class="place-list" id="list" aria-live="polite"></ol>
+    </section>
+
+    <section class="map-wrap" aria-label="地図">
+      <div id="map" role="application" aria-label="嬉野温泉 湯どうふマップ"></div>
+      <div class="map-legend" id="legend" aria-label="凡例"></div>
+      <div class="map-tools">
+        <button type="button" class="map-btn" id="btn-locate" title="現在地を表示">◎ 現在地</button>
+        <button type="button" class="map-btn" id="btn-fit" title="全体を表示">⤢ 全体</button>
+      </div>
+      <div class="pick-banner" id="pick-banner" hidden>
+        <span>地図上で正しい位置をクリック（タップ）してください</span>
+        <button type="button" class="btn btn-small" id="btn-pick-cancel">やめる</button>
+      </div>
+    </section>
+
+    <aside class="detail" id="detail" hidden aria-label="詳細">
+      <div class="detail-inner" id="detail-inner"></div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>データは公開情報（公式サイト・グルメサイト・ブログ等）に基づき、出典を併記しています。価格・営業時間は変更される場合があります。来店前に各店へご確認ください。</p>
+    <p>
+      <a href="https://github.com/sommelintp/ureshino-onsen-tofu-map" id="repo-link" target="_blank" rel="noopener">GitHub（データと使い方）</a> ·
+      データ: <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noopener">CC BY 4.0</a> ·
+      地図: <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル</a> / <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>
+      <span id="operator-line"></span>
+    </p>
+  </footer>
+
+  <!-- 投稿モーダル -->
+  <div class="modal" id="modal-contribute" hidden role="dialog" aria-modal="true" aria-labelledby="contribute-title">
+    <div class="modal-card">
+      <button type="button" class="modal-close" data-close aria-label="閉じる">×</button>
+      <h2 id="contribute-title">情報を追加・修正する</h2>
+      <p class="muted small">載っていないお店、メニューや価格の違い、使っている豆腐・温泉の情報などを教えてください。<strong>出典（公式サイト・メニュー写真・グルメサイトのURL）</strong>があると早く反映できます。</p>
+      <form id="form-contribute" novalidate>
+        <input type="hidden" id="f-mode" value="new">
+        <input type="hidden" id="f-place-id" value="">
+        <div class="form-grid">
+          <label class="span2">お店・施設の名前 <span class="req">必須</span>
+            <input type="text" id="f-name" required maxlength="100" placeholder="例: 宗庵よこ長">
+          </label>
+          <label>種別
+            <select id="f-category"></select>
+          </label>
+          <label>住所
+            <input type="text" id="f-address" maxlength="200" placeholder="佐賀県嬉野市…">
+          </label>
+          <label class="span2">温泉湯どうふのメニューと価格
+            <textarea id="f-menu" rows="3" placeholder="1行に1品: 品名 | 価格 | 備考&#10;例: 湯どうふ定食 | 1300 | 税込・2026年10月"></textarea>
+          </label>
+          <label>使っている豆腐（製造元）
+            <input type="text" id="f-tofu" maxlength="100" placeholder="例: 自家製 / 藤川豆腐店">
+          </label>
+          <label>使っている温泉（源泉）
+            <input type="text" id="f-onsen" maxlength="100" placeholder="例: 嬉野温泉（自家源泉）">
+          </label>
+          <label class="span2">特徴・修正したい内容・コメント
+            <textarea id="f-notes" rows="3" placeholder="例: 営業時間が変わりました（11:00-15:00）。発祥の店。テイクアウト可。"></textarea>
+          </label>
+          <label class="span2">出典URL <span class="req">できるだけ</span>
+            <textarea id="f-sources" rows="2" placeholder="1行に1つ: https://…（公式サイト、メニュー写真、グルメサイトなど）"></textarea>
+          </label>
+          <div class="span2 coords-row">
+            <label>緯度 <input type="text" id="f-lat" inputmode="decimal" placeholder="33.09…"></label>
+            <label>経度 <input type="text" id="f-lng" inputmode="decimal" placeholder="129.98…"></label>
+            <button type="button" class="btn btn-ghost" id="btn-pick">地図で位置を指定</button>
+          </div>
+          <label class="span2">お名前・連絡先（任意・公開されます）
+            <input type="text" id="f-contrib" maxlength="100" placeholder="ニックネーム可">
+          </label>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="btn-send-github">GitHub で送信</button>
+          <button type="button" class="btn" id="btn-send-form" hidden>Google フォームで送信</button>
+          <button type="button" class="btn" id="btn-send-mail" hidden>メールで送信</button>
+          <button type="button" class="btn btn-ghost" id="btn-copy-body">内容をコピー</button>
+        </div>
+        <p class="muted small" id="send-help">「GitHub で送信」は GitHub アカウントが必要です（無料）。アカウントがない方は「内容をコピー」して、下記の連絡先や SNS でお知らせください。送られた情報は編集者が確認してから地図に反映します。</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- 温泉湯どうふとは モーダル -->
+  <div class="modal" id="modal-about" hidden role="dialog" aria-modal="true" aria-labelledby="about-title">
+    <div class="modal-card modal-wide">
+      <button type="button" class="modal-close" data-close aria-label="閉じる">×</button>
+      <h2 id="about-title">温泉湯どうふとは</h2>
+      <div id="about-body" class="about-body"><p class="muted">読み込み中…</p></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="config.js"></script>
+  <script src="js/schema.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

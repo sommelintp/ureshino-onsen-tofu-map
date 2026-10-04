@@ -1,0 +1,75 @@
+name: 新しい場所・情報の追加
+description: 地図に載っていないお店・宿・温泉施設・豆腐店、または新しいメニュー情報を教えてください
+title: "[追加] "
+labels: ["追加提案"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ご協力ありがとうございます。分かる項目だけで大丈夫です。**出典（公式サイト・メニュー写真・グルメサイトのURL）**があると早く反映できます。
+        送られた情報は編集者が確認してから地図に反映します。
+  - type: input
+    id: name
+    attributes:
+      label: お店・施設の名前
+      placeholder: 例: 宗庵よこ長
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 種別
+      options:
+        - 飲食店
+        - 旅館・ホテル
+        - 豆腐店・製造元
+        - 物販・土産
+        - 温泉施設
+        - その他
+    validations:
+      required: true
+  - type: input
+    id: address
+    attributes:
+      label: 住所
+      placeholder: 佐賀県嬉野市嬉野町大字下宿乙…
+  - type: textarea
+    id: menu
+    attributes:
+      label: 温泉湯どうふのメニューと価格
+      description: 1行に1品。「品名 | 価格 | 備考（税込/税抜・確認した年月）」の形だと助かります
+      placeholder: |
+        湯どうふ定食 | 1300 | 税込・2026年10月
+        温泉湯どうふ 単品 | 800 | 税込
+  - type: input
+    id: tofu
+    attributes:
+      label: 使っている豆腐（製造元）
+      placeholder: 例: 自家製 / 藤川豆腐店
+  - type: input
+    id: onsen
+    attributes:
+      label: 使っている温泉（源泉）
+      placeholder: 例: 嬉野温泉（自家源泉）
+  - type: textarea
+    id: notes
+    attributes:
+      label: 特徴・コメント
+      placeholder: 営業時間、定休日、テイクアウト可、日帰り可、おすすめポイントなど
+  - type: textarea
+    id: sources
+    attributes:
+      label: 出典URL
+      description: 1行に1つ。公式サイト、メニュー写真、グルメサイトのページなど
+      placeholder: https://
+  - type: input
+    id: coords
+    attributes:
+      label: 位置（緯度, 経度）
+      description: 地図サイトの「地図で位置を指定」ボタンで取得できます。Google マップのリンクでも構いません
+      placeholder: 33.0970, 129.9836
+  - type: input
+    id: contributor
+    attributes:
+      label: お名前（任意・公開されます）
+      placeholder: ニックネーム可

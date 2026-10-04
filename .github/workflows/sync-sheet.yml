@@ -1,0 +1,33 @@
+# Google スプレッドシート（公開）を毎日 data/places.json にスナップショットする。
+# 使うには: リポジトリの Settings → Secrets and variables → Actions → Variables に SHEET_ID を登録。
+name: Sync data from Google Sheets
+on:
+  schedule:
+    - cron: '17 18 * * *'   # 毎日 03:17 JST
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: ${{ vars.SHEET_ID != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: シートを取得して JSON に変換
+        env:
+          SHEET_ID: ${{ vars.SHEET_ID }}
+          SHEET_NAME: ${{ vars.SHEET_NAME }}
+        run: node scripts/csv-to-json.mjs --sheet "$SHEET_ID" ${SHEET_NAME:+--name "$SHEET_NAME"}
+      - name: 検証
+        run: node scripts/validate.mjs
+      - name: 差分があればコミット
+        run: |
+          if git diff --quiet -- data/places.json; then echo "差分なし"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/places.json
+          git commit -m "data: スプレッドシートからスナップショット更新 ($(date -u +%Y-%m-%d))"
+          git push

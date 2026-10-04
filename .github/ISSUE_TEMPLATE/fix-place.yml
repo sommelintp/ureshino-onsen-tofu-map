@@ -1,0 +1,67 @@
+name: 掲載情報の修正
+description: 価格・営業時間・位置・使用豆腐などの間違いや変更を教えてください
+title: "[修正] "
+labels: ["修正提案"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ご協力ありがとうございます。変わった点だけ書いていただければ大丈夫です。出典（公式サイト・メニュー写真など）があると早く反映できます。
+  - type: input
+    id: place
+    attributes:
+      label: 対象の場所（名前と id）
+      description: 地図サイトの「情報を修正する」から開くと自動で入ります
+      placeholder: 宗庵よこ長 (id: yokocho)
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: 修正したい内容
+      placeholder: |
+        例: 湯どうふ定食は 1,300円 → 1,400円 に変わりました（2026年10月来店時）
+        例: 定休日が水曜から火曜に変更
+    validations:
+      required: true
+  - type: textarea
+    id: menu
+    attributes:
+      label: 正しいメニューと価格（分かれば）
+      placeholder: |
+        湯どうふ定食 | 1400 | 税込・2026年10月
+  - type: input
+    id: tofu
+    attributes:
+      label: 使っている豆腐（製造元）
+  - type: input
+    id: onsen
+    attributes:
+      label: 使っている温泉（源泉）
+  - type: textarea
+    id: sources
+    attributes:
+      label: 出典URL
+      placeholder: https://
+  - type: input
+    id: coords
+    attributes:
+      label: 正しい位置（緯度, 経度）
+      description: 地図サイトの「位置を修正する」→ 地図をクリックで取得できます
+      placeholder: 33.0970, 129.9836
+  - type: input
+    id: name
+    attributes:
+      label: 店名（変更がある場合）
+  - type: input
+    id: category
+    attributes:
+      label: 種別（変更がある場合）
+  - type: input
+    id: address
+    attributes:
+      label: 住所（変更がある場合）
+  - type: input
+    id: contributor
+    attributes:
+      label: お名前（任意・公開されます）

@@ -1,0 +1,17 @@
+# PR・push 時にデータとスクリプトを検証する
+name: Validate data
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node --check js/app.js && node --check js/schema.js
+      - run: node scripts/validate.mjs --warnings
+      - run: node scripts/json-to-csv.mjs /tmp/places.csv && node scripts/csv-to-json.mjs /tmp/places.csv --check || test $? -eq 3
