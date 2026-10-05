@@ -1,9 +1,11 @@
 # GitHub Pages へのデプロイ。
 # リポジトリの Settings → Pages → Build and deployment → Source を「GitHub Actions」にしてください。
-# リポジトリの既定ブランチ（main など）への push で自動デプロイします。Actions タブの「Run workflow」で手動実行もできます。
+# main への push で自動デプロイします。Actions タブの「Run workflow」で手動実行もできます。
+# （他ブランチへの push では実行しない。同じ concurrency グループで実行中のデプロイが取り消されるのを防ぐため）
 name: Deploy to GitHub Pages
 on:
   push:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
@@ -14,8 +16,6 @@ concurrency:
   cancel-in-progress: true
 jobs:
   build:
-    # 既定ブランチへの push と手動実行のときだけ動かす
-    if: ${{ github.event_name == 'workflow_dispatch' || github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
