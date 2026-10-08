@@ -2,6 +2,7 @@
 (function () {
   'use strict';
   const S = window.TofuSchema;
+  const I = window.TofuIllust || { HERO: '', icon: () => '', scene: () => '', EMPTY: '' };
   const CFG = Object.assign({
     SHEET_ID: '', SHEET_NAME: 'places', DATA_URL: 'data/places.json', BACKGROUND_URL: 'data/background.json',
     GITHUB_REPO: '', FORM_URL: '', CONTACT_EMAIL: '', MAP_CENTER: [33.098, 129.988], MAP_ZOOM: 15, SITE_TITLE: '', OPERATOR: '',
@@ -36,6 +37,7 @@
     if (CFG.SITE_TITLE) { $('#site-title').textContent = CFG.SITE_TITLE; document.title = CFG.SITE_TITLE; }
     if (CFG.OPERATOR) $('#operator-line').textContent = ' · 運営: ' + CFG.OPERATOR;
     if (CFG.GITHUB_REPO) $('#repo-link').href = 'https://github.com/' + CFG.GITHUB_REPO;
+    $('#hero-art').innerHTML = I.HERO;
     buildStaticControls();
     await createMap();
     bindEvents();
@@ -434,7 +436,7 @@
   function buildStaticControls() {
     const catWrap = $('#cat-chips');
     catWrap.innerHTML = CAT_ORDER.map((c) =>
-      '<button type="button" class="chip" data-cat="' + c + '" style="--c:' + catVar(c) + '" aria-pressed="false"><span class="dot"></span>' + esc(catLabel(c)) + ' <span class="n"></span></button>').join('');
+      '<button type="button" class="chip" data-cat="' + c + '" style="--c:' + catVar(c) + '" aria-pressed="false">' + I.icon(c, 'chip-icon') + esc(catLabel(c)) + ' <span class="n"></span></button>').join('');
     const svcWrap = $('#svc-chips');
     svcWrap.innerHTML = S.SERVICES.map((s) => '<button type="button" class="chip" data-svc="' + esc(s) + '" aria-pressed="false">' + esc(s) + '</button>').join('');
     const fc = $('#f-category');
@@ -548,7 +550,7 @@
       return;
     }
     if (!state.visible.length) {
-      ol.innerHTML = '<li class="empty">条件に合う場所がありません。<br><button type="button" class="btn btn-small" id="btn-reset-inline">絞り込みを解除</button></li>';
+      ol.innerHTML = '<li class="empty">' + I.EMPTY + '<br>条件に合う場所がありません。<br><button type="button" class="btn btn-small" id="btn-reset-inline">絞り込みを解除</button></li>';
       $('#btn-reset-inline').addEventListener('click', resetFilters);
       return;
     }
@@ -562,7 +564,7 @@
       if (p.tofu_source.name) badges.push('<span class="badge tofu">豆腐: ' + esc(p.tofu_source.name) + '</span>');
       p.service.slice(0, 3).forEach((s) => badges.push('<span class="badge">' + esc(s) + '</span>'));
       return '<li class="card' + (p.id === state.selectedId ? ' selected' : '') + '" data-id="' + esc(p.id) + '" style="--c:' + catVar(p.category) + '" tabindex="0" role="button">' +
-        '<div class="card-head"><p class="card-name">' + esc(p.name) + (p.name_kana ? '<span class="card-kana">' + esc(p.name_kana) + '</span>' : '') + '</p>' + priceLine(p) + '</div>' +
+        '<div class="card-head"><span class="card-icon" style="--c:' + catVar(p.category) + '">' + I.icon(p.category) + '</span><p class="card-name">' + esc(p.name) + (p.name_kana ? '<span class="card-kana">' + esc(p.name_kana) + '</span>' : '') + '</p>' + priceLine(p) + '</div>' +
         '<div class="card-meta"><span class="badge cat" style="--c:' + catVar(p.category) + '">' + esc(catLabel(p.category)) + '</span>' + badges.join('') + '</div>' +
         (menuNames ? '<div class="card-menu">' + menuNames + (p.menu.length > 2 ? ' ほか' + (p.menu.length - 2) + '品' : '') + '</div>' : '') +
         '</li>';
@@ -641,6 +643,7 @@
 
     const html = [
       '<button type="button" class="detail-close" id="btn-detail-close" aria-label="閉じる">×</button>',
+      '<div class="detail-scene-wrap">' + I.scene(p.category) + '</div>',
       '<div class="detail-top"><div><h2>' + esc(p.name) + '</h2>' + (p.name_kana ? '<div class="kana">' + esc(p.name_kana) + '</div>' : '') + '</div></div>',
       '<div class="detail-badges">' + badges.join('') + '</div>',
       '<div class="detail-actions">',

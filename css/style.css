@@ -279,3 +279,27 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .btn-primary { font-size: .9rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* ---- イラスト ---- */
+.site-header { overflow: hidden; }
+.hero-art { width: 92px; flex: 0 0 auto; color: var(--fg-muted); margin-right: -4px; }
+.hero-illust { width: 100%; height: auto; display: block; }
+.hero-illust .steam path { animation: steam 3.2s ease-in-out infinite; transform-origin: bottom; }
+.hero-illust .steam .s2 { animation-delay: .6s; } .hero-illust .steam .s3 { animation-delay: 1.2s; }
+@keyframes steam { 0%,100% { opacity: .15; transform: translateY(4px); } 50% { opacity: .7; transform: translateY(-3px); } }
+.site-header { justify-content: flex-start; }
+.site-header .header-actions { margin-left: auto; }
+.chip-icon { width: 15px; height: 15px; color: var(--c, var(--fg-muted)); flex: 0 0 auto; }
+.card-head { align-items: center; }
+.card-icon { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--c); }
+.card-icon .cat-icon { width: 18px; height: 18px; }
+.card-head .card-name { flex: 1; min-width: 0; }
+.detail-scene-wrap { margin: -16px -18px 12px; height: 90px; overflow: hidden; }
+.detail-scene { width: 100%; height: 100%; display: block; }
+.empty-illust { width: 120px; color: var(--fg-muted); }
+@media (max-width: 900px) {
+  .hero-art { position: absolute; right: 8px; top: 2px; width: 72px; opacity: .9; }
+  .site-header { position: relative; }
+  .brand { padding-right: 70px; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-illust .steam path { animation: none; } }
