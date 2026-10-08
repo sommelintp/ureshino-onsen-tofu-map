@@ -19,7 +19,7 @@ export function loadPlaces(path = DATA_PATH) {
 }
 export function stripDerived(p) {
   // 派生値（price_min/max）は保存しない
-  const { price_min, price_max, id_generated, _invalid, ...rest } = p;
+  const { price_min, price_max, price_item, id_generated, _invalid, ...rest } = p;
   return rest;
 }
 export function arg(name, def) {

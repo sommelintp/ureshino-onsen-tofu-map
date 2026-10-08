@@ -536,7 +536,7 @@
 
   // ------------------------------------------------------------------ 一覧
   function priceLine(p) {
-    if (p.price_min != null) return '<span class="card-price">' + yen(p.price_min) + (p.price_max !== p.price_min ? '<small>〜</small>' : '') + '</span>';
+    if (p.price_min != null) return '<span class="card-price">' + yen(p.price_min) + (p.price_max !== p.price_min ? '<small>〜</small>' : '') + (p.price_item ? '<small class="price-item">' + esc(p.price_item.length > 18 ? p.price_item.slice(0, 18) + '…' : p.price_item) + '</small>' : '') + '</span>';
     const t = p.menu.find((m) => m.price_text);
     return '<span class="card-price muted small">' + (t ? esc(t.price_text) : '価格情報なし') + '</span>';
   }
@@ -652,7 +652,7 @@
       !isConfirmed(p) ? '<p class="callout">この場所の温泉湯どうふ情報はまだ確認できていません。メニュー・価格・使っている豆腐をご存じの方は「情報を修正する」から教えてください。</p>' : '',
       kv.length ? '<section><h3>基本情報</h3><dl class="kv">' + kv.map((r) => '<dt>' + r[0] + '</dt><dd>' + r[1] + '</dd>').join('') + '</dl></section>' : '',
       '<section><h3>温泉湯どうふのメニュー・価格</h3>' + (menuRows ? '<table class="menu-table"><thead><tr><th>品名</th><th>価格</th><th>備考・出典</th></tr></thead><tbody>' + menuRows + '</tbody></table><p class="muted small">価格は出典の掲載時点のものです。税込/税抜は備考を参照。変更されている場合があります。</p>' : '<p class="muted">メニュー情報はまだありません。</p>') + '</section>',
-      p.other_prices.length ? '<section><h3>入浴料・宿泊などその他の料金</h3><table class="menu-table"><tbody>' + p.other_prices.map((m) => '<tr><td>' + esc(m.name) + '</td><td class="price">' + (m.price != null ? yen(m.price) : esc(m.price_text || '—')) + '</td><td class="note">' + esc(m.price_note) + srcLink(m.source_url) + '</td></tr>').join('') + '</tbody></table></section>' : '',
+      p.other_prices.length ? '<section><h3>その他の料金（入浴・宿泊・湯どうふ以外の商品など）</h3><table class="menu-table"><tbody>' + p.other_prices.map((m) => '<tr><td>' + esc(m.name) + '</td><td class="price">' + (m.price != null ? yen(m.price) : esc(m.price_text || '—')) + '</td><td class="note">' + esc(m.price_note) + srcLink(m.source_url) + '</td></tr>').join('') + '</tbody></table></section>' : '',
       '<section><h3>使っている豆腐</h3>' + (p.tofu_source.name ? '<p>' + esc(p.tofu_source.name) + (maker ? ' — <a href="#place=' + esc(maker.id) + '" data-goto="' + esc(maker.id) + '">' + esc(maker.name) + ' の情報を見る</a>' : '') + (p.tofu_source.note ? '<br><span class="muted small">' + esc(p.tofu_source.note) + '</span>' : '') + srcLink(p.tofu_source.source_url) + '</p>' : '<p class="muted">不明（情報募集中）</p>') + '</section>',
       '<section><h3>使っている温泉</h3>' + (p.onsen_source.name ? '<p>' + esc(p.onsen_source.name) + (p.onsen_source.note ? '<br><span class="muted small">' + esc(p.onsen_source.note) + '</span>' : '') + srcLink(p.onsen_source.source_url) + '</p>' : '<p class="muted">不明（情報募集中）</p>') + '</section>',
       p.features.length ? '<section><h3>特徴</h3><div class="tag-list">' + p.features.map((f) => '<span class="tag">' + esc(f) + '</span>').join('') + '</div></section>' : '',

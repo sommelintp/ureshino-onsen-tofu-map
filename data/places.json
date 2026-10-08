@@ -380,7 +380,7 @@
      "source_url": "https://map.yahoo.co.jp/v3/place/MrRKp0qy06I/menu"
     },
     {
-     "name": "温泉湯豆腐セット（ぽん酢）",
+     "name": "温泉湯豆腐セット（ぽん酢・持ち帰り用）",
      "price": 578,
      "price_note": "Yahoo!マップ掲載値",
      "source_url": "https://map.yahoo.co.jp/v3/place/MrRKp0qy06I/menu"
@@ -392,25 +392,26 @@
      "source_url": "https://map.yahoo.co.jp/v3/place/MrRKp0qy06I/menu"
     },
     {
-     "name": "濃い豆腐",
-     "price": 240,
-     "price_note": "Yahoo!マップ掲載値",
-     "source_url": "https://map.yahoo.co.jp/v3/place/MrRKp0qy06I/menu"
-    },
-    {
-     "name": "ごま豆腐",
-     "price": 170,
-     "price_note": "Yahoo!マップ掲載値",
-     "source_url": "https://map.yahoo.co.jp/v3/place/MrRKp0qy06I/menu"
-    },
-    {
      "name": "湯豆腐定食（温泉湯豆腐の定食）",
      "price": 2000,
      "price_note": "食べログ掲載メニューの表示価格（名称は食べログ表記）。税込/税抜・掲載年不明。内容: 温泉湯豆腐鍋、豆腐、野菜、薬味、白味噌和え、ご飯、漬物",
      "source_url": "https://tabelog.com/saga/A4104/A410401/41003627/"
     }
    ],
-   "other_prices": [],
+   "other_prices": [
+    {
+     "name": "濃い豆腐",
+     "price": 240,
+     "price_note": "湯どうふ以外。Yahoo!マップ掲載値",
+     "source_url": "https://map.yahoo.co.jp/v3/place/MrRKp0qy06I/menu"
+    },
+    {
+     "name": "ごま豆腐",
+     "price": 170,
+     "price_note": "湯どうふ以外。Yahoo!マップ掲載値",
+     "source_url": "https://map.yahoo.co.jp/v3/place/MrRKp0qy06I/menu"
+    }
+   ],
    "tofu_source": {
     "name": "佐嘉平川屋（自社製・武雄温泉本店で製造）",
     "maker_id": "hirakawaya-takeo",
@@ -1096,39 +1097,15 @@
      "source_url": "https://www.saga-s.co.jp/articles/-/1297827"
     },
     {
-     "name": "おぼろ豆腐 佐賀県産豚冷しゃぶ定食（夏季限定）",
-     "price": 1600,
-     "price_note": "佐賀新聞記事の要約による",
-     "source_url": "https://www.saga-s.co.jp/articles/-/1297827"
-    },
-    {
-     "name": "佐賀県産豚しゃぶ定食（ランチ）",
-     "price": 2300,
-     "price_note": "旅館大村屋ブログ・食べログの要約による",
-     "source_url": "https://www.oomuraya.co.jp/kurashikanko/fujikawa-tofu/"
-    },
-    {
-     "name": "麻婆豆腐丼",
-     "price": 980,
-     "price_note": "食べログ掲載情報の要約による",
-     "source_url": "https://tabelog.com/saga/A4104/A410401/41008065/"
-    },
-    {
      "name": "温泉湯豆腐定食（朝食、湯豆腐おかわり自由）",
      "price": 1500,
      "price_note": "佐賀新聞掲載時点",
      "source_url": "https://www.saga-s.co.jp/articles/-/1297827"
     },
     {
-     "name": "十笑御膳（20食限定）",
+     "name": "十笑御膳（温泉湯どうふ付き・20食限定）",
      "price": 1600,
      "price_note": "大村屋記事掲載時点",
-     "source_url": "https://www.oomuraya.co.jp/kurashikanko/fujikawa-tofu/"
-    },
-    {
-     "name": "麻婆豆腐丼、豆腐パフェ",
-     "price": null,
-     "price_note": "価格未取得",
      "source_url": "https://www.oomuraya.co.jp/kurashikanko/fujikawa-tofu/"
     },
     {
@@ -1138,7 +1115,32 @@
      "source_url": "https://tabelog.com/saga/A4104/A410401/41008065/dtlrvwlst/"
     }
    ],
-   "other_prices": [],
+   "other_prices": [
+    {
+     "name": "おぼろ豆腐 佐賀県産豚冷しゃぶ定食（夏季限定）",
+     "price": 1600,
+     "price_note": "湯どうふ以外。佐賀新聞記事の要約による",
+     "source_url": "https://www.saga-s.co.jp/articles/-/1297827"
+    },
+    {
+     "name": "佐賀県産豚しゃぶ定食（ランチ）",
+     "price": 2300,
+     "price_note": "湯どうふ以外。旅館大村屋ブログ・食べログの要約による",
+     "source_url": "https://www.oomuraya.co.jp/kurashikanko/fujikawa-tofu/"
+    },
+    {
+     "name": "麻婆豆腐丼",
+     "price": 980,
+     "price_note": "湯どうふ以外。食べログ掲載情報の要約による",
+     "source_url": "https://tabelog.com/saga/A4104/A410401/41008065/"
+    },
+    {
+     "name": "麻婆豆腐丼、豆腐パフェ",
+     "price": null,
+     "price_note": "湯どうふ以外。価格未取得",
+     "source_url": "https://www.oomuraya.co.jp/kurashikanko/fujikawa-tofu/"
+    }
+   ],
    "tofu_source": {
     "name": "藤川豆腐店（自家製・隣接工場）",
     "maker_id": "fujikawa",
@@ -1605,12 +1607,6 @@
      "source_url": "https://www.wataya.co.jp/assets/img/facility/index/detail/pdf/facility_rikyu.pdf"
     },
     {
-     "name": "茶しゃぶ膳",
-     "price": 3300,
-     "price_note": "同PDF。湯どうふ付きかは未確認",
-     "source_url": "https://www.wataya.co.jp/assets/img/facility/index/detail/pdf/facility_rikyu.pdf"
-    },
-    {
      "name": "ランチ「お茶と温泉どうふ」",
      "price": 3500,
      "price_note": "税込。和多屋別荘イベント告知【週末限定】「利休」「李荘庵」ランチスタート（掲載年不明）",
@@ -1627,12 +1623,6 @@
      "price": 1944,
      "price_note": "旧メニュー例（税込8%時代の価格表記とみられる、掲載年不明）",
      "source_url": "https://www.hotpepper.jp/strJ000989185/"
-    },
-    {
-     "name": "利休懐石「会」kai（夕食）",
-     "price": 6600,
-     "price_note": "公式PDF。湯どうふが含まれるかは未確認",
-     "source_url": "https://www.wataya.co.jp/assets/img/facility/index/detail/pdf/facility_rikyu.pdf"
     },
     {
      "name": "湯どうふ御膳",
@@ -1653,7 +1643,20 @@
      "source_url": "https://tabelog.com/saga/A4104/A410401/41000443/"
     }
    ],
-   "other_prices": [],
+   "other_prices": [
+    {
+     "name": "茶しゃぶ膳",
+     "price": 3300,
+     "price_note": "湯どうふ以外。同PDF。湯どうふ付きかは未確認",
+     "source_url": "https://www.wataya.co.jp/assets/img/facility/index/detail/pdf/facility_rikyu.pdf"
+    },
+    {
+     "name": "利休懐石「会」kai（夕食）",
+     "price": 6600,
+     "price_note": "湯どうふ以外。公式PDF。湯どうふが含まれるかは未確認",
+     "source_url": "https://www.wataya.co.jp/assets/img/facility/index/detail/pdf/facility_rikyu.pdf"
+    }
+   ],
    "tofu_source": {},
    "onsen_source": {
     "name": "温泉水でトロトロになった豆腐（ホットペッパー要約による。源泉名は記載なし）",
@@ -2555,12 +2558,6 @@
    ],
    "menu": [
     {
-     "name": "日帰り温泉プラン～特選和牛ロースステーキ～昼～",
-     "price": null,
-     "price_note": "価格未取得。価格は検索結果に出ず未確認",
-     "source_url": "https://www.oomuraya.co.jp/ryokan/plan/oneday05/"
-    },
-    {
      "name": "嬉野温泉湯豆腐御膳（朝食）",
      "price": null,
      "price_note": "価格未取得。宿泊プラン内の朝食。単品価格なし。一休.comに「1泊朝食プラン～とろける嬉野名物 温泉湯どうふ朝食を」プランあり",
@@ -2591,6 +2588,12 @@
      "price": null,
      "price_note": "食べログ要約「朝食に名物の温泉湯豆腐を提供」。価格は宿泊料金に含まれ不明",
      "source_url": "https://tabelog.com/en/saga/A4104/A410401/41002744/"
+    },
+    {
+     "name": "日帰り温泉プラン～特選和牛ロースステーキ～昼～",
+     "price": null,
+     "price_note": "湯どうふ以外。価格未取得。価格は検索結果に出ず未確認",
+     "source_url": "https://www.oomuraya.co.jp/ryokan/plan/oneday05/"
     }
    ],
    "tofu_source": {
@@ -4462,12 +4465,6 @@
      "source_url": "https://www.yoshidaya-web.com/ryokan/oneday/"
     },
     {
-     "name": "旅館ランチ コース（上限目安）",
-     "price": 10000,
-     "price_note": "湯豆腐コース3,300円〜特別コース10,000円までの幅（BIGLOBE温泉）",
-     "source_url": "https://oyutabi.biglobe.ne.jp/410000-d07d-e00b/"
-    },
-    {
      "name": "嬉野温泉湯豆腐尽くしコース（平日限定）",
      "price": 3630,
      "price_note": "税込。吉田屋公式「吉田屋のトリセツ」の（別の要約では3,300円税込とあり、価格改定の可能性）",
@@ -4477,12 +4474,6 @@
      "name": "佐賀牛湯豆腐しゃぶと豆腐尽くしコース",
      "price": 5000,
      "price_note": "税込（、掲載年不明）",
-     "source_url": "https://www.yoshidaya-web.com/howto/detail.php?id=290"
-    },
-    {
-     "name": "特上佐賀牛ステーキコース",
-     "price": 7000,
-     "price_note": "税込（湯豆腐が含まれるかは未確認）",
      "source_url": "https://www.yoshidaya-web.com/howto/detail.php?id=290"
     }
    ],
@@ -4498,6 +4489,18 @@
      "price": null,
      "price_note": "検索結果要約「温泉豆腐美味しい」との記述のみ。価格不明",
      "source_url": "https://tabelog.com/saga/A4104/A410401/41002508/dtlrvwlst/B456669992/"
+    },
+    {
+     "name": "旅館ランチ コース（上限目安）",
+     "price": 10000,
+     "price_note": "湯どうふ以外。湯豆腐コース3,300円〜特別コース10,000円までの幅（BIGLOBE温泉）",
+     "source_url": "https://oyutabi.biglobe.ne.jp/410000-d07d-e00b/"
+    },
+    {
+     "name": "特上佐賀牛ステーキコース",
+     "price": 7000,
+     "price_note": "湯どうふ以外。税込（湯豆腐が含まれるかは未確認）",
+     "source_url": "https://www.yoshidaya-web.com/howto/detail.php?id=290"
     }
    ],
    "tofu_source": {},
@@ -5248,21 +5251,22 @@
      "price": 2920,
      "price_note": "同上",
      "source_url": "https://jodo.or.jp/newspaper/shop/6732/"
-    },
+    }
+   ],
+   "other_prices": [
     {
      "name": "生ゆば",
      "price": 756,
-     "price_note": "同上",
+     "price_note": "湯どうふ以外。同上",
      "source_url": "https://jodo.or.jp/newspaper/shop/6732/"
     },
     {
      "name": "濃厚豆乳（500ml）",
      "price": 324,
-     "price_note": "同上",
+     "price_note": "湯どうふ以外。同上",
      "source_url": "https://jodo.or.jp/newspaper/shop/6732/"
     }
    ],
-   "other_prices": [],
    "tofu_source": {
     "name": "自家製（大正屋グループ）",
     "maker_id": "yudofu-honpo",
@@ -5572,19 +5576,19 @@
      "source_url": "https://www.fujikawa102.com/view/category/yudoufu"
     },
     {
-     "name": "2丁＋豚しゃぶセット",
+     "name": "温泉湯どうふ 2丁＋豚しゃぶセット",
      "price": null,
      "price_note": "価格未取得",
      "source_url": "https://www.fujikawa102.com/view/category/all_items"
     },
     {
-     "name": "2丁＋生ゆばセット",
+     "name": "温泉湯どうふ 2丁＋生ゆばセット",
      "price": 3200,
      "price_note": "税込",
      "source_url": "https://www.fujikawa102.com/view/category/all_items"
     },
     {
-     "name": "3丁＋生ゆばセット",
+     "name": "温泉湯どうふ 3丁＋生ゆばセット",
      "price": 3500,
      "price_note": "税込",
      "source_url": "https://www.fujikawa102.com/view/category/all_items"
@@ -5840,15 +5844,16 @@
      "price": null,
      "price_note": "価格未取得",
      "source_url": "https://shokusaiichiba-kihara.jp/store/"
-    },
+    }
+   ],
+   "other_prices": [
     {
      "name": "よもぎ団子（自家栽培よもぎ、毎日手作り）",
      "price": null,
-     "price_note": "価格未取得",
+     "price_note": "湯どうふ以外。価格未取得",
      "source_url": "https://shokusaiichiba-kihara.jp/"
     }
    ],
-   "other_prices": [],
    "tofu_source": {
     "name": "仕入れ",
     "note": "仕入れ（製造元未確認）"

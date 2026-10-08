@@ -271,19 +271,32 @@
     p.sources = Array.isArray(p.sources) ? p.sources.filter((s) => s && (s.url || s.title)).map((s) => ({
       title: trim(s.title), url: isUrl(s.url) ? trim(s.url) : '', accessed: trim(s.accessed), note: trim(s.note),
     })) : parseSources(p.sources);
-    // 代表価格: 飲食店・宿などは「料理」の価格から（通販セット・豆腐単品などの物販は除く）。製造元・物販は全品対象
+    // 代表価格（一覧・絞り込み用）: 「温泉湯どうふの定食・セット・コース」の価格を最優先にする。
+    //   優先順: 湯どうふ×定食/セット系 → 湯どうふを含む料理 → その他の料理 → 全品
+    //   除外: 通販・持ち帰り商品、宿泊・入浴、「旧価格」と注記された価格（他に候補があるとき）
+    //   豆腐店・物販は「温泉湯どうふのセット商品」の価格を代表にする
     const PRODUCT_RE = /通販|お取り寄せ|丁入|丁セット|丁\s*セ|持ち帰り|テイクアウト|生ゆば|豆乳|濃い豆腐|ごま豆腐|胡麻豆腐|ぽん酢|ポン酢|調理水|たれ|ごまだれ|返礼|寄付|送料|商品/;
     const LODGING_RE = /宿泊|1泊|一泊|素泊|入浴|泊[0-9０-９]/;
-    const YUDOFU_RE = /湯どうふ|湯豆腐|湯とうふ/;
-    let items = p.menu.filter((m) => m.price != null && !LODGING_RE.test(m.name));
-    if (p.category !== 'tofu_maker' && p.category !== 'shop') {
-      const dishes = items.filter((m) => !PRODUCT_RE.test(m.name) && !PRODUCT_RE.test(m.price_note));
+    const YUDOFU_RE = /湯どうふ|湯豆腐|湯とうふ|温泉どうふ|温泉豆腐|温泉とうふ|ゆどうふ/;
+    const SET_RE = /定食|御膳|セット|コース|膳|ランチ|会席|しゃぶ|尽くし|朝食/;
+    const OLD_RE = /旧価格|旧表記|旧掲載|消費税8%|消費税5%|税率/;
+    const priced = p.menu.filter((m) => m.price != null && !LODGING_RE.test(m.name));
+    const notOld = (arr) => { const cur = arr.filter((m) => !OLD_RE.test(m.price_note || '')); return cur.length ? cur : arr; };
+    let items;
+    if (p.category === 'tofu_maker' || p.category === 'shop') {
+      const sets = priced.filter((m) => YUDOFU_RE.test(m.name));
+      items = sets.length ? sets : priced;
+    } else {
+      const dishes = priced.filter((m) => !PRODUCT_RE.test(m.name) && !PRODUCT_RE.test(m.price_note || ''));
       const yudofu = dishes.filter((m) => YUDOFU_RE.test(m.name));
-      if (yudofu.length) items = yudofu; else if (dishes.length) items = dishes;
+      const sets = yudofu.filter((m) => SET_RE.test(m.name));
+      items = sets.length ? sets : yudofu.length ? yudofu : dishes.length ? dishes : priced;
     }
-    const prices = items.map((m) => m.price);
-    p.price_min = prices.length ? Math.min.apply(null, prices) : null;
-    p.price_max = prices.length ? Math.max.apply(null, prices) : null;
+    items = notOld(items);
+    const sorted = items.slice().sort((a, b) => a.price - b.price);
+    p.price_min = sorted.length ? sorted[0].price : null;
+    p.price_max = sorted.length ? sorted[sorted.length - 1].price : null;
+    p.price_item = sorted.length ? sorted[0].name : '';
     return p;
   }
 
