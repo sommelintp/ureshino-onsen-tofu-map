@@ -33,7 +33,7 @@ window.TOFU_CONFIG = {
 
   // Google マップを使う場合: Google Cloud の API キー（Maps JavaScript API を有効化し、HTTP リファラを
   // https://sommelintp.github.io/* に制限したもの）を貼ってください。空なら下の無料地図（OpenFreeMap / 地理院）を使います。
-  GOOGLE_MAPS_API_KEY: '',
+  GOOGLE_MAPS_API_KEY: 'AIzaSyBUObjTc6pxhAE8tcEAHMGoo6csrGY3pxg',
   // 任意: Google Cloud「マップ管理」で作ったマップ ID（スタイル用）。空なら Google のデモ ID を使います
   GOOGLE_MAPS_MAP_ID: '',
 
