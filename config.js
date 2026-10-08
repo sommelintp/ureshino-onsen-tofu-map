@@ -31,7 +31,13 @@ window.TOFU_CONFIG = {
   // 例: { label: '嬉野温泉駅', lat: 33.1187, lng: 130.0060 }
   ORIGINS: [],
 
-  // ベースマップ: 'vector'（OpenFreeMap のベクター地図・既定）/ 'gsi'（地理院 淡色）/ 'osm'（OpenStreetMap）
+  // Google マップを使う場合: Google Cloud の API キー（Maps JavaScript API を有効化し、HTTP リファラを
+  // https://sommelintp.github.io/* に制限したもの）を貼ってください。空なら下の無料地図（OpenFreeMap / 地理院）を使います。
+  GOOGLE_MAPS_API_KEY: '',
+  // 任意: Google Cloud「マップ管理」で作ったマップ ID（スタイル用）。空なら Google のデモ ID を使います
+  GOOGLE_MAPS_MAP_ID: '',
+
+  // Google マップ未使用時のベースマップ: 'vector'（OpenFreeMap のベクター地図・既定）/ 'gsi'（地理院 淡色）/ 'osm'（OpenStreetMap）
   BASEMAP: 'vector',
   // ベクター地図のスタイル。liberty（標準・カラフル）/ bright / positron（淡い） を選べます
   VECTOR_STYLE_URL: 'https://tiles.openfreemap.org/styles/liberty',

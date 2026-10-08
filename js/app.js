@@ -6,6 +6,7 @@
     SHEET_ID: '', SHEET_NAME: 'places', DATA_URL: 'data/places.json', BACKGROUND_URL: 'data/background.json',
     GITHUB_REPO: '', FORM_URL: '', CONTACT_EMAIL: '', MAP_CENTER: [33.098, 129.988], MAP_ZOOM: 15, SITE_TITLE: '', OPERATOR: '',
     SHOW_RATINGS: false, ORIGINS: [], BASEMAP: 'vector', VECTOR_STYLE_URL: 'https://tiles.openfreemap.org/styles/liberty',
+    GOOGLE_MAPS_API_KEY: '', GOOGLE_MAPS_MAP_ID: '',
   }, window.TOFU_CONFIG || {});
 
   const CAT_ORDER = ['restaurant', 'hotel', 'tofu_maker', 'shop', 'onsen', 'other'];
@@ -14,7 +15,7 @@
 
   const state = {
     all: [], visible: [], byId: {}, meta: {}, source: 'json', loadError: '',
-    map: null, markers: {}, markerLayer: null, meMarker: null, me: null, selectedId: null, pick: null, background: null,
+    map: null, engine: '', mapWarning: '', markers: {}, me: null, selectedId: null, pick: null, background: null,
     filters: { q: '', cats: new Set(), svcs: new Set(), tofu: '', price: PRICE_MAX, unverified: true, bounds: false },
     sort: 'category',
   };
@@ -36,8 +37,11 @@
     if (CFG.OPERATOR) $('#operator-line').textContent = ' · 運営: ' + CFG.OPERATOR;
     if (CFG.GITHUB_REPO) $('#repo-link').href = 'https://github.com/' + CFG.GITHUB_REPO;
     buildStaticControls();
-    initMap();
+    await createMap();
     bindEvents();
+    state.map.onMoveEnd(() => { if (state.filters.bounds) applyFilters({}); });
+    state.map.onClick((lat, lng) => { if (state.pick) finishPick({ lat, lng }); });
+    if (state.mapWarning) toast(state.mapWarning);
     try {
       await loadLocalData();          // まず同梱データを即表示
     } catch (e) {
@@ -140,8 +144,116 @@
     else { b.textContent = 'データ: 同梱スナップショット' + (state.meta.updated ? '（' + state.meta.updated + '）' : ''); if (state.sheetError) b.title = 'スプレッドシートの取得に失敗: ' + state.sheetError; }
   }
 
-  // ------------------------------------------------------------------ 地図
-  function initMap() {
+  // ------------------------------------------------------------------ 地図（エンジン切替: Google マップ / Leaflet）
+  // state.map は共通インターフェース:
+  //   setView(lat,lng,zoom) panTo(lat,lng) getZoom() contains(lat,lng) fitBounds(points,{padding,maxZoom})
+  //   addMarker({lat,lng,html,title,zIndex,onClick}) -> {setHtml, setZIndex, remove}  clearMarkers()
+  //   setMeMarker(lat,lng) invalidateSize() setCursor(css) onMoveEnd(fn) onClick(fn)
+  async function createMap() {
+    const key = (CFG.GOOGLE_MAPS_API_KEY || '').trim();
+    if (key) {
+      try {
+        await loadGoogleMaps(key);
+        state.map = createGoogleMap();
+        state.engine = 'google';
+        return;
+      } catch (e) {
+        console.warn('Google マップを読み込めなかったため Leaflet に切り替えます:', e && e.message);
+        state.mapWarning = 'Google マップを読み込めませんでした（API キーの設定を確認）。代わりの地図を表示しています。';
+      }
+    }
+    state.map = createLeafletMap();
+    state.engine = 'leaflet';
+  }
+
+  function loadGoogleMaps(key) {
+    return new Promise((resolve, reject) => {
+      if (window.google && google.maps && google.maps.marker) return resolve();
+      const timer = setTimeout(() => reject(new Error('timeout')), 12000);
+      window.__tofuGmReady = () => { clearTimeout(timer); resolve(); };
+      window.gm_authFailure = () => {   // キー無効・リファラ制限などで Google 側が拒否したとき（地図生成後に呼ばれることもある）
+        clearTimeout(timer);
+        if (state.engine === 'google') switchToLeaflet('Google マップの認証に失敗しました（API キーの制限・有効化・請求設定を確認）。代わりの地図を表示しています。');
+        else reject(new Error('auth'));
+      };
+      const sc = document.createElement('script');
+      sc.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(key) + '&libraries=marker&loading=async&callback=__tofuGmReady&language=ja&region=JP&v=weekly';
+      sc.async = true;
+      sc.onerror = () => { clearTimeout(timer); reject(new Error('script')); };
+      document.head.appendChild(sc);
+    });
+  }
+
+  function switchToLeaflet(message) {
+    try {
+      const el = $('#map'); el.innerHTML = ''; el.className = '';
+      state.map = createLeafletMap();
+      state.engine = 'leaflet';
+      state.markers = {};
+      applyFilters({ fit: true });
+      if (state.me) state.map.setMeMarker(state.me[0], state.me[1]);
+      if (message) toast(message);
+    } catch (e) { console.error('地図の切り替えに失敗', e); }
+  }
+
+  // ---- Google マップ -------------------------------------------------------
+  function createGoogleMap() {
+    const el = $('#map');
+    const gmap = new google.maps.Map(el, {
+      center: { lat: CFG.MAP_CENTER[0], lng: CFG.MAP_CENTER[1] }, zoom: CFG.MAP_ZOOM,
+      mapId: CFG.GOOGLE_MAPS_MAP_ID || 'DEMO_MAP_ID',
+      clickableIcons: false, gestureHandling: 'greedy',
+      mapTypeControl: true, mapTypeControlOptions: { position: google.maps.ControlPosition.TOP_LEFT },
+      streetViewControl: false, fullscreenControl: false, cameraControl: false,
+      zoomControl: true, zoomControlOptions: { position: google.maps.ControlPosition.RIGHT_BOTTOM },
+    });
+    const markers = new Set();
+    let me = null;
+    const AME = google.maps.marker.AdvancedMarkerElement;
+    return {
+      engine: 'google',
+      setView: (lat, lng, zoom) => { gmap.setCenter({ lat, lng }); if (zoom != null) gmap.setZoom(zoom); },
+      panTo: (lat, lng) => gmap.panTo({ lat, lng }),
+      getZoom: () => gmap.getZoom() || CFG.MAP_ZOOM,
+      contains: (lat, lng) => { const b = gmap.getBounds(); return !b || b.contains({ lat, lng }); },
+      fitBounds: (points, opts) => {
+        const b = new google.maps.LatLngBounds();
+        points.forEach((q) => b.extend({ lat: q[0], lng: q[1] }));
+        gmap.fitBounds(b, (opts && opts.padding) || 40);
+        const maxZoom = (opts && opts.maxZoom) || 16;
+        google.maps.event.addListenerOnce(gmap, 'idle', () => { if (gmap.getZoom() > maxZoom) gmap.setZoom(maxZoom); });
+      },
+      addMarker: (o) => {
+        const content = document.createElement('div');
+        content.innerHTML = o.html;
+        const mk = new AME({ map: gmap, position: { lat: o.lat, lng: o.lng }, content, title: o.title || '', zIndex: o.zIndex || 0, gmpClickable: true });
+        // クリックは DOM と Maps API の両方で受け、二重発火は 300ms で抑止
+        let last = 0;
+        const handler = () => { const now = Date.now(); if (now - last < 300) return; last = now; if (o.onClick) o.onClick(); };
+        content.addEventListener('click', handler);
+        try { mk.addListener('gmp-click', handler); } catch (e) { /* 古いバージョン */ }
+        markers.add(mk);
+        return {
+          setHtml: (html) => { content.innerHTML = html; },
+          setZIndex: (z) => { mk.zIndex = z; },
+          remove: () => { mk.map = null; markers.delete(mk); },
+        };
+      },
+      clearMarkers: () => { markers.forEach((mk) => { mk.map = null; }); markers.clear(); },
+      setMeMarker: (lat, lng) => {
+        if (me) { me.position = { lat, lng }; return; }
+        const c = document.createElement('div'); c.innerHTML = '<div class="me-dot"></div>'; c.style.transform = 'translateY(8px)';
+        me = new AME({ map: gmap, position: { lat, lng }, content: c, zIndex: 2000 });
+      },
+      invalidateSize: () => google.maps.event.trigger(gmap, 'resize'),
+      setCursor: (css) => gmap.setOptions({ draggableCursor: css || null }),
+      onMoveEnd: (fn) => gmap.addListener('idle', fn),
+      onClick: (fn) => gmap.addListener('click', (e) => { if (e.latLng) fn(e.latLng.lat(), e.latLng.lng()); }),
+    };
+  }
+
+  // ---- Leaflet（OpenFreeMap / 地理院タイル。Google マップ未設定時や読み込み失敗時） ----------
+  function createLeafletMap() {
     const map = L.map('map', { zoomControl: false, center: CFG.MAP_CENTER, zoom: CFG.MAP_ZOOM, preferCanvas: false });
     const gsi = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
       maxZoom: 18, attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル</a>',
@@ -184,10 +296,33 @@
     L.control.layers(bases, null, { position: 'topleft' }).addTo(map);
     L.control.zoom({ position: 'bottomright' }).addTo(map);
     L.control.scale({ imperial: false, position: 'bottomright' }).addTo(map);
-    state.markerLayer = L.layerGroup().addTo(map);
-    map.on('moveend', () => { if (state.filters.bounds) applyFilters({}); });
-    map.on('click', (e) => { if (state.pick) finishPick(e.latlng); });
-    state.map = map;
+    const layer = L.layerGroup().addTo(map);
+    let me = null;
+    const divIcon = (html) => L.divIcon({ className: 'pin-icon', iconSize: [30, 30], iconAnchor: [15, 28], tooltipAnchor: [10, -14], html });
+    return {
+      engine: 'leaflet',
+      setView: (lat, lng, zoom) => map.setView([lat, lng], zoom == null ? map.getZoom() : zoom),
+      panTo: (lat, lng) => map.panTo([lat, lng]),
+      getZoom: () => map.getZoom(),
+      contains: (lat, lng) => map.getBounds().contains([lat, lng]),
+      fitBounds: (points, opts) => map.fitBounds(points, { padding: [(opts && opts.padding) || 40, (opts && opts.padding) || 40], maxZoom: (opts && opts.maxZoom) || 16 }),
+      addMarker: (o) => {
+        const m = L.marker([o.lat, o.lng], { icon: divIcon(o.html), keyboard: true, title: o.title || '', zIndexOffset: o.zIndex || 0 });
+        if (o.title) m.bindTooltip(o.title, { direction: 'top', opacity: .95 });
+        if (o.onClick) m.on('click', o.onClick);
+        m.addTo(layer);
+        return { setHtml: (html) => m.setIcon(divIcon(html)), setZIndex: (z) => m.setZIndexOffset(z), remove: () => layer.removeLayer(m) };
+      },
+      clearMarkers: () => layer.clearLayers(),
+      setMeMarker: (lat, lng) => {
+        if (me) { me.setLatLng([lat, lng]); return; }
+        me = L.marker([lat, lng], { icon: L.divIcon({ className: 'pin-icon', html: '<div class="me-dot"></div>', iconSize: [16, 16], iconAnchor: [8, 8] }), interactive: false }).addTo(map);
+      },
+      invalidateSize: () => map.invalidateSize(),
+      setCursor: (css) => { $('#map').style.cursor = css || ''; },
+      onMoveEnd: (fn) => map.on('moveend', fn),
+      onClick: (fn) => map.on('click', (e) => fn(e.latlng.lat, e.latlng.lng)),
+    };
   }
 
   // ベクター地図のラベルを日本語優先にする（name:ja → name）
@@ -203,15 +338,19 @@
     } catch (e) { console.warn('ラベルの日本語化に失敗', e); }
   }
 
-  function makeIcon(p, selected) {
+  // ---- マーカー（エンジン共通） ------------------------------------------------
+  function pinHtml(p, selected) {
     const cls = ['pin'];
     if (p.geo_precision !== 'exact') cls.push('approx');
     if (!isConfirmed(p)) cls.push('unverified');
     if (selected) cls.push('selected');
-    return L.divIcon({
-      className: 'pin-icon', iconSize: [30, 30], iconAnchor: [15, 28], tooltipAnchor: [10, -14],
-      html: '<div class="' + cls.join(' ') + '" style="--c:' + catVar(p.category) + '"><div class="pin-body"></div><div class="pin-label">' + CAT_LETTER[p.category] + '</div></div>',
-    });
+    return '<div class="' + cls.join(' ') + '" style="--c:' + catVar(p.category) + '"><div class="pin-body"></div><div class="pin-label">' + CAT_LETTER[p.category] + '</div></div>';
+  }
+  function setMarkerSelected(id, selected) {
+    const h = state.markers[id]; const p = state.byId[id];
+    if (!h || !p) return;
+    h.setHtml(pinHtml(p, selected));
+    h.setZIndex(selected ? 1000 : 0);
   }
 
   // 同じ座標（町丁目の代表点など）に重なる地点は、見やすさのため小さく散らして表示する（データ自体は変更しない）
@@ -224,8 +363,8 @@
   }
 
   function renderMarkers() {
-    const layer = state.markerLayer;
-    layer.clearLayers();
+    if (!state.map) return;
+    state.map.clearMarkers();
     state.markers = {};
     const groups = {};
     state.visible.forEach((p) => {
@@ -238,15 +377,18 @@
       if (!hasGeo(p)) return;
       const k = p.lat.toFixed(5) + ',' + p.lng.toFixed(5);
       const g = { n: groups[k].length, i: groups[k].indexOf(p.id) };
-      const m = L.marker(displayLatLng(p, g), { icon: makeIcon(p, p.id === state.selectedId), keyboard: true, title: p.name, zIndexOffset: p.id === state.selectedId ? 1000 : 0 });
-      m.bindTooltip(p.name + (p.price_min != null ? '　' + yen(p.price_min) + '〜' : '') + (p.geo_precision !== 'exact' ? '（位置は概略）' : ''), { direction: 'top', opacity: .95 });
-      m.on('click', () => selectPlace(p.id, { pan: false }));
-      m.addTo(layer);
-      state.markers[p.id] = m;
+      const ll = displayLatLng(p, g);
+      const selected = p.id === state.selectedId;
+      state.markers[p.id] = state.map.addMarker({
+        lat: ll[0], lng: ll[1], html: pinHtml(p, selected), zIndex: selected ? 1000 : 0,
+        title: p.name + (p.price_min != null ? '　' + yen(p.price_min) + '〜' : '') + (p.geo_precision !== 'exact' ? '（位置は概略）' : ''),
+        onClick: () => selectPlace(p.id, { pan: false }),
+      });
     });
   }
 
   function fitAll(opts) {
+    if (!state.map) return;
     let pts = state.visible.filter(hasGeo).map((p) => [p.lat, p.lng]);
     if (opts && opts.core && pts.length > 3) {
       // 市外・遠方の数点で全体が引きで表示されないよう、中央値から 3.5km 以内の地点にフィットする
@@ -255,9 +397,9 @@
       const near = pts.filter((q) => Math.hypot((q[0] - cLat) * 111, (q[1] - cLng) * 111 * Math.cos((cLat * Math.PI) / 180)) <= 3.5);
       if (near.length >= 2) pts = near;
     }
-    if (pts.length >= 2) state.map.fitBounds(pts, { padding: [40, 40], maxZoom: 16 });
-    else if (pts.length === 1) state.map.setView(pts[0], 16);
-    else state.map.setView(CFG.MAP_CENTER, CFG.MAP_ZOOM);
+    if (pts.length >= 2) state.map.fitBounds(pts, { padding: 40, maxZoom: 16 });
+    else if (pts.length === 1) state.map.setView(pts[0][0], pts[0][1], 16);
+    else state.map.setView(CFG.MAP_CENTER[0], CFG.MAP_CENTER[1], CFG.MAP_ZOOM);
   }
 
   function locateMe() {
@@ -266,9 +408,8 @@
     navigator.geolocation.getCurrentPosition((pos) => {
       const ll = [pos.coords.latitude, pos.coords.longitude];
       state.me = ll;
-      if (state.meMarker) state.meMarker.setLatLng(ll);
-      else state.meMarker = L.marker(ll, { icon: L.divIcon({ className: 'pin-icon', html: '<div class="me-dot"></div>', iconSize: [16, 16], iconAnchor: [8, 8] }), interactive: false }).addTo(state.map);
-      state.map.setView(ll, Math.max(state.map.getZoom(), 15));
+      state.map.setMeMarker(ll[0], ll[1]);
+      state.map.setView(ll[0], ll[1], Math.max(state.map.getZoom(), 15));
       if (state.sort !== 'distance') { state.sort = 'distance'; $('#sort-select').value = 'distance'; }
       applyFilters({});
       toast('現在地を表示しました（近い順に並べ替え）');
@@ -344,7 +485,7 @@
       const terms = f.q.toLowerCase().split(/[\s　]+/).filter(Boolean);
       if (!terms.every((t) => hay.includes(t))) return false;
     }
-    if (f.bounds && state.map) { if (!hasGeo(p) || !state.map.getBounds().contains([p.lat, p.lng])) return false; }
+    if (f.bounds && state.map) { if (!hasGeo(p) || !state.map.contains(p.lat, p.lng)) return false; }
     return true;
   }
 
@@ -434,14 +575,14 @@
     if (!p) return;
     const prev = state.selectedId;
     state.selectedId = id;
-    if (prev && state.markers[prev]) { state.markers[prev].setIcon(makeIcon(state.byId[prev], false)); state.markers[prev].setZIndexOffset(0); }
-    if (state.markers[id]) { state.markers[id].setIcon(makeIcon(p, true)); state.markers[id].setZIndexOffset(1000); }
+    if (prev && prev !== id) setMarkerSelected(prev, false);
+    setMarkerSelected(id, true);
     $$('.card').forEach((c) => c.classList.toggle('selected', c.dataset.id === id));
     renderDetail(p);
     $('#detail').hidden = false;
     $('.layout').classList.add('has-detail');
-    if (hasGeo(p) && opts && opts.pan) state.map.setView([p.lat, p.lng], Math.max(state.map.getZoom(), 16));
-    else if (hasGeo(p) && !state.map.getBounds().contains([p.lat, p.lng])) state.map.panTo([p.lat, p.lng]);
+    if (hasGeo(p) && opts && opts.pan) state.map.setView(p.lat, p.lng, Math.max(state.map.getZoom(), 16));
+    else if (hasGeo(p) && !state.map.contains(p.lat, p.lng)) state.map.panTo(p.lat, p.lng);
     setTimeout(() => state.map.invalidateSize(), 50);
     writeHash();
     const card = $('.card[data-id="' + id + '"]');
@@ -451,7 +592,7 @@
   function closeDetail() {
     const prev = state.selectedId;
     state.selectedId = null;
-    if (prev && state.markers[prev]) { state.markers[prev].setIcon(makeIcon(state.byId[prev], false)); state.markers[prev].setZIndexOffset(0); }
+    if (prev) setMarkerSelected(prev, false);
     $$('.card.selected').forEach((c) => c.classList.remove('selected'));
     $('#detail').hidden = true;
     $('.layout').classList.remove('has-detail');
@@ -663,13 +804,13 @@
     $('#pick-banner').hidden = false;
     document.body.classList.remove('view-list'); document.body.classList.add('view-map');
     $$('.mobile-tabs .tab').forEach((t) => t.classList.toggle('active', t.dataset.view === 'map'));
-    $('#map').style.cursor = 'crosshair';
+    state.map.setCursor('crosshair');
     setTimeout(() => state.map.invalidateSize(), 50);
   }
   function finishPick(latlng) {
     state.pick = null;
     $('#pick-banner').hidden = true;
-    $('#map').style.cursor = '';
+    state.map.setCursor('');
     if (latlng) {
       $('#f-lat').value = latlng.lat.toFixed(6); $('#f-lng').value = latlng.lng.toFixed(6);
       toast('位置を取得しました: ' + latlng.lat.toFixed(5) + ', ' + latlng.lng.toFixed(5));

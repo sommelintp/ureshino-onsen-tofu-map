@@ -214,3 +214,10 @@
 | 不採用 | 評価値列の削除（データは保持し表示のみ切替）、バックエンド導入、スクレイピング |
 
 **依頼者に確認したい事項**: 運営主体と Google アカウント（市／観光協会／個人）、初期データ 59 件を「公開」で出すか「要確認」で段階公開するか、評価値の表示可否、Google フォームの作成者、公式ドメイン（CNAME）の有無。
+
+## 13. 地図エンジン（v1.1）
+
+- `js/app.js` の `createMap()` が **Google マップ**（`GOOGLE_MAPS_API_KEY` 設定時、Maps JavaScript API + AdvancedMarkerElement）と
+  **Leaflet**（OpenFreeMap ベクター → 地理院タイルの順にフォールバック）を同じインターフェースで切り替える。
+- Google 側の読み込み失敗・認証失敗（`gm_authFailure`）時は自動で Leaflet に切り替え、画面に通知する。
+- マーカー HTML・凡例・位置修正・近い順などの UI はエンジン非依存。

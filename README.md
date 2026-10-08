@@ -73,6 +73,22 @@ Issue フォームは [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE) にあり
 7. **データの自己点検**: サイト URL に `?check=1` を付けると、入力エラー・座標なし・出典なしの一覧が画面に出ます（編集者向け）。
 8. **非公開行の扱い**: 公開シートは誰でも読めます。閉店情報などを完全に隠したい場合は、編集者ガイドの「公開用タブ」（FILTER 式）を使い `SHEET_NAME` をそのタブ名にします。
 
+## Google マップで表示する（任意・推奨）
+
+`config.js` の `GOOGLE_MAPS_API_KEY` に API キーを入れて `main` に push すると、地図が Google マップになります（未設定の間は無料の OpenFreeMap／地理院タイルで動作）。
+
+1. [Google Cloud コンソール](https://console.cloud.google.com/) で既存プロジェクトを選ぶ（請求先アカウントが有効であること）
+2. 「APIとサービス → ライブラリ」で **Maps JavaScript API** を有効化
+3. 「APIとサービス → 認証情報 → 認証情報を作成 → APIキー」。作成したキーに制限をかける:
+   - アプリケーションの制限: **ウェブサイト** → `https://sommelintp.github.io/*`（ローカル確認用に `http://localhost:8080/*` も追加可）
+   - API の制限: **Maps JavaScript API** のみ
+4. キーを `config.js` の `GOOGLE_MAPS_API_KEY` に貼り、push
+5. 任意: 「Google Maps Platform → マップ管理」でマップ ID を作り `GOOGLE_MAPS_MAP_ID` に設定（地図のスタイルを Cloud 側で調整できます。未設定なら Google のデモ ID を使用）
+
+- キーはサイトに埋め込まれるため公開情報になりますが、上記のサイト制限をかけていれば他サイトからは使えません
+- 料金: Maps JavaScript API は一定回数まで毎月無料枠があります（2025 年の料金体系では月 1 万回の地図読み込みまで無料）。超過が心配な場合は Cloud コンソールで予算アラートと割り当て上限を設定してください
+- キーが無効・制限ミスのときは自動で無料地図に切り替わり、画面に通知が出ます
+
 ## ローカルでの作業
 
 ```bash
