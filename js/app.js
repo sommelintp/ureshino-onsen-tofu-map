@@ -5,7 +5,7 @@
   const CFG = Object.assign({
     SHEET_ID: '', SHEET_NAME: 'places', DATA_URL: 'data/places.json', BACKGROUND_URL: 'data/background.json',
     GITHUB_REPO: '', FORM_URL: '', CONTACT_EMAIL: '', MAP_CENTER: [33.098, 129.988], MAP_ZOOM: 15, SITE_TITLE: '', OPERATOR: '',
-    SHOW_RATINGS: false, ORIGINS: [],
+    SHOW_RATINGS: false, ORIGINS: [], BASEMAP: 'vector', VECTOR_STYLE_URL: 'https://tiles.openfreemap.org/styles/liberty',
   }, window.TOFU_CONFIG || {});
 
   const CAT_ORDER = ['restaurant', 'hotel', 'tofu_maker', 'shop', 'onsen', 'other'];
@@ -152,14 +152,55 @@
     const photo = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg', {
       maxZoom: 18, attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル（写真）</a>',
     });
-    gsi.addTo(map);
-    L.control.layers({ '淡色地図（地理院）': gsi, 'OpenStreetMap': osm, '空中写真（地理院）': photo }, null, { position: 'topleft' }).addTo(map);
+    // ベクター地図（OpenFreeMap: 鍵・費用不要）。WebGL が使えない端末や取得失敗時は地理院タイルに切り替える
+    const bases = {};
+    let vector = null;
+    if (CFG.BASEMAP === 'vector' && typeof L.maplibreGL === 'function' && typeof maplibregl !== 'undefined') {
+      try {
+        vector = L.maplibreGL({
+          style: CFG.VECTOR_STYLE_URL,
+          attribution: '<a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> <a href="https://www.openmaptiles.org/" target="_blank" rel="noopener">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>',
+        });
+        let vectorReady = false;
+        vector.on('add', () => {
+          const gl = vector.getMaplibreMap();
+          if (!gl) return;
+          gl.once('load', () => { vectorReady = true; });
+          gl.on('style.load', () => localizeLabels(gl));
+          gl.on('error', (e) => {
+            if (vectorReady) return;
+            console.warn('ベクター地図の読み込みに失敗。地理院タイルに切り替えます', e && e.error);
+            vectorReady = true;
+            try { map.removeLayer(vector); } catch (err) { /* noop */ }
+            if (!map.hasLayer(gsi)) gsi.addTo(map);
+          });
+        });
+      } catch (e) { console.warn('ベクター地図を初期化できません', e); vector = null; }
+    }
+    if (vector) bases['標準地図（OpenFreeMap）'] = vector;
+    bases['淡色地図（地理院）'] = gsi; bases['OpenStreetMap'] = osm; bases['空中写真（地理院）'] = photo;
+    const first = CFG.BASEMAP === 'osm' ? osm : CFG.BASEMAP === 'gsi' ? gsi : (vector || gsi);
+    try { first.addTo(map); } catch (e) { console.warn('ベースマップの追加に失敗。地理院タイルを使います', e); gsi.addTo(map); }
+    L.control.layers(bases, null, { position: 'topleft' }).addTo(map);
     L.control.zoom({ position: 'bottomright' }).addTo(map);
     L.control.scale({ imperial: false, position: 'bottomright' }).addTo(map);
     state.markerLayer = L.layerGroup().addTo(map);
     map.on('moveend', () => { if (state.filters.bounds) applyFilters({}); });
     map.on('click', (e) => { if (state.pick) finishPick(e.latlng); });
     state.map = map;
+  }
+
+  // ベクター地図のラベルを日本語優先にする（name:ja → name）
+  function localizeLabels(gl) {
+    try {
+      const style = gl.getStyle();
+      (style.layers || []).forEach((layer) => {
+        if (layer.type !== 'symbol' || !layer.layout || !layer.layout['text-field']) return;
+        const tf = JSON.stringify(layer.layout['text-field']);
+        if (!/name/.test(tf)) return;
+        gl.setLayoutProperty(layer.id, 'text-field', ['coalesce', ['get', 'name:ja'], ['get', 'name']]);
+      });
+    } catch (e) { console.warn('ラベルの日本語化に失敗', e); }
   }
 
   function makeIcon(p, selected) {

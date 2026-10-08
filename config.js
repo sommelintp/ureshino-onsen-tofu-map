@@ -31,6 +31,11 @@ window.TOFU_CONFIG = {
   // 例: { label: '嬉野温泉駅', lat: 33.1187, lng: 130.0060 }
   ORIGINS: [],
 
+  // ベースマップ: 'vector'（OpenFreeMap のベクター地図・既定）/ 'gsi'（地理院 淡色）/ 'osm'（OpenStreetMap）
+  BASEMAP: 'vector',
+  // ベクター地図のスタイル。liberty（標準・カラフル）/ bright / positron（淡い） を選べます
+  VECTOR_STYLE_URL: 'https://tiles.openfreemap.org/styles/liberty',
+
   // 地図の初期表示（嬉野温泉街）
   MAP_CENTER: [33.098, 129.988],
   MAP_ZOOM: 15,

@@ -124,4 +124,4 @@ JSON のキーとスプレッドシートの日本語見出しの対応・パー
 
 - コード: [MIT](LICENSE)
 - データ（`data/`）: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)（[data/LICENSE](data/LICENSE)）
-- 地図タイル: [地理院タイル](https://maps.gsi.go.jp/development/ichiran.html)、[OpenStreetMap](https://www.openstreetmap.org/copyright)（© OpenStreetMap contributors）
+- 地図: [OpenFreeMap](https://openfreemap.org)（ベクタータイル、鍵・費用不要）/ [OpenMapTiles](https://www.openmaptiles.org/) / [OpenStreetMap](https://www.openstreetmap.org/copyright)（© OpenStreetMap contributors）、[地理院タイル](https://maps.gsi.go.jp/development/ichiran.html)。`config.js` の `BASEMAP` で切替
