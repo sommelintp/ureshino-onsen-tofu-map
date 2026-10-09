@@ -1,0 +1,49 @@
+# Instagram の投稿を毎日自動収集して data/media.json に追加する（docs/INSTAGRAM.md）
+# 必要な Secrets: IG_ACCESS_TOKEN, IG_USER_ID（Settings → Secrets and variables → Actions → Secrets）
+name: Collect Instagram posts
+on:
+  schedule:
+    - cron: '23 21 * * *'   # 毎日 06:23 JST（ハッシュタグの最新投稿は直近24時間分しか取れないため毎日実行）
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: instagram-collect
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 設定の確認
+        id: check
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: |
+          if [ -z "$IG_ACCESS_TOKEN" ] || [ -z "$IG_USER_ID" ]; then echo "Secrets 未設定のためスキップ（docs/INSTAGRAM.md）"; echo "skip=1" >> "$GITHUB_OUTPUT"; fi
+      - name: 収集
+        if: steps.check.outputs.skip != '1'
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: node scripts/instagram-collect.mjs
+      - name: 検証
+        if: steps.check.outputs.skip != '1'
+        run: node scripts/validate.mjs
+      - name: 差分があればコミットして公開
+        if: steps.check.outputs.skip != '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- data/media.json data/media-candidates.json; then echo "新しい投稿なし"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/media.json data/media-candidates.json
+          git commit -m "data: Instagram 自動収集 ($(date -u +%Y-%m-%d))"
+          git push
+          gh workflow run pages.yml --ref "${GITHUB_REF_NAME}"
