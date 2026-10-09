@@ -16,14 +16,14 @@
 
 | PC | スマホ（390px） |
 | --- | --- |
-| [トップ・ライト](top-light.png) | [トップ・ライト](mobile-light.png) |
-| [一覧・ライト](list-light.png) | [トップ・ダーク](mobile-dark.png) |
-| [詳細・ダーク](detail-dark.png) |  |
+| [トップ・ライト](top-light.webp) | [トップ・ライト](mobile-light.webp) |
+| [一覧・ライト](list-light.webp) | [トップ・ダーク](mobile-dark.webp) |
+| [詳細・ダーク](detail-dark.webp) |  |
 
 ## モック用データと画像
 
-- `mock-data.js` の投稿URLはレイアウト確認専用のダミー。`data/media.json` は変更していない。
-- `hero-yudofu.png` はモック専用に生成した写真調ビジュアル。実装段階では、確認済みSNS投稿がある場合は公式埋め込みを優先し、空の場合のフォールバック候補として扱う。
+- モック内の店舗名・価格・説明は `data/places.json`、投稿件数とサービス名は `data/media.json` の実データを表示例にしている。各値には出典リンクを添える。
+- `../../assets/hero-yudofu.webp` はトップの雰囲気づくり専用に生成した写真調ビジュアルで、「イメージ」と明記する。店舗詳細には使用しない。
 - 店名・価格などは既存データの表示例。データ形式・値は変更していない。
 
 ## 実装段階で引き継ぐ要点
