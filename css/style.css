@@ -353,7 +353,9 @@ h1, h2 { font-family: var(--font-title); font-weight: 700; }
 .image-note { position: absolute; right: 16px; top: 14px; z-index: 1; padding: 2px 7px; border-radius: 3px; background: rgba(0,0,0,.46); color: #fff; font-size: .65rem; letter-spacing: .08em; }
 .hero-copy { width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 80px 410px 110px 0; }
 .hero-copy .eyebrow { color: #e8b69e; }
-.hero-copy h1 { max-width: 720px; margin: 0 0 22px; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 1.22; letter-spacing: .04em; text-shadow: 0 4px 22px rgba(0,0,0,.18); }
+.hero-copy h1 { max-width: none; margin: 0 0 22px; font-size: clamp(2rem, 6vw, 5.25rem); line-height: 1.22; letter-spacing: .04em; text-shadow: 0 4px 22px rgba(0,0,0,.18); word-break: keep-all; overflow-wrap: normal; }
+/* 見出しは「湯けむりの先に、／うれしい一椀。」の2行で固定し、言葉の途中で折り返さない */
+.hero-copy h1 .hero-line { display: block; white-space: nowrap; }
 .hero-copy > p:not(.eyebrow) { margin: 0; font-size: clamp(.95rem, 1.5vw, 1.15rem); line-height: 2; color: rgba(255,255,255,.9); }
 .hero-actions { display: flex; gap: 10px; margin-top: 28px; }
 .btn-glass { color: #fff; border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.1); backdrop-filter: blur(8px); }
@@ -455,7 +457,7 @@ h1, h2 { font-family: var(--font-title); font-weight: 700; }
   .home-hero { min-height: calc(88svh - var(--header-h)); align-items: flex-end; }
   .hero-shade { background: linear-gradient(0deg, rgba(12,19,15,.88) 4%, rgba(12,19,15,.25) 80%); }
   .hero-copy { width: calc(100% - 32px); padding: 80px 0 70px; }
-  .hero-copy h1 { font-size: clamp(2.6rem, 13vw, 4.5rem); }
+  .hero-copy h1 { font-size: clamp(1.75rem, 9.4vw, 4.5rem); }
   .hero-copy > p:not(.eyebrow) { font-size: .9rem; }
   .hero-actions { flex-wrap: wrap; }
   .hero-actions .btn { flex: 1; justify-content: center; }
