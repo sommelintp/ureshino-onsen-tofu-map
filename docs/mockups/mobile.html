@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>スマホ案 — 嬉野温泉 湯どうふマップ</title>
+  <link rel="stylesheet" href="mock.css">
+</head>
+<body>
+  <main class="mobile-page">
+    <section class="mobile-hero" aria-labelledby="mobile-title">
+      <img src="hero-yudofu.png" alt="湯気の立つ温泉湯どうふ">
+      <div class="mobile-brand">
+        <a class="brand-mark" href="index.html"><span class="brand-steam" aria-hidden="true"></span><span class="brand-copy"><strong>嬉野温泉 湯どうふ</strong><small>URESHINO YUDOFU GUIDE</small></span></a>
+        <button class="round-action" type="button" data-theme-toggle aria-label="ダークモードに切替">◐</button>
+      </div>
+      <div class="mobile-copy">
+        <p class="eyebrow">Ureshino, Saga</p><h1 class="display" id="mobile-title">湯けむりの中で、<br>とろける。</h1><p>嬉野でしか出会えない一椀を、いまいる場所から。</p><a class="button cream" href="#near">近くの湯どうふを探す <span>↗</span></a>
+      </div>
+    </section>
+
+    <div class="mobile-content">
+      <section aria-labelledby="quick-title"><p class="eyebrow">Choose your moment</p><h2 id="quick-title">旅の予定から探す</h2><div class="quick-scroll"><a class="quick-card" href="#near"><small>01 / LUNCH</small><strong>ランチで<br>食べる　→</strong></a><a class="quick-card" href="#near"><small>02 / STAY</small><strong>旅館で<br>味わう　→</strong></a><a class="quick-card" href="#near"><small>03 / GIFT</small><strong>お土産に<br>買う　→</strong></a></div></section>
+
+      <section class="mobile-near" id="near" aria-labelledby="near-title">
+        <p class="eyebrow">Near you · 23 places</p><h2 id="near-title">近くの湯けむり</h2>
+        <article class="mobile-place"><img src="hero-yudofu.png" alt="旅館 吉田屋の湯どうふ"><div><p>徒歩6分 · 写真3件</p><h3>旅館 吉田屋</h3><p>朝食・宿泊者限定</p><strong class="numeric">¥1,650〜</strong></div></article>
+        <article class="mobile-place"><img src="hero-yudofu.png" alt="温泉食堂の湯どうふ"><div><p>徒歩12分 · 写真1件</p><h3>温泉食堂</h3><p>ランチ・ディナー</p><strong class="numeric">¥1,100</strong></div></article>
+        <article class="mobile-place"><div class="place-thumb" aria-label="写真なし"></div><div><p>1.3km · 情報確認済み</p><h3>月創采膳＆鮨處ありあけ</h3><p>ランチ・ディナー</p><strong class="numeric">¥1,300</strong></div></article>
+      </section>
+    </div>
+  </main>
+
+  <aside class="bottom-sheet" aria-label="選択中の店舗">
+    <div class="sheet-handle"></div><div class="sheet-peek"><div><small class="muted">選択中 · 徒歩6分</small><br><strong>旅館 吉田屋</strong></div><span class="numeric">¥1,650〜</span></div>
+  </aside>
+  <nav class="bottom-tabs" aria-label="下部ナビゲーション">
+    <a class="active" href="#near"><span class="tab-icon">⌕</span><span>さがす</span></a><a href="list.html"><span class="tab-icon">⌖</span><span>地図</span></a><a href="top.html#media"><span class="tab-icon">▣</span><span>写真</span></a><a href="#"><span class="tab-icon">＋</span><span>投稿</span></a>
+  </nav>
+  <script src="mock.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>一覧案 — 嬉野温泉 湯どうふマップ</title>
+  <link rel="stylesheet" href="mock.css">
+</head>
+<body class="list-shell">
+  <header class="topbar">
+    <a class="brand-mark" href="top.html"><span class="brand-steam" aria-hidden="true"></span><span class="brand-copy"><strong>嬉野温泉 湯どうふ</strong><small>URESHINO YUDOFU GUIDE</small></span></a>
+    <nav class="topnav"><a href="top.html">トップ</a><a href="top.html#story">湯どうふとは</a><a class="nav-cta" href="#">＋ 情報を寄せる</a></nav>
+  </header>
+  <main>
+    <section class="list-toolbar" aria-label="検索">
+      <label class="searchbox"><span aria-hidden="true">⌕</span><input type="search" placeholder="店名、メニュー、豆腐から探す" aria-label="店名、メニュー、豆腐から探す"></label>
+      <span class="result-meta">嬉野温泉駅周辺 · 59件のうち 23件</span>
+    </section>
+    <div class="filter-strip" aria-label="絞り込み">
+      <button type="button" class="chip active">すべて</button><button type="button" class="chip">ランチ</button><button type="button" class="chip">旅館・ホテル</button><button type="button" class="chip">テイクアウト</button><button type="button" class="chip">日帰り温泉</button><button type="button" class="chip active">写真・動画あり</button><button type="button" class="chip">予算 ▼</button><button type="button" class="chip">使用豆腐 ▼</button>
+    </div>
+
+    <div class="list-map-layout">
+      <section class="results" aria-labelledby="results-title">
+        <div class="results-head"><h1 id="results-title">湯どうふを探す</h1><select aria-label="並び順"><option>現在地から近い順</option><option>価格が安い順</option></select></div>
+        <a class="place-row" href="detail.html">
+          <div class="place-thumb"><img src="hero-yudofu.png" alt="旅館 吉田屋の温泉湯どうふ"><span class="media-count">▣ 3</span></div>
+          <div class="place-info"><div class="place-type">RYOKAN · 徒歩6分</div><h2>旅館 吉田屋</h2><p>器の中でほどける自家製豆腐。湯上がりの朝に味わう、白いごちそう。</p><div class="tags"><span class="tag">朝食</span><span class="tag">宿泊者限定</span><span class="tag">投稿あり</span></div></div>
+          <div class="place-price"><small>温泉湯どうふ</small><strong class="numeric">¥1,650〜</strong></div>
+        </a>
+        <a class="place-row" href="detail.html">
+          <div class="place-thumb"><img src="hero-yudofu.png" alt="温泉食堂の温泉湯どうふ定食"><span class="media-count">▣ 1</span></div>
+          <div class="place-info"><div class="place-type">RESTAURANT · 徒歩12分</div><h2>温泉食堂</h2><p>民芸調の店内で味わう、地元に長く愛される温泉湯どうふ定食。</p><div class="tags"><span class="tag">ランチ</span><span class="tag">ディナー</span></div></div>
+          <div class="place-price"><small>温泉豆腐定食</small><strong class="numeric">¥1,100</strong></div>
+        </a>
+        <a class="place-row" href="detail.html">
+          <div class="place-thumb" aria-label="写真なし"></div>
+          <div class="place-info"><div class="place-type">RESTAURANT · 1.3km</div><h2>月創采膳＆鮨處ありあけ</h2><p>秘伝のごまだれで食べる、クリーミーな嬉野郷土料理セット。</p><div class="tags"><span class="tag">ランチ</span><span class="tag">ディナー</span></div></div>
+          <div class="place-price"><small>湯豆腐セット</small><strong class="numeric">¥1,300</strong></div>
+        </a>
+        <a class="place-row" href="detail.html">
+          <div class="place-thumb" aria-label="写真なし"></div>
+          <div class="place-info"><div class="place-type">RESTAURANT · 1.5km</div><h2>食事処 あかつき食堂</h2><p>早朝から開くレトロな町食堂。地元の日常に混ざって、気軽な一椀を。</p><div class="tags"><span class="tag">朝食</span><span class="tag">ランチ</span><span class="tag">要確認</span></div></div>
+          <div class="place-price"><small>湯豆腐</small><strong class="numeric">¥600</strong></div>
+        </a>
+      </section>
+
+      <aside class="mock-map list-map" aria-label="検索結果の地図">
+        <span class="river"></span><span class="pin one"><span>3</span></span><span class="pin two"><span>1</span></span><span class="pin three"><span>♨</span></span><span class="pin four"><span>♨</span></span>
+        <div class="map-control"><button aria-label="現在地">◎</button><button aria-label="全体表示">⤢</button></div>
+        <div class="map-card"><small>旅館 · 徒歩6分 · 写真3件</small><strong>旅館 吉田屋</strong><div class="price numeric">¥1,650〜</div></div>
+      </aside>
+    </div>
+  </main>
+  <div class="mock-note">LIST / LIGHT・DARK <button type="button" data-theme-toggle aria-label="ダークモードに切替">◐</button></div>
+  <script src="mock.js"></script>
+</body>
+</html>
