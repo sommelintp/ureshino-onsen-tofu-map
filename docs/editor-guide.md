@@ -66,6 +66,18 @@ GitHub の操作は必要ありません。
 **注意**（座標なし、id なし、メニューなし）が一覧で出ます。シートを編集した後の確認に使ってください。
 例: `https://sommelintp.github.io/ureshino-onsen-tofu-map/?check=1`
 
+## 3.7 写真・動画（SNS 投稿）を載せる
+
+`data/media.json` に1件ずつ追加します（スプレッドシート対応は今後）。
+
+```json
+{ "place_id": "yokocho", "platform": "instagram", "url": "https://www.instagram.com/p/XXXX/",
+  "caption": "特選湯どうふ定食", "verified": true, "added_by": "観光協会 山田", "added_at": "2026-10-09" }
+```
+- 投稿本文・位置情報タグ・写っている看板やメニューで **店名が確実に分かるものだけ** `verified: true` にする。分からないものは載せない
+- 画像を保存して載せるのは禁止（公式の埋め込みで表示されます）。お店や旅館の公式アカウントの投稿が最優先
+- 投稿者本人から削除の依頼があればすぐ削除する
+
 ## 4. ルール
 
 - 出典のない情報は `要確認` までにとどめる（出典が付いたら `公開`）

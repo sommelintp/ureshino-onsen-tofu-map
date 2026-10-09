@@ -12,13 +12,16 @@ const config = read('config.js');
 const schema = read('js/schema.js');
 const app = read('js/app.js');
 const illust = read('js/illust.js');
+const dataJs = read('js/data.js');
+const media = read('data/media.json').trim();
 const data = read('data/places.json').trim();
 const bg = read('data/background.json').trim();
 const safe = (s) => s.replace(/<\/script/gi, '<\\/script');
 
 html = html.replace('<link rel="stylesheet" href="css/style.css">', `<style>\n${css}\n</style>`);
-html = html.replace('<script src="config.js"></script>', `<script>\n${safe(config)}\nwindow.__TOFU_DATA__ = ${safe(data)};\nwindow.__TOFU_BACKGROUND__ = ${safe(bg)};\n</script>`);
+html = html.replace('<script src="config.js"></script>', `<script>\n${safe(config)}\nwindow.__TOFU_DATA__ = ${safe(data)};\nwindow.__TOFU_BACKGROUND__ = ${safe(bg)};\nwindow.__TOFU_MEDIA__ = ${safe(media)};\n</script>`);
 html = html.replace('<script src="js/schema.js"></script>', `<script>\n${safe(schema)}\n</script>`);
+html = html.replace('<script src="js/data.js"></script>', `<script>\n${safe(dataJs)}\n</script>`);
 html = html.replace('<script src="js/illust.js"></script>', `<script>\n${safe(illust)}\n</script>`);
 html = html.replace('<script src="js/app.js"></script>', `<script>\n${safe(app)}\n</script>`);
 mkdirSync(resolve(ROOT, 'dist'), { recursive: true });

@@ -3,11 +3,19 @@
 このリポジトリは、佐賀県嬉野市で「温泉湯どうふ」が食べられる・買える場所を地図で紹介する公開サイトです。
 GitHub Pages（`main` への push で自動公開）で配信しています。公開URL: https://sommelintp.github.io/ureshino-onsen-tofu-map/
 
-いまの依頼は **見た目の全面リデザイン** です。依頼内容は `docs/CODEX_BRIEF.md` にあります。作業前に必ず読んでください。
+## あなた（Codex）の担当: フロントエンド
+このプロジェクトは **バックエンド＝Claude、フロントエンド＝Codex** で分担しています。役割・担当ファイル・データ API は
+`docs/ARCHITECTURE.md` にあります。作業前に必ず読んでください。
+
+- 編集してよい: `index.html`、`css/`、`js/app.js`、`js/illust.js`、新規の `js/ui/`・`assets/`・`docs/mockups/`、`og-image.png`
+- 編集しない（読むだけ）: `data/`、`js/schema.js`、`js/data.js`、`scripts/`、`.github/`、`config.js`
+- データは `window.TofuData` から取る。項目が足りなければ、PR の最後に「バックエンドへの依頼」として書く
+- 最初の大きな依頼（ビジュアル全面リデザイン）は `docs/CODEX_BRIEF.md`。以降の依頼は `docs/requests/frontend-template.md` の形で届く
+- 作業前に `git pull`、作業は `codex/<作業名>` ブランチ、終わったら PR（`main` に直接 push しない）
 
 ## 変えてはいけないもの
-- **データとコンセプト**: `data/places.json`（59件）、`data/background.json` の内容、`js/schema.js` のデータ形式と検証ルール。
-  表示を変えるのは自由。データの項目名・意味・値は変えない（追加は可。下記 media）。
+- **データとコンセプト**: `data/` の内容、`js/schema.js`・`js/data.js` のデータ形式と検証ルール（バックエンド担当）。
+  表示を変えるのは自由。データの項目名・意味・値は変えない。
 - **機能**: 種別・提供形態・使用豆腐・予算での絞り込み、検索、詳細（メニュー表・使用豆腐・使用温泉・リンク・出典）、
   `#place=<id>` の共有URL、情報の追加・修正フォーム（GitHub Issue 事前入力）、位置修正、現在地・近い順、`?check=1` の点検画面、
   Google スプレッドシート読み込み（`config.js` の `SHEET_ID`）、Google マップ（`GOOGLE_MAPS_API_KEY`）と無料地図へのフォールバック。

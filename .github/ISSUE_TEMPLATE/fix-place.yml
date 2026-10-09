@@ -40,6 +40,12 @@ body:
     attributes:
       label: 使っている温泉（源泉）
   - type: textarea
+    id: media
+    attributes:
+      label: 写真・動画の投稿URL（Instagram / TikTok / YouTube）
+      description: 1行に1つ。店名や場所が分かる投稿を教えてください（埋め込みで紹介します。画像の転載はしません）
+      placeholder: https://www.instagram.com/p/...
+  - type: textarea
     id: sources
     attributes:
       label: 出典URL

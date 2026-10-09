@@ -13,27 +13,11 @@
 
 ## 1. 写真・動画（SNS 埋め込み）の仕組みを追加する
 
-### データ: `data/media.json` を新設（`data/places.json` は変更しない）
-```jsonc
-{
-  "updated": "2026-10-09",
-  "items": [
-    {
-      "place_id": "yokocho",                 // data/places.json の id
-      "platform": "instagram",               // instagram | tiktok | youtube | x
-      "url": "https://www.instagram.com/p/XXXXXXXX/",
-      "caption": "特選湯どうふ定食（投稿者の説明を短く要約。本文の転載はしない）",
-      "verified": true,                       // 店名・場所が確実に分かることを人が確認したか
-      "added_by": "編集者名 or 投稿者ニックネーム",
-      "added_at": "2026-10-09"
-    }
-  ]
-}
-```
-- `place_id` を持たない「温泉湯どうふ全般」の投稿は `place_id: ""` とし、トップのギャラリーだけに出す。
-- スプレッドシート運用にも載せられるよう、`js/schema.js` に media 用の列定義（シート `media` タブ: 場所ID / 種類 / URL / 説明 / 確認済み / 追加者 / 追加日）を追加し、
-  `scripts/csv-to-json.mjs` を media タブにも対応させる（任意。最低限 JSON を読めれば可）。
-- 初期データは空でよい（収集は人が行う。下記「投稿の集め方」）。**空でも見栄えが崩れないこと**（下記の写真なし表示）。
+### データ（バックエンドで用意済み）
+- `data/media.json` と `TofuData.loadMedia()` があります（docs/ARCHITECTURE.md の Media）。いまは空なので、
+  モックでは仮の投稿 URL を `docs/mockups/` 内のダミーデータとして使ってください（`data/media.json` には書かない）。
+- 投稿フォームの「写真・動画の投稿URL」欄は `TofuData.issueUrl({ ..., media })` に `media` を渡せば Issue に入ります。
+- **空でも見栄えが崩れないこと**（下記の写真なし表示）。
 
 ### 表示: 公式の埋め込みのみを使う（画像のダウンロード・転載は禁止）
 - Instagram: 公式 embed（`blockquote.instagram-media` + `https://www.instagram.com/embed.js`）。
@@ -51,9 +35,8 @@
 - **絞り込み**: 「写真・動画あり」チップを追加。
 
 ### 投稿の集め方（サイトに導線を作る）
-- 投稿フォーム（情報を追加・修正）に「Instagram / TikTok / YouTube の投稿URL」欄を追加し、Issue 本文に含める。
-- 確認ルール（`docs/editor-guide.md` に追記）: 投稿本文・位置情報タグ・写っている看板やメニューで **店名が確実に分かるものだけ** `verified: true`。
-  分からないものは載せない。本人から削除依頼があれば即削除。
+- 投稿フォーム（情報を追加・修正）に「Instagram / TikTok / YouTube の投稿URL」欄を追加する（送信は `TofuData.issueUrl`）。
+- 掲載の確認ルール（店名が確実に分かる投稿だけ載せる等）はバックエンド側で運用する。
 
 ## 2. デザインの方向性
 - テーマ: **「湯けむりと、とろける白」**。嬉野の温泉街・嬉野茶の緑・土鍋の焦げ茶・豆腐の白・湯気。

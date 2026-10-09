@@ -17,7 +17,7 @@
 
 ## リデザイン（進行中）
 
-見た目の全面リデザインと、Instagram / TikTok の写真・動画の埋め込みを Codex に依頼しています。依頼内容は [docs/CODEX_BRIEF.md](docs/CODEX_BRIEF.md)、作業ルールは [AGENTS.md](AGENTS.md)。
+バックエンド（データ・仕組み）を Claude、フロントエンド（デザイン・部品）を Codex が担当しています。役割と担当ファイル・データ API は [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)、依頼の出し方は [docs/requests/](docs/requests/)。最初のリデザイン依頼は [docs/CODEX_BRIEF.md](docs/CODEX_BRIEF.md)。
 
 ## 仕組み
 

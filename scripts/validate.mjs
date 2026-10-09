@@ -17,6 +17,16 @@ try {
   if (!Array.isArray(bg.sections)) bgErr = 'background.json: sections が配列ではありません';
 } catch (e) { bgErr = 'background.json: ' + e.message; }
 
+// 写真・動画（data/media.json）
+try {
+  const D = (await import('node:module')).createRequire(import.meta.url)(resolve(ROOT, 'js/data.js'));
+  const mj = readJSON(resolve(ROOT, 'data/media.json'));
+  const ids = {}; places.forEach((p) => { ids[p.id] = true; });
+  const mitems = (mj.items || []).map(D.normalizeMedia);
+  D.validateMedia(mitems, ids).forEach((e) => errs.push(e));
+  console.log(`media: ${mitems.length} 件（確認済み ${mitems.filter((m) => m.verified).length}）`);
+} catch (e) { errs.push('media.json: ' + e.message); }
+
 const counts = {};
 places.forEach((p) => { counts[p.category] = (counts[p.category] || 0) + 1; });
 console.log(`places: ${places.length} 件 (updated ${meta.updated || '?'})`, counts);

@@ -89,33 +89,15 @@
   }
 
   async function loadLocalData() {
-    let json = window.__TOFU_DATA__ || null;   // 1ファイル版（dist/index.html）では埋め込みデータを使う
-    if (!json) {
-      const res = await fetch(CFG.DATA_URL, { cache: 'no-cache' });
-      if (!res.ok) throw new Error('data の取得に失敗しました (HTTP ' + res.status + ')');
-      json = await res.json();
-    }
-    setPlaces((json.places || []).map(S.normalizePlace), 'json', json.meta || {});
+    const ds = await window.TofuData.loadLocalPlaces();
+    setPlaces(ds.raw, ds.source, ds.meta);
   }
 
   async function loadSheetData() {
-    try {
-      const url = 'https://docs.google.com/spreadsheets/d/' + encodeURIComponent(CFG.SHEET_ID) +
-        '/gviz/tq?tqx=out:csv&headers=1' + (CFG.SHEET_NAME ? '&sheet=' + encodeURIComponent(CFG.SHEET_NAME) : '');
-      const res = await fetchWithTimeout(url, 10000);
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      const text = await res.text();
-      const rows = S.csvToObjects(text);
-      if (!rows.length || !('名称' in rows[0])) throw new Error('シートの見出し行（名称 など）が見つかりません');
-      const places = rows.map(S.rowToPlace).filter((p) => p.name);
-      if (!places.length) throw new Error('シートに行がありません');
-      setPlaces(places, 'sheet', { updated: new Date().toISOString().slice(0, 10) });
-      return true;
-    } catch (e) {
-      console.warn('スプレッドシートの取得に失敗したため同梱データを表示しています:', e);
-      state.sheetError = String(e && e.message || e);
-      return false;
-    }
+    const r = await window.TofuData.loadSheetPlaces();
+    if (r.dataset) { setPlaces(r.dataset.raw, 'sheet', r.dataset.meta); return true; }
+    if (r.error) state.sheetError = r.error;
+    return false;
   }
 
   // ?check=1 で開くと、編集者向けにデータの入力エラー・不足を一覧表示する（GitHub 不要の自己点検用）
@@ -775,22 +757,7 @@
       '## 位置（緯度, 経度）', d.lat && d.lng ? d.lat + ', ' + d.lng : '（未入力）', '', '## 投稿者', d.contributor || '（匿名）');
     return lines.join('\n');
   }
-  function githubIssueUrl(d) {
-    const base = 'https://github.com/' + CFG.GITHUB_REPO + '/issues/new';
-    const q = new URLSearchParams();
-    q.set('template', d.mode === 'fix' ? 'fix-place.yml' : 'new-place.yml');
-    q.set('title', (d.mode === 'fix' ? '[修正] ' : '[追加] ') + (d.name || '（店名未入力）'));
-    if (d.mode === 'fix') q.set('place', d.name + (d.placeId ? ' (id: ' + d.placeId + ')' : ''));
-    q.set('name', d.name); q.set('category', catLabel(d.category)); q.set('address', d.address);
-    q.set('menu', d.menu); q.set('tofu', d.tofu); q.set('onsen', d.onsen); q.set('notes', d.notes); q.set('sources', d.sources);
-    q.set('coords', d.lat && d.lng ? d.lat + ', ' + d.lng : ''); q.set('contributor', d.contributor);
-    let url = base + '?' + q.toString();
-    if (url.length > 7500) { // GitHub の URL 長制限に備え、長い場合は本文を body にまとめる
-      const q2 = new URLSearchParams(); q2.set('title', q.get('title')); q2.set('labels', d.mode === 'fix' ? '修正提案' : '追加提案'); q2.set('body', bodyText(d).slice(0, 6000));
-      url = base + '?' + q2.toString();
-    }
-    return url;
-  }
+  function githubIssueUrl(d) { return window.TofuData.issueUrl(d); }
 
   function submitContribute(e) {
     e.preventDefault();
@@ -826,8 +793,7 @@
     $('#modal-about').hidden = false;
     if (state.background) return;
     try {
-      let bg = window.__TOFU_BACKGROUND__ || null;
-      if (!bg) { const res = await fetch(CFG.BACKGROUND_URL, { cache: 'no-cache' }); bg = await res.json(); }
+      const bg = await window.TofuData.loadBackground();
       state.background = bg;
       $('#about-body').innerHTML = (bg.sections || []).map((sec) =>
         '<h3>' + esc(sec.heading) + '</h3>' + (sec.body || []).map((t) => '<p>' + esc(t) + '</p>').join('') +
