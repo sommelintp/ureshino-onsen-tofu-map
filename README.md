@@ -15,6 +15,10 @@
 
 ---
 
+## リデザイン（進行中）
+
+見た目の全面リデザインと、Instagram / TikTok の写真・動画の埋め込みを Codex に依頼しています。依頼内容は [docs/CODEX_BRIEF.md](docs/CODEX_BRIEF.md)、作業ルールは [AGENTS.md](AGENTS.md)。
+
 ## 仕組み
 
 ```
