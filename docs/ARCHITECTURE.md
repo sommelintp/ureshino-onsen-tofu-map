@@ -38,7 +38,7 @@ const ds = await TofuData.loadPlaces((ds) => render(ds));
 
 // 写真・動画（確認済みの SNS 投稿のみ）
 const media = await TofuData.loadMedia();
-// media = { items: Media[], byPlace: { [place_id]: Media[] }, general: Media[] }
+// media = { items: Media[], byPlace: { [place_id]: Media[] }, general: Media[], yudofu: Media[]（湯どうふが主題の投稿） }
 
 // 「温泉湯どうふとは」の読み物
 const bg = await TofuData.loadBackground();   // { sections: [{ heading, body[], table?, sources[] }] }
@@ -81,6 +81,7 @@ TofuData.schema.validateAll(ds.raw)  // 点検画面（?check=1）用
 | `url` | 元の投稿 URL。表示は各サービスの公式埋め込みで行う（画像の保存・転載はしない） |
 | `youtube_id` | YouTube のときの動画 ID |
 | `caption` | 短い説明（編集者が書く） |
+| `focus` | `yudofu` 温泉湯どうふが主題（ヒーロー・ギャラリー向き） / `place` 店・宿の紹介（詳細パネル向き） |
 
 ## 依頼の出し方
 
