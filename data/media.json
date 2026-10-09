@@ -10,7 +10,9 @@
    "focus": "yudofu",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "yokocho",
@@ -20,7 +22,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "hirakawaya-ureshino",
@@ -30,7 +34,9 @@
    "focus": "yudofu",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "hirakawaya-ureshino",
@@ -40,7 +46,10 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": false,
+   "checked_at": "2026-10-09",
+   "check_note": "投稿者が埋め込みを禁止"
   },
   {
    "place_id": "hirakawaya-takeo",
@@ -50,7 +59,9 @@
    "focus": "yudofu",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "oomuraya",
@@ -60,7 +71,9 @@
    "focus": "yudofu",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "oomuraya",
@@ -70,7 +83,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "taishoya",
@@ -80,7 +95,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "taishoya",
@@ -90,7 +107,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "shiiba",
@@ -100,7 +119,10 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": false,
+   "checked_at": "2026-10-09",
+   "check_note": "削除・非公開"
   },
   {
    "place_id": "yoshidaya",
@@ -110,7 +132,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "yoshidaya",
@@ -120,7 +144,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "wataya",
@@ -130,7 +156,10 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": false,
+   "checked_at": "2026-10-09",
+   "check_note": "削除・非公開"
   },
   {
    "place_id": "wataya",
@@ -140,7 +169,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "koyokaku",
@@ -150,7 +181,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "koyokaku",
@@ -160,7 +193,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "hotel-sakura",
@@ -170,7 +205,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "hotel-sakura",
@@ -180,7 +217,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "ureshinokan",
@@ -190,7 +229,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "kujaku",
@@ -200,7 +241,9 @@
    "focus": "place",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "",
@@ -210,7 +253,9 @@
    "focus": "yudofu",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "",
@@ -222,7 +267,7 @@
    "added_by": "Claude（Web検索で収集）",
    "added_at": "2026-10-09",
    "embed_ok": false,
-   "check_note": "再生できない（オーナー確認 2026-10-09）",
+   "check_note": "削除・非公開",
    "checked_at": "2026-10-09"
   },
   {
@@ -233,7 +278,9 @@
    "focus": "yudofu",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "",
@@ -243,7 +290,9 @@
    "focus": "yudofu",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "",
@@ -253,7 +302,10 @@
    "focus": "yudofu",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": true,
+   "checked_at": "2026-10-09"
   }
- ]
+ ],
+ "checked": "2026-10-09"
 }
