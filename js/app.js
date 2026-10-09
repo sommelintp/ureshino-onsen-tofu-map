@@ -17,7 +17,8 @@
   const state = {
     all: [], visible: [], byId: {}, meta: {}, source: 'json', loadError: '',
     map: null, engine: '', mapWarning: '', markers: {}, me: null, selectedId: null, pick: null, background: null,
-    filters: { q: '', cats: new Set(), svcs: new Set(), tofu: '', price: PRICE_MAX, unverified: true, bounds: false },
+    media: { items: [], byPlace: {}, general: [], yudofu: [] }, mediaObserver: null,
+    filters: { q: '', cats: new Set(), svcs: new Set(), tofu: '', price: PRICE_MAX, unverified: true, bounds: false, media: false },
     sort: 'category',
   };
 
@@ -34,26 +35,31 @@
   document.addEventListener('DOMContentLoaded', init);
 
   async function init() {
-    if (CFG.SITE_TITLE) { $('#site-title').textContent = CFG.SITE_TITLE; document.title = CFG.SITE_TITLE; }
+    if (CFG.SITE_TITLE) { document.title = CFG.SITE_TITLE; if (CFG.SITE_TITLE !== '嬉野温泉 湯どうふマップ') $('#site-title').textContent = CFG.SITE_TITLE; }
     if (CFG.OPERATOR) $('#operator-line').textContent = ' · 運営: ' + CFG.OPERATOR;
     if (CFG.GITHUB_REPO) $('#repo-link').href = 'https://github.com/' + CFG.GITHUB_REPO;
-    $('#hero-art').innerHTML = I.HERO;
+    initTheme();
     buildStaticControls();
     await createMap();
     bindEvents();
     state.map.onMoveEnd(() => { if (state.filters.bounds) applyFilters({}); });
     state.map.onClick((lat, lng) => { if (state.pick) finishPick({ lat, lng }); });
     if (state.mapWarning) toast(state.mapWarning);
+    const mediaPromise = loadMediaData();
+    const backgroundPromise = loadBackgroundContent();
     try {
       await loadLocalData();          // まず同梱データを即表示
     } catch (e) {
       console.error(e);
       state.loadError = String(e && e.message || e);
     }
+    await mediaPromise;
     buildDynamicControls();
+    renderMakerList();
+    const initialHash = new URLSearchParams(location.hash.replace(/^#/, ''));
     readHash();
     applyFilters({ fit: true });
-    const sel = new URLSearchParams(location.hash.replace(/^#/, '')).get('place');
+    const sel = initialHash.get('place');
     if (sel && state.byId[sel]) selectPlace(sel, { pan: true });
     updateDataBadge();
     if (CFG.SHEET_ID) {              // スプレッドシート（正本）は裏で取得して差し替える
@@ -61,6 +67,7 @@
       if (ok) {
         const f = state.filters;
         buildDynamicControls();
+        renderMakerList();
         $('#tofu-select').value = f.tofu;
         const r = $('#price-range'); if (f.price < Number(r.max)) r.value = f.price; updatePriceOutput();
         applyFilters({});
@@ -69,6 +76,7 @@
         updateDataBadge();
       }
     }
+    await backgroundPromise;
     if (new URLSearchParams(location.search).get('check') === '1') renderCheckPanel();
   }
 
@@ -100,6 +108,19 @@
     return false;
   }
 
+  async function loadMediaData() {
+    try {
+      state.media = await window.TofuData.loadMedia();
+    } catch (e) {
+      console.warn('写真・動画を読み込めませんでした', e);
+      state.media = { items: [], byPlace: {}, general: [], yudofu: [] };
+    }
+    renderHeroMedia();
+    renderMediaGallery();
+    const withMedia = Object.keys(state.media.byPlace || {}).length;
+    $('#media-place-count').textContent = withMedia ? '（' + withMedia + '件）' : '';
+  }
+
   // ?check=1 で開くと、編集者向けにデータの入力エラー・不足を一覧表示する（GitHub 不要の自己点検用）
   function renderCheckPanel() {
     const places = state.allRaw || state.all;
@@ -128,6 +149,93 @@
     else { b.textContent = 'データ: 同梱スナップショット' + (state.meta.updated ? '（' + state.meta.updated + '）' : ''); if (state.sheetError) b.title = 'スプレッドシートの取得に失敗: ' + state.sheetError; }
   }
 
+  function initTheme() {
+    const saved = localStorage.getItem('tofu-theme');
+    if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+    updateThemeButton();
+  }
+  function updateThemeButton() {
+    const b = $('#btn-theme'); if (!b) return;
+    const dark = document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+    b.textContent = dark ? '☀' : '☾';
+    b.setAttribute('aria-label', dark ? '明るい配色にする' : '暗い配色にする');
+  }
+  function toggleTheme() {
+    const dark = document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+    localStorage.setItem('tofu-theme', dark ? 'light' : 'dark');
+    updateThemeButton();
+  }
+
+  // ------------------------------------------------------------------ 写真・動画（TofuData.loadMedia の確認済みデータだけを使う）
+  function platformLabel(platform) {
+    return { youtube: 'YouTube', instagram: 'Instagram', tiktok: 'TikTok', x: 'X' }[platform] || '投稿';
+  }
+  function mediaCard(m, compact) {
+    return '<article class="media-card' + (compact ? ' media-card-compact' : '') + '">' +
+      '<div class="embed-shell" data-platform="' + esc(m.platform) + '" data-url="' + esc(m.url) + '" data-youtube-id="' + esc(m.youtube_id || '') + '">' +
+      '<div class="embed-placeholder"><strong>' + esc(platformLabel(m.platform)) + '</strong><span>画面に入ると読み込みます</span></div>' +
+      '<a class="embed-fallback" href="' + esc(m.url) + '" target="_blank" rel="noopener noreferrer">投稿を開く ↗</a></div>' +
+      '<div class="media-card-caption"><p>' + esc(m.caption || platformLabel(m.platform) + ' の投稿') + '</p><a href="' + esc(m.url) + '" target="_blank" rel="noopener noreferrer">出典: ' + esc(platformLabel(m.platform)) + '</a></div></article>';
+  }
+  function observeMedia(root) {
+    const shells = $$('.embed-shell:not([data-observed])', root || document);
+    if (!shells.length) return;
+    if (!('IntersectionObserver' in window)) { shells.forEach(hydrateMedia); return; }
+    if (!state.mediaObserver) {
+      state.mediaObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        state.mediaObserver.unobserve(entry.target);
+        hydrateMedia(entry.target);
+      }), { rootMargin: '240px 0px' });
+    }
+    shells.forEach((el) => { el.dataset.observed = '1'; state.mediaObserver.observe(el); });
+  }
+  function hydrateMedia(el) {
+    if (!el || el.dataset.loaded) return;
+    el.dataset.loaded = '1';
+    const platform = el.dataset.platform, url = el.dataset.url;
+    let src = '', ratio = '';
+    if (platform === 'youtube' && el.dataset.youtubeId) {
+      src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(el.dataset.youtubeId) + '?rel=0'; ratio = '16 / 9';
+    } else if (platform === 'instagram' && /^https:\/\/(www\.)?instagram\.com\/(p|reel|tv)\//.test(url)) {
+      src = url.replace(/\?.*$/, '').replace(/\/$/, '') + '/embed/'; ratio = '4 / 5';
+    } else if (platform === 'tiktok') {
+      const id = (url.match(/\/video\/(\d+)/) || [])[1];
+      if (id) { src = 'https://www.tiktok.com/player/v1/' + encodeURIComponent(id); ratio = '9 / 16'; }
+    }
+    if (!src) { el.classList.add('embed-link-only'); return; }
+    if (ratio) el.style.aspectRatio = ratio;
+    const iframe = document.createElement('iframe');
+    iframe.src = src; iframe.title = platformLabel(platform) + ' 埋め込み'; iframe.loading = 'lazy';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin'; iframe.allowFullscreen = true;
+    const placeholder = $('.embed-placeholder', el); if (placeholder) placeholder.replaceWith(iframe);
+  }
+  function prioritizedMedia() {
+    const seen = new Set();
+    return (state.media.yudofu || []).concat(state.media.items || []).filter((m) => {
+      if (seen.has(m.url)) return false; seen.add(m.url); return true;
+    });
+  }
+  function renderHeroMedia() {
+    const el = $('#hero-media'); if (!el) return;
+    const m = prioritizedMedia()[0];
+    el.innerHTML = m ? mediaCard(m, true) : '<p class="muted">公開中の投稿はまだありません。</p>';
+    observeMedia(el);
+  }
+  function renderMediaGallery() {
+    const el = $('#media-gallery'); if (!el) return;
+    const items = prioritizedMedia().slice(0, 8);
+    el.innerHTML = items.length ? items.map((m) => mediaCard(m, false)).join('') : '<p class="muted">公開中の写真・動画はまだありません。</p>';
+    observeMedia(el);
+  }
+  function renderPlaceMedia(id) {
+    const items = (state.media.byPlace && state.media.byPlace[id]) || [];
+    if (!items.length) return '<section class="detail-media-section"><h3>写真・動画</h3><div class="detail-media-empty">' + I.EMPTY + '<div><strong>写真・動画はまだありません</strong><span>この場所に紐づく公開投稿を募集中です。</span></div></div></section>';
+    return '<section class="detail-media-section"><h3>写真・動画（' + items.length + '件）</h3><div class="detail-media-strip">' + items.map((m) => mediaCard(m, true)).join('') + '</div></section>';
+  }
+
   // ------------------------------------------------------------------ 地図（エンジン切替: Google マップ / Leaflet）
   // state.map は共通インターフェース:
   //   setView(lat,lng,zoom) panTo(lat,lng) getZoom() contains(lat,lng) fitBounds(points,{padding,maxZoom})
@@ -135,7 +243,8 @@
   //   setMeMarker(lat,lng) invalidateSize() setCursor(css) onMoveEnd(fn) onClick(fn)
   async function createMap() {
     const key = (CFG.GOOGLE_MAPS_API_KEY || '').trim();
-    if (key) {
+    const isLocal = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+    if (key && !isLocal) {
       try {
         await loadGoogleMaps(key);
         state.map = createGoogleMap();
@@ -251,7 +360,9 @@
     // ベクター地図（OpenFreeMap: 鍵・費用不要）。WebGL が使えない端末や取得失敗時は地理院タイルに切り替える
     const bases = {};
     let vector = null;
-    if (CFG.BASEMAP === 'vector' && typeof L.maplibreGL === 'function' && typeof maplibregl !== 'undefined') {
+    const vectorSupported = typeof maplibregl !== 'undefined' && typeof maplibregl.supported === 'function' &&
+      maplibregl.supported({ failIfMajorPerformanceCaveat: true }) && !/HeadlessChrome/.test(navigator.userAgent);
+    if (CFG.BASEMAP === 'vector' && typeof L.maplibreGL === 'function' && vectorSupported) {
       try {
         vector = L.maplibreGL({
           style: CFG.VECTOR_STYLE_URL,
@@ -455,12 +566,22 @@
     r.max = String(Math.max(1000, maxP)); r.value = r.max;
   }
 
+  function renderMakerList() {
+    const el = $('#maker-list'); if (!el) return;
+    const makers = state.all.filter((p) => p.category === 'tofu_maker');
+    el.innerHTML = makers.length ? makers.map((p) => {
+      const users = state.all.filter((q) => q.id !== p.id && (q.tofu_source.maker_id === p.id || (q.tofu_source.name && q.tofu_source.name.indexOf(p.name) >= 0))).length;
+      return '<button type="button" class="maker-card" data-maker-id="' + esc(p.id) + '"><strong>' + esc(p.name) + '</strong><span>' + esc(p.address || '住所情報なし') + (users ? ' · 使用 ' + users + '件' : '') + '</span></button>';
+    }).join('') : '<p class="muted">豆腐製造元の情報はまだありません。</p>';
+  }
+
   function matches(p) {
     const f = state.filters;
     if (!f.unverified && !isConfirmed(p)) return false;
     if (f.cats.size && !f.cats.has(p.category)) return false;
     if (f.svcs.size) { for (const s of f.svcs) if (!p.service.includes(s)) return false; }
     if (f.tofu && tofuKey(p) !== f.tofu) return false;
+    if (f.media && !(state.media.byPlace && state.media.byPlace[p.id] && state.media.byPlace[p.id].length)) return false;
     const r = $('#price-range');
     if (f.price < Number(r.max) && !(p.price_min != null && p.price_min <= f.price)) return false;
     if (f.q) {
@@ -504,7 +625,7 @@
       const chip = $('[data-cat="' + c + '"]'); if (chip) chip.querySelector('.n').textContent = n ? n : '';
     });
     const f = state.filters;
-    const active = [f.svcs.size ? '提供形態' : '', f.tofu ? '豆腐' : '', f.price < Number($('#price-range').max) ? '予算' : '', !f.unverified ? '確認済みのみ' : '', f.bounds ? '範囲' : ''].filter(Boolean);
+    const active = [f.svcs.size ? '提供形態' : '', f.tofu ? '豆腐' : '', f.price < Number($('#price-range').max) ? '予算' : '', !f.unverified ? '確認済みのみ' : '', f.bounds ? '範囲' : '', f.media ? '写真・動画あり' : ''].filter(Boolean);
     $('#active-filters').textContent = active.length ? '（' + active.join('・') + '）' : '';
   }
 
@@ -519,8 +640,15 @@
   }
 
   // ------------------------------------------------------------------ 一覧
+  function representativeMenu(p) {
+    return p.menu.find((m) => m.price === p.price_min && (!p.price_item || m.name === p.price_item)) ||
+      p.menu.find((m) => m.price === p.price_min) || null;
+  }
   function priceLine(p) {
-    if (p.price_min != null) return '<span class="card-price">' + yen(p.price_min) + (p.price_max !== p.price_min ? '<small>〜</small>' : '') + (p.price_item ? '<small class="price-item">' + esc(p.price_item.length > 18 ? p.price_item.slice(0, 18) + '…' : p.price_item) + '</small>' : '') + '</span>';
+    if (p.price_min != null) {
+      const m = representativeMenu(p);
+      return '<span class="card-price">' + yen(p.price_min) + (p.price_max !== p.price_min ? '<small>〜</small>' : '') + (p.price_item ? '<small class="price-item">' + esc(p.price_item.length > 18 ? p.price_item.slice(0, 18) + '…' : p.price_item) + '</small>' : '') + (m && m.source_url ? srcLink(m.source_url) : '') + '</span>';
+    }
     const t = p.menu.find((m) => m.price_text);
     return '<span class="card-price muted small">' + (t ? esc(t.price_text) : '価格情報なし') + '</span>';
   }
@@ -544,6 +672,8 @@
       if (!hasGeo(p)) badges.push('<span class="badge" title="座標が未登録のため地図に表示されません">位置未確定</span>');
       const dist = distanceM(p); if (dist != null) badges.push('<span class="badge ok">' + fmtDistance(dist) + '</span>');
       if (p.tofu_source.name) badges.push('<span class="badge tofu">豆腐: ' + esc(p.tofu_source.name) + '</span>');
+      const mediaCount = ((state.media.byPlace || {})[p.id] || []).length;
+      if (mediaCount) badges.push('<span class="media-count">▧ 写真・動画 ' + mediaCount + '件</span>');
       p.service.slice(0, 3).forEach((s) => badges.push('<span class="badge">' + esc(s) + '</span>'));
       return '<li class="card' + (p.id === state.selectedId ? ' selected' : '') + '" data-id="' + esc(p.id) + '" style="--c:' + catVar(p.category) + '" tabindex="0" role="button">' +
         '<div class="card-head"><span class="card-icon" style="--c:' + catVar(p.category) + '">' + I.icon(p.category) + '</span><p class="card-name">' + esc(p.name) + (p.name_kana ? '<span class="card-kana">' + esc(p.name_kana) + '</span>' : '') + '</p>' + priceLine(p) + '</div>' +
@@ -605,6 +735,7 @@
 
     const kv = [];
     if (p.address) kv.push(['住所', esc(p.address) + ' ' + linkOut(gmapsUrl(p), '地図アプリで開く')]);
+    if (state.me && hasGeo(p)) kv.push(['現在地から', esc(fmtDistance(distanceM(p))) + '（現在地と登録座標からの概算）']);
     if (p.tel) kv.push(['電話', '<a href="tel:' + esc(p.tel.replace(/[^\d+]/g, '')) + '">' + esc(p.tel) + '</a>']);
     if (p.hours) kv.push(['営業時間', esc(p.hours)]);
     if (p.closed) kv.push(['定休日', esc(p.closed)]);
@@ -622,18 +753,22 @@
     if (p.ratings.google != null) ratings.push((p.urls.google_maps ? '<a href="' + esc(p.urls.google_maps) + '" target="_blank" rel="noopener noreferrer">' : '<span>') + 'Google ' + p.ratings.google.toFixed(1) + (p.ratings.google_reviews != null ? '（' + p.ratings.google_reviews + '件）' : '') + (p.urls.google_maps ? '</a>' : '</span>'));
 
     const sources = p.sources.map((s) => '<li>' + (s.url ? linkOut(s.url, s.title || s.url.replace(/^https?:\/\//, '').slice(0, 60)) : esc(s.title)) + (s.accessed ? '<span class="acc">確認日 ' + esc(s.accessed) + '</span>' : '') + (s.note ? '<span class="acc">' + esc(s.note) + '</span>' : '') + '</li>').join('');
+    const priceMenu = representativeMenu(p);
+    const priceSummary = p.price_min != null ? '<div class="price-summary"><strong>' + yen(p.price_min) + (p.price_max !== p.price_min ? '〜' : '') + '</strong>' +
+      '<p>' + esc(p.price_item || (priceMenu && priceMenu.name) || '登録メニューの最低価格') + (priceMenu ? srcLink(priceMenu.source_url) : '') + '</p></div>' : '';
 
     const html = [
       '<button type="button" class="detail-close" id="btn-detail-close" aria-label="閉じる">×</button>',
-      '<div class="detail-scene-wrap">' + I.scene(p.category) + '</div>',
       '<div class="detail-top"><div><h2>' + esc(p.name) + '</h2>' + (p.name_kana ? '<div class="kana">' + esc(p.name_kana) + '</div>' : '') + '</div></div>',
       '<div class="detail-badges">' + badges.join('') + '</div>',
+      priceSummary,
       '<div class="detail-actions">',
       '<a class="btn btn-primary" href="' + esc(gmapsUrl(p)) + '" target="_blank" rel="noopener noreferrer">地図アプリで開く</a>',
       hasGeo(p) ? '<a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=' + p.lat + ',' + p.lng + '" target="_blank" rel="noopener noreferrer">経路</a>' : '',
       p.urls.official ? '<a class="btn" href="' + esc(p.urls.official) + '" target="_blank" rel="noopener noreferrer">公式サイト</a>' : '',
       '<button type="button" class="btn" id="btn-share">共有</button>',
       '</div>',
+      renderPlaceMedia(p.id),
       !isConfirmed(p) ? '<p class="callout">この場所の温泉湯どうふ情報はまだ確認できていません。メニュー・価格・使っている豆腐をご存じの方は「情報を修正する」から教えてください。</p>' : '',
       kv.length ? '<section><h3>基本情報</h3><dl class="kv">' + kv.map((r) => '<dt>' + r[0] + '</dt><dd>' + r[1] + '</dd>').join('') + '</dl></section>' : '',
       '<section><h3>温泉湯どうふのメニュー・価格</h3>' + (menuRows ? '<table class="menu-table"><thead><tr><th>品名</th><th>価格</th><th>備考・出典</th></tr></thead><tbody>' + menuRows + '</tbody></table><p class="muted small">価格は出典の掲載時点のものです。税込/税抜は備考を参照。変更されている場合があります。</p>' : '<p class="muted">メニュー情報はまだありません。</p>') + '</section>',
@@ -656,6 +791,7 @@
     $('#btn-fix').addEventListener('click', () => openContribute('fix', p));
     $('#btn-fix-pos').addEventListener('click', () => { openContribute('fix', p); startPick(); });
     $$('[data-goto]', inner).forEach((el) => el.addEventListener('click', (e) => { e.preventDefault(); selectPlace(el.dataset.goto, { pan: true }); }));
+    observeMedia(inner);
   }
 
   function sharePlace(p) {
@@ -686,6 +822,7 @@
     f.tofu = h.get('tofu') || '';
     if (h.get('price')) f.price = Number(h.get('price')) || PRICE_MAX;
     if (h.get('unv') === '0') f.unverified = false;
+    if (h.get('media') === '1') f.media = true;
     if (h.get('sort')) state.sort = h.get('sort');
     $('#q').value = f.q;
     $$('[data-cat]', $('#cat-chips')).forEach((c) => { const on = f.cats.has(c.dataset.cat); c.classList.toggle('active', on); c.setAttribute('aria-pressed', on); });
@@ -693,6 +830,7 @@
     $('#tofu-select').value = f.tofu;
     const r = $('#price-range'); if (f.price < Number(r.max)) r.value = f.price; updatePriceOutput();
     $('#chk-unverified').checked = f.unverified;
+    $('#chk-media').checked = f.media;
     $('#sort-select').value = state.sort;
   }
   function writeHash() {
@@ -703,6 +841,7 @@
     if (f.tofu) h.set('tofu', f.tofu);
     if (f.price < Number($('#price-range').max)) h.set('price', String(f.price));
     if (!f.unverified) h.set('unv', '0');
+    if (f.media) h.set('media', '1');
     if (state.sort !== 'category') h.set('sort', state.sort);
     if (state.selectedId) h.set('place', state.selectedId);
     const s = h.toString().replace(/%2C/g, ',');
@@ -714,8 +853,8 @@
   }
   function resetFilters() {
     const f = state.filters;
-    f.q = ''; f.cats.clear(); f.svcs.clear(); f.tofu = ''; f.price = PRICE_MAX; f.unverified = true; f.bounds = false;
-    $('#q').value = ''; $('#tofu-select').value = ''; $('#chk-unverified').checked = true; $('#chk-bounds').checked = false;
+    f.q = ''; f.cats.clear(); f.svcs.clear(); f.tofu = ''; f.price = PRICE_MAX; f.unverified = true; f.bounds = false; f.media = false;
+    $('#q').value = ''; $('#tofu-select').value = ''; $('#chk-unverified').checked = true; $('#chk-bounds').checked = false; $('#chk-media').checked = false;
     const r = $('#price-range'); r.value = r.max; updatePriceOutput();
     $$('.chip.active').forEach((c) => { c.classList.remove('active'); c.setAttribute('aria-pressed', 'false'); });
     applyFilters({ fit: true });
@@ -732,6 +871,7 @@
     $('#f-menu').value = p ? S.serializeMenu(p.menu).split('\n').map((l) => l.split(' | ').slice(0, 3).join(' | ')).join('\n') : '';
     $('#f-tofu').value = p ? p.tofu_source.name : '';
     $('#f-onsen').value = p ? p.onsen_source.name : '';
+    $('#f-media').value = p ? (((state.media.byPlace || {})[p.id] || []).map((m) => m.url).join('\n')) : '';
     $('#f-notes').value = '';
     $('#f-sources').value = '';
     $('#f-lat').value = p && hasGeo(p) ? p.lat : '';
@@ -744,7 +884,7 @@
     const g = (id) => $(id).value.trim();
     return {
       mode: g('#f-mode'), placeId: g('#f-place-id'), name: g('#f-name'), category: $('#f-category').value, address: g('#f-address'),
-      menu: g('#f-menu'), tofu: g('#f-tofu'), onsen: g('#f-onsen'), notes: g('#f-notes'), sources: g('#f-sources'),
+      menu: g('#f-menu'), tofu: g('#f-tofu'), onsen: g('#f-onsen'), media: g('#f-media'), notes: g('#f-notes'), sources: g('#f-sources'),
       lat: g('#f-lat'), lng: g('#f-lng'), contributor: g('#f-contrib'),
     };
   }
@@ -753,6 +893,7 @@
     if (d.mode === 'fix' && d.placeId) lines.push('対象: ' + d.name + ' (id: ' + d.placeId + ')', '');
     lines.push('## お店・施設', d.name || '（未入力）', '', '## 種別', catLabel(d.category), '', '## 住所', d.address || '（未入力）', '',
       '## 温泉湯どうふのメニューと価格', d.menu || '（未入力）', '', '## 使っている豆腐', d.tofu || '（未入力）', '', '## 使っている温泉', d.onsen || '（未入力）', '',
+      '## 写真・動画の投稿URL', d.media || '（未入力）', '',
       '## 特徴・修正内容・コメント', d.notes || '（未入力）', '', '## 出典URL', d.sources || '（未入力）', '',
       '## 位置（緯度, 経度）', d.lat && d.lng ? d.lat + ', ' + d.lng : '（未入力）', '', '## 投稿者', d.contributor || '（匿名）');
     return lines.join('\n');
@@ -789,8 +930,7 @@
   }
 
   // ------------------------------------------------------------------ 温泉湯どうふとは
-  async function openAbout() {
-    $('#modal-about').hidden = false;
+  async function loadBackgroundContent() {
     if (state.background) return;
     try {
       const bg = await window.TofuData.loadBackground();
@@ -803,6 +943,22 @@
     } catch (e) {
       $('#about-body').innerHTML = '<p class="muted">読み込めませんでした。</p>';
     }
+  }
+  function openAbout() {
+    loadBackgroundContent();
+    $('#about').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function applyQuickFilter(kind, value) {
+    const f = state.filters;
+    f.q = ''; f.cats.clear(); f.svcs.clear(); f.tofu = ''; f.price = Number($('#price-range').max); f.bounds = false;
+    if (kind === 'cat') f.cats.add(value); else f.svcs.add(value);
+    $('#q').value = ''; $('#tofu-select').value = ''; $('#price-range').value = $('#price-range').max; $('#chk-bounds').checked = false; updatePriceOutput();
+    $$('[data-cat]', $('#cat-chips')).forEach((c) => { const on = f.cats.has(c.dataset.cat); c.classList.toggle('active', on); c.setAttribute('aria-pressed', on); });
+    $$('[data-svc]', $('#svc-chips')).forEach((c) => { const on = f.svcs.has(c.dataset.svc); c.classList.toggle('active', on); c.setAttribute('aria-pressed', on); });
+    document.body.classList.remove('view-map'); document.body.classList.add('view-list');
+    applyFilters({ fit: true });
+    $('#explore').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   // ------------------------------------------------------------------ イベント
@@ -831,13 +987,19 @@
     $('#price-range').addEventListener('input', (e) => { state.filters.price = Number(e.target.value); updatePriceOutput(); applyFilters({}); });
     $('#chk-unverified').addEventListener('change', (e) => { state.filters.unverified = e.target.checked; applyFilters({}); });
     $('#chk-bounds').addEventListener('change', (e) => { state.filters.bounds = e.target.checked; applyFilters({}); });
+    $('#chk-media').addEventListener('change', (e) => { state.filters.media = e.target.checked; applyFilters({}); });
     $('#sort-select').addEventListener('change', (e) => { state.sort = e.target.value; if (state.sort === 'distance' && !state.me) locateMe(); else applyFilters({}); });
-    $('#list').addEventListener('click', (e) => { const card = e.target.closest('.card'); if (card) selectPlace(card.dataset.id, { pan: true, scroll: false }); });
+    $('#list').addEventListener('click', (e) => { if (e.target.closest('a')) return; const card = e.target.closest('.card'); if (card) selectPlace(card.dataset.id, { pan: true, scroll: false }); });
     $('#list').addEventListener('keydown', (e) => { const card = e.target.closest('.card'); if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); selectPlace(card.dataset.id, { pan: true, scroll: false }); } });
     $('#btn-locate').addEventListener('click', locateMe);
     $('#btn-fit').addEventListener('click', () => fitAll({ core: false }));
     $('#btn-contribute').addEventListener('click', () => openContribute('new', null));
+    $('#btn-contribute-bottom').addEventListener('click', () => openContribute('new', null));
     $('#btn-about').addEventListener('click', openAbout);
+    $('#btn-theme').addEventListener('click', toggleTheme);
+    $('#btn-hero-near').addEventListener('click', () => { $('#explore').scrollIntoView({ behavior: 'smooth', block: 'start' }); locateMe(); });
+    $$('.journey-card').forEach((b) => b.addEventListener('click', () => applyQuickFilter(b.dataset.quickCat ? 'cat' : 'svc', b.dataset.quickCat || b.dataset.quickSvc)));
+    $('#maker-list').addEventListener('click', (e) => { const b = e.target.closest('[data-maker-id]'); if (!b) return; $('#explore').scrollIntoView({ behavior: 'smooth', block: 'start' }); selectPlace(b.dataset.makerId, { pan: true }); });
     $('#form-contribute').addEventListener('submit', submitContribute);
     $('#btn-pick').addEventListener('click', startPick);
     $('#btn-pick-cancel').addEventListener('click', () => finishPick(null));
@@ -856,9 +1018,12 @@
       if (open) open.hidden = true; else if (state.pick) finishPick(null); else if (state.selectedId) closeDetail();
     });
     $$('.mobile-tabs .tab').forEach((t) => t.addEventListener('click', () => {
+      if (t.dataset.view === 'contribute') { openContribute('new', null); return; }
       $$('.mobile-tabs .tab').forEach((x) => x.classList.toggle('active', x === t));
       document.body.classList.toggle('view-map', t.dataset.view === 'map');
       document.body.classList.toggle('view-list', t.dataset.view === 'list');
+      if (t.dataset.view === 'media') { $('#media').scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+      $('#explore').scrollIntoView({ behavior: 'smooth', block: 'start' });
       setTimeout(() => state.map.invalidateSize(), 50);
     }));
     window.addEventListener('hashchange', () => {
