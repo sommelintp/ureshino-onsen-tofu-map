@@ -9,7 +9,8 @@
     "csv": "node scripts/json-to-csv.mjs",
     "sync": "node scripts/csv-to-json.mjs",
     "geocode": "node scripts/geocode.mjs",
-    "build": "node scripts/build-single.mjs"
+    "build": "node scripts/build-single.mjs",
+    "instagram": "node scripts/instagram-collect.mjs"
   },
   "engines": {
     "node": ">=18"

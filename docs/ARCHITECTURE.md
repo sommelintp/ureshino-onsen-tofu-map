@@ -38,7 +38,7 @@ const ds = await TofuData.loadPlaces((ds) => render(ds));
 
 // 写真・動画（確認済みの SNS 投稿のみ）
 const media = await TofuData.loadMedia();
-// media = { items: Media[], byPlace: { [place_id]: Media[] }, general: Media[] }
+// media = { items: Media[], byPlace: { [place_id]: Media[] }, general: Media[], yudofu: Media[]（湯どうふが主題の投稿） }
 
 // 「温泉湯どうふとは」の読み物
 const bg = await TofuData.loadBackground();   // { sections: [{ heading, body[], table?, sources[] }] }
@@ -80,7 +80,12 @@ TofuData.schema.validateAll(ds.raw)  // 点検画面（?check=1）用
 | `platform` | `instagram` `tiktok` `youtube` `x` |
 | `url` | 元の投稿 URL。表示は各サービスの公式埋め込みで行う（画像の保存・転載はしない） |
 | `youtube_id` | YouTube のときの動画 ID |
-| `caption` | 短い説明（編集者が書く） |
+| `caption` | 短い説明（編集者が書く。自動収集では投稿本文の冒頭） |
+| `posted_at` / `media_type` | 自動収集の投稿日 / IMAGE・VIDEO・CAROUSEL_ALBUM（任意） |
+| `focus` | `yudofu` 温泉湯どうふが主題（ヒーロー・ギャラリー向き） / `place` 店・宿の紹介（詳細パネル向き） |
+
+## 自動収集
+- Instagram: `scripts/instagram-collect.mjs` を GitHub Actions が毎日実行し `data/media.json` に追記（設定は `data/instagram-config.json`、手順は `docs/INSTAGRAM.md`）。画面側は `TofuData.loadMedia()` を使うだけでよい。
 
 ## 依頼の出し方
 

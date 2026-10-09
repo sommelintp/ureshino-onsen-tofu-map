@@ -1,5 +1,256 @@
 {
  "updated": "2026-10-09",
- "note": "写真・動画（SNS 投稿の公式埋め込み）。店名・場所が確実に分かる投稿だけを verified: true にする。画像の転載はしない。",
- "items": []
+ "note": "写真・動画（SNS 投稿の公式埋め込み）。focus: yudofu=温泉湯どうふが主題 / place=店・宿の紹介。初期分は Web 検索のタイトル・説明文で店名を確認して登録（中身は未視聴）。画像の転載はしない。",
+ "items": [
+  {
+   "place_id": "yokocho",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=lCn20s738VA",
+   "caption": "温泉湯どうふ発祥の店「宗庵よこ長」。美味しんぼ39巻掲載の店を訪問",
+   "focus": "yudofu",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "yokocho",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=9vtXatn-Tw0",
+   "caption": "嬉野八十八に泊まり、宗庵よこ長で湯どうふ（旅行vlog）",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "hirakawaya-ureshino",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=odkvALsjmrg",
+   "caption": "佐嘉平川屋 嬉野店で温泉湯豆腐の食べ放題",
+   "focus": "yudofu",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "hirakawaya-ureshino",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=d_DglRYCIUk",
+   "caption": "嬉野温泉街のお店巡り（佐嘉平川屋ほか）",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "hirakawaya-takeo",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=UWQIOS1Rj6k",
+   "caption": "佐嘉平川屋：温泉水で炊く湯豆腐（とろける様子）",
+   "focus": "yudofu",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "oomuraya",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=XX6tgnbgXi8",
+   "caption": "嬉野温泉湯豆腐を6社食べ比べ in 旅館大村屋",
+   "focus": "yudofu",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "oomuraya",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=BjOW0_HdaxI",
+   "caption": "老舗旅館 大村屋に宿泊（温泉と音楽）",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "taishoya",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=jsqX_0G8oJk",
+   "caption": "嬉野温泉 大正屋：特選牛と有明魚介に美肌の湯",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "taishoya",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=eNX5H5JEBPw",
+   "caption": "創業約100年の老舗旅館 大正屋",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "shiiba",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=zwQJRkPRiys",
+   "caption": "大正屋 椎葉山荘 紹介ムービー（ショート）",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "yoshidaya",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=GoYVQ8iLB3Y",
+   "caption": "佐賀嬉野温泉「旅館吉田屋」4K 旅行vlog",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "yoshidaya",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=1RDzcWr13Og",
+   "caption": "旅館吉田屋「木蓮」",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "wataya",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=SZKlDLC72Xg",
+   "caption": "和多屋別荘（#湯豆腐 のタグあり）",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "wataya",
+   "platform": "tiktok",
+   "url": "https://www.tiktok.com/@aketeras/video/7165079849785183490",
+   "caption": "和多屋別荘で日帰りランチ（TikTok）",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "koyokaku",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=txwYNiC3gdo",
+   "caption": "光陽閣：美肌の湯と佐賀牛のお宿",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "koyokaku",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=1tAMfnhNDQI",
+   "caption": "佐賀牛の宿 光陽閣",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "hotel-sakura",
+   "platform": "tiktok",
+   "url": "https://www.tiktok.com/@rumi_trip/video/7477436408739810568",
+   "caption": "ホテル桜 嬉野：ビュッフェと美肌の湯（TikTok）",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "hotel-sakura",
+   "platform": "tiktok",
+   "url": "https://www.tiktok.com/@rfhotelreporter/video/7497569931823746312",
+   "caption": "ホテル桜 嬉野：嬉野豆腐も並ぶ地元食材ビュッフェ（TikTok）",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "ureshinokan",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=Gp1jvI7IO9s",
+   "caption": "嬉野館 夕食・朝食バイキング",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "kujaku",
+   "platform": "tiktok",
+   "url": "https://www.tiktok.com/@taishi_travel/video/7473424115341249812",
+   "caption": "お宿 紅舎宮：急須の形の貸切露天風呂（TikTok）",
+   "focus": "place",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=arFW-wIFPBk",
+   "caption": "【嬉野】温泉湯豆腐 — 九州の味とともに（黒霧島CM）",
+   "focus": "yudofu",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=y_JL-JFtI7g",
+   "caption": "嬉野温泉の名物！湯豆腐！",
+   "focus": "yudofu",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=OPHP7HSfD6w",
+   "caption": "嬉野温泉 観光グルメ旅（よこ長の湯どうふ・足湯）",
+   "focus": "yudofu",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=ayJ6DS9pB3Q",
+   "caption": "とろとろ温泉湯豆腐 — 嬉野温泉の味をご家庭で",
+   "focus": "yudofu",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  },
+  {
+   "place_id": "",
+   "platform": "youtube",
+   "url": "https://www.youtube.com/watch?v=4PyL9e-PRVI",
+   "caption": "佐賀県 温泉湯豆腐を日本酒と（レシピ）",
+   "focus": "yudofu",
+   "verified": true,
+   "added_by": "Claude（Web検索で収集）",
+   "added_at": "2026-10-09"
+  }
+ ]
 }
