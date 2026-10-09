@@ -220,7 +220,10 @@
    "focus": "yudofu",
    "verified": true,
    "added_by": "Claude（Web検索で収集）",
-   "added_at": "2026-10-09"
+   "added_at": "2026-10-09",
+   "embed_ok": false,
+   "check_note": "再生できない（オーナー確認 2026-10-09）",
+   "checked_at": "2026-10-09"
   },
   {
    "place_id": "",

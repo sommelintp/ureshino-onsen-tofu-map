@@ -1,0 +1,42 @@
+# 写真・動画が埋め込み再生できるかを毎日確認し、再生できないものを非表示にする（scripts/check-media.mjs）
+name: Check media embeds
+on:
+  schedule:
+    - cron: '41 21 * * *'   # 毎日 06:41 JST（Instagram 収集のあと）
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['data/media.json']
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: check-media
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 再生チェック
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: node scripts/check-media.mjs
+      - name: 検証
+        run: node scripts/validate.mjs
+      - name: 状態が変わっていればコミットして公開
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- data/media.json; then echo "変化なし"; exit 0; fi
+          # 日付だけの更新ならコミットしない
+          if [ "$(git diff -U0 -- data/media.json | grep -E '^[+-] ' | grep -vE '"(checked|checked_at)"' | wc -l)" = "0" ]; then echo "確認日の更新のみ"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/media.json
+          git commit -m "data: 再生できない動画・投稿を非表示に ($(date -u +%Y-%m-%d))"
+          git push
+          gh workflow run pages.yml --ref "${GITHUB_REF_NAME}"

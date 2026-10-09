@@ -87,6 +87,7 @@
       place_id: S.trim(m && m.place_id), platform, url,
       caption: S.trim(m && m.caption), verified: !!(m && m.verified),
       focus: S.trim(m && m.focus) === 'place' ? 'place' : 'yudofu',   // yudofu=湯どうふが主題（ヒーロー向き）/ place=店・宿の紹介
+      embed_ok: m && m.embed_ok === false ? false : (m && m.embed_ok === true ? true : null),   // false=再生できない（自動チェック）
       added_by: S.trim(m && m.added_by), added_at: S.trim(m && m.added_at),
       youtube_id: platform === 'youtube' ? ((url.match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{6,})/) || [])[1] || '') : '',
     };
@@ -109,7 +110,7 @@
   async function loadMedia() {
     let json = { items: [] };
     try { json = await getJSON(CFG().MEDIA_URL, root.__TOFU_MEDIA__); } catch (e) { console.warn('media を読み込めませんでした', e); }
-    const items = (json.items || []).map(normalizeMedia).filter((m) => m.verified && S.isUrl(m.url) && MEDIA_PLATFORMS.indexOf(m.platform) >= 0);
+    const items = (json.items || []).map(normalizeMedia).filter((m) => m.verified && m.embed_ok !== false && S.isUrl(m.url) && MEDIA_PLATFORMS.indexOf(m.platform) >= 0);
     const byPlace = {}; const general = [];
     items.forEach((m) => { if (m.place_id) (byPlace[m.place_id] = byPlace[m.place_id] || []).push(m); else general.push(m); });
     const yudofu = items.filter((m) => m.focus === 'yudofu');   // ヒーロー・ギャラリーで優先して見せる投稿

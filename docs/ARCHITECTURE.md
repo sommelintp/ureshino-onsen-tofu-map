@@ -82,10 +82,13 @@ TofuData.schema.validateAll(ds.raw)  // 点検画面（?check=1）用
 | `youtube_id` | YouTube のときの動画 ID |
 | `caption` | 短い説明（編集者が書く。自動収集では投稿本文の冒頭） |
 | `posted_at` / `media_type` | 自動収集の投稿日 / IMAGE・VIDEO・CAROUSEL_ALBUM（任意） |
+| `embed_ok` / `check_note` | 自動チェックの結果。`false` は再生できない投稿で、`loadMedia()` は返さない |
 | `focus` | `yudofu` 温泉湯どうふが主題（ヒーロー・ギャラリー向き） / `place` 店・宿の紹介（詳細パネル向き） |
 
 ## 自動収集
 - Instagram: `scripts/instagram-collect.mjs` を GitHub Actions が毎日実行し `data/media.json` に追記（設定は `data/instagram-config.json`、手順は `docs/INSTAGRAM.md`）。画面側は `TofuData.loadMedia()` を使うだけでよい。
+
+- 再生チェック: `scripts/check-media.mjs` を GitHub Actions が毎日実行し、削除・非公開・埋め込み禁止の投稿を `embed_ok: false` にする（行は残す）。
 
 ## 依頼の出し方
 
