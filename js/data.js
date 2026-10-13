@@ -157,6 +157,62 @@
     return L.join('\n');
   }
 
-  root.TofuData = { loadPlaces, loadLocalPlaces, loadSheetPlaces, loadMedia, loadBackground, normalizeMedia, validateMedia, issueUrl, issueBody, MEDIA_PLATFORMS, schema: S };
+  // ---- Google マップの写真（Places API (New)） ---------------------------------------
+  // 規約上、写真は保存できないため、表示のたびにブラウザで取得する（撮影者の表示が必須）。
+  // Google マップ（GOOGLE_MAPS_API_KEY）が読み込まれていないとき（無料地図で表示中など）は空配列を返す。
+  const photoCache = {};
+  const normName = (s) => String(s || '').normalize('NFKC').replace(/[\s　（）()「」・]/g, '').toLowerCase();
+  function distM(a, b) {
+    const R = 6371000, r = (d) => (d * Math.PI) / 180;
+    const h = Math.sin(r(b.lat - a.lat) / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(r(b.lng - a.lng) / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(h));
+  }
+  async function findGooglePlace(place, Place) {
+    if (place.google_place_id) return new Place({ id: place.google_place_id });
+    // 店名＋住所で検索し、名前が似ていて 2km 以内の候補だけ採用（別の店の写真を出さないため）
+    const base = place.name.replace(/[（(].*?[)）]/g, '').trim();
+    const req = { textQuery: base + ' ' + (place.address || '嬉野市'), fields: ['id', 'displayName', 'location'], language: 'ja', region: 'jp', maxResultCount: 3 };
+    if (place.lat != null) req.locationBias = { center: { lat: place.lat, lng: place.lng }, radius: 3000 };
+    const r = await Place.searchByText(req);
+    const want = normName(base);
+    const hit = (r.places || []).find((g) => {
+      const n = normName(g.displayName);
+      const nameOk = n && (n.includes(want) || want.includes(n) || (want.length >= 3 && n.includes(want.slice(0, 3))));
+      const loc = g.location && { lat: g.location.lat(), lng: g.location.lng() };
+      const near = !loc || place.lat == null || distM(loc, { lat: place.lat, lng: place.lng }) < 2000;
+      return nameOk && near;
+    });
+    return hit || null;
+  }
+  /**
+   * 店の Google マップの写真を返す。
+   * 戻り値: [{ url, width, height, author: { name, uri, photo }, google_maps_uri }]（最大 max 枚、無ければ []）
+   * 表示するときは必ず「Google マップ」と撮影者名（author.name を author.uri へリンク）を写真に添えること。
+   */
+  async function getGooglePhotos(place, opts) {
+    const max = (opts && opts.max) || 4, width = (opts && opts.maxWidth) || 800;
+    if (!place || !(root.google && root.google.maps && root.google.maps.importLibrary)) return [];
+    const key = place.id + ':' + max + ':' + width;
+    if (photoCache[key]) return photoCache[key];
+    photoCache[key] = (async () => {
+      try {
+        const { Place } = await root.google.maps.importLibrary('places');
+        const gp = await findGooglePlace(place, Place);
+        if (!gp) return [];
+        await gp.fetchFields({ fields: ['photos', 'googleMapsURI'] });
+        return (gp.photos || []).slice(0, max).map((ph) => {
+          const a = (ph.authorAttributions || [])[0] || {};
+          return { url: ph.getURI({ maxWidth: width }), width: ph.widthPx, height: ph.heightPx,
+            author: { name: a.displayName || '', uri: a.uri || '', photo: a.photoURI || '' }, google_maps_uri: gp.googleMapsURI || '' };
+        });
+      } catch (e) {
+        console.warn('Google の写真を取得できませんでした（API キーで Places API (New) が有効か確認）:', place.name, e && e.message);
+        return [];
+      }
+    })();
+    return photoCache[key];
+  }
+
+  root.TofuData = { getGooglePhotos, loadPlaces, loadLocalPlaces, loadSheetPlaces, loadMedia, loadBackground, normalizeMedia, validateMedia, issueUrl, issueBody, MEDIA_PLATFORMS, schema: S };
 })(typeof self !== 'undefined' ? self : this);
 if (typeof module === 'object' && module.exports) module.exports = (typeof self !== 'undefined' ? self : this).TofuData;

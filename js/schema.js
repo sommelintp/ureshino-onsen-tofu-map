@@ -54,6 +54,7 @@
     { key: 'onsen_source.source_url', header: '使用温泉出典URL', type: 'string' },
     { key: 'features', header: '特徴', type: 'list', help: '改行区切り' },
     { key: 'description', header: '説明', type: 'string' },
+    { key: 'google_place_id', header: 'GooglePlaceID', type: 'string', help: '任意。Google マップの場所ID（ChIJ…）。入れると写真の取り違えがなくなる' },
     { key: 'urls.official', header: '公式URL', type: 'string' },
     { key: 'urls.tabelog', header: '食べログURL', type: 'string' },
     { key: 'urls.retty', header: 'RettyURL', type: 'string' },
@@ -248,7 +249,7 @@
     p.confidence = CONFIDENCE[p.confidence] ? p.confidence : 'medium';
     p.lat = toNumber(p.lat); p.lng = toNumber(p.lng);
     if (p.lat == null || p.lng == null) { p.lat = null; p.lng = null; p.geo_precision = 'unknown'; }
-    ['address', 'tel', 'hours', 'closed', 'description', 'updated_at', 'editor_note'].forEach((k) => { p[k] = trim(p[k]); });
+    ['address', 'tel', 'hours', 'closed', 'description', 'updated_at', 'editor_note', 'google_place_id'].forEach((k) => { p[k] = trim(p[k]); });
     p.service = Array.isArray(p.service) ? p.service.map(trim).filter(Boolean) : splitLines(p.service);
     p.features = Array.isArray(p.features) ? p.features.map(trim).filter(Boolean) : splitLines(p.features);
     p.menu = Array.isArray(p.menu) ? p.menu.map((m) => ({

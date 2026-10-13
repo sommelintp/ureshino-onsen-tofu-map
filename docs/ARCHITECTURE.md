@@ -40,6 +40,12 @@ const ds = await TofuData.loadPlaces((ds) => render(ds));
 const media = await TofuData.loadMedia();
 // media = { items: Media[], byPlace: { [place_id]: Media[] }, general: Media[], yudofu: Media[]（湯どうふが主題の投稿） }
 
+// 店の Google マップの写真（表示のたびに取得。保存禁止。Google マップ表示中のみ。無ければ []）
+const photos = await TofuData.getGooglePhotos(place, { max: 4, maxWidth: 800 });
+// photos = [{ url, width, height, author: { name, uri, photo }, google_maps_uri }]
+// 表示ルール: 写真に「Google マップ」と撮影者名（author.name → author.uri へのリンク）を必ず添える。
+//            画像を保存・加工・再配布しない。湯どうふの写真とは限らない（並びは Google の判断）
+
 // 「温泉湯どうふとは」の読み物
 const bg = await TofuData.loadBackground();   // { sections: [{ heading, body[], table?, sources[] }] }
 
@@ -71,6 +77,7 @@ TofuData.schema.validateAll(ds.raw)  // 点検画面（?check=1）用
 | `features` / `description` | string[] / string | 特徴 / 紹介文 |
 | `urls` | {official, tabelog, retty, google_maps, gurunavi, hotpepper, jalan, rakuten, instagram, other[]} | 外部リンク |
 | `sources` | {title, url, accessed, note}[] | 出典（必ず画面に出す） |
+| `google_place_id` | string | 任意。Google マップの場所ID。空なら店名＋住所で検索して2km以内の同名の店だけ使う |
 | `confidence` `updated_at` | string | 確信度 / 最終更新日 |
 
 ### Media（写真・動画）
