@@ -410,10 +410,23 @@ h1, h2 { font-family: var(--font-title); font-weight: 700; }
 .card-name { font-family: var(--font-title); font-size: 1.08rem; }
 .card-price { color: var(--clay); }
 .card-price .src-link { margin-top: 5px; }
+.card-tare { display: flex; align-items: center; gap: 7px; min-width: 0; margin-top: 7px; color: var(--fg-muted); font-size: .76rem; line-height: 1.4; white-space: nowrap; }
+.card-tare-label { flex: none; padding: 1px 6px; border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line)); color: var(--accent); font-weight: 700; letter-spacing: .04em; }
+.card-tare-values { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .media-count { color: var(--accent); font-weight: 600; }
 .detail { background: var(--bg-elev); }
 .detail-inner { padding: 26px 26px 60px; }
 .detail h2 { font-size: 1.65rem; }
+.detail section.yudofu-style { margin: 18px 0; padding: 18px; border: 1px solid color-mix(in srgb, var(--accent) 38%, var(--line)); background: linear-gradient(145deg, var(--accent-soft), color-mix(in srgb, var(--accent-soft) 42%, var(--bg-elev))); box-shadow: inset 3px 0 0 var(--accent); }
+.yudofu-style-kicker { margin: 0 0 2px; color: var(--accent); font-size: .62rem; font-weight: 700; letter-spacing: .2em; }
+.detail .yudofu-style h3 { margin: 0; padding: 0; border: 0; color: var(--fg); font-family: var(--font-title); font-size: 1.15rem; font-weight: 700; letter-spacing: .02em; }
+.yudofu-style-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+.yudofu-style-group h4 { margin: 0 0 6px; color: var(--fg-muted); font-size: .7rem; font-weight: 700; letter-spacing: .12em; }
+.yudofu-style-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.yudofu-style-tags span { padding: 3px 8px; border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line)); background: color-mix(in srgb, var(--bg-elev) 76%, transparent); color: var(--fg); font-size: .78rem; line-height: 1.45; }
+.yudofu-style-note { margin: 14px 0 0; font-size: .86rem; line-height: 1.75; }
+.yudofu-style h3 + .yudofu-style-note { margin-top: 12px; }
+.yudofu-style-note .src-link { margin-left: .25em; background: color-mix(in srgb, var(--bg-elev) 70%, transparent); }
 .detail-media-strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 88%); gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; }
 .detail-media-strip .media-card { scroll-snap-align: start; }
 .detail-google-photos-strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 88%); gap: 8px; overflow-x: auto; padding-bottom: 4px; scroll-snap-type: x mandatory; }

@@ -593,6 +593,7 @@
 
   function matches(p) {
     const f = state.filters;
+    const style = p.yudofu_style || { tare: [], yakumi: [], note: '' };
     if (!f.unverified && !isConfirmed(p)) return false;
     if (f.cats.size && !f.cats.has(p.category)) return false;
     if (f.svcs.size) { for (const s of f.svcs) if (!p.service.includes(s)) return false; }
@@ -602,7 +603,7 @@
     if (f.price < Number(r.max) && !(p.price_min != null && p.price_min <= f.price)) return false;
     if (f.q) {
       const hay = [p.name, p.name_kana, p.address, p.description, p.tofu_source.name, p.onsen_source.name, catLabel(p.category)]
-        .concat(p.features, p.service, p.menu.map((m) => m.name + ' ' + m.price_note)).join(' ').toLowerCase();
+        .concat(p.features, p.service, p.menu.map((m) => m.name + ' ' + m.price_note), style.tare || [], style.yakumi || [], style.note || '').join(' ').toLowerCase();
       const terms = f.q.toLowerCase().split(/[\s　]+/).filter(Boolean);
       if (!terms.every((t) => hay.includes(t))) return false;
     }
@@ -682,6 +683,8 @@
     }
     ol.innerHTML = state.visible.map((p) => {
       const menuNames = p.menu.slice(0, 2).map((m) => esc(m.name) + (m.price != null ? ' ' + yen(m.price) : '')).join(' / ');
+      const tare = p.yudofu_style && Array.isArray(p.yudofu_style.tare) ? p.yudofu_style.tare : [];
+      const tareLine = tare.length ? '<div class="card-tare"><span class="card-tare-label">たれ</span><span class="card-tare-values">' + esc(tare.join('・')) + '</span></div>' : '';
       const badges = [];
       if (!isConfirmed(p)) badges.push('<span class="badge warn">' + (p.yudofu === 'none' ? '提供なし' : '要確認') + '</span>');
       if (hasGeo(p) && p.geo_precision !== 'exact') badges.push('<span class="badge" title="住所から推定した概略位置です">位置は概略</span>');
@@ -695,6 +698,7 @@
         '<div class="card-head"><span class="card-icon" style="--c:' + catVar(p.category) + '">' + I.icon(p.category) + '</span><p class="card-name">' + esc(p.name) + (p.name_kana ? '<span class="card-kana">' + esc(p.name_kana) + '</span>' : '') + '</p>' + priceLine(p) + '</div>' +
         '<div class="card-meta"><span class="badge cat" style="--c:' + catVar(p.category) + '">' + esc(catLabel(p.category)) + '</span>' + badges.join('') + '</div>' +
         (menuNames ? '<div class="card-menu">' + menuNames + (p.menu.length > 2 ? ' ほか' + (p.menu.length - 2) + '品' : '') + '</div>' : '') +
+        tareLine +
         '</li>';
     }).join('');
   }
@@ -741,6 +745,20 @@
     return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(p.name + ' ' + (p.address || '嬉野市'));
   }
 
+  function renderYudofuStyle(p) {
+    const style = p.yudofu_style || {};
+    const tare = Array.isArray(style.tare) ? style.tare : [];
+    const yakumi = Array.isArray(style.yakumi) ? style.yakumi : [];
+    const note = style.note || '';
+    if (!tare.length && !yakumi.length && !note) return '';
+    const groups = [];
+    if (tare.length) groups.push('<div class="yudofu-style-group"><h4>たれ</h4><div class="yudofu-style-tags">' + tare.map((item) => '<span>' + esc(item) + '</span>').join('') + '</div></div>');
+    if (yakumi.length) groups.push('<div class="yudofu-style-group"><h4>薬味</h4><div class="yudofu-style-tags">' + yakumi.map((item) => '<span>' + esc(item) + '</span>').join('') + '</div></div>');
+    return '<section class="yudofu-style" aria-labelledby="yudofu-style-title"><p class="yudofu-style-kicker">HOW TO ENJOY</p><h3 id="yudofu-style-title">湯どうふの食べ方</h3>' +
+      (groups.length ? '<div class="yudofu-style-groups">' + groups.join('') + '</div>' : '') +
+      (note ? '<p class="yudofu-style-note">' + esc(note) + srcLink(style.source_url) + '</p>' : '') + '</section>';
+  }
+
   function renderDetail(p) {
     const maker = p.tofu_source.maker_id ? state.byId[p.tofu_source.maker_id] : null;
     const users = p.category === 'tofu_maker' ? state.all.filter((q) => q.id !== p.id && (q.tofu_source.maker_id === p.id || (q.tofu_source.name && q.tofu_source.name.indexOf(p.name) >= 0))) : [];
@@ -778,6 +796,7 @@
       '<div class="detail-top"><div><h2>' + esc(p.name) + '</h2>' + (p.name_kana ? '<div class="kana">' + esc(p.name_kana) + '</div>' : '') + '</div></div>',
       '<div class="detail-badges">' + badges.join('') + '</div>',
       priceSummary,
+      renderYudofuStyle(p),
       '<div class="detail-actions">',
       '<a class="btn btn-primary" href="' + esc(gmapsUrl(p)) + '" target="_blank" rel="noopener noreferrer">地図アプリで開く</a>',
       hasGeo(p) ? '<a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=' + p.lat + ',' + p.lng + '" target="_blank" rel="noopener noreferrer">経路</a>' : '',
