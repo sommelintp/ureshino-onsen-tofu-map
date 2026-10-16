@@ -10,6 +10,7 @@ places.forEach((p) => {
   if (p.status === 'published' && p.yudofu === 'confirmed' && p.menu.length === 0 && p.category !== 'other') warns.push(`[${p.name}] 確認済みですがメニュー情報がありません`);
   if (p.lat == null) warns.push(`[${p.name}] 座標がありません（地図に表示されません）`);
   if (p.geo_precision === 'approx') warns.push(`[${p.name}] 位置は概略です（npm run geocode で補完できます）`);
+  if (p.yudofu_style.note && !p.yudofu_style.source_url) warns.push(`[${p.name}] 湯どうふの特徴に出典URLがありません`);
 });
 let bgErr = '';
 try {

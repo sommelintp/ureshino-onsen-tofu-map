@@ -1,10 +1,10 @@
 {
  "meta": {
   "title": "嬉野温泉 湯どうふマップ",
-  "updated": "2026-10-04",
+  "updated": "2026-10-16",
   "version": 1,
   "license": "CC BY 4.0",
-  "note": "初期データは 2026-10-04 時点のWeb検索結果（各ページの要約）に基づく。各項目の出典を参照のこと。座標「概略」は町丁目の代表点。",
+  "note": "初期データは 2026-10-04 時点のWeb検索結果（各ページの要約）に基づく。各項目の出典を参照のこと。座標「概略」は町丁目の代表点。 湯どうふの食べ方（yudofu_style）は 2026-10-16 時点の Web 検索結果の要約に基づく。",
   "attribution": "嬉野温泉 湯どうふマップ（CC BY 4.0）"
  },
  "places": [
@@ -65,11 +65,29 @@
      "url": "https://tabelog.com/saga/A4104/A410401/41003679/dtlrvwlst/B309124376/",
      "accessed": "2026-10-04",
      "note": "口コミタイトルによる"
+    },
+    {
+     "title": "Review list : Shokujidokoro Akatsuki Shokudo - Ureshino Onsen/Cafeteria [食べログ]",
+     "url": "https://tabelog.com/en/saga/A4104/A410401/41003679/dtlrvwlst/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 訪問者がちゃんぽん（800円）に湯豆腐（600円）を追加注文し、朝食向きだったと書いている（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "食事処 あかつき食堂 akatukishokudo - 嬉野温泉観光協会",
+     "url": "https://spa-u.net/facility/2016/01/org-entry-092.php",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: ちゃんぽんが評判の食堂として嬉野温泉観光協会に掲載されている（湯豆腐への言及なし） ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": "住所・座標未取得"
+   "updated_at": "2026-10-16",
+   "editor_note": "住所・座標未取得 / 住所候補: 嬉野町下宿乙353-1（検索結果より・要確認）",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "朝から開いている昭和の雰囲気の町食堂で、湯豆腐を600円の単品として出す。口コミではちゃんぽんと一緒に朝ごはんとして頼まれている。",
+    "source_url": "https://tabelog.com/en/saga/A4104/A410401/41003679/dtlrvwlst/"
+   }
   },
   {
    "id": "ariake",
@@ -176,8 +194,16 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [
+     "秘伝のごまだれ"
+    ],
+    "yakumi": [],
+    "note": "豊玉姫神社の隣にある居酒屋・寿司店で、嬉野の郷土料理として温泉湯豆腐をセットで出す。店は秘伝のごまだれで食べるのを勧めている。",
+    "source_url": "https://hitosara.com/0004105868/"
+   }
   },
   {
    "id": "onsen-shokudo",
@@ -338,8 +364,16 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [
+     "ごまだれ"
+    ],
+    "yakumi": [],
+    "note": "岩屋川内の町の食堂で、温泉の湯でやわらかくした豆腐を胡麻だれで食べる温泉湯豆腐定食を出す。定食のご飯はもち麦入りの麦ご飯だ。定食が出せない日でも湯豆腐は単品で頼めたという訪問記があり、煮汁まで飲みたくなる味だったと書かれている。",
+    "source_url": "http://yayoicafe.jp/blog-entry-461.html"
+   }
   },
   {
    "id": "hirakawaya-ureshino",
@@ -540,11 +574,45 @@
      "url": "https://map.yahoo.co.jp/v3/place/MrRKp0qy06I/menu",
      "accessed": "2026-10-04",
      "note": "（メニュー価格）"
+    },
+    {
+     "title": "温泉の力でおいしく！「佐嘉平川屋 嬉野店」の温泉湯豆腐にとろける｜るるぶ&more.",
+     "url": "https://rurubu.jp/andmore/article/17434",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: テーブルのIHコンロで鍋を強火にかけると、透明な調理水が約10分で豆乳のように白く濁る ※検索結果の要約で確認"
+    },
+    {
+     "title": "温泉湯豆腐 - 佐嘉平川屋",
+     "url": "https://saga-hirakawaya.jp/brand/product/yudofu/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 公式は、湯豆腐、白濁したスープを使った鍋、締めの雑炊と、三段階で楽しむ食べ方を勧めている ※検索結果の要約で確認"
+    },
+    {
+     "title": "湯豆腐のお豆腐と御飯おかわり自由の温泉湯豆腐定食 - 佐嘉平川屋 嬉野店の口コミ - トリップアドバイザー",
+     "url": "https://www.tripadvisor.jp/ShowUserReviews-g1023551-d7500964-r515218185-Sakahirakawaya_Ureshino-Ureshino_Saga_Prefecture_Kyushu.html",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 温泉湯豆腐定食は湯豆腐の豆腐とご飯をおかわりできる（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "『とろとろ温泉湯豆腐』by こたたまご : 佐嘉平川屋 嬉野店 [食べログ]",
+     "url": "https://tabelog.com/saga/A4104/A410401/41003627/dtlrvwlst/B114936601/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 定食は白和え、ご飯、漬物、湯豆腐用の薬味と野菜、鍋で構成されていた（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": "電話番号は資料により 0954-42-1241 / 0954-43-1241 の2表記。定食価格も 2,000円/2,500円/旧1,350円 と資料で異なるため要確認"
+   "updated_at": "2026-10-16",
+   "editor_note": "電話番号は資料により 0954-42-1241 / 0954-43-1241 の2表記。定食価格も 2,000円/2,500円/旧1,350円 と資料で異なるため要確認",
+   "yudofu_style": {
+    "tare": [
+     "特製ごまだれ",
+     "ポン酢",
+     "だし醤油"
+    ],
+    "yakumi": [],
+    "note": "卓上のIHコンロで豆腐を温泉水の調理水から炊き、10分ほどで汁が白く濁れば食べ頃になる。最初は何もつけず、次にすりごま入りの特製ごまだれ、続けてポン酢と味を変える。残ったスープは野菜を足して鍋にし、ご飯で雑炊にして締める。",
+    "source_url": "https://rurubu.jp/andmore/article/17434"
+   }
   },
   {
    "id": "shizu",
@@ -622,8 +690,16 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [
+     "生姜醤油"
+    ],
+    "yakumi": [],
+    "note": "いけすのある岩屋川内の食事処で、豆腐と一緒に白菜・しめじ・豚肉などを煮る具だくさんの温泉湯どうふを出す。たれは胡麻醤油ではなく生姜醤油で、さっぱりと食べる。海老・しいたけ・牡蠣などを足した上位版の「長寿湯」もあった。",
+    "source_url": "https://www.tabirai.net/sightseeing/column/0002551.aspx"
+   }
   },
   {
    "id": "shinpachi",
@@ -713,11 +789,32 @@
      "url": "https://spa-u.net/facility/2016/01/org-entry-044.php",
      "accessed": "2026-10-04",
      "note": "昼は温泉湯豆腐とにぎり1,300円"
+    },
+    {
+     "title": "『嬉野市「新八寿司」にぎりと温泉湯豆腐を堪能したよ』by 若おっさん [食べログ]",
+     "url": "https://tabelog.com/saga/A4104/A410401/41003594/dtlrvwlst/B400661578/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 握り6種と温泉湯豆腐のセット（税別980円）。湯豆腐は白菜と豆腐で、豆腐がとろけて全体が白くなる。たれは甘めの醤油だれ（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "クチコミ : 新八寿司 - 嬉野市嬉野町大字下宿/寿司店 (Yahoo!マップ)",
+     "url": "https://map.yahoo.co.jp/v3/place/6pFoJDi0dSc/review",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 湯豆腐と寿司のセットはランチに頼まれることが多く、湯豆腐はトロトロという口コミ（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [
+     "ごまだれ",
+     "甘めの醤油だれ"
+    ],
+    "yakumi": [],
+    "note": "バスセンター近くの寿司店で、昼は握りかちらしに温泉湯豆腐を付けたセットを出す。湯豆腐は白菜と一緒に土鍋で出され、汁は白く濁っている。たれについては、胡麻だれと書いた口コミと甘めの醤油だれと書いた口コミがある。",
+    "source_url": "https://4travel.jp/dm_shisetsu/11279889"
+   }
   },
   {
    "id": "suzushiro",
@@ -805,11 +902,29 @@
      "url": "https://www.tripadvisor.com/RestaurantsNear-g1023551-d1425134-Ureshino_Onsen-Ureshino_Saga_Prefecture_Kyushu.html",
      "accessed": "2026-10-04",
      "note": "検索結果要約で「Dining Suzushiro: 温泉湯豆腐とちらし寿司を提供する和食（海鮮）店」。個別ページURLは未取得"
+    },
+    {
+     "title": "ダイニングすずしろ - 嬉野温泉駅 日本料理 [食べログ]",
+     "url": "https://tabelog.com/en/saga/A4104/A410401/41005083/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: ランチ限定の「温泉どうふと茶美豚のしゃぶしゃぶ」（1,200円）がある ※検索結果の要約で確認"
+    },
+    {
+     "title": "口コミ一覧 : ダイニングすずしろ [食べログ]",
+     "url": "https://tabelog.com/saga/A4104/A410401/41005083/dtlrvwlst/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 平日ランチの湯豆腐セットは肉や野菜がたっぷりでお得だったという口コミ（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "low",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "地産地消の創作和食店で、昼は温泉どうふと茶美豚のしゃぶしゃぶを合わせたランチを出す。口コミでは肉や野菜の量が多く、豆腐はあまり溶け崩れないと書かれている。",
+    "source_url": "https://tabelog.com/saga/A4104/A410401/41005083/dtlrvwlst/"
+   }
   },
   {
    "id": "sengoku",
@@ -862,11 +977,29 @@
      "url": "https://www.tripadvisor.jp/Restaurant_Review-g1023551-d13246986-Reviews-Yakitori_Sengoku-Ureshino_Saga_Prefecture_Kyushu.html",
      "accessed": "2026-10-04",
      "note": "検索結果タイトル・要約による（口コミによる湯豆腐の言及）"
+    },
+    {
+     "title": "やきとり戦国（佐賀県）の観光情報|ゆこゆこ温泉ガイド",
+     "url": "https://www.yukoyuko.net/onsen/spot/s0002839",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 温泉街の路地裏にある家庭的な焼き鳥店で、温泉湯豆腐が食べられ、その鍋で作る温泉うどんが評判 ※検索結果の要約で確認"
+    },
+    {
+     "title": "やきとり戦国（嬉野/焼き鳥） - Retty",
+     "url": "https://retty.me/area/PRE41/ARE504/SUB50402/100000648353/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 温泉豆腐がおいしかったという口コミ（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "low",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "住所候補: 嬉野町大字下宿乙770（ゆこゆこ・要確認）",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "温泉街の路地裏にある焼き鳥店で、温泉湯豆腐も頼める。豆腐を食べ終えた鍋にうどんを入れて温泉うどんにし、一つの鍋を二通りに楽しめる。",
+    "source_url": "https://www.yukoyuko.net/onsen/spot/s0002839"
+   }
   },
   {
    "id": "yokocho",
@@ -1060,11 +1193,46 @@
      "url": "https://yococho.shop-pro.jp/",
      "accessed": "2026-10-04",
      "note": "（通販セット価格）"
+    },
+    {
+     "title": "宗庵よこ長の湯どうふの美味しい食べ方 - 嬉野温泉湯どうふ発祥の店",
+     "url": "https://yococho.com/archives/615",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: スープに味が付いているので、たれなしで豆腐をスープごと食べられる。えびや野菜などの具は好みで特製のたれに付け、豆腐に付けてもよい ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉湯どうふ発祥の店（宗庵よこ長 公式）",
+     "url": "https://yococho.com/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 湯どうふ定食は寄せ湯どうふに小鉢とご飯（1,100円）、特選湯どうふ定食は魚ちり湯どうふに小鉢数品とご飯（1,340円）、湯どうふ単品は620円 ※検索結果の要約で確認"
+    },
+    {
+     "title": "当店の味をご家庭でもお楽しみ頂けます - 嬉野温泉湯どうふ発祥の店",
+     "url": "https://yococho.com/archives/573",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 通販の湯どうふセットにも味付きの調理水と特製だれが入り、たれは野菜や魚、エビなどに付けるよう案内している ※検索結果の要約で確認"
+    },
+    {
+     "title": "口コミ一覧：宗庵 よこ長 - Retty",
+     "url": "https://retty.me/area/PRE41/ARE504/SUB50402/100000029454/reports/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 白い煮汁はあっさりした塩味で、酢醤油のたれを汁に足すとよいという口コミや、黒酢のようなつけだれ、ポン酢でもおいしいという口コミがある（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": "座標は観光情報サイト（こころから）掲載値"
+   "updated_at": "2026-10-16",
+   "editor_note": "座標は観光情報サイト（こころから）掲載値",
+   "yudofu_style": {
+    "tare": [
+     "特製だれ"
+    ],
+    "yakumi": [
+     "ねぎ",
+     "生姜"
+    ],
+    "note": "自家製の木綿豆腐を、味の付いた温泉水のスープで煮る。まずは何もつけずに豆腐とスープを味わい、ねぎや生姜を鍋に入れて味の変化を楽しむ。特製だれは主にえびや野菜に付けるが、豆腐に付けてもよい。定食は寄せ湯どうふ、特選は魚ちり湯どうふで出る。",
+    "source_url": "https://yococho.com/archives/615"
+   }
   },
   {
    "id": "tosho",
@@ -1250,11 +1418,29 @@
      "url": "https://tabelog.com/saga/A4104/A410401/41008065/dtlmap/?lid=rstdtl_top_map",
      "accessed": "2026-10-04",
      "note": "検索結果で住所を確認"
+    },
+    {
+     "title": "店舗情報｜「嬉野温泉湯どうふ」藤川豆腐店",
+     "url": "https://www.fujikawa102.com/view/page/shop",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 藤川豆腐店の工場横で営業する直営食事処で、出来立ての豆腐をその場で食べられる ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉湯どうふとは｜「嬉野温泉湯どうふ」藤川豆腐店",
+     "url": "https://www.fujikawa102.com/view/page/about",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 【店内提供ではなく商品としての案内】藤川豆腐店の湯どうふは取り分けてゴマだれかポン酢をかけ、柚子胡椒やネギを添えて食べる方法を紹介。残り湯は味噌汁や雑炊に使えるとする ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "藤川豆腐店の工場横にある直営の食事処で、隣で作った出来立ての豆腐を温泉湯どうふにして出す。鍋は固形燃料で温める形式で、野菜も早めに入れて一緒に煮るよう勧められる。朝の温泉湯豆腐定食のほか、湯葉刺し・茶碗蒸し・豆乳もちが付く十笑御膳もあり、豆腐はおかわりできる。",
+    "source_url": "https://www.oomuraya.co.jp/kurashikanko/fujikawa-tofu/"
+   }
   },
   {
    "id": "shun",
@@ -1304,11 +1490,37 @@
      "url": "https://tabelog.com/keywords/%E6%B8%A9%E6%B3%89%E6%B9%AF%E8%B1%86%E8%85%90/saga/A4104/A410401/kwdLst/",
      "accessed": "2026-10-04",
      "note": "WebSearch結果の要約で「居酒屋 旬 温泉湯豆腐500円、予算¥4,000〜¥4,999、読み『とき』」と表示。店舗ページURLは取得"
+    },
+    {
+     "title": "佐賀・嬉野温泉で新鮮な魚介をいただく！【居酒屋 旬（とき）】2024年5月訪問記（オミちゃんブログ）",
+     "url": "https://omichanblog.com/%E4%BD%90%E8%B3%80%E3%83%BB%E5%AC%89%E9%87%8E%E6%B8%A9%E6%B3%89%E3%81%A7%E6%96%B0%E9%AE%AE%E3%81%AA%E9%AD%9A%E4%BB%8B%E3%82%92%E3%81%84%E3%81%9F%E3%81%A0%E3%81%8F%EF%BC%81%E3%80%90%E5%B1%85%E9%85%92/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 温泉湯豆腐は一人前600円、鍋で作る〆の雑炊は800円（2024年5月訪問時）。豆腐はふわとろで、店自慢の付けダレで食べた。雑炊はあっさりした出汁 ※検索結果の要約で確認"
+    },
+    {
+     "title": "居酒屋 旬（嬉野/居酒屋） - Retty",
+     "url": "https://retty.me/area/PRE41/ARE504/SUB50402/100001559920/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 温泉湯豆腐雑炊セットを食べて好評だったという投稿（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野の居酒屋旬（とき）で魚三昧！（旅館大村屋）",
+     "url": "https://www.oomuraya.co.jp/kurashikanko/toki/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 元は青木鮮魚店という魚屋で、現在は居酒屋として営業 ※検索結果の要約で確認"
     }
    ],
    "confidence": "low",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "住所候補: 嬉野町大字下宿乙2202-45（検索結果より・要確認）。湯豆腐の価格は500円（食べログ）と600円（2024年のブログ）で食い違い",
+   "yudofu_style": {
+    "tare": [
+     "特製だれ"
+    ],
+    "yakumi": [],
+    "note": "元は鮮魚店だった海鮮居酒屋で、温泉湯豆腐を一人前の単品で注文できる。店自慢の付けダレで食べ、食後は残った鍋で雑炊を作ってもらう〆もある。湯豆腐と雑炊をセットで頼んだという口コミも見られる。",
+    "source_url": "https://omichanblog.com/%E4%BD%90%E8%B3%80%E3%83%BB%E5%AC%89%E9%87%8E%E6%B8%A9%E6%B3%89%E3%81%A7%E6%96%B0%E9%AE%AE%E3%81%AA%E9%AD%9A%E4%BB%8B%E3%82%92%E3%81%84%E3%81%9F%E3%81%A0%E3%81%8F%EF%BC%81%E3%80%90%E5%B1%85%E9%85%92/"
+   }
   },
   {
    "id": "maneki",
@@ -1360,11 +1572,23 @@
      "url": "https://www.tripadvisor.jp/Restaurants-g1023551-zfp30-Ureshino_Saga_Prefecture_Kyushu.html",
      "accessed": "2026-10-04",
      "note": "（Maneki Sushi 4.7/10件、寿司と湯豆腐）。一覧ページのURLのみで個別ページは未取得"
+    },
+    {
+     "title": "【まねき鮨】嬉野・武雄・寿司 - じゃらんnet",
+     "url": "https://www.jalan.net/gourmet/grm_alikejpA000630211/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: ランチのおすすめは嬉野温泉湯豆腐・にぎり寿司・茶碗蒸しのセット ※検索結果の要約で確認"
     }
    ],
    "confidence": "low",
-   "updated_at": "2026-10-04",
-   "editor_note": "日本語表記・所在地未確認。新八寿司等と同一店の可能性も含め要確認"
+   "updated_at": "2026-10-16",
+   "editor_note": "日本語表記・所在地未確認。新八寿司等と同一店の可能性も含め要確認",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "寿司店のランチで、嬉野温泉湯豆腐ににぎり寿司と茶碗蒸しを組み合わせたセットが勧められている。握りと一緒に名物の湯豆腐を味わえる構成だ。",
+    "source_url": "https://www.jalan.net/gourmet/grm_alikejpA000630211/"
+   }
   },
   {
    "id": "musashi",
@@ -1440,11 +1664,23 @@
      "url": "https://tabelog.com/saga/A4104/A410401/41006399/",
      "accessed": "2026-10-04",
      "note": "WebSearch結果の要約による。住所・点数3.05・口コミ8件・保存45件・ジャンル"
+    },
+    {
+     "title": "『和庵 武蔵 hanare』のとろける湯豆腐（フリーライフ）",
+     "url": "https://freelife.ne.jp/article/9381",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 公衆浴場シーボルトの湯の向かいにあり、筆者はランチで天ぷら御膳を注文 ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "嬉野温泉湯豆腐を付けた御膳が中心の和食店で、湯豆腐付きの御膳は4パターンあり、天ぷらや刺身と組み合わせて頼める。最上位は極 武蔵御膳だ。湯豆腐の量は控えめだったという口コミもある。",
+    "source_url": "https://www.hotpepper.jp/strJ004623000/"
+   }
   },
   {
    "id": "yurari",
@@ -1575,11 +1811,23 @@
      "url": "https://www.nap-camp.com/mag/48970",
      "accessed": "2026-10-04",
      "note": "記事日付未確認、期間限定のため現行提供は不明"
+    },
+    {
+     "title": "ガイドさんと巡る塩田津。お洒落な古民家カフェでランチ（あそぼーさが）",
+     "url": "https://www.asobo-saga.jp/articles/detail/eaa8821b-6ce9-4413-b3d1-7e69d41fd381",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 取材時の限定メニューとして、嬉野の湯豆腐と出汁をかけた『とろける湯豆腐と湯葉の和風オムライス』を紹介 ※検索結果の要約で確認"
     }
    ],
    "confidence": "low",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "古民家カフェで、鍋の湯豆腐ではなく嬉野の湯豆腐をオムライスに取り入れた期間限定メニューを出していた。取材時は湯豆腐と湯葉をのせて出汁をかけた和風オムライスで、薬膳と合わせた限定品も紹介されている。提供の有無は時期による。",
+    "source_url": "https://www.asobo-saga.jp/articles/detail/eaa8821b-6ce9-4413-b3d1-7e69d41fd381"
+   }
   },
   {
    "id": "rikyu",
@@ -2070,11 +2318,23 @@
      "url": "https://spa-u.net/facility/2017/05/org-entry-035.php",
      "accessed": "2026-10-04",
      "note": "全7室、貸切可"
+    },
+    {
+     "title": "旅館 一休荘（じゃらんnet）",
+     "url": "https://www.jalan.net/yad320331/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 宿のじゃらん掲載ページに「嬉野温泉名物・温泉湯豆腐」と説明された写真がある ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": "住所未取得"
+   "updated_at": "2026-10-16",
+   "editor_note": "住所未取得",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "朝食で嬉野名物の温泉湯豆腐を出す小さな旅館。予約サイトの宿ページでは、温泉湯豆腐の写真を嬉野温泉名物として掲げている。",
+    "source_url": "https://www.jalan.net/yad320331/"
+   }
   },
   {
    "id": "irifune",
@@ -2180,11 +2440,35 @@
      "url": "https://spa-u.net/facility/2017/06/org-entry-009.php",
      "accessed": "2026-10-04",
      "note": "spa-u.net 加盟一覧エントリ"
+    },
+    {
+     "title": "心ほぐす宿 入船荘(忍者村・肥前夢街道 提携旅館)（じゃらんnet）",
+     "url": "https://www.jalan.net/yad321174",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝食は湯豆腐付きの和食のほか、アサイーボウルを含む洋風版も選べる ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉 心ほぐす宿 入船荘（icotto）",
+     "url": "https://icotto.jp/hotels/5765",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 宿の掲載写真に『湯豆腐（温泉水）』という説明がある ※検索結果の要約で確認"
+    },
+    {
+     "title": "心ほぐす宿 入船荘（ココロカラ）",
+     "url": "https://www.cocolocala.jp/hotels/23570",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 宿泊者が朝食の温泉豆腐をおいしかったと評価している（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": "住所未取得。位置は温泉街中心の概略"
+   "updated_at": "2026-10-16",
+   "editor_note": "住所未取得。位置は温泉街中心の概略",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "和朝食に、温泉水で煮た湯豆腐が付く。朝はこの和食のほかに、アサイーボウルなどを並べた洋風の朝食も選べる。",
+    "source_url": "https://www.jalan.net/yad321174"
+   }
   },
   {
    "id": "hachijuhachi",
@@ -2398,11 +2682,29 @@
      "url": "https://www.motoyu-spa.co.jp/facilities/",
      "accessed": "2026-10-04",
      "note": "（貸切湯料金・時間）"
+    },
+    {
+     "title": "うれしの元湯（フォートラベル）",
+     "url": "https://4travel.jp/dm_hotel-10052430",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝食に源泉を使った温泉湯どうふと釜飯が出て、ご飯は白飯か茶粥を選べた。焼き魚・ハム・大根おろし・沢庵も添えられた（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "うれしの元湯 クチコミ（フォートラベル）",
+     "url": "https://4travel.jp/dm_hotel_tips/15244644",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 同じ趣旨の朝食の口コミ（湯豆腐も定番の朝食として登場）（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "朝食に、宿の源泉を使って煮る温泉湯どうふが付く。口コミでは釜飯や焼き魚と一緒に並び、ご飯は白飯か茶粥から選べたという。",
+    "source_url": "https://4travel.jp/dm_hotel-10052430"
+   }
   },
   {
    "id": "ureshinokan",
@@ -2533,11 +2835,29 @@
      "url": "https://onsen.nifty.com/ft-cheap/ureshino-onsen/",
      "accessed": "2026-10-04",
      "note": "入浴料750円〜"
+    },
+    {
+     "title": "大江戸温泉物語 嬉野館 クチコミ（フォートラベル）",
+     "url": "https://4travel.jp/dm_hotel-11369384/tips",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 夕食バイキングに名物の湯豆腐をはじめ『ご当地』と銘打った料理が多く並んでいた（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "大江戸温泉物語 嬉野館（ココロカラ）",
+     "url": "https://www.cocolocala.jp/hotels/23550",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝食はビュッフェ形式 ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "フォートラベルの一部ページに「閉鎖」表記あり。ただし2025〜2026年の口コミもあり、要営業確認（2026-10-16 調査）",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "朝夕ともバイキング形式の大型ホテル。口コミによると、夕食会場には嬉野名物の湯豆腐が『ご当地』料理の一つとして並ぶ。",
+    "source_url": "https://4travel.jp/dm_hotel-11369384/tips"
+   }
   },
   {
    "id": "oomuraya",
@@ -2723,11 +3043,35 @@
      "url": "https://www.oomuraya.co.jp/kurashikanko/fujikawa-tofu/",
      "accessed": "2026-10-04",
      "note": "（朝食は藤川豆腐店の豆腐）"
+    },
+    {
+     "title": "嬉野温泉 旅館大村屋（icotto）",
+     "url": "https://icotto.jp/hotels/1770",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝食に温泉湯豆腐が出る（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "旅館大村屋（ココロカラ）",
+     "url": "https://www.cocolocala.jp/hotels/23555",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 嬉野名物の温泉湯豆腐を満喫できる宿として紹介されている ※検索結果の要約で確認"
+    },
+    {
+     "title": "旅館大村屋 クチコミ（フォートラベル）",
+     "url": "https://4travel.jp/dm_hotel-10052414/tips",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: とろける温泉湯豆腐と嬉野茶がおいしく印象に残ったという口コミ（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "朝食の中心に、とろける食感の嬉野名物・温泉湯豆腐を据える老舗旅館。口コミでは朝の湯豆腐と嬉野茶が印象に残ったという声がある。",
+    "source_url": "https://icotto.jp/hotels/1770"
+   }
   },
   {
    "id": "kasuien",
@@ -2851,11 +3195,23 @@
      "url": "https://tabelog.com/saga/A4104/A410401/41002913/dtlrvwlst/B112052488/",
      "accessed": "2026-10-04",
      "note": "口コミによる。朝食の温泉湯豆腐"
+    },
+    {
+     "title": "ホテル華翠苑（ココロカラ）",
+     "url": "https://www.cocolocala.jp/hotels/23540",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝食は湯豆腐付きの和定食で、小鉢が多くご飯のおかわりは無料だった（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "朝食は嬉野名物の温泉湯豆腐が付く和定食で出す。口コミでは小鉢の品数が多く、ご飯のおかわりも無料だったという。",
+    "source_url": "https://www.cocolocala.jp/hotels/23540"
+   }
   },
   {
    "id": "kisenkan",
@@ -3030,11 +3386,29 @@
      "url": "https://tabelog.com/saga/A4104/A410401/41003381/dtlrvwlst/B208016387/",
      "accessed": "2026-10-04",
      "note": "口コミタイトルによる。関連: https://tabelog.com/saga/A4104/A410401/41003381/dtlrvwl"
+    },
+    {
+     "title": "お宿 紅舎宮 宿泊プラン（宿の予約ページ）",
+     "url": "https://reserve.489ban.net/client/kujaku/0/detail/857443",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝食は嬉野名物の温泉湯豆腐を中心にしたボリュームのある内容で、会場（食事処）でとる ※検索結果の要約で確認"
+    },
+    {
+     "title": "お宿 紅舎宮 宿泊プラン（宿の予約ページ）",
+     "url": "https://reserve.489ban.net/client/kujaku/0/detail/857428",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝食のみのプランがあり、夕食は嬉野の街で探す想定 ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "朝食は嬉野名物の温泉湯豆腐を中心にした品数の多い内容で、客室ではなく食事処で提供する。夕食なしの朝食付きプランでも、この湯豆腐の朝食がとれる。",
+    "source_url": "https://reserve.489ban.net/client/kujaku/0/detail/857443"
+   }
   },
   {
    "id": "koyokaku",
@@ -3147,11 +3521,35 @@
      "url": "https://spa-u.net/facility/2017/06/-koyokaku.php",
      "accessed": "2026-10-04",
      "note": "7階展望風呂、茶畑"
+    },
+    {
+     "title": "佐賀牛の宿 光陽閣 宿泊プラン（宿の予約ページ）",
+     "url": "https://reserve.489ban.net/client/koyokaku/0/detail/1298822",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝食に嬉野名物の温泉湯豆腐が組み込まれ、温泉湯豆腐の雑炊も勧めている ※検索結果の要約で確認"
+    },
+    {
+     "title": "佐賀牛の宿 光陽閣（icotto）",
+     "url": "https://icotto.jp/hotels/5687",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 佐賀牛のステーキ・すき焼きに加え温泉湯豆腐の雑炊を名物として紹介 ※検索結果の要約で確認"
+    },
+    {
+     "title": "佐賀牛の宿 光陽閣（Yahoo!トラベル）",
+     "url": "https://travel.yahoo.co.jp/00907485/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝食に温泉豆腐が出て、お粥に6種類のトッピングが付いたという口コミ（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": "住所未取得"
+   "updated_at": "2026-10-16",
+   "editor_note": "住所未取得",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "朝食に嬉野名物の温泉湯豆腐が付く。宿の紹介では佐賀牛のステーキやすき焼きと並べて、温泉湯豆腐の雑炊も名物に挙げている。",
+    "source_url": "https://reserve.489ban.net/client/koyokaku/0/detail/1298822"
+   }
   },
   {
    "id": "kotan",
@@ -3333,8 +3731,8 @@
     }
    ],
    "confidence": "low",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "検索結果で閉館済みと表示（2026-10-16 調査）。要確認"
   },
   {
    "id": "shiiba",
@@ -3561,11 +3959,29 @@
      "url": "https://spa-u.net/facility/2017/06/org-entry-012.php",
      "accessed": "2026-10-04",
      "note": "25室100名、庭園"
+    },
+    {
+     "title": "【当館人気1！おかみオススメ♪】旬の和会席プラン ●安心の朝夕お部屋食● 花とおもてなしの宿 松園（じゃらん）",
+     "url": "https://www.jalan.net/yad323668/plan/plan00867959/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 宿泊プランの説明で、朝食は部屋食とされ、嬉野温泉名物の温泉湯豆腐が出ると案内されている（料理は月替わり） ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉 家族の笑顔がこぼれる宿 松園 クチコミ・レビュー（楽天トラベル）",
+     "url": "https://travel.rakuten.co.jp/HOTEL/32079/review.html",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 宿泊者が朝の湯豆腐を特によかったと挙げ、嬉野の豆腐が濃厚でおいしかったと書いている（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": "湯どうふは宿泊時の食事で提供（朝/夕の別は未確認）。住所未取得"
+   "updated_at": "2026-10-16",
+   "editor_note": "湯どうふは宿泊時の食事で提供（朝/夕の別は未確認）。住所未取得 / 湯どうふの食べ方 未確認: つけだれや薬味の内容は確認できなかった。",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "朝食は客室でとる部屋食で、嬉野温泉名物の温泉湯豆腐が付く。宿泊者の口コミでは、朝の湯豆腐の濃厚な味わいが好評だ。",
+    "source_url": "https://www.jalan.net/yad323668/plan/plan00867959/"
+   }
   },
   {
    "id": "taishoya",
@@ -3752,11 +4168,49 @@
      "url": "https://tabelog.com/saga/A4104/A410401/41000472/dtlphotolst/1/smp2/",
      "accessed": "2026-10-04",
      "note": "WebSearch結果の要約による。住所・電話・点数3.45・口コミ21件・保存406件・年中無休・予算・「溶ける湯豆腐」"
+    },
+    {
+     "title": "現代ビジネス（gendai.media）お取り寄せ記事",
+     "url": "https://gendai.media/articles/-/95379",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 通販の「とろける湯どうふ」は嬉野市産ふくゆたかが原料で、煮込むと表面や角が溶け出す。つけダレのごま醤油が付き、残ったたれにうどんやご飯を入れる食べ方も紹介されている。溶ける豆腐の商 ※検索結果の要約で確認"
+    },
+    {
+     "title": "湯豆腐お取り寄せ 通販おすすめランキング｜ベストオイシー",
+     "url": "https://food.biglobe.ne.jp/rankings/5515/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 家庭向けの温泉湯豆腐セットの内容は、豆腐・豆乳・温泉湯豆腐用の調理水・ごま醤油・鰹節・おろし生姜・七味だと紹介されている ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉 大正屋 クチコミ・レビュー（楽天トラベル）",
+     "url": "https://travel.rakuten.co.jp/HOTEL/19923/review.html",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 宿泊者は、温泉湯豆腐が豆腐と湯葉の中間のように濃厚だったと書いている。朝食でおかわりできたという投稿もある（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "大正屋 宿泊プラン（一休.com）",
+     "url": "https://www.ikyu.com/00001533/11092347/10196522/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: とろとろの温泉湯豆腐がおいしく、おかわりしたという投稿がある（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "『朝食の豆腐は気合いが入ってる』by ほそちん : 大正屋 [食べログ]",
+     "url": "https://tabelog.com/saga/A4104/A410401/41000472/dtlrvwlst/B424411957/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝食の湯豆腐が特においしいとする投稿がある（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [
+     "ゴマ醤油"
+    ],
+    "yakumi": [],
+    "note": "朝食の和定食の主役で、自家製の豆腐を嬉野の温泉水で炊いて出す。煮るほど豆腐の角が溶けてとろりとした食感になる。そのままでも大豆の甘みを味わえ、ゴマ醤油や薬味で好みの味にもできる。ご飯は棚田米か嬉野茶の茶粥から選べ、湯豆腐をおかわりしたという口コミもある。",
+    "source_url": "https://travel.rakuten.co.jp/mytrip/howto/taishoya-guide"
+   }
   },
   {
    "id": "takasago",
@@ -3848,11 +4302,29 @@
      "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/dayuse/28965",
      "accessed": "2026-10-04",
      "note": "デイユース時間・料金・湯豆腐しゃぶしゃぶ会席5,000円税別"
+    },
+    {
+     "title": "嬉野温泉 御宿 高砂（icotto）",
+     "url": "https://icotto.jp/hotels/4188",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 嬉野温泉の湯を使った湯豆腐と佐賀牛のしゃぶしゃぶを看板料理にしている宿として紹介されている ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉 御宿 高砂 クチコミ・レビュー（楽天トラベル）",
+     "url": "https://travel.rakuten.co.jp/HOTEL/28965/review.html",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 「温泉湯豆腐と佐賀産牛のしゃぶしゃぶプラン」があり、夕食は佐賀産和牛の湯豆腐しゃぶしゃぶ。複数の投稿で朝夕の湯豆腐が好評（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": "住所未取得"
+   "updated_at": "2026-10-16",
+   "editor_note": "住所未取得 / 湯どうふの食べ方 未確認: つけだれの種類は確認できなかった。",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "夕食の主役は、嬉野温泉の湯で炊く湯豆腐と佐賀産和牛のしゃぶしゃぶを合わせた鍋だ。口コミによれば朝食にも温泉湯豆腐が出て、たれを付けずにそのまま味わったという宿泊者もいる。",
+    "source_url": "https://travel.rakuten.co.jp/HOTEL/28965/review.html"
+   }
   },
   {
    "id": "hatsune",
@@ -3860,7 +4332,7 @@
    "name_kana": "はつねそう",
    "category": "hotel",
    "status": "needs_review",
-   "yudofu": "unverified",
+   "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町（番地未取得）",
    "lat": 33.099522,
    "lng": 129.983805,
@@ -3923,11 +4395,35 @@
      "url": "https://spa-u.net/facility/2017/06/org-entry-014.php",
      "accessed": "2026-10-04",
      "note": "spa-u.net 加盟一覧エントリ"
+    },
+    {
+     "title": "楽天トラベル: 嬉野温泉 旅館 初音荘 宿泊プラン一覧",
+     "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/13775",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 「嬉野名物温泉豆腐とトロトロ温泉を堪能」というプランがあり、朝食に嬉野温泉豆腐を味わう和食御膳が付く。夕食は佐賀県産牛の陶板焼きが中心の会席 ※検索結果の要約で確認"
+    },
+    {
+     "title": "クチコミ・評判 - 旅館初音荘 [Yahoo!トラベル]",
+     "url": "https://travel.yahoo.co.jp/00911518/review/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 温泉の湯を使った湯豆腐がとろっとしておいしかったという投稿がある（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "朝食が美味しかった〜/旅館初音荘のクチコミ（じゃらんnet）",
+     "url": "https://www.jalan.net/yad305352/kuchikomi/detail_08002269/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝食の温泉豆腐がおいしかった、量が多くて残したといった投稿がある（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "low",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "湯どうふの食べ方 未確認: たれや薬味は確認できなかった。 / 楽天トラベルのプランで朝食の和食御膳に温泉豆腐が付くことを確認（2026-10-16）。全プラン共通かは不明",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "朝食に、嬉野名物の温泉豆腐を味わう和食御膳を出すプランがある。温泉の湯で煮た豆腐はとろりとした口当たりだと口コミで評されている。夕食の主役は佐賀県産牛の陶板焼きの会席だ。",
+    "source_url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/13775"
+   }
   },
   {
    "id": "hamilton",
@@ -4118,11 +4614,49 @@
      "url": "https://spa-u.net/facility/2017/06/org-entry-005.php",
      "accessed": "2026-10-04",
      "note": "全26室露天・半露天付き"
+    },
+    {
+     "title": "萬象閣 敷島 宿泊プラン（公式予約ページ reserve.489ban.net）",
+     "url": "https://reserve.489ban.net/client/bansyoukaku-s/0/detail/947160",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 宿泊プランの説明で、朝食は嬉野温泉名物の温泉湯豆腐付きの和定食と案内されている ※検索結果の要約で確認"
+    },
+    {
+     "title": "『』by yuriYU : 萬象閣 敷島 [食べログ]",
+     "url": "https://tabelog.com/saga/A4104/A410401/41004245/dtlrvwlst/B357839414/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝食の湯豆腐は温泉の湯で煮ると透明な汁が白く濁っていき、ごまダレ（ごま醤油）で食べるスタイルだったと書かれている（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "『美人湯と佐賀の美味しい食材を愉しめる宿。』by misspepper : 萬象閣 敷島 [食べログ]",
+     "url": "https://tabelog.com/saga/A4104/A410401/41004245/dtlrvwlst/B249404117/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 煮るうちに汁が白く濁って豆乳のような味わいになり、豆腐もなめらかだったと書かれている（2017年の訪問）（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "とにかく最高でした！ - 萬象閣敷島のクチコミ（一休.com）",
+     "url": "https://www.ikyu.com/00000698/review/1001995131/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 朝の湯豆腐が気に入った、ゴマ醤油たれが絶品だったと書かれている。豆腐3丁・ゴマ醤油たれ・調理用の水のセットも勧めている（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "萬象閣敷島 - クチコミ・評判（Yahoo!トラベル）",
+     "url": "https://travel.yahoo.co.jp/00000698/review/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 夕食の土瓶蒸しや小鍋と並んで、朝食の湯豆腐が印象に残ったという投稿がある（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": "住所未取得。位置は温泉街中心の概略"
+   "updated_at": "2026-10-16",
+   "editor_note": "住所未取得。位置は温泉街中心の概略",
+   "yudofu_style": {
+    "tare": [
+     "ごま醤油だれ"
+    ],
+    "yakumi": [],
+    "note": "朝食の和定食に温泉湯豆腐が付く。温泉の湯で煮るうちに、透き通っていた煮汁が白く濁り、豆乳のような風味に変わっていく様子が口コミで語られている。ごま醤油系のたれで食べ、そのたれのおいしさを推す宿泊者もいる。",
+    "source_url": "https://tabelog.com/saga/A4104/A410401/41004245/dtlrvwlst/B357839414/"
+   }
   },
   {
    "id": "hisago",
@@ -4209,8 +4743,14 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": "住所未取得"
+   "updated_at": "2026-10-16",
+   "editor_note": "住所未取得 / 湯どうふの食べ方 未確認: たれや薬味、提供の仕方は確認できなかった。",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "朝食は小鉢を並べた御膳形式で、嬉野温泉名物の温泉湯豆腐が付く。家族で営む小さな宿の朝ごはんとして出される。",
+    "source_url": "http://www.hisagoryokan.com/"
+   }
   },
   {
    "id": "fairfield",
@@ -4256,11 +4796,29 @@
      "url": "https://spa-u.net/facility/2023/07/fairfield-by-marriott-saga-ureshino-onsen.php",
      "accessed": "2026-10-04",
      "note": "レストランなしの宿泊特化型"
+    },
+    {
+     "title": "「フェアフィールド･バイ･マリオット･佐賀嬉野温泉」に滞在し、嬉野温泉を満喫する（サライ.jp）",
+     "url": "https://serai.jp/tour/1158715",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: ホテルの朝食は予約制の「朝食ボックス」で、温泉湯豆腐をはじめ、地元野菜の煮しめ、嬉野茶の佃煮、吉田産米のご飯などが入ると紹介されている ※検索結果の要約で確認"
+    },
+    {
+     "title": "フェアフィールド･バイ･マリオット･佐賀嬉野温泉（マリオット公式）",
+     "url": "https://www.marriott.com/ja/hotels/ngssu-fairfield-saga-ureshino-onsen/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 予約制の朝食ボックスがあり、地域の食材を多く使っていると案内されている。無料の朝食はない ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": "レストランなし（検索要約）。売店等での取扱は未確認"
+   "updated_at": "2026-10-16",
+   "editor_note": "レストランなし（検索要約）。売店等での取扱は未確認 / 湯どうふの食べ方 未確認: たれや温め方は確認できなかった。 / サライ記事（2023年開業時）で予約制の朝食ボックスに温泉湯豆腐が入ると紹介。現行内容は要確認（2026-10-16）",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "館内にレストランはなく、予約制の朝食ボックスに温泉湯豆腐が入る。地元野菜の煮しめや嬉野茶の佃煮、地元産の米で炊いたご飯と一緒に詰め合わせていると紹介されている。",
+    "source_url": "https://serai.jp/tour/1158715"
+   }
   },
   {
    "id": "hotel-sakura",
@@ -4348,18 +4906,32 @@
      "url": "https://spa-u.net/facility/2017/06/hotelsakura.php",
      "accessed": "2026-10-04",
      "note": "検索結果にURLのみ"
+    },
+    {
+     "title": "ホテル桜 嬉野（ニフティ温泉）",
+     "url": "https://onsen.nifty.com/ureshino-onsen/onsen004127/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 館内のレストランで湯豆腐料理が食べられるという投稿がある（口コミ） ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "湯どうふの食べ方 未確認: 現在の営業状況は確認できていない。 / 和風レストラン花月は食べログで掲載保留（休業・閉店の可能性）。2026-10-16 調査。要営業確認",
+   "yudofu_style": {
+    "tare": [
+     "胡麻だれ"
+    ],
+    "yakumi": [],
+    "note": "1階の和風レストラン花月では、昼に嬉野名物の温泉湯豆腐を小鉢・蓋物・ご飯・香の物と組み合わせた御膳で出していた。温泉豆腐は胡麻だれにつけて食べる形で、口コミで好評だった。",
+    "source_url": "https://tabelog.com/saga/A4104/A410401/41002827/dtlrvwlst/B421869287/"
+   }
   },
   {
    "id": "seiryu",
    "name": "大正屋 湯宿清流",
    "name_kana": "ゆやど せいりゅう",
    "category": "hotel",
-   "status": "published",
+   "status": "needs_review",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙2314",
    "lat": 33.099522,
@@ -4440,11 +5012,29 @@
      "url": "https://www.taishoya.com/",
      "accessed": "2026-10-04",
      "note": "三宿構成"
+    },
+    {
+     "title": "湯宿 清流 クチコミ（フォートラベル）",
+     "url": "https://4travel.jp/dm_hotel-10052421/tips",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 「嬉野温泉 大正屋 湯宿 清流は閉鎖しました」と注記されている。2023年2月の口コミには、朝食に自家製の湯豆腐が出たとある（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "Ureshino Onsen Ryokan Yushuku Seiryu [Tabelog]",
+     "url": "https://tabelog.com/en/saga/A4104/A410401/41004333/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 食べログでは、休業期間が未確定で移転・閉店の可能性もあるとして掲載が保留になっている ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "閉館の可能性（フォートラベルに「閉鎖しました」の注記、食べログは掲載保留）。2026-10-16 調査。営業確認まで要確認に変更",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "大正屋グループの宿で、朝食に湯豆腐、夕食にざる豆腐を出していたと口コミにある。どちらも大豆の風味が濃い豆腐と評された。旅行口コミサイトには、この宿は閉鎖したと記載がある。",
+    "source_url": "https://tabelog.com/saga/A4104/A410401/41004333/dtlrvwlst/B49189597/"
+   }
   },
   {
    "id": "yoshidaya",
@@ -5201,11 +5791,55 @@
      "url": "https://www.tabirai.net/sightseeing/column/0007985.aspx",
      "accessed": "2026-10-04",
      "note": "検索結果タイトルによる"
+    },
+    {
+     "title": "店舗案内（佐嘉平川屋 公式）",
+     "url": "https://saga-hirakawaya.jp/brand/shop/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 公式の店舗案内では、温泉湯豆腐御膳（肉なし）が3,500円、華（肉あり）が4,000円。 ※検索結果の要約で確認"
+    },
+    {
+     "title": "『温泉湯豆腐御膳 華をいただきました』（食べログ）",
+     "url": "https://tabelog.com/saga/A4103/A410301/41007653/dtlrvwlst/B467455634/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 卓上の調味料として、ごまダレ、ポン酢、出汁醤油、ゆず胡椒、塩、オリーブオイルが用意されていたという口コミ。（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "佐嘉平川屋 武雄温泉本店（あそぼーさが ベジタリアンガイド）",
+     "url": "https://www.asobo-saga.jp/vegetarian-guide/detail/a8d91360-fa80-41f5-a968-34118c9dc95c",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 温泉と同じ成分の調理水と豆腐だけで作り、塩かオリーブオイルで食べることも勧めている。 ※検索結果の要約で確認"
+    },
+    {
+     "title": "温泉豆腐を食べに武雄温泉まで行ってきました その６温泉湯豆腐御膳 華（肉あり）",
+     "url": "https://chuburujapan.com/blog/?p=66031",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 角が崩れてきた湯豆腐を、ポン酢、出し醤油、胡麻ダレのどれかで食べたというブログ記事。 ※検索結果の要約で確認"
+    },
+    {
+     "title": "温泉湯豆腐３丁入り（胡麻だれ・ぽん酢付き）（佐嘉平川屋公式オンラインショップ）",
+     "url": "https://www.saga-hirakawaya.jp/products/detail/25",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 公式通販に『温泉湯豆腐3丁入り（胡麻だれ・ぽん酢付き）』がある。 ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [
+     "胡麻だれ",
+     "ぽん酢",
+     "出汁醤油",
+     "白だし",
+     "塩・オリーブオイル"
+    ],
+    "yakumi": [
+     "ゆず胡椒"
+    ],
+    "note": "武雄にある豆腐店の本店。店で出す温泉湯豆腐御膳は、調理水で豆腐を煮て汁が白く濁れば食べ頃。胡麻だれ、ポン酢、出汁醤油のほか塩とオリーブオイルでも食べられ、残った汁で雑炊を作る。持ち帰りセットには胡麻だれ付き、ぽん酢付き、白だし付きなどがある。",
+    "source_url": "https://www.sagatv.co.jp/kachiplus/media/archives/1663065"
+   }
   },
   {
    "id": "yudofu-honpo",
@@ -5400,11 +6034,29 @@
      "url": "https://tabelog.com/keywords/%E6%B9%AF%E8%B1%86%E8%85%90/saga/A4104/A410401/kwdLst/",
      "accessed": "2026-10-04",
      "note": "検索結果要約で「湯どうふ本舗 - 専門店」として言及"
+    },
+    {
+     "title": "現代ビジネス 記事（大正屋 湯どうふ本舗『とろける湯豆腐』紹介）",
+     "url": "https://gendai.media/articles/-/95379",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: セットの中身は、嬉野産ふくゆたかの豆腐、豆乳、温泉湯豆腐用の調理水、ごま醤油、鰹節、おろし生姜、七味。 ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [
+     "ごま醤油"
+    ],
+    "yakumi": [
+     "かつお節",
+     "おろし生姜",
+     "七味"
+    ],
+    "note": "旅館大正屋直営の店が作る「とろける湯どうふ」。嬉野産ふくゆたかの豆腐に、温泉調理水、豆乳、ごま醤油、かつお節、おろし生姜、七味が付く。温泉水で煮て豆腐が溶け始めたら豆乳を加えて風味を足す。食べ終えたごま醤油の器には、うどんやご飯を入れてもよい。",
+    "source_url": "https://gendai.media/articles/-/95379"
+   }
   },
   {
    "id": "fukuda",
@@ -5542,11 +6194,43 @@
      "url": "https://note.com/ryokanoomuraya/n/n644714b822a0",
      "accessed": "2026-10-04",
      "note": "（湯野田地区・F2）"
+    },
+    {
+     "title": "嬉野 温泉湯豆腐3丁セット - 嬉野 福田とうふ店 - STORES",
+     "url": "https://ureshino-tofu.stores.jp/items/6142ca9a306ad370fb2a9974",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 3丁セットは調理水1.5Lと専用ごまだれ（濃縮）付き。付属の水に3〜4等分した豆腐をそっと入れて火にかけ、煮すぎに注意し、水が豆乳のように濁れば完成。 ※検索結果の要約で確認"
+    },
+    {
+     "title": "ふくだ豆腐のこだわり - 嬉野豆腐 福田とうふ店",
+     "url": "https://ureshino-tofu.com/shop/",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 深夜2時ごろから仕込み、朝6時から販売する。原料は嬉野産大豆フクユタカ。 ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野 温泉湯豆腐 3丁セット（イオン九州オンライン）",
+     "url": "https://www.aeon-kyushu.com/item/KY4990022568946",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 3丁セットの中身は豆腐450g×3、調理水1.5L×1、ごまだれ200g×1。付属の調理水でコトコト煮て、豆腐の角が少し崩れて丸くなれば食べ頃。 ※検索結果の要約で確認"
+    },
+    {
+     "title": "[福田とうふ店] 嬉野 温泉湯豆腐 3丁セット（niji-dept）",
+     "url": "https://www.niji-dept.com/view/item/000000000734",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: [福田とうふ店]と銘打った3丁セット（豆腐450g×3、調理水1.5L×1、ごまだれ200g×1）が販売されている。 ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [
+     "専用ごまだれ（濃縮）"
+    ],
+    "yakumi": [],
+    "note": "福田とうふ店の取り寄せセットは、450gの温泉どうふ、1.5Lの調理水、濃縮タイプの専用ごまだれの組み合わせ。付属の水に3〜4等分した豆腐をそっと入れて火にかけ、角が丸くなって水が豆乳のように濁れば食べ頃。煮すぎると溶けてしまう。",
+    "source_url": "https://ureshino-tofu.stores.jp/items/6142ca9a306ad370fb2a9974"
+   }
   },
   {
    "id": "fujikawa",
@@ -5724,11 +6408,47 @@
      "url": "https://tabelog.com/en/saga/A4104/A410401/41007473/",
      "accessed": "2026-10-04",
      "note": "WebSearch結果の要約による。湯豆腐単品・テイクアウト・隣接工房"
+    },
+    {
+     "title": "嬉野温泉湯どうふセット 3丁セット（ポン酢／ごまだれ）（藤川豆腐店 公式）",
+     "url": "https://www.fujikawa102.com/view/item/000000000004",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 3丁セットはごまだれかポン酢を選ぶ方式。中身は木綿豆腐480g×3、調理水500ml×3、柚子胡椒20gで、2,970円（税込）。消費期限は製造日を含めて5日。 ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉湯どうふ「お試しセット」（藤川豆腐店 公式）",
+     "url": "https://www.fujikawa102.com/view/item/000000000007",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: お試しセットは豆腐1丁、調理水1袋、ごまだれ、柚子胡椒の組み合わせ。 ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉湯どうふとは（藤川豆腐店 公式）",
+     "url": "https://www.fujikawa102.com/view/page/about",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 豆腐を4〜6等分し、専用調理水で15〜20分煮る。汁が白く濁り豆腐がとろっとすれば完成。薬味は柚子胡椒やネギがよく、白い煮汁も一緒にすするよう勧めている。必ず専用の調理水を使うよう ※検索結果の要約で確認"
+    },
+    {
+     "title": "店舗情報（藤川豆腐店 公式）",
+     "url": "https://www.fujikawa102.com/view/page/shop",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 工場の隣でお食事処「十笑（とうふ）」を運営している。 ※検索結果の要約で確認"
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [
+     "ごまだれ",
+     "ポン酢"
+    ],
+    "yakumi": [
+     "柚子胡椒",
+     "ネギ"
+    ],
+    "note": "嬉野市産ふくゆたかで作る藤川豆腐店のセットは、480gの木綿豆腐と専用調理水に柚子胡椒が付き、たれはごまだれとポン酢から選ぶ。豆腐を4〜6切れにして15〜20分煮て、汁が白く濁りとろっとすれば完成。工場の隣の直営食事処「十笑」でも食べられる。",
+    "source_url": "https://www.fujikawa102.com/view/item/000000000004"
+   }
   },
   {
    "id": "hirakawaya-wataya",
@@ -5820,11 +6540,23 @@
      "url": "https://wataya.co.jp/facility/hirakawaya-2",
      "accessed": "2026-10-04",
      "note": "検索結果タイトルのみ"
+    },
+    {
+     "title": "嬉野市 和多屋別荘内に豆腐専門店「佐嘉平川屋」オープン（佐賀新聞）",
+     "url": "https://www.saga-s.co.jp/articles/-/1605308",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 本店と嬉野店に次ぐ3店目として開店。ビーガン向けを含む温泉湯豆腐中心のコース（6,800円）があり、引き上げ湯葉や焼きごま豆腐、おぼろ豆腐作りの体験も入っている。 ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "和多屋別荘の館内にある佐嘉平川屋の店。嬉野の温泉水と同じ成分の調理水で豆腐を煮て、豆乳のように白く濁った汁ごと味わう。温泉湯豆腐のあとは若楠ポークのしゃぶしゃぶと締めの雑炊に進む。器は有田焼・李荘窯のもの。",
+    "source_url": "https://wataya.co.jp/facility/hirakawaya"
+   }
   },
   {
    "id": "kihara",
@@ -5956,8 +6688,14 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": "住所は 下宿乙873-2 / 岩屋川内甲74-2 の2表記あり（要確認）"
+   "updated_at": "2026-10-16",
+   "editor_note": "住所は 下宿乙873-2 / 岩屋川内甲74-2 の2表記あり（要確認）",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "シーボルトのあし湯の向かいにある八百屋兼惣菜店。嬉野名物の温泉湯どうふと、湯どうふ用の調理水も買えると紹介されている。",
+    "source_url": "https://www.oomuraya.co.jp/kurashikanko/kihara/"
+   }
   },
   {
    "id": "ja-town",
@@ -6021,8 +6759,16 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-04",
-   "editor_note": ""
+   "updated_at": "2026-10-16",
+   "editor_note": "",
+   "yudofu_style": {
+    "tare": [
+     "特製ごまダレ"
+    ],
+    "yakumi": [],
+    "note": "JAタウンでさが風土館季楽が出品する、福田豆腐店製のセット。450gの温泉豆腐3丁に、1.5Lの調理水と特製ごまダレが付き、3〜5人分。3〜4つに切った豆腐を調理水と一緒に土鍋か鉄鍋に入れて煮る。",
+    "source_url": "https://www.ja-town.com/shop/g/g8101-500071013/"
+   }
   },
   {
    "id": "maruku",
@@ -6510,11 +7256,33 @@
      "url": "https://furunavi.jp/Municipal/Product/Search?municipalid=1537",
      "accessed": "2026-10-04",
      "note": "検索結果に出現"
+    },
+    {
+     "title": "嬉野温泉 湯どうふ 2丁セット 定期便（ふるさとチョイス／藤川とうふ店）",
+     "url": "https://www.furusato-tax.jp/product/detail/41209/6036090",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 藤川とうふ店の2丁セット（全3回の定期便）の中身は、豆腐480g×2、調理水500g×2、ゴマだれ160ml×1、ゆずごしょう20g×1。消費期限は製造日から5日。 ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉湯豆腐3丁セット 定期便（ふるなび）",
+     "url": "https://furunavi.jp/product_detail.aspx?pid=789277",
+     "accessed": "2026-10-16",
+     "note": "湯どうふの食べ方: 3丁セットの定期便（全6回）は、豆腐480g×3丁、調理水500g×3、ごまだれ160ml×1、ゆずごしょう付き。原料の大豆から豆腐まで嬉野市で製造している。 ※検索結果の要約で確認"
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": "寄付額であり販売価格ではない"
+   "updated_at": "2026-10-16",
+   "editor_note": "寄付額であり販売価格ではない",
+   "yudofu_style": {
+    "tare": [
+     "ゴマだれ"
+    ],
+    "yakumi": [
+     "ゆずごしょう"
+    ],
+    "note": "嬉野市の返礼品のうち藤川とうふ店のセットは、480gの豆腐と500gの調理水に、甘辛のゴマだれとゆずごしょうが付く。定期便で届く品もある。温泉水で煮ると煮汁が豆乳色になり、豆腐はとろとろになる。冷奴でも食べられる。",
+    "source_url": "https://www.furusato-tax.jp/product/detail/41209/6036090"
+   }
   }
  ]
 }
