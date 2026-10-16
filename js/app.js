@@ -236,6 +236,22 @@
     return '<section class="detail-media-section"><h3>写真・動画（' + items.length + '件）</h3><div class="detail-media-strip">' + items.map((m) => mediaCard(m, true)).join('') + '</div></section>';
   }
 
+  async function renderGooglePhotos(place, root) {
+    if (state.engine !== 'google' || !window.TofuData || typeof window.TofuData.getGooglePhotos !== 'function') return;
+    const host = $('[data-google-photos]', root);
+    if (!host) return;
+    const photos = await window.TofuData.getGooglePhotos(place, { max: 4, maxWidth: 800 });
+    if (!host.isConnected || state.selectedId !== place.id) return;
+    const displayable = (photos || []).filter((photo) => photo && photo.url && photo.author && photo.author.name && photo.author.uri).slice(0, 4);
+    if (!displayable.length) return;
+    host.innerHTML = '<section class="detail-google-photos-section"><h3>お店の写真（Google マップより）</h3><div class="detail-google-photos-strip">' + displayable.map((photo, index) => {
+      const size = Number(photo.width) > 0 && Number(photo.height) > 0 ? ' width="' + Number(photo.width) + '" height="' + Number(photo.height) + '"' : '';
+      const googleLabel = photo.google_maps_uri ? '<a href="' + esc(photo.google_maps_uri) + '" target="_blank" rel="noopener noreferrer">Google マップ</a>' : '<span>Google マップ</span>';
+      return '<figure class="detail-google-photo"><img src="' + esc(photo.url) + '" alt="' + esc(place.name + 'のお店の写真 ' + (index + 1)) + '" loading="lazy" decoding="async"' + size + '><figcaption>' + googleLabel + '<span aria-hidden="true"> · </span><span>撮影: </span><a href="' + esc(photo.author.uri) + '" target="_blank" rel="noopener noreferrer">' + esc(photo.author.name) + '</a></figcaption></figure>';
+    }).join('') + '</div></section>';
+    host.hidden = false;
+  }
+
   // ------------------------------------------------------------------ 地図（エンジン切替: Google マップ / Leaflet）
   // state.map は共通インターフェース:
   //   setView(lat,lng,zoom) panTo(lat,lng) getZoom() contains(lat,lng) fitBounds(points,{padding,maxZoom})
@@ -768,6 +784,7 @@
       p.urls.official ? '<a class="btn" href="' + esc(p.urls.official) + '" target="_blank" rel="noopener noreferrer">公式サイト</a>' : '',
       '<button type="button" class="btn" id="btn-share">共有</button>',
       '</div>',
+      '<div data-google-photos hidden></div>',
       renderPlaceMedia(p.id),
       !isConfirmed(p) ? '<p class="callout">この場所の温泉湯どうふ情報はまだ確認できていません。メニュー・価格・使っている豆腐をご存じの方は「情報を修正する」から教えてください。</p>' : '',
       kv.length ? '<section><h3>基本情報</h3><dl class="kv">' + kv.map((r) => '<dt>' + r[0] + '</dt><dd>' + r[1] + '</dd>').join('') + '</dl></section>' : '',
@@ -792,6 +809,7 @@
     $('#btn-fix-pos').addEventListener('click', () => { openContribute('fix', p); startPick(); });
     $$('[data-goto]', inner).forEach((el) => el.addEventListener('click', (e) => { e.preventDefault(); selectPlace(el.dataset.goto, { pan: true }); }));
     observeMedia(inner);
+    renderGooglePhotos(p, inner);
   }
 
   function sharePlace(p) {

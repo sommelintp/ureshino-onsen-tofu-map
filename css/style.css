@@ -416,6 +416,11 @@ h1, h2 { font-family: var(--font-title); font-weight: 700; }
 .detail h2 { font-size: 1.65rem; }
 .detail-media-strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 88%); gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; }
 .detail-media-strip .media-card { scroll-snap-align: start; }
+.detail-google-photos-strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 88%); gap: 8px; overflow-x: auto; padding-bottom: 4px; scroll-snap-type: x mandatory; }
+.detail-google-photo { position: relative; min-width: 0; margin: 0; overflow: hidden; background: var(--bg-sunken); scroll-snap-align: start; }
+.detail-google-photo img { display: block; width: 100%; height: auto; }
+.detail-google-photo figcaption { position: absolute; right: 6px; bottom: 6px; max-width: calc(100% - 12px); padding: 4px 7px; background: rgba(20, 20, 20, .78); color: #fff; font-size: .7rem; line-height: 1.35; text-align: right; overflow-wrap: anywhere; }
+.detail-google-photo figcaption a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
 .detail-media-empty { min-height: 200px; display: grid; place-items: center; padding: 28px; text-align: center; background: var(--bg-sunken); border: 1px solid var(--line); color: var(--fg-muted); }
 .detail-media-empty strong { display: block; margin-bottom: 5px; color: var(--fg); font-family: var(--font-title); }
 .detail-media-empty .empty-illust { width: 92px; margin: 0 auto 14px; opacity: .7; }
