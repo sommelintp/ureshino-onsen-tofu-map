@@ -74,6 +74,7 @@ TofuData.schema.validateAll(ds.raw)  // 点検画面（?check=1）用
 | `price_min` `price_max` `price_item` | number / string | 代表価格（湯どうふの定食・セット）と、その品名。表示はこれを使う |
 | `tofu_source` | {name, maker_id, note, source_url} | 使っている豆腐。`maker_id` は製造元の店の id |
 | `onsen_source` | {name, note, source_url} | 使っている温泉 |
+| `tare_types` | string[] | 派生値（保存しない）。たれの種類を表記ゆれなしでまとめたもの: `goma` ごま系 / `ponzu` ポン酢 / `shoyu` 醤油・だし系 / `other` その他。表示名は `TofuSchema.TARE_TYPES` |
 | `yudofu_style` | {tare: string[], yakumi: string[], note, source_url} | 湯どうふの食べ方。`tare` たれ（ごまだれ・ポン酢など）、`yakumi` 薬味、`note` 特徴の紹介文（出し方・〆など）、`source_url` その出典。空のこともある |
 | `features` / `description` | string[] / string | 特徴 / 紹介文 |
 | `urls` | {official, tabelog, retty, google_maps, gurunavi, hotpepper, jalan, rakuten, instagram, other[]} | 外部リンク |

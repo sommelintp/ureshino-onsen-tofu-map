@@ -24,6 +24,16 @@
   const YUDOFU = { confirmed: '確認済み', unverified: '未確認', none: 'なし' };
   const GEO_PRECISION = { exact: '正確', approx: '概略', unknown: '不明' };
   const CONFIDENCE = { high: '高', medium: '中', low: '低' };
+  // たれの種類（表記ゆれをまとめる。絞り込み・検索用の派生値 tare_types に使う）
+  const TARE_TYPES = { goma: 'ごま系', ponzu: 'ポン酢', shoyu: '醤油・だし系', other: 'その他のたれ' };
+  function tareTypes(list) {
+    const out = [];
+    (list || []).forEach((t) => {
+      const k = /ごま|胡麻|ゴマ/.test(t) ? 'goma' : /ポン酢|ぽん酢|ポンズ|ぽんず/.test(t) ? 'ponzu' : /醤油|しょうゆ|しょう油|だし|出汁/.test(t) ? 'shoyu' : 'other';
+      if (out.indexOf(k) < 0) out.push(k);
+    });
+    return out;
+  }
   const SERVICES = ['ランチ', 'ディナー', '朝食', '日帰り', 'テイクアウト', '通販', '宿泊者限定', '食べ比べ', '予約制'];
 
   // ---- 列定義（シートの見出し順） ------------------------------------------
@@ -270,6 +280,7 @@
     const ys = typeof p.yudofu_style === 'object' && p.yudofu_style ? p.yudofu_style : {};
     const listOf = (v) => Array.isArray(v) ? v.map(trim).filter(Boolean) : splitLines(v);
     p.yudofu_style = { tare: listOf(ys.tare), yakumi: listOf(ys.yakumi), note: trim(ys.note), source_url: isUrl(ys.source_url) ? trim(ys.source_url) : '' };
+    p.tare_types = tareTypes(p.yudofu_style.tare); // 派生値（保存しない）: goma / ponzu / shoyu / other
     const urls = Object.assign({}, p.urls || {});
     Object.keys(URL_LABELS).forEach((k) => { urls[k] = isUrl(urls[k]) ? trim(urls[k]) : ''; });
     urls.other = Array.isArray(urls.other) ? urls.other.filter((l) => l && isUrl(l.url)) : parseLinks(urls.other);
@@ -398,7 +409,7 @@
   }
 
   return {
-    CATEGORIES, STATUS, YUDOFU, GEO_PRECISION, CONFIDENCE, SERVICES, COLUMNS, HEADERS, URL_LABELS,
+    CATEGORIES, STATUS, YUDOFU, GEO_PRECISION, CONFIDENCE, SERVICES, TARE_TYPES, tareTypes, COLUMNS, HEADERS, URL_LABELS,
     getPath, setPath, trim, splitLines, splitPipe, toNumber, isUrl, enumFromLabel,
     parseMenu, serializeMenu, parseLinks, serializeLinks, parseSources, serializeSources,
     rowToPlace, placeToRow, normalizePlace, validatePlace, validateAll, hashId,
