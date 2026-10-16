@@ -31,7 +31,7 @@
 
 - **編集者アカウントの共有** = Google スプレッドシートを「編集者」として共有するだけ。
   GitHub を使えない担当者でも編集できる。GitHub が使える担当者はリポジトリの collaborator として JSON を直接編集してもよい。
-- **一般公開** = GitHub Pages（`https://<owner>.github.io/ureshino-onsen-tofu-map/`）。
+- **一般公開** = GitHub Pages（`https://ureshino-yudofu-map.github.io/`）。
 
 ## 3. 全体アーキテクチャ
 
@@ -162,7 +162,7 @@
 ## 8. 公開手順（管理者）
 
 1. GitHub → Settings → Pages → Build and deployment: **GitHub Actions**。
-2. `main` に push すると `pages.yml` がデプロイ。URL は `https://<owner>.github.io/ureshino-onsen-tofu-map/`。
+2. `main` に push すると `pages.yml` がデプロイ。URL は `https://ureshino-yudofu-map.github.io/`。
 3. スプレッドシート: 共有 → 「リンクを知っている全員」= 閲覧者（サイトが読むため）。編集者は個別に「編集者」で追加。
 4. `config.js` の `SHEET_ID` をシートの ID に設定。
 5. （任意）Google フォームを作成し、`config.js` の `FORM_URL` に設定。

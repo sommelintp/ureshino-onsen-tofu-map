@@ -1,7 +1,7 @@
 # AGENTS.md — 嬉野温泉 湯どうふマップ（Codex 向け作業ルール）
 
 このリポジトリは、佐賀県嬉野市で「温泉湯どうふ」が食べられる・買える場所を地図で紹介する公開サイトです。
-GitHub Pages（`main` への push で自動公開）で配信しています。公開URL: https://sommelintp.github.io/ureshino-onsen-tofu-map/
+GitHub Pages（`main` への push で自動公開）で配信しています。公開URL: https://ureshino-yudofu-map.github.io/
 
 ## あなた（Codex）の担当: フロントエンド
 このプロジェクトは **バックエンド＝Claude、フロントエンド＝Codex** で分担しています。役割・担当ファイル・データ API は

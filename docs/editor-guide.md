@@ -64,7 +64,7 @@ GitHub の操作は必要ありません。
 
 サイトの URL の末尾に `?check=1` を付けて開くと、画面下にデータの **エラー**（座標が市外、URL の形式、出典なし など）と
 **注意**（座標なし、id なし、メニューなし）が一覧で出ます。シートを編集した後の確認に使ってください。
-例: `https://sommelintp.github.io/ureshino-onsen-tofu-map/?check=1`
+例: `https://ureshino-yudofu-map.github.io/?check=1`
 
 ## 3.7 写真・動画（SNS 投稿）を載せる
 

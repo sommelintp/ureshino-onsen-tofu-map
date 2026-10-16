@@ -16,7 +16,7 @@ window.TOFU_CONFIG = {
   BACKGROUND_URL: 'data/background.json',
 
   // 一般の方の投稿先（GitHub Issue フォーム）
-  GITHUB_REPO: 'sommelintp/ureshino-onsen-tofu-map',
+  GITHUB_REPO: 'ureshino-yudofu-map/ureshino-yudofu-map.github.io',
 
   // 任意: Google フォームの URL（作成したら貼る。GitHub アカウント不要の投稿導線になります）
   FORM_URL: '',
@@ -32,7 +32,7 @@ window.TOFU_CONFIG = {
   ORIGINS: [],
 
   // Google マップを使う場合: Google Cloud の API キー（Maps JavaScript API を有効化し、HTTP リファラを
-  // https://sommelintp.github.io/* に制限したもの）を貼ってください。空なら下の無料地図（OpenFreeMap / 地理院）を使います。
+  // https://ureshino-yudofu-map.github.io/* に制限したもの）を貼ってください。空なら下の無料地図（OpenFreeMap / 地理院）を使います。
   GOOGLE_MAPS_API_KEY: 'AIzaSyBUObjTc6pxhAE8tcEAHMGoo6csrGY3pxg',
   // 任意: Google Cloud「マップ管理」で作ったマップ ID（スタイル用）。空なら Google のデモ ID を使います
   GOOGLE_MAPS_MAP_ID: '',

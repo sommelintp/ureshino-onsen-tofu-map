@@ -56,7 +56,7 @@ https://graph.facebook.com/v21.0/me/accounts?fields=name,instagram_business_acco
 - 審査は数日〜2週間。**承認前でも公式アカウントの収集は動きます**（ハッシュタグ部分だけエラーとして飛ばされます）
 
 ### 7. GitHub に登録する
-1. https://github.com/sommelintp/ureshino-onsen-tofu-map/settings/secrets/actions →「New repository secret」
+1. https://github.com/ureshino-yudofu-map/ureshino-yudofu-map.github.io/settings/secrets/actions →「New repository secret」
 2. Name: `IG_ACCESS_TOKEN` / Secret: 4 のトークン →「Add secret」
 3. もう一度「New repository secret」→ Name: `IG_USER_ID` / Secret: 5 の数字 →「Add secret」
 4. Actions タブ →「Collect Instagram posts」→「Run workflow」で初回を手動実行。緑になれば完了

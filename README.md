@@ -8,7 +8,7 @@
 - すべての情報に **出典（URL・確認日）** を併記
 - 足りない情報は **誰でも追加・修正を提案** できます。嬉野市・観光協会などの **編集者はスプレッドシートで直接編集** できます
 
-公開URL（GitHub Pages を有効化すると表示されます）: `https://sommelintp.github.io/ureshino-onsen-tofu-map/`
+公開URL（GitHub Pages を有効化すると表示されます）: `https://ureshino-yudofu-map.github.io/`
 
 > 初期データ（59件）は 2026年10月4日時点の公開情報（公式サイト・観光協会・グルメサイト等の検索結果）から作成し、各項目に出典を付けています。
 > 価格・営業時間は掲載時点のものです。座標の多くは住所（町丁目）からの **概略位置** で、地図上では点線のピンで表示しています。正しい位置は `npm run geocode`（ローカル実行）か、地図の「位置を修正する」からの投稿で補正できます。
@@ -65,7 +65,7 @@ Issue フォームは [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE) にあり
 
 ## 公開・運用のセットアップ（管理者）
 
-1. **GitHub Pages**: リポジトリの Settings（`https://github.com/sommelintp/ureshino-onsen-tofu-map/settings/pages`）→ Pages → Build and deployment → Source を **GitHub Actions** にする（アカウント設定の Pages ではなくリポジトリ側）。既定ブランチに push すると [pages.yml](.github/workflows/pages.yml) が公開します。初回は Actions タブ →「Deploy to GitHub Pages」→「Run workflow」で手動実行もできます。
+1. **GitHub Pages**: リポジトリの Settings（`https://github.com/ureshino-yudofu-map/ureshino-yudofu-map.github.io/settings/pages`）→ Pages → Build and deployment → Source を **GitHub Actions** にする（アカウント設定の Pages ではなくリポジトリ側）。既定ブランチに push すると [pages.yml](.github/workflows/pages.yml) が公開します。初回は Actions タブ →「Deploy to GitHub Pages」→「Run workflow」で手動実行もできます。
 2. **スプレッドシート**（作成済み: [嬉野温泉 湯どうふマップ データ](https://docs.google.com/spreadsheets/d/1BlTnAfIig9Zj76Qv0a5tHG7JfKfjU4yrGzZ0DLq9zTo/edit)、ID `1BlTnAfIig9Zj76Qv0a5tHG7JfKfjU4yrGzZ0DLq9zTo`）:
    - 現在は見出し行＋例1行だけ入っています。[data/places.csv](data/places.csv) をダウンロードし、シートで **ファイル → インポート → アップロード → 「現在のシートを置換」** で全59件を取り込んでください（`npm run csv` で再生成できます）。
    - シートの共有を「**リンクを知っている全員（閲覧者）**」にする（サイトが読み取るため）。編集者は個別にメールアドレスで「編集者」として追加。
@@ -84,7 +84,7 @@ Issue フォームは [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE) にあり
 1. [Google Cloud コンソール](https://console.cloud.google.com/) で既存プロジェクトを選ぶ（請求先アカウントが有効であること）
 2. 「APIとサービス → ライブラリ」で **Maps JavaScript API** を有効化
 3. 「APIとサービス → 認証情報 → 認証情報を作成 → APIキー」。作成したキーに制限をかける:
-   - アプリケーションの制限: **ウェブサイト** → `https://sommelintp.github.io/*`（ローカル確認用に `http://localhost:8080/*` も追加可）
+   - アプリケーションの制限: **ウェブサイト** → `https://ureshino-yudofu-map.github.io/*`（ローカル確認用に `http://localhost:8080/*` も追加可）
    - API の制限: **Maps JavaScript API** のみ
 4. キーを `config.js` の `GOOGLE_MAPS_API_KEY` に貼り、push
 5. 任意: 「Google Maps Platform → マップ管理」でマップ ID を作り `GOOGLE_MAPS_MAP_ID` に設定（地図のスタイルを Cloud 側で調整できます。未設定なら Google のデモ ID を使用）

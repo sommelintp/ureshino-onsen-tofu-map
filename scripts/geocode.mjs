@@ -33,7 +33,7 @@ for (const p of places) {
   if (!/嬉野市|武雄市/.test(q) || /番地未取得|オンライン/.test(p.address)) { console.log(`skip  ${p.name}: 住所が不十分 (${p.address})`); continue; }
   const url = 'https://msearch.gsi.go.jp/address-search/AddressSearch?q=' + encodeURIComponent(q);
   try {
-    const res = await fetch(url, { headers: { 'User-Agent': 'ureshino-onsen-tofu-map/1.0 (geocode script)' } });
+    const res = await fetch(url, { headers: { 'User-Agent': 'ureshino-yudofu-map/1.0 (geocode script)' } });
     const feats = await res.json();
     const hit = Array.isArray(feats) && feats.find((f) => /嬉野市|武雄市/.test(f.properties && f.properties.title || ''));
     if (!hit) { failed++; console.log(`miss  ${p.name}: ${q}`); continue; }
