@@ -608,9 +608,9 @@
     if (f.price < Number(r.max) && !(p.price_min != null && p.price_min <= f.price)) return false;
     if (f.q) {
       const tareLabels = (p.tare_types || []).map((t) => S.TARE_TYPES[t] || '');
-      const hay = [p.name, p.name_kana, p.address, p.description, p.tofu_source.name, p.onsen_source.name, catLabel(p.category)]
-        .concat(p.features, p.service, p.menu.map((m) => m.name + ' ' + m.price_note), style.tare || [], style.yakumi || [], style.note || '', tareLabels).join(' ').toLowerCase();
-      const terms = f.q.toLowerCase().split(/[\s　]+/).filter(Boolean);
+      const hay = S.normalizeSearch([p.name, p.name_kana, p.address, p.description, p.tofu_source.name, p.onsen_source.name, catLabel(p.category)]
+        .concat(p.features, p.service, p.menu.map((m) => m.name + ' ' + m.price_note), style.tare || [], style.yakumi || [], style.note || '', tareLabels).join(' '));
+      const terms = S.normalizeSearch(f.q).split(/[\s　]+/).filter(Boolean);
       if (!terms.every((t) => hay.includes(t))) return false;
     }
     if (f.bounds && state.map) { if (!hasGeo(p) || !state.map.contains(p.lat, p.lng)) return false; }
