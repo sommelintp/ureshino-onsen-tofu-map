@@ -11,6 +11,7 @@
   }, window.TOFU_CONFIG || {});
 
   const CAT_ORDER = ['restaurant', 'hotel', 'tofu_maker', 'shop', 'onsen', 'other'];
+  const TARE_ORDER = Object.keys(S.TARE_TYPES);
   const CAT_LETTER = { restaurant: '食', hotel: '宿', tofu_maker: '豆', shop: '店', onsen: '湯', other: '他' };
   const PRICE_MAX = 10000;
 
@@ -18,7 +19,7 @@
     all: [], visible: [], byId: {}, meta: {}, source: 'json', loadError: '',
     map: null, engine: '', mapWarning: '', markers: {}, me: null, selectedId: null, pick: null, background: null,
     media: { items: [], byPlace: {}, general: [], yudofu: [] }, mediaObserver: null,
-    filters: { q: '', cats: new Set(), svcs: new Set(), tofu: '', price: PRICE_MAX, unverified: true, bounds: false, media: false },
+    filters: { q: '', cats: new Set(), tares: new Set(), svcs: new Set(), tofu: '', price: PRICE_MAX, unverified: true, bounds: false, media: false },
     sort: 'category',
   };
 
@@ -546,6 +547,9 @@
     const catWrap = $('#cat-chips');
     catWrap.innerHTML = CAT_ORDER.map((c) =>
       '<button type="button" class="chip" data-cat="' + c + '" style="--c:' + catVar(c) + '" aria-pressed="false">' + I.icon(c, 'chip-icon') + esc(catLabel(c)) + ' <span class="n"></span></button>').join('');
+    const tareWrap = $('#tare-chips');
+    tareWrap.innerHTML = TARE_ORDER.map((t) =>
+      '<button type="button" class="chip" data-tare="' + t + '" aria-pressed="false">' + esc(S.TARE_TYPES[t]) + ' <span class="n"></span></button>').join('');
     const svcWrap = $('#svc-chips');
     svcWrap.innerHTML = S.SERVICES.map((s) => '<button type="button" class="chip" data-svc="' + esc(s) + '" aria-pressed="false">' + esc(s) + '</button>').join('');
     const fc = $('#f-category');
@@ -596,14 +600,16 @@
     const style = p.yudofu_style || { tare: [], yakumi: [], note: '' };
     if (!f.unverified && !isConfirmed(p)) return false;
     if (f.cats.size && !f.cats.has(p.category)) return false;
+    if (f.tares.size && !(p.tare_types || []).some((t) => f.tares.has(t))) return false;
     if (f.svcs.size) { for (const s of f.svcs) if (!p.service.includes(s)) return false; }
     if (f.tofu && tofuKey(p) !== f.tofu) return false;
     if (f.media && !(state.media.byPlace && state.media.byPlace[p.id] && state.media.byPlace[p.id].length)) return false;
     const r = $('#price-range');
     if (f.price < Number(r.max) && !(p.price_min != null && p.price_min <= f.price)) return false;
     if (f.q) {
+      const tareLabels = (p.tare_types || []).map((t) => S.TARE_TYPES[t] || '');
       const hay = [p.name, p.name_kana, p.address, p.description, p.tofu_source.name, p.onsen_source.name, catLabel(p.category)]
-        .concat(p.features, p.service, p.menu.map((m) => m.name + ' ' + m.price_note), style.tare || [], style.yakumi || [], style.note || '').join(' ').toLowerCase();
+        .concat(p.features, p.service, p.menu.map((m) => m.name + ' ' + m.price_note), style.tare || [], style.yakumi || [], style.note || '', tareLabels).join(' ').toLowerCase();
       const terms = f.q.toLowerCase().split(/[\s　]+/).filter(Boolean);
       if (!terms.every((t) => hay.includes(t))) return false;
     }
@@ -641,8 +647,12 @@
       const n = state.all.filter((p) => p.category === c && matches(Object.assign({}, p, { category: c }))).length;
       const chip = $('[data-cat="' + c + '"]'); if (chip) chip.querySelector('.n').textContent = n ? n : '';
     });
+    TARE_ORDER.forEach((t) => {
+      const chip = $('[data-tare="' + t + '"]');
+      if (chip) chip.querySelector('.n').textContent = state.all.filter((p) => (p.tare_types || []).includes(t)).length;
+    });
     const f = state.filters;
-    const active = [f.svcs.size ? '提供形態' : '', f.tofu ? '豆腐' : '', f.price < Number($('#price-range').max) ? '予算' : '', !f.unverified ? '確認済みのみ' : '', f.bounds ? '範囲' : '', f.media ? '写真・動画あり' : ''].filter(Boolean);
+    const active = [f.tares.size ? 'たれ' : '', f.svcs.size ? '提供形態' : '', f.tofu ? '豆腐' : '', f.price < Number($('#price-range').max) ? '予算' : '', !f.unverified ? '確認済みのみ' : '', f.bounds ? '範囲' : '', f.media ? '写真・動画あり' : ''].filter(Boolean);
     $('#active-filters').textContent = active.length ? '（' + active.join('・') + '）' : '';
   }
 
@@ -855,6 +865,7 @@
     const f = state.filters;
     f.q = h.get('q') || '';
     f.cats = new Set((h.get('cat') || '').split(',').filter((c) => S.CATEGORIES[c]));
+    f.tares = new Set((h.get('tare') || '').split(',').filter((t) => S.TARE_TYPES[t]));
     f.svcs = new Set((h.get('svc') || '').split(',').filter((s) => S.SERVICES.includes(s)));
     f.tofu = h.get('tofu') || '';
     if (h.get('price')) f.price = Number(h.get('price')) || PRICE_MAX;
@@ -863,6 +874,7 @@
     if (h.get('sort')) state.sort = h.get('sort');
     $('#q').value = f.q;
     $$('[data-cat]', $('#cat-chips')).forEach((c) => { const on = f.cats.has(c.dataset.cat); c.classList.toggle('active', on); c.setAttribute('aria-pressed', on); });
+    $$('[data-tare]', $('#tare-chips')).forEach((c) => { const on = f.tares.has(c.dataset.tare); c.classList.toggle('active', on); c.setAttribute('aria-pressed', on); });
     $$('[data-svc]').forEach((c) => { const on = f.svcs.has(c.dataset.svc); c.classList.toggle('active', on); c.setAttribute('aria-pressed', on); });
     $('#tofu-select').value = f.tofu;
     const r = $('#price-range'); if (f.price < Number(r.max)) r.value = f.price; updatePriceOutput();
@@ -874,6 +886,7 @@
     const f = state.filters, h = new URLSearchParams();
     if (f.q) h.set('q', f.q);
     if (f.cats.size) h.set('cat', Array.from(f.cats).join(','));
+    if (f.tares.size) h.set('tare', Array.from(f.tares).join(','));
     if (f.svcs.size) h.set('svc', Array.from(f.svcs).join(','));
     if (f.tofu) h.set('tofu', f.tofu);
     if (f.price < Number($('#price-range').max)) h.set('price', String(f.price));
@@ -890,7 +903,7 @@
   }
   function resetFilters() {
     const f = state.filters;
-    f.q = ''; f.cats.clear(); f.svcs.clear(); f.tofu = ''; f.price = PRICE_MAX; f.unverified = true; f.bounds = false; f.media = false;
+    f.q = ''; f.cats.clear(); f.tares.clear(); f.svcs.clear(); f.tofu = ''; f.price = PRICE_MAX; f.unverified = true; f.bounds = false; f.media = false;
     $('#q').value = ''; $('#tofu-select').value = ''; $('#chk-unverified').checked = true; $('#chk-bounds').checked = false; $('#chk-media').checked = false;
     const r = $('#price-range'); r.value = r.max; updatePriceOutput();
     $$('.chip.active').forEach((c) => { c.classList.remove('active'); c.setAttribute('aria-pressed', 'false'); });
@@ -988,10 +1001,11 @@
 
   function applyQuickFilter(kind, value) {
     const f = state.filters;
-    f.q = ''; f.cats.clear(); f.svcs.clear(); f.tofu = ''; f.price = Number($('#price-range').max); f.bounds = false;
+    f.q = ''; f.cats.clear(); f.tares.clear(); f.svcs.clear(); f.tofu = ''; f.price = Number($('#price-range').max); f.bounds = false;
     if (kind === 'cat') f.cats.add(value); else f.svcs.add(value);
     $('#q').value = ''; $('#tofu-select').value = ''; $('#price-range').value = $('#price-range').max; $('#chk-bounds').checked = false; updatePriceOutput();
     $$('[data-cat]', $('#cat-chips')).forEach((c) => { const on = f.cats.has(c.dataset.cat); c.classList.toggle('active', on); c.setAttribute('aria-pressed', on); });
+    $$('[data-tare]', $('#tare-chips')).forEach((c) => { const on = f.tares.has(c.dataset.tare); c.classList.toggle('active', on); c.setAttribute('aria-pressed', on); });
     $$('[data-svc]', $('#svc-chips')).forEach((c) => { const on = f.svcs.has(c.dataset.svc); c.classList.toggle('active', on); c.setAttribute('aria-pressed', on); });
     document.body.classList.remove('view-map'); document.body.classList.add('view-list');
     applyFilters({ fit: true });
@@ -1011,6 +1025,11 @@
     $('#svc-chips').addEventListener('click', (e) => {
       const chip = e.target.closest('[data-svc]'); if (!chip) return;
       toggleSet(state.filters.svcs, chip.dataset.svc); chip.classList.toggle('active'); chip.setAttribute('aria-pressed', chip.classList.contains('active'));
+      applyFilters({});
+    });
+    $('#tare-chips').addEventListener('click', (e) => {
+      const chip = e.target.closest('[data-tare]'); if (!chip) return;
+      toggleSet(state.filters.tares, chip.dataset.tare); chip.classList.toggle('active'); chip.setAttribute('aria-pressed', chip.classList.contains('active'));
       applyFilters({});
     });
     $('#legend').addEventListener('click', (e) => {
