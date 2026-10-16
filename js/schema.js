@@ -52,6 +52,10 @@
     { key: 'onsen_source.name', header: '使用温泉', type: 'string' },
     { key: 'onsen_source.note', header: '使用温泉メモ', type: 'string' },
     { key: 'onsen_source.source_url', header: '使用温泉出典URL', type: 'string' },
+    { key: 'yudofu_style.tare', header: '湯どうふのたれ', type: 'list', help: '改行区切り（例: ごまだれ / ポン酢 / 醤油）' },
+    { key: 'yudofu_style.yakumi', header: '湯どうふの薬味', type: 'list', help: '改行区切り（例: ねぎ / かつお節 / 柚子こしょう）' },
+    { key: 'yudofu_style.note', header: '湯どうふの特徴', type: 'string', help: '食べ方・出し方・〆などを自分の言葉で。口コミ本文は転載しない' },
+    { key: 'yudofu_style.source_url', header: '湯どうふの特徴出典URL', type: 'string' },
     { key: 'features', header: '特徴', type: 'list', help: '改行区切り' },
     { key: 'description', header: '説明', type: 'string' },
     { key: 'google_place_id', header: 'GooglePlaceID', type: 'string', help: '任意。Google マップの場所ID（ChIJ…）。入れると写真の取り違えがなくなる' },
@@ -262,6 +266,10 @@
     })).filter((m) => m.name) : parseMenu(p.other_prices);
     p.tofu_source = Object.assign({ name: '', maker_id: '', note: '', source_url: '' }, typeof p.tofu_source === 'object' && p.tofu_source ? p.tofu_source : { name: trim(p.tofu_source) });
     p.onsen_source = Object.assign({ name: '', note: '', source_url: '' }, typeof p.onsen_source === 'object' && p.onsen_source ? p.onsen_source : { name: trim(p.onsen_source) });
+    // 湯どうふの食べ方（たれ・薬味・特徴文）。特徴文は出典URLとセットで入れる
+    const ys = typeof p.yudofu_style === 'object' && p.yudofu_style ? p.yudofu_style : {};
+    const listOf = (v) => Array.isArray(v) ? v.map(trim).filter(Boolean) : splitLines(v);
+    p.yudofu_style = { tare: listOf(ys.tare), yakumi: listOf(ys.yakumi), note: trim(ys.note), source_url: isUrl(ys.source_url) ? trim(ys.source_url) : '' };
     const urls = Object.assign({}, p.urls || {});
     Object.keys(URL_LABELS).forEach((k) => { urls[k] = isUrl(urls[k]) ? trim(urls[k]) : ''; });
     urls.other = Array.isArray(urls.other) ? urls.other.filter((l) => l && isUrl(l.url)) : parseLinks(urls.other);
