@@ -34,6 +34,21 @@
     });
     return out;
   }
+  // 検索用の表記ゆれ吸収。検索語と検索対象の両方にかけてから比べる
+  //   全角/半角・大文字小文字（NFKC）、カタカナ→ひらがな、よく使う漢字→ひらがな（胡麻→ごま 等）、
+  //   連濁（湯どうふ→ゆとうふ）をそろえる。「豆腐」で「湯豆腐」も、「ゴマ」で「胡麻だれ」も引っかかる
+  const SEARCH_WORDS = [
+    ['柚子胡椒', 'ゆずこしょう'], ['しょう油', 'しょうゆ'], ['醤油', 'しょうゆ'], ['胡麻', 'ごま'], ['生姜', 'しょうが'],
+    ['柚子', 'ゆず'], ['胡椒', 'こしょう'], ['鰹節', 'かつおぶし'], ['葱', 'ねぎ'], ['豆腐', 'とうふ'], ['豆乳', 'とうにゅう'],
+    ['嬉野', 'うれしの'], ['温泉', 'おんせん'], ['湯', 'ゆ'], ['酢', 'す'], ['ぽんず', 'ぽんす'], ['どうふ', 'とうふ'],
+  ];
+  function normalizeSearch(s) {
+    let t = String(s == null ? '' : s);
+    if (t.normalize) t = t.normalize('NFKC');
+    t = t.toLowerCase().replace(/[\u30a1-\u30f6]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
+    SEARCH_WORDS.forEach((w) => { t = t.split(w[0]).join(w[1]); });
+    return t;
+  }
   const SERVICES = ['ランチ', 'ディナー', '朝食', '日帰り', 'テイクアウト', '通販', '宿泊者限定', '食べ比べ', '予約制'];
 
   // ---- 列定義（シートの見出し順） ------------------------------------------
@@ -409,7 +424,7 @@
   }
 
   return {
-    CATEGORIES, STATUS, YUDOFU, GEO_PRECISION, CONFIDENCE, SERVICES, TARE_TYPES, tareTypes, COLUMNS, HEADERS, URL_LABELS,
+    CATEGORIES, STATUS, YUDOFU, GEO_PRECISION, CONFIDENCE, SERVICES, TARE_TYPES, tareTypes, normalizeSearch, COLUMNS, HEADERS, URL_LABELS,
     getPath, setPath, trim, splitLines, splitPipe, toNumber, isUrl, enumFromLabel,
     parseMenu, serializeMenu, parseLinks, serializeLinks, parseSources, serializeSources,
     rowToPlace, placeToRow, normalizePlace, validatePlace, validateAll, hashId,

@@ -56,6 +56,9 @@ location.href = TofuData.issueUrl({ mode: 'new'|'fix', placeId, name, category, 
 TofuData.schema.CATEGORIES   // { restaurant: { label: '飲食店', color }, hotel, tofu_maker, shop, onsen, other }
 TofuData.schema.SERVICES     // ['ランチ','ディナー','朝食','日帰り','テイクアウト','通販','宿泊者限定','食べ比べ','予約制']
 TofuData.schema.validateAll(ds.raw)  // 点検画面（?check=1）用
+TofuData.schema.TARE_TYPES     // { goma: 'ごま系', ponzu: 'ポン酢', shoyu: '醤油・だし系', other: 'その他のたれ' }（place.tare_types の表示名）
+TofuData.schema.normalizeSearch(text)  // 検索用に表記をそろえる。検索語と検索対象の両方にかけてから includes で比べる
+//   例: 'ゴマ'・'胡麻' → 'ごま'、'湯豆腐'・'ユドウフ' → 'ゆとうふ'、'ポンズ'・'ぽん酢' → 'ぽんす'、全角英数→半角
 ```
 
 ### Place（1店舗）
