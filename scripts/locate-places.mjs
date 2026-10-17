@@ -23,7 +23,7 @@ function similar(a, b) {
   const x = key(a), y = key(b);
   if (!x || !y) return 0;
   if (x === y) return 1;
-  if ((x.length >= 2 && y.includes(x)) || (y.length >= 2 && x.includes(y))) return 0.9;
+  if ((x.length >= 2 && y.includes(x)) || (y.length >= 2 && x.includes(y))) return Math.min(x.length, y.length) / Math.max(x.length, y.length) >= 0.6 ? 0.9 : 0.5;
   const bx = bigrams(x), by = bigrams(y); if (!bx.length || !by.length) return 0;
   const set = new Set(by); const hit = bx.filter((g) => set.has(g)).length;
   return (2 * hit) / (bx.length + by.length);
@@ -69,13 +69,46 @@ for (const p of places) {
     if (!dry) { p.lat = +c.o.lat.toFixed(6); p.lng = +c.o.lng.toFixed(6); p.geo_precision = 'exact'; p.updated_at = today; p.editor_note = [p.editor_note, `位置: OpenStreetMap ${c.o.id}「${c.o.name}」(${today})`].filter(Boolean).join(' / '); changed++; }
     continue;
   }
-  // 2) Nominatim（OSM の名前検索。1秒に1回まで）
+  // 2) 店・宿の公式サイトや予約サイトのページに埋め込まれた地図の座標（店自身が載せている位置）
+  {
+    const pages = [p.urls.official, p.urls.jalan, p.urls.rakuten].concat((p.urls.other || []).map((o) => o.url))
+      .filter((u) => u && !/tabelog|retty|instagram|youtube|tiktok|google\.|goo\.gl/.test(u)).slice(0, 6);
+    const found = [];
+    for (const u of pages) {
+      for (const url of [u, u.replace(/\/?$/, '/') + 'access/']) {
+        try {
+          const res = await fetch(url, { headers: { 'User-Agent': UA }, redirect: 'follow', signal: AbortSignal.timeout(15000) });
+          if (!res.ok) continue;
+          const html = (await res.text()).replace(/&amp;/g, '&');
+          const pats = [/!3d(3[23]\.\d{4,})!4d(1(?:29|30)\.\d{4,})/g, /!2d(1(?:29|30)\.\d{4,})!3d(3[23]\.\d{4,})/g,
+            /[?&](?:q|ll|center|daddr|destination|query)=(3[23]\.\d{4,})\s*,\s*(1(?:29|30)\.\d{4,})/g,
+            /"latitude"\s*:\s*"?(3[23]\.\d{4,})"?\s*,\s*"longitude"\s*:\s*"?(1(?:29|30)\.\d{4,})/g,
+            /lat(?:itude)?["']?\s*[:=]\s*["']?(3[23]\.\d{4,})["']?\s*,\s*["']?(?:lng|lon|longitude)["']?\s*[:=]\s*["']?(1(?:29|30)\.\d{4,})/gi];
+          pats.forEach((re, i) => { for (const m of html.matchAll(re)) { const lat = i === 1 ? +m[2] : +m[1], lng = i === 1 ? +m[1] : +m[2]; if (lat > 33.02 && lat < 33.2 && lng > 129.9 && lng < 130.13) found.push({ lat, lng, url }); } });
+        } catch (e) { /* 次のページへ */ }
+        if (found.length) break;
+        await sleep(500);
+      }
+      if (found.length) break;
+    }
+    if (found.length) {
+      const f = found[0];
+      const d0 = km(here, [f.lat, f.lng]);
+      if (d0 <= 5) {
+        lines.push(`site   ${p.id}\t${p.name}\t→ ${f.lat},${f.lng}  ${d0.toFixed(2)}km  ${f.url}`);
+        if (!dry) { p.lat = +f.lat.toFixed(6); p.lng = +f.lng.toFixed(6); p.geo_precision = 'exact'; p.updated_at = today; p.editor_note = [p.editor_note, `位置: 掲載ページの地図 ${f.url} (${today})`].filter(Boolean).join(' / '); changed++; }
+        continue;
+      }
+      lines.push(`far    ${p.id}\t${p.name}\t${f.lat},${f.lng} は ${d0.toFixed(1)}km 離れているため不採用 ${f.url}`);
+    }
+  }
+  // 3) Nominatim（OSM の名前検索。1秒に1回まで）
   try {
     const nq = String(p.name).replace(/[（(].*?[)）]/g, '') + ' 嬉野';
     const res = await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&accept-language=ja&countrycodes=jp&viewbox=129.90,33.20,130.13,33.02&bounded=1&q=' + encodeURIComponent(nq), { headers: { 'User-Agent': UA } });
     const arr = res.ok ? await res.json() : [];
     await sleep(1100);
-    const best = arr.map((r) => ({ r, s: similar(p.name, r.name || r.display_name.split(',')[0]), d: km(here, [+r.lat, +r.lon]) })).filter((c) => c.s >= 0.75 && c.d <= 4).sort((a, b) => b.s - a.s)[0];
+    const best = arr.filter((r) => !/駐車場|parking/i.test(r.name || r.display_name)).map((r) => ({ r, s: similar(p.name, r.name || r.display_name.split(',')[0]), d: km(here, [+r.lat, +r.lon]) })).filter((c) => c.s >= 0.75 && c.d <= 4).sort((a, b) => b.s - a.s)[0];
     if (best) {
       const nm = best.r.name || best.r.display_name.split(',')[0];
       lines.push(`nomi   ${p.id}\t${p.name}\t→ ${nm} (${best.r.osm_type}/${best.r.osm_id}) 類似${best.s.toFixed(2)} ${best.d.toFixed(2)}km`);
@@ -83,7 +116,7 @@ for (const p of places) {
       continue;
     }
   } catch (e) { lines.push(`nomierr ${p.id}\t${e.message}`); }
-  // 3) 国土地理院（番地まで一致したときだけ）
+  // 4) 国土地理院（番地まで一致したときだけ）
   const addr = String(p.address).replace(/[（(].*?[)）]/g, '').replace(/大字/g, '').replace(/\s+/g, '');
   try {
     const res = await fetch('https://msearch.gsi.go.jp/address-search/AddressSearch?q=' + encodeURIComponent(addr), { headers: { 'User-Agent': UA } });
