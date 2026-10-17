@@ -1,0 +1,145 @@
+#!/usr/bin/env node
+// 店の正確な位置を自動で調べる（GitHub Actions 上で実行。.github/workflows/locate-places.yml）
+//   1) OpenStreetMap（Overpass API）に店名で照合 … 名前が一致し、今の位置から 4km 以内の地物
+//   2) 見つからなければ 国土地理院 住所検索 … 番地まで一致したときだけ採用
+//   結果は data/places.json に書き、一覧を scripts/out/locate-report.txt に出す
+// オプション: --all（正確な位置の店も調べ直す） --dry（書き込まない）
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { S, DATA_PATH, readJSON, writeJSON, stripDerived } from './_lib.mjs';
+
+const all = process.argv.includes('--all');
+const dry = process.argv.includes('--dry');
+const UA = 'ureshino-yudofu-map/1.0 (https://ureshino-yudofu-map.github.io/)';
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const json = readJSON(DATA_PATH);
+const places = json.places.map(S.normalizePlace);
+const today = new Date().toISOString().slice(0, 10);
+
+// 名前の比較用: 表記をそろえ、宿・店の一般的な語と括弧書きを除く
+const GENERIC = /(佐賀県|嬉野市|嬉野町|嬉野温泉|うれしのおんせん|嬉野|うれしの|温泉|おんせん|旅館|りょかん|ほてる|ホテル|お宿|御宿|宿|の宿|料理|割烹|かっぽう|食事処|お食事処|しょくじどころ|レストラン|れすとらん|店|本店|支店|株式会社|\s|・|「|」|『|』|&|＆|-|ー|･)/g;
+const key = (s) => S.normalizeSearch(String(s || '').replace(/[（(][^）)]*[)）]/g, '')).replace(GENERIC, '');
+function bigrams(s) { const a = []; for (let i = 0; i < s.length - 1; i++) a.push(s.slice(i, i + 2)); return a; }
+function similar(a, b) {
+  const x = key(a), y = key(b);
+  if (!x || !y) return 0;
+  if (x === y) return 1;
+  if ((x.length >= 2 && y.includes(x)) || (y.length >= 2 && x.includes(y))) return Math.min(x.length, y.length) / Math.max(x.length, y.length) >= 0.6 ? 0.9 : 0.5;
+  const bx = bigrams(x), by = bigrams(y); if (!bx.length || !by.length) return 0;
+  const set = new Set(by); const hit = bx.filter((g) => set.has(g)).length;
+  return (2 * hit) / (bx.length + by.length);
+}
+function km(a, b) {
+  const R = 6371, d = Math.PI / 180;
+  const dl = (b[0] - a[0]) * d, dn = (b[1] - a[1]) * d;
+  const h = Math.sin(dl / 2) ** 2 + Math.cos(a[0] * d) * Math.cos(b[0] * d) * Math.sin(dn / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+// 1) OpenStreetMap の地物（嬉野市一帯）をまとめて取得
+const BBOX = '33.02,129.90,33.20,130.13';
+const q = `[out:json][timeout:120];(nwr["name"]["tourism"](${BBOX});nwr["name"]["amenity"](${BBOX});nwr["name"]["shop"](${BBOX});nwr["name"]["leisure"](${BBOX});nwr["name"]["building"](${BBOX}););out center tags;`;
+let osm = [];
+const osmErrors = [];
+for (const ep of ['https://overpass-api.de/api/interpreter', 'https://overpass.private.coffee/api/interpreter', 'https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass.kumi.systems/api/interpreter']) {
+  try {
+    const res = await fetch(ep, { method: 'POST', headers: { 'User-Agent': UA, 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'data=' + encodeURIComponent(q) });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const j = await res.json();
+    const NOISE = /^(shelter|parking|parking_entrance|toilets|bench|bicycle_parking|waste_basket|vending_machine|post_box|atm|telephone)$/;
+    osm = j.elements.filter((e) => !NOISE.test(e.tags.amenity || '')).map((e) => ({ name: e.tags.name, alt: [e.tags['name:ja'], e.tags.alt_name, e.tags.old_name, e.tags.official_name].filter(Boolean), lat: e.lat ?? e.center?.lat, lng: e.lon ?? e.center?.lon, id: e.type + '/' + e.id })).filter((e) => e.lat && e.lng);
+    break;
+  } catch (e) { osmErrors.push(ep + ': ' + e.message); console.log('Overpass 失敗', ep, e.message); await sleep(3000); }
+}
+console.log('OSM 地物', osm.length, '件');
+
+const CENTER = [33.098, 129.988];
+const lines = [];
+let changed = 0;
+for (const p of places) {
+  if (p.status === 'hidden') continue;
+  if (!all && p.geo_precision === 'exact') { lines.push(`keep   ${p.id}\t${p.name}`); continue; }
+  if (!p.address || /オンライン|番地未取得のみ/.test(p.address) || p.category === 'other' && !p.lat) { lines.push(`skip   ${p.id}\t${p.name}\t住所なし`); continue; }
+  const here = p.lat != null ? [p.lat, p.lng] : CENTER;
+  // 1) OSM
+  const cands = osm.map((o) => ({ o, s: Math.max(similar(p.name, o.name), ...o.alt.map((a) => similar(p.name, a))), d: km(here, [o.lat, o.lng]) }))
+    .filter((c) => c.s >= 0.75 && c.d <= 4).sort((a, b) => b.s - a.s || a.d - b.d);
+  if (cands.length) {
+    const c = cands[0];
+    lines.push(`osm    ${p.id}\t${p.name}\t→ ${c.o.name} (${c.o.id}) 類似${c.s.toFixed(2)} ${c.d.toFixed(2)}km  ${c.o.lat.toFixed(6)},${c.o.lng.toFixed(6)}`);
+    if (!dry) { p.lat = +c.o.lat.toFixed(6); p.lng = +c.o.lng.toFixed(6); p.geo_precision = 'exact'; p.updated_at = today; p.editor_note = [p.editor_note, `位置: OpenStreetMap ${c.o.id}「${c.o.name}」(${today})`].filter(Boolean).join(' / '); changed++; }
+    continue;
+  }
+  // 2) 店・宿の公式サイトや予約サイトのページに埋め込まれた地図の座標（店自身が載せている位置）
+  {
+    const pages = [p.urls.official, p.urls.jalan, p.urls.rakuten].concat((p.urls.other || []).map((o) => o.url))
+      .filter((u) => u && !/tabelog|retty|instagram|youtube|tiktok|google\.|goo\.gl/.test(u)).slice(0, 6);
+    const found = [];
+    for (const u of pages) {
+      for (const url of [u, u.replace(/\/?$/, '/') + 'access/']) {
+        try {
+          const res = await fetch(url, { headers: { 'User-Agent': UA }, redirect: 'follow', signal: AbortSignal.timeout(15000) });
+          if (!res.ok) continue;
+          const html = (await res.text()).replace(/&amp;/g, '&');
+          const pats = [/!3d(3[23]\.\d{4,})!4d(1(?:29|30)\.\d{4,})/g, /!2d(1(?:29|30)\.\d{4,})!3d(3[23]\.\d{4,})/g,
+            /[?&](?:q|ll|center|daddr|destination|query)=(3[23]\.\d{4,})\s*,\s*(1(?:29|30)\.\d{4,})/g,
+            /"latitude"\s*:\s*"?(3[23]\.\d{4,})"?\s*,\s*"longitude"\s*:\s*"?(1(?:29|30)\.\d{4,})/g,
+            /lat(?:itude)?["']?\s*[:=]\s*["']?(3[23]\.\d{4,})["']?\s*,\s*["']?(?:lng|lon|longitude)["']?\s*[:=]\s*["']?(1(?:29|30)\.\d{4,})/gi];
+          pats.forEach((re, i) => { for (const m of html.matchAll(re)) { const lat = i === 1 ? +m[2] : +m[1], lng = i === 1 ? +m[1] : +m[2]; if (lat > 33.02 && lat < 33.2 && lng > 129.9 && lng < 130.13) found.push({ lat, lng, url }); } });
+        } catch (e) { /* 次のページへ */ }
+        if (found.length) break;
+        await sleep(500);
+      }
+      if (found.length) break;
+    }
+    if (found.length) {
+      const f = found[0];
+      const d0 = km(here, [f.lat, f.lng]);
+      if (d0 <= 5) {
+        lines.push(`site   ${p.id}\t${p.name}\t→ ${f.lat},${f.lng}  ${d0.toFixed(2)}km  ${f.url}`);
+        if (!dry) { p.lat = +f.lat.toFixed(6); p.lng = +f.lng.toFixed(6); p.geo_precision = 'exact'; p.updated_at = today; p.editor_note = [p.editor_note, `位置: 掲載ページの地図 ${f.url} (${today})`].filter(Boolean).join(' / '); changed++; }
+        continue;
+      }
+      lines.push(`far    ${p.id}\t${p.name}\t${f.lat},${f.lng} は ${d0.toFixed(1)}km 離れているため不採用 ${f.url}`);
+    }
+  }
+  // 3) Nominatim（OSM の名前検索。1秒に1回まで）
+  try {
+    const nq = String(p.name).replace(/[（(].*?[)）]/g, '') + ' 嬉野';
+    const res = await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&accept-language=ja&countrycodes=jp&viewbox=129.90,33.20,130.13,33.02&bounded=1&q=' + encodeURIComponent(nq), { headers: { 'User-Agent': UA } });
+    const arr = res.ok ? await res.json() : [];
+    await sleep(1100);
+    const best = arr.filter((r) => !/駐車場|parking/i.test(r.name || r.display_name)).map((r) => ({ r, s: similar(p.name, r.name || r.display_name.split(',')[0]), d: km(here, [+r.lat, +r.lon]) })).filter((c) => c.s >= 0.75 && c.d <= 4).sort((a, b) => b.s - a.s)[0];
+    if (best) {
+      const nm = best.r.name || best.r.display_name.split(',')[0];
+      lines.push(`nomi   ${p.id}\t${p.name}\t→ ${nm} (${best.r.osm_type}/${best.r.osm_id}) 類似${best.s.toFixed(2)} ${best.d.toFixed(2)}km`);
+      if (!dry) { p.lat = +(+best.r.lat).toFixed(6); p.lng = +(+best.r.lon).toFixed(6); p.geo_precision = 'exact'; p.updated_at = today; p.editor_note = [p.editor_note, `位置: OpenStreetMap ${best.r.osm_type}/${best.r.osm_id}「${nm}」(${today})`].filter(Boolean).join(' / '); changed++; }
+      continue;
+    }
+  } catch (e) { lines.push(`nomierr ${p.id}\t${e.message}`); }
+  // 4) 国土地理院（番地まで一致したときだけ）
+  const addr = String(p.address).replace(/[（(].*?[)）]/g, '').replace(/大字/g, '').replace(/\s+/g, '');
+  try {
+    const res = await fetch('https://msearch.gsi.go.jp/address-search/AddressSearch?q=' + encodeURIComponent(addr), { headers: { 'User-Agent': UA } });
+    const feats = await res.json();
+    const hit = Array.isArray(feats) && feats.find((f) => /嬉野市/.test(f.properties?.title || ''));
+    const digits = addr.match(/\d+/g) || [];
+    if (hit && digits.length && digits.every((dg) => hit.properties.title.includes(dg))) {
+      const [lng, lat] = hit.geometry.coordinates;
+      lines.push(`gsi    ${p.id}\t${p.name}\t→ ${hit.properties.title}  ${lat},${lng}`);
+      if (!dry) { p.lat = +(+lat).toFixed(6); p.lng = +(+lng).toFixed(6); p.geo_precision = 'exact'; p.updated_at = today; p.editor_note = [p.editor_note, `位置: 国土地理院 住所検索「${hit.properties.title}」(${today})`].filter(Boolean).join(' / '); changed++; }
+    } else {
+      const near = osm.map((o) => ({ o, s: similar(p.name, o.name), d: km(here, [o.lat, o.lng]) })).sort((a, b) => b.s - a.s)[0];
+      lines.push(`miss   ${p.id}\t${p.name}\t住所: ${addr}  地理院: ${hit ? hit.properties.title : 'なし'}  OSM最類似: ${near ? near.o.name + ' ' + near.s.toFixed(2) + ' ' + near.d.toFixed(1) + 'km' : '-'}`);
+    }
+  } catch (e) { lines.push(`error  ${p.id}\t${p.name}\t${e.message}`); }
+  await sleep(800);
+}
+const summary = `更新 ${changed} 件 / 対象 ${places.length} 件 / OSM 地物 ${osm.length} 件 ${osmErrors.join(' | ')} (${new Date().toISOString()})`;
+console.log(lines.join('\n') + '\n' + summary);
+mkdirSync(new URL('./out/', import.meta.url), { recursive: true });
+writeFileSync(new URL('./out/locate-report.txt', import.meta.url), lines.join('\n') + '\n' + summary + '\n');
+if (!dry && changed) {
+  json.places = places.map(stripDerived);
+  json.meta = Object.assign({}, json.meta, { updated: today });
+  writeJSON(DATA_PATH, json);
+}

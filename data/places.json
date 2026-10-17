@@ -1,7 +1,7 @@
 {
  "meta": {
   "title": "嬉野温泉 湯どうふマップ",
-  "updated": "2026-10-16",
+  "updated": "2026-10-17",
   "version": 1,
   "license": "CC BY 4.0",
   "note": "初期データは 2026-10-04 時点のWeb検索結果（各ページの要約）に基づく。各項目の出典を参照のこと。座標「概略」は町丁目の代表点。 湯どうふの食べ方（yudofu_style）は 2026-10-16 時点の Web 検索結果の要約に基づく。",
@@ -35,8 +35,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "創業57年の夫婦経営のレトロな町の食堂（要約・口コミによる）",
     "早朝から営業",
@@ -45,7 +54,15 @@
    "description": "早朝から営業する創業57年のレトロな町食堂で、カレーやちゃんぽんと並んで湯豆腐を600円で出す。地元客向けの気軽な一軒。",
    "urls": {
     "tabelog": "https://tabelog.com/saga/A4104/A410401/41003679/",
-    "other": []
+    "other": [],
+    "official": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": 3.08,
@@ -87,7 +104,8 @@
     "yakumi": [],
     "note": "朝から開いている昭和の雰囲気の町食堂で、湯豆腐を600円の単品として出す。口コミではちゃんぽんと一緒に朝ごはんとして頼まれている。",
     "source_url": "https://tabelog.com/en/saga/A4104/A410401/41003679/dtlrvwlst/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "ariake",
@@ -97,9 +115,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙2202-27 有明ビル1F",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.096772,
+   "lng": 129.982703,
+   "geo_precision": "exact",
    "tel": "0954-42-0533",
    "hours": "18:00～23:00（L.O.22:30）平日・土・祝",
    "closed": "",
@@ -118,11 +136,14 @@
    "other_prices": [],
    "tofu_source": {
     "name": "地元の豆腐",
-    "note": "地元の豆腐（ヒトサラ要約「日本三大美肌の湯・嬉野温泉と地元豆腐のコラボ」）"
+    "maker_id": "",
+    "note": "地元の豆腐（ヒトサラ要約「日本三大美肌の湯・嬉野温泉と地元豆腐のコラボ」）",
+    "source_url": ""
    },
    "onsen_source": {
     "name": "嬉野温泉（源泉名の記載なし）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "豊玉姫神社隣、国道34号沿い嬉野郵便局前の居酒屋・寿司店",
@@ -159,7 +180,15 @@
       "label": "",
       "url": "https://www.hotpepper.jp/strJ000710769/"
      }
-    ]
+    ],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -194,8 +223,8 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: 掲載ページの地図 https://www.asobo-saga.jp/gourmets/search/detail/d2e25108-989a-4185-b8b1-834c20b9bc95 (2026-10-17)",
    "yudofu_style": {
     "tare": [
      "秘伝のごまだれ"
@@ -203,7 +232,8 @@
     "yakumi": [],
     "note": "豊玉姫神社の隣にある居酒屋・寿司店で、嬉野の郷土料理として温泉湯豆腐をセットで出す。店は秘伝のごまだれで食べるのを勧めている。",
     "source_url": "https://hitosara.com/0004105868/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "onsen-shokudo",
@@ -213,9 +243,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字岩屋川内甲321",
-   "lat": 33.087944,
-   "lng": 129.983288,
-   "geo_precision": "approx",
+   "lat": 33.093752,
+   "lng": 129.982829,
+   "geo_precision": "exact",
    "tel": "0954-43-0511",
    "hours": "月～土・祝 11:00～14:30、17:30～20:00（るるぶ&more.）／ホットペッパーではランチ11:00～14:00",
    "closed": "日曜",
@@ -244,8 +274,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "懐かしい骨董品が置かれた民芸調の店内",
     "地元住民に長年愛される定食屋（ラーメン・定食も提供）",
@@ -293,7 +332,13 @@
       "label": "",
       "url": "https://note.com/sazawe/n/n8046285fe7d1"
      }
-    ]
+    ],
+    "official": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": 3.09,
@@ -364,8 +409,8 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: 掲載ページの地図 https://rurubu.jp/andmore/spot/80039007 (2026-10-17)",
    "yudofu_style": {
     "tare": [
      "ごまだれ"
@@ -373,7 +418,8 @@
     "yakumi": [],
     "note": "岩屋川内の町の食堂で、温泉の湯でやわらかくした豆腐を胡麻だれで食べる温泉湯豆腐定食を出す。定食のご飯はもち麦入りの麦ご飯だ。定食が出せない日でも湯豆腐は単品で頼めたという訪問記があり、煮汁まで飲みたくなる味だったと書かれている。",
     "source_url": "http://yayoicafe.jp/blog-entry-461.html"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "hirakawaya-ureshino",
@@ -383,9 +429,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙1463",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.10054,
+   "lng": 129.98354,
+   "geo_precision": "exact",
    "tel": "0954-42-1241",
    "hours": "物販 9:00～18:00、食事 10:00～18:00（L.O.17:00）／別資料では食事 L.O.16:00、カフェ 10:00～18:00",
    "closed": "無休",
@@ -454,7 +500,8 @@
    },
    "onsen_source": {
     "name": "嬉野温泉の温泉水（「日本三大美肌の湯」の温泉水で炊くとの記載。源泉名は確認できず）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "豆腐・ごはんおかわり自由（ホットペッパー・Retty口コミによる）",
@@ -506,7 +553,10 @@
       "url": "https://tabelog.com/saga/A4104/A410401/41003627/dtlrvwlst/"
      }
     ],
-    "instagram": "https://www.instagram.com/saga_hirakawaya.takeo.ureshino/"
+    "instagram": "https://www.instagram.com/saga_hirakawaya.takeo.ureshino/",
+    "google_maps": "",
+    "jalan": "",
+    "rakuten": ""
    },
    "ratings": {
     "tabelog": 3.57,
@@ -601,8 +651,8 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "電話番号は資料により 0954-42-1241 / 0954-43-1241 の2表記。定食価格も 2,000円/2,500円/旧1,350円 と資料で異なるため要確認",
+   "updated_at": "2026-10-17",
+   "editor_note": "電話番号は資料により 0954-42-1241 / 0954-43-1241 の2表記。定食価格も 2,000円/2,500円/旧1,350円 と資料で異なるため要確認 / 位置: 掲載ページの地図 https://saga-style.jp/shop/detail.php?id=3212 (2026-10-17)",
    "yudofu_style": {
     "tare": [
      "特製ごまだれ",
@@ -612,7 +662,8 @@
     "yakumi": [],
     "note": "卓上のIHコンロで豆腐を温泉水の調理水から炊き、10分ほどで汁が白く濁れば食べ頃になる。最初は何もつけず、次にすりごま入りの特製ごまだれ、続けてポン酢と味を変える。残ったスープは野菜を足して鍋にし、ご飯で雑炊にして締める。",
     "source_url": "https://rurubu.jp/andmore/article/17434"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "shizu",
@@ -641,8 +692,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "創業40年以上、地元に愛される割烹（要約による）",
     "新鮮な刺身、会席、各種定食",
@@ -661,7 +721,14 @@
       "label": "",
       "url": "https://www.tabirai.net/sightseeing/column/0002551.aspx"
      }
-    ]
+    ],
+    "official": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": 3.15,
@@ -699,7 +766,8 @@
     "yakumi": [],
     "note": "いけすのある岩屋川内の食事処で、豆腐と一緒に白菜・しめじ・豚肉などを煮る具だくさんの温泉湯どうふを出す。たれは胡麻醤油ではなく生姜醤油で、さっぱりと食べる。海老・しいたけ・牡蠣などを足した上位版の「長寿湯」もあった。",
     "source_url": "https://www.tabirai.net/sightseeing/column/0002551.aspx"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "shinpachi",
@@ -727,8 +795,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "寿司店で嬉野名物の温泉湯豆腐がセットで味わえる",
     "口コミによる: 温泉湯豆腐がトロトロ（Tripadvisor要約）",
@@ -757,7 +834,13 @@
       "label": "",
       "url": "https://spa-u.net/facility/2016/01/org-entry-044.php"
      }
-    ]
+    ],
+    "official": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "jalan": "",
+    "rakuten": ""
    },
    "ratings": {
     "tabelog": null,
@@ -804,8 +887,8 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "検索結果に「塩田町久間」の新八寿司も出る。支店か誤りかは要確認（2026-10-16） / 位置: 掲載ページの地図 https://4travel.jp/dm_shisetsu/11279889 (2026-10-17) / 自動調査の位置は別の店と同じ座標だったため不採用（2026-10-17）",
    "yudofu_style": {
     "tare": [
      "ごまだれ",
@@ -814,7 +897,8 @@
     "yakumi": [],
     "note": "バスセンター近くの寿司店で、昼は握りかちらしに温泉湯豆腐を付けたセットを出す。湯豆腐は白菜と一緒に土鍋で出され、汁は白く濁っている。たれについては、胡麻だれと書いた口コミと甘めの醤油だれと書いた口コミがある。",
     "source_url": "https://4travel.jp/dm_shisetsu/11279889"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "suzushiro",
@@ -824,9 +908,9 @@
    "status": "needs_review",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙1116-1",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.098573,
+   "lng": 129.984867,
+   "geo_precision": "exact",
    "tel": "0954-42-3288",
    "hours": "ランチ 11:30～14:00、ディナー 17:30～23:00（日曜夜は予約のみ）",
    "closed": "水曜",
@@ -840,8 +924,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "料理番組で知られる「鉄人」シェフの店（サガテレビ kachi kachi plus、たびらい）",
     "地産地消でリーズナブルな創作和食、大根料理が名物",
@@ -870,7 +963,12 @@
       "label": "",
       "url": "https://hamoni.jp/shop/YNWQ0x7GZ1BqFLf8cRd8"
      }
-    ]
+    ],
+    "google_maps": "",
+    "gurunavi": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -917,14 +1015,15 @@
     }
    ],
    "confidence": "low",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: 掲載ページの地図 https://d-suzushiro.com/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "地産地消の創作和食店で、昼は温泉どうふと茶美豚のしゃぶしゃぶを合わせたランチを出す。口コミでは肉や野菜の量が多く、豆腐はあまり溶け崩れないと書かれている。",
     "source_url": "https://tabelog.com/saga/A4104/A410401/41005083/dtlrvwlst/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "sengoku",
@@ -950,8 +1049,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "焼鳥店だが温泉湯豆腐と温泉うどんを同じ鍋で楽しめる（口コミによる）",
     "Tripadvisor口コミ4件"
@@ -963,7 +1071,16 @@
       "label": "トリップアドバイザー",
       "url": "https://www.tripadvisor.jp/Restaurant_Review-g1023551-d13246986-Reviews-Yakitori_Sengoku-Ureshino_Saga_Prefecture_Kyushu.html"
      }
-    ]
+    ],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -999,7 +1116,8 @@
     "yakumi": [],
     "note": "温泉街の路地裏にある焼き鳥店で、温泉湯豆腐も頼める。豆腐を食べ終えた鍋にうどんを入れて温泉うどんにし、一つの鍋を二通りに楽しめる。",
     "source_url": "https://www.yukoyuko.net/onsen/spot/s0002839"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "yokocho",
@@ -1074,7 +1192,8 @@
    },
    "onsen_source": {
     "name": "嬉野温泉の温泉水（源泉名の記載は確認できず）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "温泉湯どうふ発祥の店（1957年創業）",
@@ -1125,7 +1244,11 @@
       "label": "オンラインショップ",
       "url": "https://yococho.shop-pro.jp/"
      }
-    ]
+    ],
+    "google_maps": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": 3.55,
@@ -1232,7 +1355,8 @@
     ],
     "note": "自家製の木綿豆腐を、味の付いた温泉水のスープで煮る。まずは何もつけずに豆腐とスープを味わい、ねぎや生姜を鍋に入れて味の変化を楽しむ。特製だれは主にえびや野菜に付けるが、豆腐に付けてもよい。定食は寄せ湯どうふ、特選は魚ちり湯どうふで出る。",
     "source_url": "https://yococho.com/archives/615"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "tosho",
@@ -1242,9 +1366,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿丙64-1",
-   "lat": 33.095065,
-   "lng": 129.972076,
-   "geo_precision": "approx",
+   "lat": 33.093844,
+   "lng": 129.975204,
+   "geo_precision": "exact",
    "tel": "0954-43-1683",
    "hours": "月・火・金・土・日: 朝食 8:00～10:00、ランチ 11:00～16:00（L.O.15:00）",
    "closed": "水曜・木曜",
@@ -1318,7 +1442,8 @@
    },
    "onsen_source": {
     "name": "温泉調理水（嬉野温泉水）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "創業50年超の藤川豆腐店の直営食事処（佐賀新聞記事では「56年の歴史」）",
@@ -1356,7 +1481,12 @@
       "label": "",
       "url": "https://tabelog.com/saga/A4104/A410401/41008065/dtlmap/"
      }
-    ]
+    ],
+    "google_maps": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": 3.05,
@@ -1433,14 +1563,15 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: 掲載ページの地図 https://www.fujikawa102.com/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "藤川豆腐店の工場横にある直営の食事処で、隣で作った出来立ての豆腐を温泉湯どうふにして出す。鍋は固形燃料で温める形式で、野菜も早めに入れて一緒に煮るよう勧められる。朝の温泉湯豆腐定食のほか、湯葉刺し・茶碗蒸し・豆乳もちが付く十笑御膳もあり、豆腐はおかわりできる。",
     "source_url": "https://www.oomuraya.co.jp/kurashikanko/fujikawa-tofu/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "shun",
@@ -1468,15 +1599,33 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "内陸ながら魚介が新鮮との評価（要約による）",
     "居酒屋で温泉湯豆腐を単品提供"
    ],
    "description": "嬉野市内の居酒屋で、新鮮な魚介を売りにしつつ名物の温泉湯豆腐を単品500円で提供する。食べログの温泉湯豆腐キーワード一覧に掲載。",
    "urls": {
-    "other": []
+    "other": [],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -1520,7 +1669,8 @@
     "yakumi": [],
     "note": "元は鮮魚店だった海鮮居酒屋で、温泉湯豆腐を一人前の単品で注文できる。店自慢の付けダレで食べ、食後は残った鍋で雑炊を作ってもらう〆もある。湯豆腐と雑炊をセットで頼んだという口コミも見られる。",
     "source_url": "https://omichanblog.com/%E4%BD%90%E8%B3%80%E3%83%BB%E5%AC%89%E9%87%8E%E6%B8%A9%E6%B3%89%E3%81%A7%E6%96%B0%E9%AE%AE%E3%81%AA%E9%AD%9A%E4%BB%8B%E3%82%92%E3%81%84%E3%81%9F%E3%81%A0%E3%81%8F%EF%BC%81%E3%80%90%E5%B1%85%E9%85%92/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "maneki",
@@ -1546,8 +1696,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "Tripadvisor評価4.7（口コミ10件）、ランチで寿司と湯豆腐（検索結果要約による）"
    ],
@@ -1558,7 +1717,16 @@
       "label": "トリップアドバイザー",
       "url": "https://www.tripadvisor.jp/Restaurants-g1023551-zfp30-Ureshino_Saga_Prefecture_Kyushu.html"
      }
-    ]
+    ],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -1582,13 +1750,14 @@
    ],
    "confidence": "low",
    "updated_at": "2026-10-16",
-   "editor_note": "日本語表記・所在地未確認。新八寿司等と同一店の可能性も含め要確認",
+   "editor_note": "日本語表記・所在地未確認。新八寿司等と同一店の可能性も含め要確認 / 2020年に「鷹鮨」へ改名との情報（住所 下宿乙1093-1）。店名・住所の更新候補（2026-10-16）",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "寿司店のランチで、嬉野温泉湯豆腐ににぎり寿司と茶碗蒸しを組み合わせたセットが勧められている。握りと一緒に名物の湯豆腐を味わえる構成だ。",
     "source_url": "https://www.jalan.net/gourmet/grm_alikejpA000630211/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "musashi",
@@ -1617,8 +1786,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "嬉野温泉駅から車で5分",
     "ホットペッパーでネット予約可",
@@ -1638,7 +1816,13 @@
       "url": "https://www.tripadvisor.jp/Restaurant_Review-g1023551-d13270565-Reviews-Kazuan_Musashi_Hanare-Ureshino_Saga_Prefecture_Kyushu.html"
      }
     ],
-    "instagram": "https://www.instagram.com/musashi_hanare/"
+    "instagram": "https://www.instagram.com/musashi_hanare/",
+    "official": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "jalan": "",
+    "rakuten": ""
    },
    "ratings": {
     "tabelog": 3.05,
@@ -1674,13 +1858,14 @@
    ],
    "confidence": "medium",
    "updated_at": "2026-10-16",
-   "editor_note": "",
+   "editor_note": "「居酒屋634」と同じ店との情報あり（2026-10-16）",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "嬉野温泉湯豆腐を付けた御膳が中心の和食店で、湯豆腐付きの御膳は4パターンあり、天ぷらや刺身と組み合わせて頼める。最上位は極 武蔵御膳だ。湯豆腐の量は控えめだったという口コミもある。",
     "source_url": "https://www.hotpepper.jp/strJ004623000/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "yurari",
@@ -1706,8 +1891,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "地元食材を多用した居酒屋（食べログ分類）",
     "「うれしのSHUプリン」を販売（嬉野温泉観光協会ページ）",
@@ -1725,7 +1919,15 @@
       "label": "",
       "url": "https://spa-u.net/facility/2019/01/post-151.php"
      }
-    ]
+    ],
+    "official": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -1755,7 +1957,14 @@
    ],
    "confidence": "low",
    "updated_at": "2026-10-16",
-   "editor_note": "湯どうふ提供の根拠は Tripadvisor の2018年の口コミ1件のみ（2026-10-16 調査）"
+   "editor_note": "湯どうふ提供の根拠は Tripadvisor の2018年の口コミ1件のみ（2026-10-16 調査）",
+   "google_place_id": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "",
+    "source_url": ""
+   }
   },
   {
    "id": "rakuya",
@@ -1781,8 +1990,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "古民家カフェ（塩田エリア）",
     "湯豆腐を使った期間限定メニューの記載あり",
@@ -1797,7 +2015,16 @@
       "label": "",
       "url": "https://www.nap-camp.com/mag/48970"
      }
-    ]
+    ],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -1827,7 +2054,8 @@
     "yakumi": [],
     "note": "古民家カフェで、鍋の湯豆腐ではなく嬉野の湯豆腐をオムライスに取り入れた期間限定メニューを出していた。取材時は湯豆腐と湯葉をのせて出汁をかけた和風オムライスで、薬膳と合わせた限定品も紹介されている。提供の有無は時期による。",
     "source_url": "https://www.asobo-saga.jp/articles/detail/eaa8821b-6ce9-4413-b3d1-7e69d41fd381"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "rikyu",
@@ -1837,9 +2065,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙738 和多屋別荘内",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.097911,
+   "lng": 129.988859,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "ランチ（週末限定）: 日・祝 12:00～14:00（最終入店13:00）／ディナー懐石あり（時間は未取得）",
    "closed": "",
@@ -1914,7 +2142,8 @@
    },
    "onsen_source": {
     "name": "温泉水でトロトロになった豆腐（ホットペッパー要約による。源泉名は記載なし）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "2021年3月18日オープン、全席半個室、コンセプトは「和敬清寂」（食べログ口コミによる）",
@@ -1959,7 +2188,13 @@
       "label": "",
       "url": "https://tabelog.com/saga/A4104/A410401/41003398/"
      }
-    ]
+    ],
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": 3.3,
@@ -2036,14 +2271,15 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "価格は掲載年の異なる複数資料が混在（1,680円/1,785円は旧価格の可能性）",
+   "updated_at": "2026-10-17",
+   "editor_note": "価格は掲載年の異なる複数資料が混在（1,680円/1,785円は旧価格の可能性） / 位置: 掲載ページの地図 https://www.asobo-saga.jp/gourmets/search/detail/8ba20ca8-e950-4a56-a491-9986acbb12e5 (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "和多屋別荘館内にある全席半個室の日本料理店。温泉湯豆腐を軸に懐石や天ぷらも出し、個室で湯豆腐を火にかけて仕上げる。豆腐は嬉野の水と大豆で仕込む福田とうふ店のものを使い、宿泊者の夕食では冷や汁風に仕立てた一品も出る。",
     "source_url": "https://travel.rakuten.co.jp/mytrip/howto/wataya-ureshino-guide"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "risoan",
@@ -2053,9 +2289,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙738 和多屋別荘内",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.097999,
+   "lng": 129.989124,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "",
    "closed": "",
@@ -2078,8 +2314,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "和多屋別荘内のステーキ・しゃぶしゃぶ・焼肉店",
     "佐賀牛と嬉野温泉湯豆腐を組み合わせたしゃぶしゃぶが特徴（食べログ紹介文の要約）",
@@ -2100,7 +2345,14 @@
       "url": "https://tabelog.com/saga/A4104/A410401/41002453/table/"
      }
     ],
-    "hotpepper": "https://www.hotpepper.jp/strJ001050950/"
+    "hotpepper": "https://www.hotpepper.jp/strJ001050950/",
+    "official": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": 3.21,
@@ -2148,7 +2400,7 @@
    ],
    "confidence": "medium",
    "updated_at": "2026-10-16",
-   "editor_note": "",
+   "editor_note": "位置: 和多屋別荘内のため wataya と同じ（2026-10-17）",
    "yudofu_style": {
     "tare": [
      "胡麻だれ"
@@ -2156,7 +2408,8 @@
     "yakumi": [],
     "note": "和多屋別荘内の佐賀牛レストラン。温泉湯豆腐を煮た鍋で佐賀牛や若楠豚をしゃぶしゃぶにする「湯どうふしゃぶしゃぶ」が看板。口コミでは、湯豆腐は胡麻だれで食べ、豆腐は鍋の中ですぐ崩れるほど柔らかいとされる。",
     "source_url": "https://retty.me/area/PRE41/ARE504/SUB50402/100000872220/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "warakado",
@@ -2194,9 +2447,14 @@
    "tofu_source": {
     "name": "藤川豆腐店",
     "maker_id": "fujikawa",
-    "note": "旅館大村屋のランチ紹介記事の要約による"
+    "note": "旅館大村屋のランチ紹介記事の要約による",
+    "source_url": ""
    },
-   "onsen_source": {},
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "おしゃれな雰囲気の食事処兼カフェ（ホットペッパー要約。Rettyではカフェ、ぐるなびでは食事処として登録）",
     "嬉野温泉湯豆腐とカフェメニュー",
@@ -2228,7 +2486,12 @@
       "label": "",
       "url": "https://tabelog.com/saga/A4104/A410401/41006201/dtlmenu/photo/"
      }
-    ]
+    ],
+    "official": "",
+    "google_maps": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": 3.04,
@@ -2288,7 +2551,8 @@
     "yakumi": [],
     "note": "嬉野温泉街にある食事処兼カフェ。温泉水で煮て豆腐が鍋の中でとろけていく温泉湯豆腐を単品でも定食でも頼め、鍋には大根などの野菜も添えられる。",
     "source_url": "https://tabelog.com/saga/A4104/A410401/41006201/dtlrvwlst/B422174389/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "ikkyusou",
@@ -2298,9 +2562,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町（番地未取得）",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.095881,
+   "lng": 129.981551,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "",
    "closed": "",
@@ -2328,8 +2592,17 @@
      "source_url": "https://www.tour.ne.jp/j_hotel/24751/"
     }
    ],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "全7室、低料金で家庭的なビジネス・観光向けの宿",
     "岩風呂・タイル風呂は貸切可",
@@ -2365,7 +2638,14 @@
       "label": "",
       "url": "https://spa-u.net/facility/2017/05/org-entry-035.php"
      }
-    ]
+    ],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -2400,14 +2680,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "住所未取得",
+   "updated_at": "2026-10-17",
+   "editor_note": "住所未取得 / 位置: OpenStreetMap node/13153908935「旅館 一休荘」(2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "朝食で嬉野名物の温泉湯豆腐を出す小さな旅館。予約サイトの宿ページでは、温泉湯豆腐の写真を嬉野温泉名物として掲げている。",
     "source_url": "https://www.jalan.net/yad320331/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "irifune",
@@ -2417,9 +2698,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町（番地未取得）",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.09482,
+   "lng": 129.982725,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "日帰り入浴 7:00-10:00 / 15:00-24:00（最終受付22:00）",
    "closed": "",
@@ -2449,8 +2730,17 @@
      "source_url": "https://www.jtb.co.jp/kokunai-hotel/htl/8146A04/plan/"
     }
    ],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "朝食は温泉湯豆腐を含む9種のおかずの和食、またはアサイーボウル・アヒージョの洋食から選択",
     "日帰り入浴は予約不要、入浴付きディナーバイキングあり（要予約）",
@@ -2481,7 +2771,15 @@
       "label": "",
       "url": "https://spa-u.net/facility/2017/06/org-entry-009.php"
      }
-    ]
+    ],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -2534,14 +2832,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "住所未取得。位置は温泉街中心の概略",
+   "updated_at": "2026-10-17",
+   "editor_note": "住所未取得。位置は温泉街中心の概略 / 位置: 掲載ページの地図 https://www.jalan.net/yad321174/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "和朝食に、温泉水で煮た湯豆腐が付く。朝はこの和食のほかに、アサイーボウルなどを並べた洋風の朝食も選べる。",
     "source_url": "https://www.jalan.net/yad321174"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "hachijuhachi",
@@ -2551,9 +2850,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町（番地未取得）",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.099904,
+   "lng": 129.966849,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "",
    "closed": "",
@@ -2563,10 +2862,16 @@
    ],
    "menu": [],
    "other_prices": [],
-   "tofu_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
    "onsen_source": {
     "name": "全客室で源泉100%掛け流し（源泉名・自家/共同は未確認）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "源泉掛け流しと嬉野茶で寛ぐ高級旅館、全室源泉100%掛け流し",
@@ -2605,7 +2910,12 @@
       "url": "https://5star-ryokan.com/special-feature/10104/"
      }
     ],
-    "instagram": "https://www.instagram.com/ureshino88/"
+    "instagram": "https://www.instagram.com/ureshino88/",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": ""
    },
    "ratings": {
     "tabelog": null,
@@ -2640,14 +2950,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "日帰り不可。住所未取得",
+   "updated_at": "2026-10-17",
+   "editor_note": "日帰り不可。住所未取得 / 位置: 掲載ページの地図 https://www.ureshino88.jp/access/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "朝食のセットメニューに、佐賀県産大豆フクユタカを100％使った宿オリジナルの温泉湯豆腐が入る。朝食は和食か洋食を選べ、開始は8時か9時から選ぶ。大型連休や年末年始などは和食のみの日もある。",
     "source_url": "https://www.ureshino88.jp/cuisine/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "motoyu",
@@ -2657,9 +2968,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙2202-8",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.097494,
+   "lng": 129.981632,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "大浴場 15:00〜24:00、6:00〜9:00（宿泊者のみ）／お土産処 8:00〜21:00",
    "closed": "",
@@ -2694,10 +3005,16 @@
      "source_url": "https://www.motoyu-spa.co.jp/facilities/"
     }
    ],
-   "tofu_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
    "onsen_source": {
     "name": "自家源泉",
-    "note": "pH7.9・2024年春再開（検索要約による）"
+    "note": "pH7.9・2024年春再開（検索要約による）",
+    "source_url": ""
    },
    "features": [
     "2024年春リニューアルオープン",
@@ -2741,7 +3058,13 @@
       "url": "https://www.motoyu-spa.co.jp/facilities/"
      }
     ],
-    "instagram": "https://www.instagram.com/ureshinomotoyu.spa/"
+    "instagram": "https://www.instagram.com/ureshinomotoyu.spa/",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "rakuten": ""
    },
    "ratings": {
     "tabelog": null,
@@ -2788,14 +3111,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: 掲載ページの地図 https://www.jalan.net/yad316907/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "朝食に、宿の源泉を使って煮る温泉湯どうふが付く。口コミでは釜飯や焼き魚と一緒に並び、ご飯は白飯か茶粥から選べたという。",
     "source_url": "https://4travel.jp/dm_hotel-10052430"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "ureshinokan",
@@ -2805,9 +3129,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙2091",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.098588,
+   "lng": 129.981818,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "夕食バイキング 17:00-21:30 / 朝食バイキング 7:00-10:00",
    "closed": "",
@@ -2831,10 +3155,16 @@
      "source_url": "https://spa-u.net/facility/2017/06/yukai-resort-ureshinokan-1.php"
     }
    ],
-   "tofu_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
    "onsen_source": {
     "name": "自家源泉（敷地内に源泉）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "旧 湯快リゾート 嬉野館",
@@ -2882,7 +3212,14 @@
       "label": "",
       "url": "https://www.asobo-saga.jp/stays/detail/719d552b-2e39-4849-a74e-72e7ded5a1e3"
      }
-    ]
+    ],
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -2941,14 +3278,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "フォートラベルの一部ページに「閉鎖」表記あり。ただし2025〜2026年の口コミもあり、要営業確認（2026-10-16 調査）",
+   "updated_at": "2026-10-17",
+   "editor_note": "フォートラベルの一部ページに「閉鎖」表記あり。ただし2025〜2026年の口コミもあり、要営業確認（2026-10-16 調査） / 位置: 掲載ページの地図 https://www.jalan.net/yad392520/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "朝夕ともバイキング形式の大型ホテル。口コミによると、夕食会場には嬉野名物の湯豆腐が『ご当地』料理の一つとして並ぶ。",
     "source_url": "https://4travel.jp/dm_hotel-11369384/tips"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "oomuraya",
@@ -2958,9 +3296,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙848",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.09585,
+   "lng": 129.984732,
+   "geo_precision": "exact",
    "tel": "0954-43-1234",
    "hours": "朝食 7:30～9:00（L.O.8:30）（宿泊者向け、検索結果要約による）",
    "closed": "",
@@ -3013,10 +3351,13 @@
    "tofu_source": {
     "name": "藤川豆腐店（朝食の温泉湯どうふ）",
     "maker_id": "fujikawa",
+    "note": "",
     "source_url": "https://www.oomuraya.co.jp/kurashikanko/fujikawa-tofu/"
    },
    "onsen_source": {
-    "name": "自家源泉"
+    "name": "自家源泉",
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "天保元年（1830年）創業",
@@ -3066,7 +3407,12 @@
      }
     ],
     "tabelog": "https://tabelog.com/saga/A4104/A410401/41002744/",
-    "instagram": "https://www.instagram.com/oomuraya/"
+    "instagram": "https://www.instagram.com/oomuraya/",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": ""
    },
    "ratings": {
     "tabelog": 3.11,
@@ -3155,14 +3501,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: 掲載ページの地図 https://www.jtb.co.jp/kokunai-hotel/htl/8146005/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "朝食の中心に、とろける食感の嬉野名物・温泉湯豆腐を据える老舗旅館。口コミでは朝の湯豆腐と嬉野茶が印象に残ったという声がある。",
     "source_url": "https://icotto.jp/hotels/1770"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "kasuien",
@@ -3172,9 +3519,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字岩屋川内甲333",
-   "lat": 33.087944,
-   "lng": 129.983288,
-   "geo_precision": "approx",
+   "lat": 33.093774,
+   "lng": 129.981975,
+   "geo_precision": "exact",
    "tel": "0954-42-2111",
    "hours": "朝食 7:30-8:30。日帰り入浴 12:00-20:00",
    "closed": "",
@@ -3209,8 +3556,17 @@
      "source_url": "https://tabelog.com/saga/A4104/A410401/41002913/dtlrvwlst/B112052488/"
     }
    ],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "嬉野温泉名物「温泉湯どうふ」付きの和定食朝食",
     "深夜0時までチェックイン可の「気ままプラン」",
@@ -3248,7 +3604,14 @@
      }
     ],
     "tabelog": "https://tabelog.com/saga/A4104/A410401/41002913/",
-    "official": "https://www.kasuien.co.jp/"
+    "official": "https://www.kasuien.co.jp/",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -3295,14 +3658,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: OpenStreetMap node/14139613201「ホテル華翠苑」(2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "朝食は嬉野名物の温泉湯豆腐が付く和定食で出す。口コミでは小鉢の品数が多く、ご飯のおかわりも無料だったという。",
     "source_url": "https://www.cocolocala.jp/hotels/23540"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "kisenkan",
@@ -3312,9 +3676,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙2202-18",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.097037,
+   "lng": 129.982288,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "日帰り入浴 10:30-21:00頃（混雑時は不可）。休憩プラン 11:30-15:00 / 18:00-21:00",
    "closed": "",
@@ -3336,9 +3700,16 @@
      "source_url": "https://www.yukoyuko.net/onsen/spot/h0001248"
     }
    ],
-   "tofu_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
    "onsen_source": {
-    "name": "自家源泉"
+    "name": "自家源泉",
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "自家源泉を持ち、加水・循環なしの源泉かけ流し（7室・30名）",
@@ -3384,7 +3755,15 @@
       "url": "https://www.kisenkan.com/hotspring/"
      }
     ],
-    "official": "https://www.kisenkan.com/"
+    "official": "https://www.kisenkan.com/",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -3437,14 +3816,15 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "公式サイトで温泉湯豆腐の提供を確認し公開に変更（2026-10-16）",
+   "updated_at": "2026-10-17",
+   "editor_note": "公式サイトで温泉湯豆腐の提供を確認し公開に変更（2026-10-16） / 位置: 掲載ページの地図 https://rurubu.jp/andmore/spot/80117736 (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "朝食に名物の温泉湯豆腐を出し、宿の自家源泉の湯で炊く。朝食は佐賀の食材を使った手作りの料理で品数が多く、7時30分と8時に始まる2部制。朝夕とも個室か半個室で食べる。",
     "source_url": "https://www.kisenkan.com/concept/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "kujaku",
@@ -3472,8 +3852,17 @@
      "source_url": "https://tabelog.com/saga/A4104/A410401/41003381/dtlrvwlst/"
     }
    ],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "料理旅館（会席）",
     "口コミタイトル「お腹を空かして行かないと勿体ない美味しい料理いっぱいの宿」「噂の料理」"
@@ -3481,7 +3870,15 @@
    "description": "岩屋川内の料理旅館で、料理の評価が高く、口コミでは朝食の温泉湯豆腐が名物として繰り返し称賛されている。",
    "urls": {
     "tabelog": "https://tabelog.com/saga/A4104/A410401/41003381/",
-    "other": []
+    "other": [],
+    "official": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -3523,7 +3920,8 @@
     "yakumi": [],
     "note": "朝食は嬉野名物の温泉湯豆腐を中心にした品数の多い内容で、客室ではなく食事処で提供する。夕食なしの朝食付きプランでも、この湯豆腐の朝食がとれる。",
     "source_url": "https://reserve.489ban.net/client/kujaku/0/detail/857443"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "koyokaku",
@@ -3533,9 +3931,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町（番地未取得）",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.096704,
+   "lng": 129.988077,
+   "geo_precision": "exact",
    "tel": "0954-43-0170",
    "hours": "日帰り入浴 12:00-20:00",
    "closed": "",
@@ -3559,8 +3957,17 @@
      "source_url": "https://www.jtb.co.jp/kokunai-hotel/htl/8146A19/plan/"
     }
    ],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "嬉野川沿い、7階展望風呂から茶畑を望む",
     "佐賀牛を売りにする宿。伊勢海老・佐賀牛・湯豆腐・佐賀びより",
@@ -3604,7 +4011,14 @@
       "label": "",
       "url": "https://spa-u.net/facility/2017/06/-koyokaku.php"
      }
-    ]
+    ],
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -3657,14 +4071,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "住所未取得",
+   "updated_at": "2026-10-17",
+   "editor_note": "住所未取得 / 位置: 掲載ページの地図 https://www.jalan.net/yad315773/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "朝食に嬉野名物の温泉湯豆腐が付く。宿の紹介では佐賀牛のステーキやすき焼きと並べて、温泉湯豆腐の雑炊も名物に挙げている。",
     "source_url": "https://reserve.489ban.net/client/koyokaku/0/detail/1298822"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "kotan",
@@ -3683,8 +4098,17 @@
    "service": [],
    "menu": [],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "全18室のリゾート（spa-u.net 2026年1月掲載の新規エントリ）"
    ],
@@ -3696,7 +4120,15 @@
       "url": "https://spa-u.net/facility/2026/01/-kotan-ureshino.php"
      }
     ],
-    "instagram": "https://www.instagram.com/kotan_ureshino/"
+    "instagram": "https://www.instagram.com/kotan_ureshino/",
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": ""
    },
    "ratings": {
     "tabelog": null,
@@ -3750,7 +4182,8 @@
     "yakumi": [],
     "note": "夕食は、嬉野産大豆「ふくゆたか」の豆腐を使う温泉湯豆腐を主役にした豆腐会席。温泉水で煮て、とろけるような口当たりに仕上げる。朝食では豆乳の鍋から湯葉をすくって食べる。",
     "source_url": "https://goten-resort.jp/kotan-ureshino/cuisine/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "kotobukiya",
@@ -3760,9 +4193,9 @@
    "status": "published",
    "yudofu": "none",
    "address": "佐賀県嬉野市嬉野町大字下宿乙817",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.09702,
+   "lng": 129.986067,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "",
    "closed": "",
@@ -3776,10 +4209,16 @@
      "source_url": "https://www.jtb.co.jp/kokunai-hotel/htl/8146A21/plan/"
     }
    ],
-   "tofu_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
    "onsen_source": {
     "name": "源泉かけ流し100%（源泉名・自家/共同は未確認）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "日帰り温泉・素泊まり専門の宿（10室・27名）",
@@ -3806,7 +4245,15 @@
       "label": "",
       "url": "https://spa-u.net/facility/2022/04/org-entry-027.php"
      }
-    ]
+    ],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -3829,8 +4276,15 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-04",
-   "editor_note": "素泊まり専門のため食事提供なし（検索要約による）"
+   "updated_at": "2026-10-17",
+   "editor_note": "素泊まり専門のため食事提供なし（検索要約による） / 位置: 掲載ページの地図 https://www.jalan.net/yad357256/ (2026-10-17)",
+   "google_place_id": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "",
+    "source_url": ""
+   }
   },
   {
    "id": "sansui",
@@ -3849,10 +4303,16 @@
    "service": [],
    "menu": [],
    "other_prices": [],
-   "tofu_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
    "onsen_source": {
     "name": "源泉100%かけ流し（源泉名・自家/共同は未確認）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "源泉100%かけ流し",
@@ -3865,7 +4325,16 @@
       "label": "",
       "url": "https://spa-u.net/facility/2017/05/org-entry-039.php"
      }
-    ]
+    ],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -3882,8 +4351,15 @@
     }
    ],
    "confidence": "low",
-   "updated_at": "2026-10-16",
-   "editor_note": "検索結果で閉館済みと表示（2026-10-16 調査）。要確認"
+   "updated_at": "2026-10-17",
+   "editor_note": "検索結果で閉館済みと表示（2026-10-16 調査）。要確認 / 位置: OpenStreetMap node/6422949486「山水グローバルイン駐車場」(2026-10-17) / 位置: OpenStreetMap node/6422949486「山水グローバルイン駐車場」(2026-10-17) / 自動調査の位置は別の店と同じ座標だったため不採用（2026-10-17）",
+   "google_place_id": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "",
+    "source_url": ""
+   }
   },
   {
    "id": "shiiba",
@@ -3893,9 +4369,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字岩屋川内乙1586（字椎葉）",
-   "lat": 33.072073,
-   "lng": 129.981391,
-   "geo_precision": "approx",
+   "lat": 33.080064,
+   "lng": 129.987891,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "日帰り入浴「しいばの湯」11:00-21:00（受付〜20:00）",
    "closed": "",
@@ -3929,9 +4405,14 @@
    "tofu_source": {
     "name": "大正屋 湯どうふ本舗（自家製）",
     "maker_id": "yudofu-honpo",
-    "note": "大正屋グループ。山法師のメニューも「名物とろける湯どうふ」と紹介"
+    "note": "大正屋グループ。山法師のメニューも「名物とろける湯どうふ」と紹介",
+    "source_url": ""
    },
-   "onsen_source": {},
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "大正屋グループの山荘タイプの宿（全20室・114名）",
     "朝食は和洋バイキングで嬉野名物 大正屋自家製「とろける湯どうふ」ほか30種以上",
@@ -3971,7 +4452,13 @@
      }
     ],
     "tabelog": "https://tabelog.com/saga/A4104/A410401/41005395/",
-    "instagram": "https://www.instagram.com/shiibasanso/"
+    "instagram": "https://www.instagram.com/shiibasanso/",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": ""
    },
    "ratings": {
     "tabelog": null,
@@ -4012,14 +4499,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "レストラン山法師は休業中の時期あり（食べログで掲載保留）。現況要確認",
+   "updated_at": "2026-10-17",
+   "editor_note": "レストラン山法師は休業中の時期あり（食べログで掲載保留）。現況要確認 / 位置: 掲載ページの地図 https://www.shiibasanso.com/access/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "朝食は和洋のバイキングで、大正屋自家製の「とろける湯どうふ」が並ぶ。吟醸どうふやかご盛りどうふ、嬉野らしい茶粥や漬物もそろう。朝食の時間は7時30分から9時30分まで。",
     "source_url": "https://www.shiibasanso.com/meal/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "shoen",
@@ -4029,9 +4517,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町（番地未取得）",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.095547,
+   "lng": 129.984399,
+   "geo_precision": "exact",
    "tel": "0954-43-0153",
    "hours": "日帰り入浴 12:00-20:00（受付〜19:30）",
    "closed": "",
@@ -4053,8 +4541,17 @@
      "source_url": "https://www.jalan.net/yad323668/"
     }
    ],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "昔ながらの旅館の風情を残す宿、客室から庭園を眺める（25室・100名）",
     "嬉野温泉中心部、全室部屋食",
@@ -4090,7 +4587,14 @@
       "label": "",
       "url": "https://spa-u.net/facility/2017/06/-shoen.php"
      }
-    ]
+    ],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -4131,14 +4635,15 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "湯どうふは宿泊時の食事で提供（朝/夕の別は未確認）。住所未取得 / 湯どうふの食べ方 未確認: つけだれや薬味の内容は確認できなかった。",
+   "updated_at": "2026-10-17",
+   "editor_note": "湯どうふは宿泊時の食事で提供（朝/夕の別は未確認）。住所未取得 / 湯どうふの食べ方 未確認: つけだれや薬味の内容は確認できなかった。 / 位置: 掲載ページの地図 https://www.jalan.net/yad323668/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "朝食は客室でとる部屋食で、嬉野温泉名物の温泉湯豆腐が付く。宿泊者の口コミでは、朝の湯豆腐の濃厚な味わいが好評だ。",
     "source_url": "https://www.jalan.net/yad323668/plan/plan00867959/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "taishoya",
@@ -4148,9 +4653,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙2276-1",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.09599,
+   "lng": 129.983241,
+   "geo_precision": "exact",
    "tel": "0954-42-1170",
    "hours": "宿泊者食事処「平安の間」(本館1F): 夕食18:00-19:30 / 朝食7:00-9:00。日帰り入浴 12:00-23:00",
    "closed": "年中無休",
@@ -4203,11 +4708,13 @@
    "tofu_source": {
     "name": "自家製（大正屋 湯どうふ本舗）",
     "maker_id": "yudofu-honpo",
+    "note": "",
     "source_url": "https://yudofuhonpo.com/"
    },
    "onsen_source": {
     "name": "自家源泉（大正屋源泉）",
-    "note": "96℃・中性と紹介（1978年分析、検索要約による）"
+    "note": "96℃・中性と紹介（1978年分析、検索要約による）",
+    "source_url": ""
    },
    "features": [
     "大正14年（1925年）創業",
@@ -4257,7 +4764,12 @@
      }
     ],
     "tabelog": "https://tabelog.com/saga/A4104/A410401/41000472/",
-    "instagram": "https://www.instagram.com/taishoya_hotel/"
+    "instagram": "https://www.instagram.com/taishoya_hotel/",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "rakuten": ""
    },
    "ratings": {
     "tabelog": 3.45,
@@ -4358,8 +4870,8 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: OpenStreetMap node/5998956885「大正屋 湯どうふ本舗」(2026-10-17) / 位置: 掲載ページの地図 https://www.jalan.net/yad321819/ (2026-10-17)",
    "yudofu_style": {
     "tare": [
      "ゴマ醤油"
@@ -4367,7 +4879,8 @@
     "yakumi": [],
     "note": "朝食の和定食の主役で、自家製の豆腐を嬉野の温泉水で炊いて出す。煮るほど豆腐の角が溶けてとろりとした食感になる。そのままでも大豆の甘みを味わえ、ゴマ醤油や薬味で好みの味にもできる。ご飯は棚田米か嬉野茶の茶粥から選べ、湯豆腐をおかわりしたという口コミもある。",
     "source_url": "https://travel.rakuten.co.jp/mytrip/howto/taishoya-guide"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "takasago",
@@ -4377,9 +4890,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町（番地未取得）",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.096496,
+   "lng": 129.987955,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "日帰り・デイユース 12:00-21:00の間で最大5時間",
    "closed": "",
@@ -4403,8 +4916,17 @@
      "source_url": "https://www.jalan.net/yad306336/plan/"
     }
    ],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "昔ながらの帳場が残る川辺の静かな宿",
     "川辺の露天風呂、五右衛門風呂、図書ラウンジ、マッサージチェア",
@@ -4433,7 +4955,13 @@
       "label": "",
       "url": "https://spa-u.net/facility/2017/05/org-entry-023.php"
      }
-    ]
+    ],
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -4474,14 +5002,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "住所未取得 / 湯どうふの食べ方 未確認: つけだれの種類は確認できなかった。",
+   "updated_at": "2026-10-17",
+   "editor_note": "住所未取得 / 湯どうふの食べ方 未確認: つけだれの種類は確認できなかった。 / 位置: 掲載ページの地図 https://www.jalan.net/yad306336/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "夕食の主役は、嬉野温泉の湯で炊く湯豆腐と佐賀産和牛のしゃぶしゃぶを合わせた鍋だ。口コミによれば朝食にも温泉湯豆腐が出て、たれを付けずにそのまま味わったという宿泊者もいる。",
     "source_url": "https://travel.rakuten.co.jp/HOTEL/28965/review.html"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "hatsune",
@@ -4491,9 +5020,9 @@
    "status": "needs_review",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町（番地未取得）",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.093097,
+   "lng": 129.979652,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "",
    "closed": "",
@@ -4507,8 +5036,17 @@
      "source_url": "https://hatsunesou.co.jp/"
     }
    ],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "お子様連れに特化した宿（離乳食プレゼント、幼児の夕食無料など）",
     "弱アルカリ性の肌に優しい湯",
@@ -4532,7 +5070,13 @@
       "label": "",
       "url": "https://spa-u.net/facility/2017/06/org-entry-014.php"
      }
-    ]
+    ],
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -4573,14 +5117,15 @@
     }
    ],
    "confidence": "low",
-   "updated_at": "2026-10-16",
-   "editor_note": "湯どうふの食べ方 未確認: たれや薬味は確認できなかった。 / 楽天トラベルのプランで朝食の和食御膳に温泉豆腐が付くことを確認（2026-10-16）。全プラン共通かは不明",
+   "updated_at": "2026-10-17",
+   "editor_note": "湯どうふの食べ方 未確認: たれや薬味は確認できなかった。 / 楽天トラベルのプランで朝食の和食御膳に温泉豆腐が付くことを確認（2026-10-16）。全プラン共通かは不明 / 位置: 掲載ページの地図 https://hatsunesou.co.jp/access/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "朝食に、嬉野名物の温泉豆腐を味わう和食御膳を出すプランがある。温泉の湯で煮た豆腐はとろりとした口当たりだと口コミで評されている。夕食の主役は佐賀県産牛の陶板焼きの会席だ。",
     "source_url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/13775"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "hamilton",
@@ -4590,9 +5135,9 @@
    "status": "needs_review",
    "yudofu": "unverified",
    "address": "佐賀県嬉野市嬉野町大字岩屋川内甲288-1",
-   "lat": 33.087944,
-   "lng": 129.983288,
-   "geo_precision": "approx",
+   "lat": 33.091645,
+   "lng": 129.982468,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "立ち寄り湯 8:00-12:30 / 14:00-18:00",
    "closed": "",
@@ -4614,8 +5159,17 @@
      "source_url": "https://spa-u.net/facility/2017/05/org-entry-040.php"
     }
    ],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "英国調のクラシックホテル（38室・120名）",
     "夕食はイタリア人シェフによるイタリアンコース、朝食は生ハム等のオリジナルセット（地元食材）",
@@ -4656,7 +5210,13 @@
       "label": "",
       "url": "https://spa-u.net/facility/2017/05/org-entry-040.php"
      }
-    ]
+    ],
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -4685,8 +5245,15 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "洋食主体のホテル。湯どうふ提供は未確認。大字の「甲」は推定 / 館内で湯どうふを出す記述なし（朝食は洋食セット、夕食はイタリアン）。掲載見直し候補（2026-10-16 調査）"
+   "updated_at": "2026-10-17",
+   "editor_note": "洋食主体のホテル。湯どうふ提供は未確認。大字の「甲」は推定 / 館内で湯どうふを出す記述なし（朝食は洋食セット、夕食はイタリアン）。掲載見直し候補（2026-10-16 調査） / 位置: 掲載ページの地図 https://www.jalan.net/yad338904/ (2026-10-17)",
+   "google_place_id": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "",
+    "source_url": ""
+   }
   },
   {
    "id": "shikishima",
@@ -4696,9 +5263,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町（番地未取得）",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.093329,
+   "lng": 129.98483,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "",
    "closed": "",
@@ -4707,8 +5274,17 @@
    ],
    "menu": [],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "全26室が露天または半露天風呂付き",
     "朝食は「温泉湯豆腐付和定食」、夕食は佐賀牛会席（陶板焼き・すき焼き等）",
@@ -4739,7 +5315,11 @@
       "url": "https://spa-u.net/facility/2017/06/org-entry-005.php"
      }
     ],
-    "instagram": "https://www.instagram.com/bansyoukaku_sikisima_official/"
+    "instagram": "https://www.instagram.com/bansyoukaku_sikisima_official/",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": ""
    },
    "ratings": {
     "tabelog": null,
@@ -4804,8 +5384,8 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "住所未取得。位置は温泉街中心の概略",
+   "updated_at": "2026-10-17",
+   "editor_note": "住所未取得。位置は温泉街中心の概略 / 位置: 掲載ページの地図 https://www.jalan.net/yad346723/ (2026-10-17)",
    "yudofu_style": {
     "tare": [
      "ごま醤油だれ"
@@ -4813,7 +5393,8 @@
     "yakumi": [],
     "note": "朝食の和定食に温泉湯豆腐が付く。温泉の湯で煮るうちに、透き通っていた煮汁が白く濁り、豆乳のような風味に変わっていく様子が口コミで語られている。ごま醤油系のたれで食べ、そのたれのおいしさを推す宿泊者もいる。",
     "source_url": "https://tabelog.com/saga/A4104/A410401/41004245/dtlrvwlst/B357839414/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "hisago",
@@ -4823,9 +5404,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町（番地未取得）",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.0974,
+   "lng": 129.98413,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "",
    "closed": "",
@@ -4841,8 +5422,17 @@
      "source_url": "http://www.hisagoryokan.com/"
     }
    ],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "1965年創業",
     "「どこか懐かしい町 暮らしているように泊まる宿」",
@@ -4871,7 +5461,13 @@
       "url": "https://spa-u.net/facility/2017/05/org-entry-024.php"
      }
     ],
-    "instagram": "https://www.instagram.com/hisagoryokan/"
+    "instagram": "https://www.instagram.com/hisagoryokan/",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": ""
    },
    "ratings": {
     "tabelog": null,
@@ -4900,14 +5496,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "住所未取得 / 湯どうふの食べ方 未確認: たれや薬味、提供の仕方は確認できなかった。",
+   "updated_at": "2026-10-17",
+   "editor_note": "住所未取得 / 湯どうふの食べ方 未確認: たれや薬味、提供の仕方は確認できなかった。 / 位置: 掲載ページの地図 https://www.asobo-saga.jp/stays/detail/0c987b9a-ccb6-423e-af7d-f174476f7000 (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "朝食は小鉢を並べた御膳形式で、嬉野温泉名物の温泉湯豆腐が付く。家族で営む小さな宿の朝ごはんとして出される。",
     "source_url": "http://www.hisagoryokan.com/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "fairfield",
@@ -4917,17 +5514,26 @@
    "status": "needs_review",
    "yudofu": "unverified",
    "address": "佐賀県嬉野市嬉野町（嬉野温泉駅前・番地未取得）",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.106979,
+   "lng": 129.998551,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "",
    "closed": "",
    "service": [],
    "menu": [],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "宿泊特化型ホテルで館内レストランなし（周辺の飲食店利用を前提）",
     "spa-u.net 2023年7月掲載"
@@ -4939,7 +5545,16 @@
       "label": "",
       "url": "https://spa-u.net/facility/2023/07/fairfield-by-marriott-saga-ureshino-onsen.php"
      }
-    ]
+    ],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -4968,14 +5583,15 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "レストランなし（検索要約）。売店等での取扱は未確認 / 湯どうふの食べ方 未確認: たれや温め方は確認できなかった。 / サライ記事（2023年開業時）で予約制の朝食ボックスに温泉湯豆腐が入ると紹介。現行内容は要確認（2026-10-16）",
+   "updated_at": "2026-10-17",
+   "editor_note": "レストランなし（検索要約）。売店等での取扱は未確認 / 湯どうふの食べ方 未確認: たれや温め方は確認できなかった。 / サライ記事（2023年開業時）で予約制の朝食ボックスに温泉湯豆腐が入ると紹介。現行内容は要確認（2026-10-16） / 位置: 掲載ページの地図 https://spa-u.net/facility/2023/07/fairfield-by-marriott-saga-ureshino-onsen.php (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "館内にレストランはなく、予約制の朝食ボックスに温泉湯豆腐が入る。地元野菜の煮しめや嬉野茶の佃煮、地元産の米で炊いたご飯と一緒に詰め合わせていると紹介されている。",
     "source_url": "https://serai.jp/tour/1158715"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "hotel-sakura",
@@ -4985,9 +5601,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙1021",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.09763,
+   "lng": 129.984359,
+   "geo_precision": "exact",
    "tel": "0954-42-3000",
    "hours": "[月〜金] 11:30〜14:00 (L.O.13:30) ／ [土日祝] 11:00〜14:30 (L.O.14:00)、17:00〜21:30 (L.O.20:30)",
    "closed": "",
@@ -5004,8 +5620,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "ホテル桜内の和風レストラン（宿泊者以外のランチ利用の口コミあり）",
     "特製胡麻だれに浸けて食べる温泉湯豆腐が「とろーり柔らか」と評される",
@@ -5031,7 +5656,15 @@
       "label": "",
       "url": "https://spa-u.net/facility/2017/06/hotelsakura.php"
      }
-    ]
+    ],
+    "official": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -5072,8 +5705,8 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "湯どうふの食べ方 未確認: 現在の営業状況は確認できていない。 / 和風レストラン花月は食べログで掲載保留（休業・閉店の可能性）。2026-10-16 調査。要営業確認",
+   "updated_at": "2026-10-17",
+   "editor_note": "湯どうふの食べ方 未確認: 現在の営業状況は確認できていない。 / 和風レストラン花月は食べログで掲載保留（休業・閉店の可能性）。2026-10-16 調査。要営業確認 / 位置: 掲載ページの地図 https://spa-u.net/facility/2017/06/org-entry-038.php (2026-10-17)",
    "yudofu_style": {
     "tare": [
      "胡麻だれ"
@@ -5081,14 +5714,15 @@
     "yakumi": [],
     "note": "1階の和風レストラン花月では、昼に嬉野名物の温泉湯豆腐を小鉢・蓋物・ご飯・香の物と組み合わせた御膳で出していた。温泉豆腐は胡麻だれにつけて食べる形で、口コミで好評だった。",
     "source_url": "https://tabelog.com/saga/A4104/A410401/41002827/dtlrvwlst/B421869287/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "seiryu",
    "name": "大正屋 湯宿清流",
    "name_kana": "ゆやど せいりゅう",
    "category": "hotel",
-   "status": "needs_review",
+   "status": "hidden",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙2314",
    "lat": 33.099522,
@@ -5112,9 +5746,14 @@
    "tofu_source": {
     "name": "大正屋グループ（推定・未確認）",
     "maker_id": "yudofu-honpo",
-    "note": "口コミでは大豆の風味が濃い厚みのある豆腐。製造元の明記は未確認"
+    "note": "口コミでは大豆の風味が濃い厚みのある豆腐。製造元の明記は未確認",
+    "source_url": ""
    },
-   "onsen_source": {},
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "嬉野観光ホテル大正屋の経営（食べログ備考）",
     "宿泊者は大正屋・椎葉山荘の温泉利用可",
@@ -5131,7 +5770,14 @@
       "label": "",
       "url": "https://www.taishoya.com/"
      }
-    ]
+    ],
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -5185,13 +5831,14 @@
    ],
    "confidence": "medium",
    "updated_at": "2026-10-16",
-   "editor_note": "閉館の可能性（フォートラベルに「閉鎖しました」の注記、食べログは掲載保留）。2026-10-16 調査。営業確認まで要確認に変更",
+   "editor_note": "閉館の可能性（フォートラベルに「閉鎖しました」の注記、食べログは掲載保留）。2026-10-16 調査。営業確認まで要確認に変更 / 運営が引き継がれ2025年10月に「枯淡嬉野」（kotan）として開業。重複のため非公開（2026-10-16）",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "大正屋グループの宿で、朝食に湯豆腐、夕食にざる豆腐を出していたと口コミにある。どちらも大豆の風味が濃い豆腐と評された。旅行口コミサイトには、この宿は閉鎖したと記載がある。",
     "source_url": "https://tabelog.com/saga/A4104/A410401/41004333/dtlrvwlst/B49189597/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "yoshidaya",
@@ -5201,9 +5848,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字岩屋川内甲379",
-   "lat": 33.087944,
-   "lng": 129.983288,
-   "geo_precision": "approx",
+   "lat": 33.092959,
+   "lng": 129.980443,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "旅館ランチ 12:00-15:00（14:00 L.O.）。大浴場・貸切風呂 15:30-22:00（土日祝 10:30-22:00）",
    "closed": "不定休",
@@ -5259,8 +5906,17 @@
      "source_url": "https://www.yoshidaya-web.com/howto/detail.php?id=290"
     }
    ],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "創業80〜90年以上、嬉野川沿いの「SAGA modern」な隠れ家宿（19室）",
     "平日も旅館ランチを営業、湯豆腐コースなど選べる食事セット",
@@ -5308,7 +5964,13 @@
       "url": "https://spa-u.net/facility/2017/06/org-entry-016.php"
      }
     ],
-    "tabelog": "https://tabelog.com/saga/A4104/A410401/41002508/"
+    "tabelog": "https://tabelog.com/saga/A4104/A410401/41002508/",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": 3.21,
@@ -5403,14 +6065,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "大字の「甲」は近隣住所からの推定。コース価格は 3,300円/3,630円 の2表記 / 佐賀牛湯豆腐しゃぶコースは公式ページで5,500円の表記あり（データは5,000円）。2026年7月から平日ランチ再開（2026-10-16 調査）",
+   "updated_at": "2026-10-17",
+   "editor_note": "大字の「甲」は近隣住所からの推定。コース価格は 3,300円/3,630円 の2表記 / 佐賀牛湯豆腐しゃぶコースは公式ページで5,500円の表記あり（データは5,000円）。2026年7月から平日ランチ再開（2026-10-16 調査） / 館内に「豆富と佐賀牛と日本料理 十一口 といろ」（夜コース5,500円〜、温泉湯豆腐と佐賀牛）との情報。虚空蔵との関係は要確認（2026-10-16） / 位置: 掲載ページの地図 https://www.jalan.net/yad315653/ (2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "嬉野温泉の旅館。朝食に嬉野温泉の湯で炊くとろとろの湯豆腐が出て、しゃぶしゃぶも楽しめ、〆は雑炊にする。個室和食ダイニング「虚空蔵」の平日ランチでは湯豆腐コースや佐賀牛の湯豆腐しゃぶコースを選べる。",
     "source_url": "https://www.yoshidaya-web.com/ryokan/oneday/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "riverpark",
@@ -5429,8 +6092,17 @@
    "service": [],
    "menu": [],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "spa-u.net ホテル一覧に掲載"
    ],
@@ -5441,7 +6113,16 @@
       "label": "",
       "url": "https://spa-u.net/facility/stay/hotel/"
      }
-    ]
+    ],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -5459,7 +6140,14 @@
    ],
    "confidence": "low",
    "updated_at": "2026-10-16",
-   "editor_note": "湯どうふ提供の情報なし。温泉なしの28室ホテル（じゃらん）。掲載見直し候補（2026-10-16 調査）"
+   "editor_note": "湯どうふ提供の情報なし。温泉なしの28室ホテル（じゃらん）。掲載見直し候補（2026-10-16 調査）",
+   "google_place_id": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "",
+    "source_url": ""
+   }
   },
   {
    "id": "wataya",
@@ -5469,9 +6157,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙738",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.097999,
+   "lng": 129.989124,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "レストラン利休ランチ: 日・祝 12:00-14:00（最終入店13:00、前日17時までの予約制）。日帰り入浴 14:00-20:00",
    "closed": "",
@@ -5511,7 +6199,8 @@
    },
    "onsen_source": {
     "name": "源泉掛け流し（源泉名・自家/共同は未確認）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "館内レストラン「利休」「李荘庵」で日帰り昼食可",
@@ -5560,7 +6249,13 @@
       "label": "",
       "url": "https://spa-u.net/facility/2017/06/watayabessou.php"
      }
-    ]
+    ],
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -5643,14 +6338,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "楽天トラベルの宿泊レポートでは朝夕食の豆腐は福田とうふ店（2026-10-16 調査）",
+   "updated_at": "2026-10-17",
+   "editor_note": "楽天トラベルの宿泊レポートでは朝夕食の豆腐は福田とうふ店（2026-10-16 調査） / 位置: OpenStreetMap way/760139247「和多屋別荘」(2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "嬉野温泉の老舗旅館。朝の和洋ビュッフェに温泉湯豆腐が並び、夕食には湯豆腐を煮た鍋で佐賀牛や若楠豚をしゃぶしゃぶにして、うどんや雑炊で締めるプランがある。豆腐は嬉野の水と大豆で仕込む福田とうふ店のものを使う。",
     "source_url": "https://travel.rakuten.co.jp/mytrip/howto/wataya-ureshino-guide"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "warakuen",
@@ -5660,9 +6356,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下野甲33",
-   "lat": 33.100331,
-   "lng": 130.00119,
-   "geo_precision": "approx",
+   "lat": 33.095406,
+   "lng": 129.987901,
+   "geo_precision": "exact",
    "tel": "0954-43-3181",
    "hours": "日帰り入浴 11:30-14:00",
    "closed": "日帰り入浴は火曜休",
@@ -5699,9 +6395,16 @@
     }
    ],
    "tofu_source": {
-    "name": "嬉野産大豆ふくゆたか100%（製造元未確認）"
+    "name": "嬉野産大豆ふくゆたか100%（製造元未確認）",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
    },
-   "onsen_source": {},
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "嬉野川沿い、嬉野茶を「飲む・食べる・浴びる」宿（48室・150名）",
     "嬉野茶を注いだ茶風呂露天",
@@ -5749,7 +6452,13 @@
      }
     ],
     "tabelog": "https://tabelog.com/saga/A4104/A410401/41003654/",
-    "official": "https://www.warakuen.co.jp/"
+    "official": "https://www.warakuen.co.jp/",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": 3.18,
@@ -5826,14 +6535,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "日帰りランチは休止中との記載あり（検索要約）",
+   "updated_at": "2026-10-17",
+   "editor_note": "日帰りランチは休止中との記載あり（検索要約） / 位置: OpenStreetMap node/5937445185「茶心の宿 和楽園」(2026-10-17)",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "嬉野茶をテーマにした旅館。朝食は嬉野産大豆ふくゆたか100%の豆腐を使う温泉湯豆腐が主役の和定食で、茶粥や茶酢、嬉野茶海苔佃煮など嬉野茶を使う品が並ぶ。胡麻坦々の小鍋仕立てにした温泉湯豆腐もある。",
     "source_url": "https://reserve.489ban.net/client/warakuen/0/detail/1177764"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "konomenosato",
@@ -5843,9 +6553,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿甲2094-15",
-   "lat": 33.110719,
-   "lng": 129.994535,
-   "geo_precision": "approx",
+   "lat": 33.113378,
+   "lng": 129.990067,
+   "geo_precision": "exact",
    "tel": "0954-42-1380",
    "hours": "",
    "closed": "",
@@ -5864,11 +6574,14 @@
    "other_prices": [],
    "tofu_source": {
     "name": "自家製",
-    "maker_id": "konomenosato"
+    "maker_id": "konomenosato",
+    "note": "",
+    "source_url": ""
    },
    "onsen_source": {
     "name": "嬉野温泉水（詳細未確認）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "嬉野温泉観光協会サイトの「豆腐・温泉湯どうふ（買えるお店）」に掲載",
@@ -5897,7 +6610,16 @@
       "label": "",
       "url": "https://spa-u.net/facility/yu-tofu/buy/"
      }
-    ]
+    ],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -5938,8 +6660,15 @@
     }
    ],
    "confidence": "low",
-   "updated_at": "2026-10-04",
-   "editor_note": "住所は検索要約による低確度。営業時間・価格は未取得 / 県の温泉湯豆腐特集PDFに「だいずのおんど（このめの里）」の表記。佐賀県産フクユタカ100%の豆腐店。このめの里と同一事業者かは要確認（2026-10-16 調査）"
+   "updated_at": "2026-10-17",
+   "editor_note": "住所は検索要約による低確度。営業時間・価格は未取得 / 県の温泉湯豆腐特集PDFに「だいずのおんど（このめの里）」の表記。佐賀県産フクユタカ100%の豆腐店。このめの里と同一事業者かは要確認（2026-10-16 調査） / 位置: 掲載ページの地図 https://spa-u.net/facility/2019/01/post-113.php (2026-10-17)",
+   "google_place_id": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "",
+    "source_url": ""
+   }
   },
   {
    "id": "hirakawaya-takeo",
@@ -5949,9 +6678,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県武雄市武雄町大字武雄7411",
-   "lat": 33.186132,
-   "lng": 130.008302,
-   "geo_precision": "approx",
+   "lat": 33.196171,
+   "lng": 130.015125,
+   "geo_precision": "exact",
    "tel": "0954-27-8481",
    "hours": "",
    "closed": "",
@@ -5971,11 +6700,14 @@
    "other_prices": [],
    "tofu_source": {
     "name": "自家製",
-    "maker_id": "hirakawaya-takeo"
+    "maker_id": "hirakawaya-takeo",
+    "note": "",
+    "source_url": ""
    },
    "onsen_source": {
     "name": "「温泉と同じ成分の調理水」と豆腐だけで作る温泉湯豆腐（嬉野温泉水の使用有無は未確認）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "嬉野市外（武雄市）の本店。嬉野店・和多屋別荘店に供給",
@@ -6013,7 +6745,14 @@
       "url": "https://www.tabirai.net/sightseeing/column/0007985.aspx"
      }
     ],
-    "instagram": "https://www.instagram.com/saga_hirakawaya.takeo.ureshino/"
+    "instagram": "https://www.instagram.com/saga_hirakawaya.takeo.ureshino/",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": ""
    },
    "ratings": {
     "tabelog": null,
@@ -6072,8 +6811,8 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: OpenStreetMap node/12190324814「佐嘉平川屋」(2026-10-17)",
    "yudofu_style": {
     "tare": [
      "胡麻だれ",
@@ -6087,7 +6826,8 @@
     ],
     "note": "武雄にある豆腐店の本店。店で出す温泉湯豆腐御膳は、調理水で豆腐を煮て汁が白く濁れば食べ頃。胡麻だれ、ポン酢、出汁醤油のほか塩とオリーブオイルでも食べられ、残った汁で雑炊を作る。持ち帰りセットには胡麻だれ付き、ぽん酢付き、白だし付きなどがある。",
     "source_url": "https://www.sagatv.co.jp/kachiplus/media/archives/1663065"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "yudofu-honpo",
@@ -6097,9 +6837,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙2302-3",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.09514,
+   "lng": 129.981916,
+   "geo_precision": "exact",
    "tel": "0954-42-1498",
    "hours": "9:00〜17:00",
    "closed": "水曜日",
@@ -6162,11 +6902,13 @@
    "tofu_source": {
     "name": "自家製（大正屋グループ）",
     "maker_id": "yudofu-honpo",
-    "note": "嬉野市産ふくゆたか"
+    "note": "嬉野市産ふくゆたか",
+    "source_url": ""
    },
    "onsen_source": {
     "name": "嬉野温泉水（温泉調理水900mlを同梱）。嬉野観光ホテル大正屋には自家源泉の温泉分析書があるが、湯どうふ本舗の調理水がそ",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "老舗旅館 大正屋の直営",
@@ -6214,7 +6956,14 @@
       "url": "https://www.taishoya.com/"
      }
     ],
-    "tabelog": "https://tabelog.com/saga/A4104/A410401/41006117/"
+    "tabelog": "https://tabelog.com/saga/A4104/A410401/41006117/",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -6291,8 +7040,8 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: OpenStreetMap node/5998956885「大正屋 湯どうふ本舗」(2026-10-17)",
    "yudofu_style": {
     "tare": [
      "ごま醤油"
@@ -6304,7 +7053,8 @@
     ],
     "note": "旅館大正屋直営の店が作る「とろける湯どうふ」。嬉野産ふくゆたかの豆腐に、温泉調理水、豆乳、ごま醤油、かつお節、おろし生姜、七味が付く。温泉水で煮て豆腐が溶け始めたら豆乳を加えて風味を足す。食べ終えたごま醤油の器には、うどんやご飯を入れてもよい。",
     "source_url": "https://gendai.media/articles/-/95379"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "fukuda",
@@ -6314,9 +7064,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿丙110-2",
-   "lat": 33.095065,
-   "lng": 129.972076,
-   "geo_precision": "approx",
+   "lat": 33.091066,
+   "lng": 129.973696,
+   "geo_precision": "exact",
    "tel": "0954-42-1112",
    "hours": "早朝から売り切れ次第終了",
    "closed": "水曜日",
@@ -6365,11 +7115,14 @@
    "other_prices": [],
    "tofu_source": {
     "name": "自家製",
-    "maker_id": "fukuda"
+    "maker_id": "fukuda",
+    "note": "",
+    "source_url": ""
    },
    "onsen_source": {
     "name": "嬉野温泉水を「調理水」としてセットに同梱（源泉名は未確認）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "JAタウン「佐賀県嬉野温泉湯どうふ」の製造者",
@@ -6404,7 +7157,14 @@
       "url": "https://www.niji-dept.com/view/item/000000000735"
      }
     ],
-    "tabelog": "https://tabelog.com/en/saga/A4104/A410401/41006845/"
+    "tabelog": "https://tabelog.com/en/saga/A4104/A410401/41006845/",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -6469,8 +7229,8 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: 掲載ページの地図 https://ureshino-tofu.com/access/ (2026-10-17)",
    "yudofu_style": {
     "tare": [
      "専用ごまだれ（濃縮）"
@@ -6478,7 +7238,8 @@
     "yakumi": [],
     "note": "福田とうふ店の取り寄せセットは、450gの温泉どうふ、1.5Lの調理水、濃縮タイプの専用ごまだれの組み合わせ。付属の水に3〜4等分した豆腐をそっと入れて火にかけ、角が丸くなって水が豆乳のように濁れば食べ頃。煮すぎると溶けてしまう。",
     "source_url": "https://ureshino-tofu.stores.jp/items/6142ca9a306ad370fb2a9974"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "fujikawa",
@@ -6488,9 +7249,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿丙64-1",
-   "lat": 33.095065,
-   "lng": 129.972076,
-   "geo_precision": "approx",
+   "lat": 33.093844,
+   "lng": 129.975204,
+   "geo_precision": "exact",
    "tel": "0954-43-1683",
    "hours": "8:00〜16:00",
    "closed": "水曜日",
@@ -6558,11 +7319,13 @@
    "tofu_source": {
     "name": "自家製",
     "maker_id": "fujikawa",
-    "note": "嬉野市産大豆ふくゆたか100%"
+    "note": "嬉野市産大豆ふくゆたか100%",
+    "source_url": ""
    },
    "onsen_source": {
     "name": "嬉野温泉水の「調理水」をセットに同梱（源泉名は未確認）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "1967年創業・三代目",
@@ -6606,7 +7369,14 @@
       "url": "https://tofoodof.com/makers/saga/fujikawatofu/"
      }
     ],
-    "tabelog": "https://tabelog.com/en/saga/A4104/A410401/41007473/"
+    "tabelog": "https://tabelog.com/en/saga/A4104/A410401/41007473/",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -6683,8 +7453,8 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: 掲載ページの地図 https://www.fujikawa102.com/ (2026-10-17)",
    "yudofu_style": {
     "tare": [
      "ごまだれ",
@@ -6696,7 +7466,8 @@
     ],
     "note": "嬉野市産ふくゆたかで作る藤川豆腐店のセットは、480gの木綿豆腐と専用調理水に柚子胡椒が付き、たれはごまだれとポン酢から選ぶ。豆腐を4〜6切れにして15〜20分煮て、汁が白く濁りとろっとすれば完成。工場の隣の直営食事処「十笑」でも食べられる。",
     "source_url": "https://www.fujikawa102.com/view/item/000000000004"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "hirakawaya-wataya",
@@ -6706,9 +7477,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙738（和多屋別荘内）",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.097999,
+   "lng": 129.989124,
+   "geo_precision": "exact",
    "tel": "",
    "hours": "10:00-18:00（テイクアウト、検索要約による）",
    "closed": "",
@@ -6732,11 +7503,14 @@
    "other_prices": [],
    "tofu_source": {
     "name": "佐嘉平川屋",
-    "maker_id": "hirakawaya-takeo"
+    "maker_id": "hirakawaya-takeo",
+    "note": "",
+    "source_url": ""
    },
    "onsen_source": {
     "name": "未確認",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "2024年7月25日にポップアップレストラン『佐嘉平川屋 in 和多屋別荘』としてオープン（PR TIMES）",
@@ -6762,7 +7536,14 @@
       "url": "https://wataya.co.jp/facility"
      }
     ],
-    "instagram": "https://www.instagram.com/saga_hirakawaya.takeo.ureshino/"
+    "instagram": "https://www.instagram.com/saga_hirakawaya.takeo.ureshino/",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": ""
    },
    "ratings": {
     "tabelog": null,
@@ -6798,13 +7579,14 @@
    ],
    "confidence": "medium",
    "updated_at": "2026-10-16",
-   "editor_note": "",
+   "editor_note": "位置: 和多屋別荘内のため wataya と同じ（2026-10-17）",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "和多屋別荘の館内にある佐嘉平川屋の店。嬉野の温泉水と同じ成分の調理水で豆腐を煮て、豆乳のように白く濁った汁ごと味わう。温泉湯豆腐のあとは若楠ポークのしゃぶしゃぶと締めの雑炊に進む。器は有田焼・李荘窯のもの。",
     "source_url": "https://wataya.co.jp/facility/hirakawaya"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "kihara",
@@ -6847,11 +7629,14 @@
    ],
    "tofu_source": {
     "name": "仕入れ",
-    "note": "仕入れ（製造元未確認）"
+    "maker_id": "",
+    "note": "仕入れ（製造元未確認）",
+    "source_url": ""
    },
    "onsen_source": {
     "name": "嬉野温泉（湯どうふ用温泉水を販売、源泉名は未確認）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "温泉湯どうふ・調理水（温泉水）を販売",
@@ -6895,7 +7680,14 @@
       "label": "",
       "url": "https://spa-u.net/facility/2016/01/org-entry-234.php"
      }
-    ]
+    ],
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -6936,14 +7728,15 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "住所は 下宿乙873-2 / 岩屋川内甲74-2 の2表記あり（要確認）",
+   "updated_at": "2026-10-17",
+   "editor_note": "住所は 下宿乙873-2 / 岩屋川内甲74-2 の2表記あり（要確認） / 位置: 掲載ページの地図 https://4travel.jp/dm_shisetsu/11370889 (2026-10-17) / 自動調査の位置は別の店と同じ座標だったため不採用（2026-10-17）",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
     "note": "シーボルトのあし湯の向かいにある八百屋兼惣菜店。嬉野名物の温泉湯どうふと、湯どうふ用の調理水も買えると紹介されている。",
     "source_url": "https://www.oomuraya.co.jp/kurashikanko/kihara/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "ja-town",
@@ -6980,9 +7773,14 @@
    "tofu_source": {
     "name": "福田豆腐店",
     "maker_id": "fukuda",
+    "note": "",
     "source_url": "https://www.ja-town.com/shop/g/g8101-500071013/"
    },
-   "onsen_source": {},
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "JAタウン（JA全農の産直通販）内のJAさが直営店",
     "JA系通販サイトでの全国発送"
@@ -6990,7 +7788,15 @@
    "description": "JA全農の産直通販『JAタウン』に嬉野温泉湯どうふの商品ページが存在する。製造元（市内6社のいずれか）は未確認。",
    "urls": {
     "other": [],
-    "official": "https://www.ja-town.com/shop/g/g8101-500071013/"
+    "official": "https://www.ja-town.com/shop/g/g8101-500071013/",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -7016,7 +7822,8 @@
     "yakumi": [],
     "note": "JAタウンでさが風土館季楽が出品する、福田豆腐店製のセット。450gの温泉豆腐3丁に、1.5Lの調理水と特製ごまダレが付き、3〜5人分。3〜4つに切った豆腐を調理水と一緒に土鍋か鉄鍋に入れて煮る。",
     "source_url": "https://www.ja-town.com/shop/g/g8101-500071013/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "maruku",
@@ -7026,9 +7833,9 @@
    "status": "needs_review",
    "yudofu": "unverified",
    "address": "佐賀県嬉野市嬉野町大字下宿乙4370-2",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.106024,
+   "lng": 129.998638,
+   "geo_precision": "exact",
    "tel": "0954-27-8709",
    "hours": "",
    "closed": "",
@@ -7042,8 +7849,17 @@
     }
    ],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "西九州新幹線 嬉野温泉駅に併設",
     "道路・観光・イベント情報の提供と嬉野市の特産品展示・販売",
@@ -7081,7 +7897,15 @@
       "label": "",
       "url": "https://spa-u.net/shinkansen/"
      }
-    ]
+    ],
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -7116,8 +7940,15 @@
     }
    ],
    "confidence": "low",
-   "updated_at": "2026-10-16",
-   "editor_note": "公式・あそぼーさが・観光協会の「買えるお店」に湯どうふの記述なし。取り扱いは未確認（2026-10-16 調査）"
+   "updated_at": "2026-10-17",
+   "editor_note": "公式・あそぼーさが・観光協会の「買えるお店」に湯どうふの記述なし。取り扱いは未確認（2026-10-16 調査） / 位置: OpenStreetMap way/1097833361「道の駅「うれしのまるく」」(2026-10-17)",
+   "google_place_id": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "",
+    "source_url": ""
+   }
   },
   {
    "id": "siebold",
@@ -7127,9 +7958,9 @@
    "status": "needs_review",
    "yudofu": "unverified",
    "address": "佐賀県嬉野市嬉野町大字下宿乙818-2",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.096567,
+   "lng": 129.98558,
+   "geo_precision": "exact",
    "tel": "0954-43-1426",
    "hours": "6:00〜22:00（最終受付21:30）",
    "closed": "毎月第3水曜日（祝日の場合は翌日）",
@@ -7151,10 +7982,16 @@
      "source_url": "https://rurubu.jp/andmore/spot/80039002"
     }
    ],
-   "tofu_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
    "onsen_source": {
     "name": "嬉野温泉（ナトリウム-炭酸水素塩・塩化物泉）",
-    "note": ""
+    "note": "",
+    "source_url": ""
    },
    "features": [
     "嬉野市営の公衆浴場。2010年4月開業（Wikipedia）",
@@ -7185,7 +8022,15 @@
       "label": "",
       "url": "https://www.spa.or.jp/search_f/detail_f/?F_ID=1731"
      }
-    ]
+    ],
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -7208,8 +8053,15 @@
     }
    ],
    "confidence": "high",
-   "updated_at": "2026-10-16",
-   "editor_note": "館内での湯どうふ提供・販売は未確認（情報募集中） / るるぶ&more.では売店・食事処なし（出前可）。館内での湯どうふ提供・販売は未確認（2026-10-16 調査）"
+   "updated_at": "2026-10-17",
+   "editor_note": "館内での湯どうふ提供・販売は未確認（情報募集中） / るるぶ&more.では売店・食事処なし（出前可）。館内での湯どうふ提供・販売は未確認（2026-10-16 調査） / 位置: OpenStreetMap way/568000739「シーボルトの湯」(2026-10-17)",
+   "google_place_id": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "",
+    "source_url": ""
+   }
   },
   {
    "id": "hyakunen",
@@ -7219,9 +8071,9 @@
    "status": "published",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町大字下宿乙2202-8",
-   "lat": 33.099522,
-   "lng": 129.983805,
-   "geo_precision": "approx",
+   "lat": 33.097962,
+   "lng": 129.98093,
+   "geo_precision": "exact",
    "tel": "0954-20-2525",
    "hours": "9:00〜22:00（受付終了21:30）",
    "closed": "不定休（温泉施設の休業日に準ずる）",
@@ -7258,10 +8110,16 @@
      "source_url": "http://www.100nen-spa.co.jp/information/"
     }
    ],
-   "tofu_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
    "onsen_source": {
     "name": "自家源泉（うれしの元湯・百年の湯）",
-    "note": "pH7.9 と紹介（検索要約による）"
+    "note": "pH7.9 と紹介（検索要約による）",
+    "source_url": ""
    },
    "features": [
     "日帰り温泉と食事処が一体",
@@ -7305,7 +8163,14 @@
       "url": "https://www.jalan.net/kankou/spt_guide000000185825/"
      }
     ],
-    "tabelog": "https://tabelog.com/saga/A4104/A410401/41006340/"
+    "tabelog": "https://tabelog.com/saga/A4104/A410401/41006340/",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": 3.07,
@@ -7382,8 +8247,8 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "位置: 掲載ページの地図 https://spa-u.net/facility/2019/08/-hyakunennoyu.php (2026-10-17)",
    "yudofu_style": {
     "tare": [
      "ごまだれ"
@@ -7391,7 +8256,8 @@
     "yakumi": [],
     "note": "日帰り温泉「百年の湯」の食事処・百年亭では、名物の温泉湯豆腐を定食で出す。嬉野産の豆腐を温泉のお湯で仕立て、店自慢のごまだれで食べる。ご飯と味噌汁が付き、公式メニューでは1,200円と掲載している。",
     "source_url": "http://www.100nen-spa.co.jp/restaurant/"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "yudofu-festa",
@@ -7410,8 +8276,17 @@
    "service": [],
    "menu": [],
    "other_prices": [],
-   "tofu_source": {},
-   "onsen_source": {},
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "2026-11-01（日）10:00〜16:00",
     "豊玉姫神社での神事・奉納、秋の市",
@@ -7419,7 +8294,16 @@
    ],
    "description": "嬉野温泉の秋まつり。名物「温泉湯どうふフェスタ」が開かれる。駐車場は嬉野市役所・中央広場（無料）。湯どうふの提供価格・振る舞いの有無は未確認。",
    "urls": {
-    "other": []
+    "other": [],
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -7461,7 +8345,8 @@
     "yakumi": [],
     "note": "うれしの温泉秋まつりの中で開かれる、温泉湯どうふをテーマにした催し。2026年は11月1日（日）10時〜16時、嬉野温泉商店街本通り周辺が会場の予定だ。過去の回では料飲店組合による湯どうふの振る舞いや格安販売が行われた。入場は無料で、一部に有料の催しがある。",
     "source_url": "https://www.asobo-saga.jp/events/detail/761d3955-702a-4265-8826-9ae1c5d02143"
-   }
+   },
+   "google_place_id": ""
   },
   {
    "id": "furusato",
@@ -7502,9 +8387,16 @@
    ],
    "other_prices": [],
    "tofu_source": {
-    "name": "藤川豆腐店・福田豆腐店・大正屋・このめの里（返礼品により異なる）"
+    "name": "藤川豆腐店・福田豆腐店・大正屋・このめの里（返礼品により異なる）",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
    },
-   "onsen_source": {},
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
    "features": [
     "複数の市内製造者が返礼品を提供"
    ],
@@ -7528,7 +8420,15 @@
       "label": "",
       "url": "https://furu-sato.com/saga/209"
      }
-    ]
+    ],
+    "tabelog": "",
+    "retty": "",
+    "google_maps": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "instagram": ""
    },
    "ratings": {
     "tabelog": null,
@@ -7574,6 +8474,1513 @@
     ],
     "note": "嬉野市の返礼品のうち藤川とうふ店のセットは、480gの豆腐と500gの調理水に、甘辛のゴマだれとゆずごしょうが付く。定期便で届く品もある。温泉水で煮ると煮汁が豆乳色になり、豆腐はとろとろになる。冷奴でも食べられる。",
     "source_url": "https://www.furusato-tax.jp/product/detail/41209/6036090"
+   },
+   "google_place_id": ""
+  },
+  {
+   "id": "sentoro",
+   "name": "旅館 千湯樓",
+   "name_kana": "りょかん せんとうろう",
+   "category": "hotel",
+   "status": "published",
+   "yudofu": "confirmed",
+   "address": "佐賀県嬉野市嬉野町大字岩屋川内乙2117-1",
+   "lat": 33.072043,
+   "lng": 129.983037,
+   "geo_precision": "exact",
+   "tel": "0954-42-1195",
+   "hours": "",
+   "closed": "",
+   "service": [
+    "朝食",
+    "宿泊者限定"
+   ],
+   "menu": [
+    {
+     "name": "【朝食付】三つの名物で彩る、贅沢な朝食付プラン",
+     "price": null,
+     "price_note": "料金は時期・人数で変動。2026年7/1〜8/30は2,000円引き特典があった",
+     "source_url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/70219"
+    }
+   ],
+   "other_prices": [
+    {
+     "name": "一泊二食付",
+     "price": 14300,
+     "price_note": "観光協会掲載（2017年頃の情報）（〜）",
+     "source_url": "https://spa-u.net/facility/2017/05/org-entry-022.php"
+    }
+   ],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "嬉野の奥座敷、清流沿いの山あいにある自家源泉の宿。湯は入浴だけでなく料理にも使う。朝食付プランでは嬉野名物の湯豆腐を、佐賀牛の時雨煮・自家製の茶粥と並ぶ「三つの名物」の一品として出している。",
+    "source_url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/70219"
+   },
+   "urls": {
+    "official": "https://ureshinoonsen.jp/",
+    "tabelog": "",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "https://www.jalan.net/yad315831/",
+    "rakuten": "https://travel.rakuten.co.jp/HOTEL/70219/70219.html",
+    "other": [
+     {
+      "label": "",
+      "url": "https://spa-u.net/facility/2017/05/org-entry-022.php"
+     },
+     {
+      "label": "",
+      "url": "https://tabiiro.jp/yado/s/103614-ureshino-ryokan-sentourou/"
+     },
+     {
+      "label": "",
+      "url": "https://www.yukoyuko.net/4157"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "楽天トラベル: 嬉野温泉 風の宿 旅館 千湯樓 宿泊プラン一覧",
+     "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/70219",
+     "accessed": "2026-10-16",
+     "note": "朝食の「三つの名物」は嬉野温泉名物・湯豆腐、佐賀牛の時雨煮、自家製の茶粥 ※検索結果の要約で確認"
+    },
+    {
+     "title": "＜旅館 千湯樓＞自然と源泉に包まれる、心やすらぐ嬉野の宿",
+     "url": "https://tabiiro.jp/yado/s/103614-ureshino-ryokan-sentourou/",
+     "accessed": "2026-10-16",
+     "note": "自家源泉を入浴だけでなくお茶や料理にも使用 ※検索結果の要約で確認"
+    },
+    {
+     "title": "旅館 千湯樓 Sentoro（嬉野温泉観光協会）",
+     "url": "https://spa-u.net/facility/2017/05/org-entry-022.php",
+     "accessed": "2026-10-16",
+     "note": "客室7室・定員45名、一泊二食14,300円〜 ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "high",
+   "updated_at": "2026-10-17",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / プラン説明（宿側の記述）で朝食の湯豆腐を確認。タレ・薬味は不明。住所・電話は検索要約からの取得（ページ本文は未取得）。 / 位置: 掲載ページの地図 https://www.jalan.net/yad315831/ (2026-10-17)",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "chiyonoya",
+   "name": "嬉野温泉 旅館千代乃屋",
+   "name_kana": "うれしのおんせん りょかん ちよのや",
+   "category": "hotel",
+   "status": "published",
+   "yudofu": "confirmed",
+   "address": "佐賀県嬉野市嬉野町下宿乙800",
+   "lat": 33.097162,
+   "lng": 129.986922,
+   "geo_precision": "exact",
+   "tel": "0954-42-1073",
+   "hours": "",
+   "closed": "",
+   "service": [
+    "朝食",
+    "宿泊者限定"
+   ],
+   "menu": [],
+   "other_prices": [
+    {
+     "name": "一泊朝食付",
+     "price": 4800,
+     "price_note": "観光協会掲載（2017年頃の情報）。素泊まり4,100円〜（〜）",
+     "source_url": "https://spa-u.net/facility/2017/05/org-entry-037.php"
+    }
+   ],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "温泉街中心部にある全6室の家庭的な小宿。「こだわり卵と温泉湯豆腐」を看板に掲げ、朝食で温泉湯豆腐を出す。朝食付きでも手頃な料金で泊まれ、仕事や観光の拠点に使われている。",
+    "source_url": "https://travel.rakuten.co.jp/HOTEL/13719/13719_onsen.html"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "https://www.jalan.net/yad321288/",
+    "rakuten": "https://travel.rakuten.co.jp/HOTEL/13719/",
+    "other": [
+     {
+      "label": "",
+      "url": "https://spa-u.net/facility/2017/05/org-entry-037.php"
+     },
+     {
+      "label": "",
+      "url": "https://4travel.jp/dm_hotel-10052412"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "楽天トラベル: 嬉野温泉 旅館千代乃屋 温泉",
+     "url": "https://travel.rakuten.co.jp/HOTEL/13719/13719_onsen.html",
+     "accessed": "2026-10-16",
+     "note": "楽天の施設紹介に「こだわり卵と温泉湯豆腐」の見出し ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉 旅館千代乃屋 クチコミ【楽天トラベル】",
+     "url": "https://travel.rakuten.co.jp/HOTEL/13719/review.html",
+     "accessed": "2026-10-16",
+     "note": "朝食の湯豆腐と卵を評価する口コミが複数（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉 旅館千代乃屋（じゃらん）",
+     "url": "https://www.jalan.net/yad321288/",
+     "accessed": "2026-10-16",
+     "note": "住所 下宿乙800 ※検索結果の要約で確認"
+    },
+    {
+     "title": "NAVITIME 嬉野町の旅館",
+     "url": "https://www.navitime.co.jp/category/0604/41209002000/",
+     "accessed": "2026-10-16",
+     "note": "電話0954-42-1073 ※検索結果の要約で確認"
+    },
+    {
+     "title": "千代乃屋 Tiyonoya（嬉野温泉観光協会）",
+     "url": "https://spa-u.net/facility/2017/05/org-entry-037.php",
+     "accessed": "2026-10-16",
+     "note": "客室6室・定員18名、一泊朝食付4,800円〜 ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "high",
+   "updated_at": "2026-10-17",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 宿側の見出し＋口コミで朝食の湯豆腐を確認。 / 位置: 掲載ページの地図 https://www.jalan.net/yad321288/ (2026-10-17)",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "ritoen",
+   "name": "嬉野温泉 割烹旅館 鯉登苑",
+   "name_kana": "うれしのおんせん かっぽうりょかん りとうえん",
+   "category": "hotel",
+   "status": "published",
+   "yudofu": "confirmed",
+   "address": "佐賀県嬉野市嬉野町大字岩屋川内甲437",
+   "lat": 33.092721,
+   "lng": 129.978859,
+   "geo_precision": "exact",
+   "tel": "0954-43-2691",
+   "hours": "",
+   "closed": "",
+   "service": [
+    "朝食",
+    "宿泊者限定"
+   ],
+   "menu": [],
+   "other_prices": [
+    {
+     "name": "一泊（通常料金）",
+     "price": 15730,
+     "price_note": "観光協会掲載（2017年頃の情報）（〜）",
+     "source_url": "https://spa-u.net/facility/2017/06/org-entry-018.php"
+    }
+   ],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [
+     "特製胡麻ダレ"
+    ],
+    "yakumi": [],
+    "note": "嬉野川沿いに建つ割烹旅館。オーナーシェフの手作り料理と海の幸・佐賀牛が自慢。朝食には嬉野名物の温泉湯豆腐が付き、宿特製の胡麻ダレで味わう。",
+    "source_url": "https://travel.rakuten.co.jp/HOTEL/80886/review.html"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "https://www.jalan.net/yad366942/",
+    "rakuten": "https://travel.rakuten.co.jp/HOTEL/80886/",
+    "other": [
+     {
+      "label": "",
+      "url": "https://spa-u.net/facility/2017/06/org-entry-018.php"
+     },
+     {
+      "label": "",
+      "url": "https://www.asobo-saga.jp/stays/detail/760e64f8-e45a-46dc-8c7d-f3b19ca8fab2"
+     },
+     {
+      "label": "",
+      "url": "https://www.cocolocala.jp/hotels/23571"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "鯉登苑 クチコミ【楽天トラベル】",
+     "url": "https://travel.rakuten.co.jp/HOTEL/80886/review.html",
+     "accessed": "2026-10-16",
+     "note": "宿の返信で朝食は当館特製の胡麻ダレで食べる嬉野名物「温泉湯豆腐」と説明 ※検索結果の要約で確認"
+    },
+    {
+     "title": "楽天トラベル: 鯉登苑 宿泊プラン一覧",
+     "url": "https://hotel.travel.rakuten.co.jp/hotelinfo/plan/80886",
+     "accessed": "2026-10-16",
+     "note": "プラン説明に嬉野名物「温泉湯豆腐」は絶品と記載 ※検索結果の要約で確認"
+    },
+    {
+     "title": "鯉登苑（じゃらん）",
+     "url": "https://www.jalan.net/yad366942/",
+     "accessed": "2026-10-16",
+     "note": "住所 岩屋川内甲437 ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉 割烹旅館 鯉登苑（ココロカラ）",
+     "url": "https://www.cocolocala.jp/hotels/23571",
+     "accessed": "2026-10-16",
+     "note": "電話0954-43-2691（岩屋川内甲437の16室の宿として掲載） ※検索結果の要約で確認"
+    },
+    {
+     "title": "鯉登苑 Ritouen（嬉野温泉観光協会）",
+     "url": "https://spa-u.net/facility/2017/06/org-entry-018.php",
+     "accessed": "2026-10-16",
+     "note": "嬉野川沿い、オーナーシェフの手作り料理、15室・定員80名 ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "high",
+   "updated_at": "2026-10-17",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 電話番号は検索要約が住所一致の掲載として示したもの（ページ本文未取得）。客室数は10室/15室/16室と媒体で差。 / 位置: 掲載ページの地図 https://www.jalan.net/yad366942/ (2026-10-17)",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "tokai",
+   "name": "嬉野温泉 悠然の宿 東海",
+   "name_kana": "うれしのおんせん ゆうぜんのやど とうかい",
+   "category": "hotel",
+   "status": "published",
+   "yudofu": "confirmed",
+   "address": "佐賀県嬉野市嬉野町大字下宿乙871-5",
+   "lat": 33.095264,
+   "lng": 129.983686,
+   "geo_precision": "exact",
+   "tel": "0954-42-1216",
+   "hours": "",
+   "closed": "",
+   "service": [
+    "朝食",
+    "宿泊者限定"
+   ],
+   "menu": [
+    {
+     "name": "嬉野名物！とろとろ温泉湯とうふ朝食付き【全室Wi-Fi使い放題！】",
+     "price": null,
+     "price_note": "料金は日程により変動",
+     "source_url": "https://travel.yahoo.co.jp/00904335/10710966/10116679/"
+    }
+   ],
+   "other_prices": [],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [
+     "ごまだれ"
+    ],
+    "yakumi": [],
+    "note": "嬉野バスセンターから歩いて数分の宿。有田焼の露天風呂や白磁の貸切家族風呂があり、器にも有田焼を使う。「とろとろ温泉湯とうふ朝食付き」プランがあり、朝食で温泉湯豆腐を出す。",
+    "source_url": "https://travel.yahoo.co.jp/00904335/10710966/10116679/"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "https://www.jalan.net/yad307061/",
+    "rakuten": "https://travel.rakuten.co.jp/HOTEL/40502/",
+    "other": [
+     {
+      "label": "",
+      "url": "https://travel.yahoo.co.jp/00904335/"
+     },
+     {
+      "label": "",
+      "url": "https://icotto.jp/hotels/13068"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "悠然の宿東海 - 嬉野名物！とろとろ温泉湯とうふ朝食付き【Yahoo!トラベル】",
+     "url": "https://travel.yahoo.co.jp/00904335/10710966/10116679/",
+     "accessed": "2026-10-16",
+     "note": "プラン名「嬉野名物！とろとろ温泉湯とうふ朝食付き」 ※検索結果の要約で確認"
+    },
+    {
+     "title": "悠然の宿 東海 クチコミ【楽天トラベル】",
+     "url": "https://travel.rakuten.co.jp/HOTEL/40502/review.html",
+     "accessed": "2026-10-16",
+     "note": "朝食の湯豆腐を評価する口コミ（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "悠然の宿 東海 クチコミ（じゃらん）",
+     "url": "https://www.jalan.net/yad307061/kuchikomi/",
+     "accessed": "2026-10-16",
+     "note": "温泉豆腐のごまだれの味が濃いとの口コミ（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "悠然の宿 東海（じゃらん）",
+     "url": "https://www.jalan.net/yad307061/",
+     "accessed": "2026-10-16",
+     "note": "住所 下宿乙871-5、TEL 0954-42-1216、食材は地産地消・器は有田焼 ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "high",
+   "updated_at": "2026-10-17",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / ごまだれは口コミ由来。朝食なしのプランもある。 / 位置: 掲載ページの地図 https://www.jalan.net/yad307061/ (2026-10-17)",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "sarayama",
+   "name": "嬉野温泉 湯宿皿山",
+   "name_kana": "うれしのおんせん ゆやど さらやま",
+   "category": "hotel",
+   "status": "published",
+   "yudofu": "confirmed",
+   "address": "佐賀県嬉野市嬉野町岩屋川内甲338-2",
+   "lat": 33.093159,
+   "lng": 129.982467,
+   "geo_precision": "exact",
+   "tel": "",
+   "hours": "",
+   "closed": "",
+   "service": [
+    "朝食",
+    "宿泊者限定"
+   ],
+   "menu": [],
+   "other_prices": [],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "スタッフが常駐しないセルフスタイルの湯宿で、美肌の湯と器の世界観が特色。和食中心の朝食に温泉湯豆腐や茶飯など嬉野らしい品が並ぶと口コミで紹介されている。",
+    "source_url": "https://travel.rakuten.co.jp/HOTEL/187422/review.html"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "https://www.jalan.net/yad388042/",
+    "rakuten": "https://travel.rakuten.co.jp/HOTEL/187422/",
+    "other": [
+     {
+      "label": "",
+      "url": "https://rlx.jp/202351/"
+     },
+     {
+      "label": "",
+      "url": "https://news.allabout.co.jp/articles/o/117683/"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "嬉野温泉 湯宿皿山 クチコミ【楽天トラベル】",
+     "url": "https://travel.rakuten.co.jp/HOTEL/187422/review.html",
+     "accessed": "2026-10-16",
+     "note": "朝のバイキング（和食中心）に温泉湯豆腐があるとの口コミ（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "湯宿皿山（ココロカラ）",
+     "url": "https://www.cocolocala.jp/hotels/883024",
+     "accessed": "2026-10-16",
+     "note": "住所 岩屋川内甲338-2 ※検索結果の要約で確認"
+    },
+    {
+     "title": "湯宿 皿山 口コミ（Relux）",
+     "url": "https://rlx.jp/202351/review/",
+     "accessed": "2026-10-16",
+     "note": "館内に常駐スタッフなし（口コミ） ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "medium",
+   "updated_at": "2026-10-17",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 口コミのみの根拠。朝食形式はビュッフェ／弁当／ピックアップと時期で異なり、食事会場が近隣の吉田屋等になる場合があるとの口コミあり（姉妹館情報からの推測はしていない）。電話番号は未取得。 / 位置: 掲載ページの地図 https://www.jalan.net/yad388042/ (2026-10-17)",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "uchiroji",
+   "name": "嬉野温泉 宿屋うちろじ",
+   "name_kana": "うれしのおんせん やどや うちろじ",
+   "category": "hotel",
+   "status": "published",
+   "yudofu": "confirmed",
+   "address": "佐賀県嬉野市嬉野町大字下宿乙932",
+   "lat": 33.097238,
+   "lng": 129.985787,
+   "geo_precision": "exact",
+   "tel": "",
+   "hours": "",
+   "closed": "",
+   "service": [
+    "朝食",
+    "宿泊者限定"
+   ],
+   "menu": [
+    {
+     "name": "郷土料理の朝食（7:00〜9:00）",
+     "price": 2750,
+     "price_note": "1名あたり概算・有料と予約サイトに記載。朝食付プランの表示とは食い違いあり",
+     "source_url": "https://jcation.com/hotel/detail-23466/"
+    }
+   ],
+   "other_prices": [],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "2024年に温泉街中心部へ新築開業した、旅館吉田屋プロデュースのカジュアルモダン旅館。シーボルトの湯まで徒歩2分ほど。郷土料理の朝食があり、温泉豆腐を朝からゆっくり味わえたという口コミがある。",
+    "source_url": "https://jcation.com/hotel/detail-23466/"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "https://www.jalan.net/yad380482/",
+    "rakuten": "",
+    "other": [
+     {
+      "label": "",
+      "url": "https://jcation.com/hotel/detail-23466/"
+     },
+     {
+      "label": "",
+      "url": "https://newt.net/hotel/jpn/e893571"
+     },
+     {
+      "label": "",
+      "url": "https://skyticket.jp/hotel/detail/property_1692914/"
+     },
+     {
+      "label": "",
+      "url": "https://rlx.jp/947423/"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "嬉野温泉 宿屋うちろじ本通り（Jcation）",
+     "url": "https://jcation.com/hotel/detail-23466/",
+     "accessed": "2026-10-16",
+     "note": "2024年12月の口コミで朝食付きの温泉豆腐を味わったとの記述（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉 宿屋うちろじ本通り（NEWT）",
+     "url": "https://newt.net/hotel/jpn/e893571",
+     "accessed": "2026-10-16",
+     "note": "郷土料理の朝食 7:00〜9:00、有料、1名2,750円（概算） ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野温泉 宿屋うちろじ（じゃらん）",
+     "url": "https://www.jalan.net/yad380482/",
+     "accessed": "2026-10-16",
+     "note": "住所 下宿乙932、2024年新築開業・吉田屋プロデュース ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "medium",
+   "updated_at": "2026-10-17",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 口コミ1件のみの根拠。「宿屋うちろじ」と「宿屋うちろじ本通り」は同住所（下宿乙932）で同一施設と判断。電話番号未取得。 / 位置: 掲載ページの地図 https://www.jalan.net/yad380482/ (2026-10-17)",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "hananoshizuku",
+   "name": "肥前 嬉野温泉 隠宿 華の雫",
+   "name_kana": "ひぜん うれしのおんせん かくれやど はなのしずく",
+   "category": "hotel",
+   "status": "needs_review",
+   "yudofu": "confirmed",
+   "address": "佐賀県嬉野市嬉野町岩屋川内甲445-1",
+   "lat": 33.093098,
+   "lng": 129.977745,
+   "geo_precision": "exact",
+   "tel": "",
+   "hours": "",
+   "closed": "",
+   "service": [
+    "朝食",
+    "宿泊者限定"
+   ],
+   "menu": [],
+   "other_prices": [
+    {
+     "name": "宿泊（通常料金）",
+     "price": 10000,
+     "price_note": "観光協会掲載（2017年頃・リブランディング前の情報）（〜）",
+     "source_url": "https://spa-u.net/facility/2017/06/org-entry-026.php"
+    }
+   ],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "温泉街の中心から少し離れた隠れ宿で、2025年にリブランディング。全10室に専用風呂を備え、バレルサウナやミストサウナもある。朝食の湯豆腐と釜炊きご飯を評価する口コミがある。",
+    "source_url": "https://travel.rakuten.co.jp/HOTEL/69363/review.html"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "https://www.jalan.net/yad358013/",
+    "rakuten": "https://travel.rakuten.co.jp/HOTEL/69363/",
+    "other": [
+     {
+      "label": "",
+      "url": "https://spa-u.net/facility/2017/06/org-entry-026.php"
+     },
+     {
+      "label": "",
+      "url": "https://news.allabout.co.jp/articles/o/114310/"
+     },
+     {
+      "label": "",
+      "url": "https://icotto.jp/hotels/9774"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "肥前 嬉野温泉 隠宿 華の雫 クチコミ【楽天トラベル】",
+     "url": "https://travel.rakuten.co.jp/HOTEL/69363/review.html",
+     "accessed": "2026-10-16",
+     "note": "朝食の湯豆腐と釜炊きご飯に満足したとの口コミ（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "【楽天トラベルセール】佐賀県「肥前 嬉野温泉 隠宿 華の雫」",
+     "url": "https://news.allabout.co.jp/articles/o/114310/",
+     "accessed": "2026-10-16",
+     "note": "2025年リブランディング、全10室に専用風呂、バレルサウナ・ミストサウナ ※検索結果の要約で確認"
+    },
+    {
+     "title": "華の雫 Hananoshizuku（嬉野温泉観光協会）",
+     "url": "https://spa-u.net/facility/2017/06/org-entry-026.php",
+     "accessed": "2026-10-16",
+     "note": "住所 岩屋川内甲445-1 ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "low",
+   "updated_at": "2026-10-17",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 口コミ1件のみ。検索要約では楽天/じゃらんどちらの口コミか判別しきれず、リブランディング前の投稿の可能性もある。朝食はオーダー形式（有料）との掲載もあり。電話番号未取得。 / 位置: 掲載ページの地図 https://www.jalan.net/yad358013/ (2026-10-17)",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "aroma",
+   "name": "ゲストハウス アロマ",
+   "name_kana": "げすとはうす あろま",
+   "category": "hotel",
+   "status": "needs_review",
+   "yudofu": "unverified",
+   "address": "佐賀県嬉野市嬉野町下宿乙2144",
+   "lat": 33.097549,
+   "lng": 129.984303,
+   "geo_precision": "exact",
+   "tel": "0954-27-7715",
+   "hours": "",
+   "closed": "",
+   "service": [
+    "朝食",
+    "宿泊者限定"
+   ],
+   "menu": [],
+   "other_prices": [],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "嬉野温泉街の中心部にあるゲストハウス。周辺に飲食店やコンビニ、コインランドリー、公衆浴場がそろい、街歩きや外食を楽しむ素泊まりの拠点として使いやすい。",
+    "source_url": "https://www.cocolocala.jp/hotels/883282"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "https://www.jalan.net/yad367514/",
+    "rakuten": "",
+    "other": [
+     {
+      "label": "",
+      "url": "https://4travel.jp/dm_hotel-11993627"
+     },
+     {
+      "label": "",
+      "url": "https://www.navitime.co.jp/category/0605/41209/"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "ゲストハウス アロマ（ココロカラ）",
+     "url": "https://www.cocolocala.jp/hotels/883282",
+     "accessed": "2026-10-16",
+     "note": "住所 下宿乙2144、温泉街中心部、周辺に飲食店・コンビニ・大衆浴場 ※検索結果の要約で確認"
+    },
+    {
+     "title": "NAVITIME 嬉野市の宿泊施設",
+     "url": "https://www.navitime.co.jp/category/0605/41209/",
+     "accessed": "2026-10-16",
+     "note": "電話0954-27-7715 ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "high",
+   "updated_at": "2026-10-17",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 食事提供・湯豆腐の情報なし（地図掲載は任意）。 / 位置: 掲載ページの地図 https://www.jalan.net/yad367514/ (2026-10-17)",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "fune",
+   "name": "炉ばた焼き ふね",
+   "name_kana": "ろばたやき ふね",
+   "category": "restaurant",
+   "status": "needs_review",
+   "yudofu": "confirmed",
+   "address": "佐賀県嬉野市嬉野町大字下宿乙1085",
+   "lat": 33.100322,
+   "lng": 129.983405,
+   "geo_precision": "approx",
+   "tel": "0954-42-0761",
+   "hours": "19:00～翌1:00（食べログ掲載）",
+   "closed": "第2・第4火曜日",
+   "service": [],
+   "menu": [
+    {
+     "name": "温泉湯豆腐",
+     "price": 500,
+     "price_note": "食べログ口コミ記載の価格（時期不明）。検索要約の中で、同じ500円が居酒屋 旬の価格として出てきたこともあり、どちらの店の価格か要確認",
+     "source_url": "https://tabelog.com/saga/A4104/A410401/41003690/dtlrvwlst/?type=0"
+    }
+   ],
+   "other_prices": [],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "温泉街の炉端焼き居酒屋。刺身や串焼きと一緒に、名物の温泉湯豆腐を一品料理として出している。湯が白く濁るまで煮た湯豆腐をつけだれで食べるスタイルで、夜に飲みながら湯豆腐を楽しめる店。",
+    "source_url": "https://tabelog.com/saga/A4104/A410401/41003690/"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "https://tabelog.com/saga/A4104/A410401/41003690/",
+    "retty": "https://retty.me/area/PRE41/ARE504/SUB50402/100000788385/",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "other": [],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "炉ばた焼き ふね - 嬉野温泉/ろばた焼き [食べログ]",
+     "url": "https://tabelog.com/saga/A4104/A410401/41003690/",
+     "accessed": "2026-10-16",
+     "note": "住所 下宿乙1085、TEL 0954-42-0761、19:00-01:00、第2・4火曜定休、口コミに温泉湯豆腐 ※検索結果の要約で確認"
+    },
+    {
+     "title": "口コミ一覧 : 炉ばた焼き ふね [食べログ]",
+     "url": "https://tabelog.com/saga/A4104/A410401/41003690/dtlrvwlst/?type=0",
+     "accessed": "2026-10-16",
+     "note": "口コミに温泉湯豆腐500円とある（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "ふね炉ばた焼(嬉野/炉端焼き) - Retty",
+     "url": "https://retty.me/area/PRE41/ARE504/SUB50402/100000788385/",
+     "accessed": "2026-10-16",
+     "note": "口コミ: 温泉湯豆腐は白く濁っていて塩気が強くないので、つけだれが必要。Retty上では店舗情報が確認中になっている（口コミ） ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "medium",
+   "updated_at": "2026-10-16",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 店は食べログの湯豆腐キーワード一覧に載っている。Retty は『移転・閉店・リニューアル可能性あり・確認中』としているが、営業中だとする口コミもある。直近の営業状況は見られていない。WebFetchが使えないため、内容はすべて検索結果の要約から取った。 / Retty で「移転・閉店の可能性あり（確認中）」表示のため要確認",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "suisha",
+   "name": "一粒茶屋 すいしゃ",
+   "name_kana": "いちりゅうちゃや すいしゃ",
+   "category": "restaurant",
+   "status": "published",
+   "yudofu": "confirmed",
+   "address": "佐賀県嬉野市嬉野町大字下野甲5682-2",
+   "lat": 33.099531,
+   "lng": 130.00119,
+   "geo_precision": "approx",
+   "tel": "0954-42-0001",
+   "hours": "火～金 11:30～15:00、土 11:00～14:30、カフェ14:00～17:00（夜は団体予約のみ）",
+   "closed": "日曜・月曜",
+   "service": [],
+   "menu": [
+    {
+     "name": "湯どーふ御膳",
+     "price": null,
+     "price_note": "価格は見つからなかった",
+     "source_url": "https://tabelog.com/en/saga/A4104/A410401/41003634/"
+    },
+    {
+     "name": "湯豆腐（4個）",
+     "price": 880,
+     "price_note": "税込。食べログ口コミの記載（時期不明）",
+     "source_url": "https://tabelog.com/en/saga/A4104/A410401/41003634/dtlrvwlst/"
+    }
+   ],
+   "other_prices": [],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "米屋が営む川辺の食事処。かまどで炊いた佐賀県産米はおかわり自由。嬉野名物の湯どーふ御膳は県外から来る客に人気がある。湯豆腐は熱々の鍋で出てくる。",
+    "source_url": "https://tabelog.com/en/saga/A4104/A410401/41003634/"
+   },
+   "urls": {
+    "official": "https://suisya-saga.com/",
+    "tabelog": "https://tabelog.com/saga/A4104/A410401/41003634/",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "other": [
+     {
+      "label": "",
+      "url": "https://hamoni.jp/en/shop/WMOZPUmx9wgnJmRKDk5R"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "一粒茶屋 すいしゃ - 嬉野温泉/日本料理 [食べログ]",
+     "url": "https://tabelog.com/en/saga/A4104/A410401/41003634/",
+     "accessed": "2026-10-16",
+     "note": "店の紹介文で、嬉野名物の湯どーふ御膳が市外・県外の客に人気とされている。TEL、営業時間、定休日（月・日）、住所 下野甲5682-2 ※検索結果の要約で確認"
+    },
+    {
+     "title": "Review list : Ichiryuu Chaya Suisha [食べログ]",
+     "url": "https://tabelog.com/en/saga/A4104/A410401/41003634/dtlrvwlst/",
+     "accessed": "2026-10-16",
+     "note": "口コミ: 湯豆腐（4個）880円税込、熱々の鍋で出てきた（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "[Relocated] Ichiryuu Chaya Suisha [食べログ]",
+     "url": "https://tabelog.com/en/saga/A4104/A410401/41005996/",
+     "accessed": "2026-10-16",
+     "note": "旧住所（下野甲105）のページは移転扱いになっている ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "high",
+   "updated_at": "2026-10-16",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / サイトによって番地（5682-1 / 5682-2）と営業時間が違う。hamoni では 11:30-14:00 LO。公式の suisya-saga.com は食べログで名前が出ているのを見ただけで、ページは開いていない。",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "sushiichi",
+   "name": "寿し市",
+   "name_kana": "すしいち",
+   "category": "restaurant",
+   "status": "published",
+   "yudofu": "confirmed",
+   "address": "佐賀県嬉野市嬉野町大字下宿乙931-1",
+   "lat": 33.099122,
+   "lng": 129.984205,
+   "geo_precision": "approx",
+   "tel": "0954-43-1109",
+   "hours": "17:00～23:00（NAVITIME掲載）",
+   "closed": "不定休",
+   "service": [],
+   "menu": [
+    {
+     "name": "湯豆腐",
+     "price": 500,
+     "price_note": "食べログ口コミの記載。大きな豆腐が4切れ入っている（時期不明）",
+     "source_url": "https://tabelog.com/saga/A4104/A410401/41003684/dtlrvwlst/"
+    }
+   ],
+   "other_prices": [],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "温泉街の寿司店。握りや押し寿司、天ぷらと並んで、大きく切った豆腐が入った湯豆腐を一品料理として出す。量が多く手頃な値段で、夜に寿司と一緒に湯豆腐を頼める店。",
+    "source_url": "https://tabelog.com/saga/A4104/A410401/41003684/dtlrvwlst/"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "https://tabelog.com/saga/A4104/A410401/41003684/",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "other": [
+     {
+      "label": "",
+      "url": "https://www.navitime.co.jp/category/0305001/41209/"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "口コミ一覧 : 寿司 寿し市 （スシイチ） - 嬉野温泉/寿司 [食べログ]",
+     "url": "https://tabelog.com/saga/A4104/A410401/41003684/dtlrvwlst/",
+     "accessed": "2026-10-16",
+     "note": "口コミ: 湯豆腐500円で大きな豆腐が4切れ。押し寿司800円（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "NAVITIME 嬉野市 寿司",
+     "url": "https://www.navitime.co.jp/category/0305001/41209/",
+     "accessed": "2026-10-16",
+     "note": "住所 下宿乙931-1、TEL 0954-43-1109、17:00-23:00、不定休 ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "medium",
+   "updated_at": "2026-10-16",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 湯豆腐の根拠は口コミ1件だけ。温泉湯豆腐（温泉水で煮たもの）かどうかははっきりしない。",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "tsurusushi",
+   "name": "鶴寿し",
+   "name_kana": "つるずし",
+   "category": "restaurant",
+   "status": "needs_review",
+   "yudofu": "confirmed",
+   "address": "佐賀県嬉野市嬉野町大字下宿乙968-1",
+   "lat": 33.099522,
+   "lng": 129.983405,
+   "geo_precision": "approx",
+   "tel": "0954-43-2888",
+   "hours": "",
+   "closed": "",
+   "service": [],
+   "menu": [
+    {
+     "name": "温泉湯豆腐（コースの一品）",
+     "price": null,
+     "price_note": "食べログ口コミで、お通しやイカの活き造りと一緒に出てきたとある。価格は不明",
+     "source_url": "https://tabelog.com/keywords/%E6%B9%AF%E8%B1%86%E8%85%90/saga/A4104/A410401/kwdLst/washoku/"
+    }
+   ],
+   "other_prices": [],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "足湯の近くにある寿司店。地魚の握りやイカの活き造りなど魚料理が得意で、コースの中で温泉湯豆腐が出ることがある。昼は地魚のちらし寿司などを出している。",
+    "source_url": "https://tabelog.com/keywords/%E6%B9%AF%E8%B1%86%E8%85%90/saga/A4104/A410401/kwdLst/washoku/"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "other": [
+     {
+      "label": "",
+      "url": "https://www.navitime.co.jp/category/0305001/41209/"
+     },
+     {
+      "label": "",
+      "url": "https://www.nap-camp.com/mag/96056"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "嬉野市でおすすめの和食(湯豆腐)をご紹介！[食べログ]",
+     "url": "https://tabelog.com/keywords/%E6%B9%AF%E8%B1%86%E8%85%90/saga/A4104/A410401/kwdLst/washoku/",
+     "accessed": "2026-10-16",
+     "note": "食べログの湯豆腐キーワード一覧の口コミ抜粋に、板長の握りのコースで温泉湯豆腐が出たとある。温泉湯豆腐定食があることをうかがわせる記述もある（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "NAVITIME 嬉野市 寿司",
+     "url": "https://www.navitime.co.jp/category/0305001/41209/",
+     "accessed": "2026-10-16",
+     "note": "住所 下宿乙968-1、TEL 0954-43-2888 ※検索結果の要約で確認"
+    },
+    {
+     "title": "嬉野 寿司 まとめ記事（なっぷ）",
+     "url": "https://www.nap-camp.com/mag/96056",
+     "accessed": "2026-10-16",
+     "note": "昼は地魚のちらし寿司を出す。足湯から徒歩1分 ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "low",
+   "updated_at": "2026-10-16",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 食べログの店舗ページURLは見つからなかった。温泉湯豆腐定食の記述は検索要約に出てきたもので、どの店の話か曖昧。営業時間と定休日は不明。",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "azumaya",
+   "name": "東屋",
+   "name_kana": "あずまや",
+   "category": "restaurant",
+   "status": "needs_review",
+   "yudofu": "unverified",
+   "address": "佐賀県嬉野市嬉野町大字下宿（番地未取得・ホテル桜から徒歩約2分）",
+   "lat": 33.099922,
+   "lng": 129.983805,
+   "geo_precision": "approx",
+   "tel": "",
+   "hours": "",
+   "closed": "",
+   "service": [],
+   "menu": [
+    {
+     "name": "温泉豆腐と嬉野茶を使った御膳",
+     "price": null,
+     "price_note": "じゃらん口コミ1件の記述。正式なメニュー名と価格は不明",
+     "source_url": "https://www.jalan.net/kankou/spt_guide000000229255/gourmet/"
+    }
+   ],
+   "other_prices": [],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "温泉街にある小さな寿司店。温泉豆腐と嬉野茶を使った御膳があり、湯豆腐の出汁がしっかり効いている。",
+    "source_url": "https://www.jalan.net/kankou/spt_guide000000229255/gourmet/"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "other": [
+     {
+      "label": "",
+      "url": "https://www.jalan.net/kankou/spt_guide000000229255/gourmet/"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "じゃらん 周辺ご当地グルメランキング",
+     "url": "https://www.jalan.net/kankou/spt_guide000000229255/gourmet/",
+     "accessed": "2026-10-16",
+     "note": "じゃらんの口コミ1件（評価5.0）: 温泉豆腐と嬉野茶を使った御膳をすすめていて、湯豆腐の出汁が効いていたと書いている（口コミ） ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "low",
+   "updated_at": "2026-10-16",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 根拠はじゃらんの口コミ1件だけ。番地、電話、営業状況は確認していない。食べログやNAVITIMEの検索には出てこなかった。",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "wara",
+   "name": "温泉街道 輪来",
+   "name_kana": "おんせんかいどう わらい",
+   "category": "shop",
+   "status": "published",
+   "yudofu": "confirmed",
+   "address": "佐賀県嬉野市嬉野町大字下宿乙915",
+   "lat": 33.096651,
+   "lng": 129.984932,
+   "geo_precision": "exact",
+   "tel": "",
+   "hours": "9:00～17:30（ゆこゆこ）／9:00～18:00（まっぷる）",
+   "closed": "",
+   "service": [],
+   "menu": [
+    {
+     "name": "温泉湯とうふ（お持ち帰り）",
+     "price": null,
+     "price_note": "価格は不明",
+     "source_url": "https://www.yukoyuko.net/onsen/spot/s0001164"
+    }
+   ],
+   "other_prices": [],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "シーボルトの足湯の前にあるカフェ・甘味処。嬉野紅茶のソフトクリームや温泉茶たまごと並んで、持ち帰りできる名物の温泉湯とうふを扱っている。",
+    "source_url": "https://www.yukoyuko.net/onsen/spot/s0001164"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "other": [
+     {
+      "label": "",
+      "url": "https://www.yukoyuko.net/onsen/spot/s0001164"
+     },
+     {
+      "label": "",
+      "url": "https://www.mapple.net/region/a0702070200_g03000000/spot/"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "ゆこゆこ 温泉街道 輪来",
+     "url": "https://www.yukoyuko.net/onsen/spot/s0001164",
+     "accessed": "2026-10-16",
+     "note": "シーボルトの足湯の前にある。持ち帰りできる嬉野名物の温泉湯とうふと温泉茶たまごが評判 ※検索結果の要約で確認"
+    },
+    {
+     "title": "まっぷる 嬉野温泉 グルメ",
+     "url": "https://www.mapple.net/region/a0702070200_g03000000/spot/",
+     "accessed": "2026-10-16",
+     "note": "住所 下宿乙915、営業9:00-18:00 ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "medium",
+   "updated_at": "2026-10-17",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 持ち帰り用の商品で、店内で湯豆腐を食べられるかは分からない。食べログではジェラート・カフェ・甘味処に分類されている。 / 位置: 掲載ページの地図 https://www.yukoyuko.net/onsen/spot/s0001164 (2026-10-17)",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "kihako",
+   "name": "嬉箱（KiHaKo）",
+   "name_kana": "きはこ",
+   "category": "restaurant",
+   "status": "needs_review",
+   "yudofu": "unverified",
+   "address": "佐賀県嬉野市嬉野町大字岩屋川内甲379",
+   "lat": 33.09343,
+   "lng": 129.979926,
+   "geo_precision": "exact",
+   "tel": "",
+   "hours": "9:30～20:00（ゆこゆこ掲載）",
+   "closed": "",
+   "service": [],
+   "menu": [],
+   "other_prices": [],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "塩田川沿いにあるカフェ・レストランで、吉田焼や嬉野茶を扱うショップも入っている。ランチやフレンチのコースが中心で、湯豆腐をイメージしたソースのフォンダンショコラもある。",
+    "source_url": "https://tabelog.com/en/saga/A4104/A410401/41004967/"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "https://tabelog.com/en/saga/A4104/A410401/41004967/",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "other": [
+     {
+      "label": "",
+      "url": "https://www.yukoyuko.net/onsen/spot/s0002873"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "嬉箱 （キハコ） - 嬉野温泉/カフェ [食べログ]",
+     "url": "https://tabelog.com/en/saga/A4104/A410401/41004967/",
+     "accessed": "2026-10-16",
+     "note": "口コミに『湯豆腐メニューなどもありました』という記述と、湯豆腐をイメージしたフォンダンショコラの話がある（口コミ） ※検索結果の要約で確認"
+    },
+    {
+     "title": "ゆこゆこ KiHaKo",
+     "url": "https://www.yukoyuko.net/onsen/spot/s0002873",
+     "accessed": "2026-10-16",
+     "note": "住所 岩屋川内甲379、9:30-20:00。ランチコース3,300円、フレンチコース5,500円 ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "low",
+   "updated_at": "2026-10-17",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 湯豆腐の料理そのものがあるとは確かめられていない。住所は吉田屋と同じで、吉田屋の併設施設とみられる。地図に載せるなら yoshidaya にまとめる案もある。 / 位置: 掲載ページの地図 https://www.yukoyuko.net/onsen/spot/s0002873 (2026-10-17)",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
+   }
+  },
+  {
+   "id": "yuuzen",
+   "name": "おんせんかふぇ yuuzen",
+   "name_kana": "おんせんかふぇ ゆうぜん",
+   "category": "restaurant",
+   "status": "needs_review",
+   "yudofu": "unverified",
+   "address": "佐賀県嬉野市嬉野町大字下宿乙871-5",
+   "lat": 33.095264,
+   "lng": 129.983686,
+   "geo_precision": "exact",
+   "tel": "",
+   "hours": "",
+   "closed": "",
+   "service": [],
+   "menu": [],
+   "other_prices": [],
+   "tofu_source": {
+    "name": "",
+    "maker_id": "",
+    "note": "",
+    "source_url": ""
+   },
+   "onsen_source": {
+    "name": "",
+    "note": "",
+    "source_url": ""
+   },
+   "features": [],
+   "description": "",
+   "yudofu_style": {
+    "tare": [],
+    "yakumi": [],
+    "note": "温泉街の中心部にあるカフェ。食べログではカフェ・豆腐料理・甘味処に分類されていて、価格帯は1,000～1,999円。",
+    "source_url": "https://tabelog.com/saga/C41209/C109081/rstLst/"
+   },
+   "urls": {
+    "official": "",
+    "tabelog": "",
+    "retty": "",
+    "gurunavi": "",
+    "hotpepper": "",
+    "jalan": "",
+    "rakuten": "",
+    "other": [
+     {
+      "label": "",
+      "url": "https://tabelog.com/saga/C41209/C109081/rstLst/"
+     }
+    ],
+    "google_maps": "",
+    "instagram": ""
+   },
+   "sources": [
+    {
+     "title": "嬉野市嬉野町下宿でおすすめのグルメ情報 [食べログ]",
+     "url": "https://tabelog.com/saga/C41209/C109081/rstLst/",
+     "accessed": "2026-10-16",
+     "note": "食べログでカフェ・豆腐料理・甘味処に分類されている。住所 下宿乙871-5、予算1,000-1,999円。口コミは0件 ※検索結果の要約で確認"
+    }
+   ],
+   "confidence": "low",
+   "updated_at": "2026-10-16",
+   "editor_note": "2026-10-16 の全件調査で追加（検索結果の要約による） / 湯豆腐を出しているかは分からない。根拠は食べログのジャンル表示だけ。住所は検索要約の値で、店舗ページは開いていない。近くの悠膳の宿 東海と関係があるかもしれないが、裏付けはない。 / 位置: 悠然の宿 東海と同じ住所（下宿乙871-5）のため tokai と同じ（2026-10-17）",
+   "google_place_id": "",
+   "ratings": {
+    "tabelog": null,
+    "tabelog_reviews": null,
+    "google": null,
+    "google_reviews": null
    }
   }
  ]
