@@ -1,0 +1,34 @@
+# 店の正確な位置を OpenStreetMap / 国土地理院 から調べて data/places.json に反映する（scripts/locate-places.mjs）
+# 手動実行（Actions →「Locate places」→ Run workflow）。結果は実行したブランチにコミットされる
+name: Locate places
+on:
+  workflow_dispatch:
+  push:
+    branches: ['claude/**']
+    paths: ['scripts/locate-places.mjs', '.github/workflows/locate-places.yml']
+permissions:
+  contents: write
+concurrency:
+  group: locate-places-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  locate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 位置を調べる
+        run: node scripts/locate-places.mjs
+      - name: 検証
+        run: node scripts/validate.mjs
+      - name: 差分があればコミット
+        run: |
+          node scripts/json-to-csv.mjs
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/places.json data/places.csv scripts/out/locate-report.txt
+          git diff --cached --quiet && { echo "変更なし"; exit 0; }
+          git commit -m "data: 店の位置を OpenStreetMap / 国土地理院 から更新 ($(date +%F))"
+          git push
