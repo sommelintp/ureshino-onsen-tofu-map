@@ -37,9 +37,10 @@ function km(a, b) {
 
 // 1) OpenStreetMap の地物（嬉野市一帯）をまとめて取得
 const BBOX = '33.02,129.90,33.20,130.13';
-const q = `[out:json][timeout:60];(nwr["name"]["tourism"](${BBOX});nwr["name"]["amenity"](${BBOX});nwr["name"]["shop"](${BBOX});nwr["name"]["leisure"](${BBOX});nwr["name"]["craft"](${BBOX});nwr["name"]["building"](${BBOX}););out center tags;`;
+const q = `[out:json][timeout:120];(nwr["name"]["tourism"](${BBOX});nwr["name"]["amenity"](${BBOX});nwr["name"]["shop"](${BBOX});nwr["name"]["leisure"](${BBOX});nwr["name"]["building"](${BBOX}););out center tags;`;
 let osm = [];
-for (const ep of ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter']) {
+const osmErrors = [];
+for (const ep of ['https://overpass-api.de/api/interpreter', 'https://overpass.private.coffee/api/interpreter', 'https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass.kumi.systems/api/interpreter']) {
   try {
     const res = await fetch(ep, { method: 'POST', headers: { 'User-Agent': UA, 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'data=' + encodeURIComponent(q) });
     if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -47,7 +48,7 @@ for (const ep of ['https://overpass-api.de/api/interpreter', 'https://overpass.k
     const NOISE = /^(shelter|parking|parking_entrance|toilets|bench|bicycle_parking|waste_basket|vending_machine|post_box|atm|telephone)$/;
     osm = j.elements.filter((e) => !NOISE.test(e.tags.amenity || '')).map((e) => ({ name: e.tags.name, alt: [e.tags['name:ja'], e.tags.alt_name, e.tags.old_name, e.tags.official_name].filter(Boolean), lat: e.lat ?? e.center?.lat, lng: e.lon ?? e.center?.lon, id: e.type + '/' + e.id })).filter((e) => e.lat && e.lng);
     break;
-  } catch (e) { console.log('Overpass 失敗', ep, e.message); }
+  } catch (e) { osmErrors.push(ep + ': ' + e.message); console.log('Overpass 失敗', ep, e.message); await sleep(3000); }
 }
 console.log('OSM 地物', osm.length, '件');
 
@@ -68,7 +69,21 @@ for (const p of places) {
     if (!dry) { p.lat = +c.o.lat.toFixed(6); p.lng = +c.o.lng.toFixed(6); p.geo_precision = 'exact'; p.updated_at = today; p.editor_note = [p.editor_note, `位置: OpenStreetMap ${c.o.id}「${c.o.name}」(${today})`].filter(Boolean).join(' / '); changed++; }
     continue;
   }
-  // 2) 国土地理院（番地まで一致したときだけ）
+  // 2) Nominatim（OSM の名前検索。1秒に1回まで）
+  try {
+    const nq = String(p.name).replace(/[（(].*?[)）]/g, '') + ' 嬉野';
+    const res = await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&accept-language=ja&countrycodes=jp&viewbox=129.90,33.20,130.13,33.02&bounded=1&q=' + encodeURIComponent(nq), { headers: { 'User-Agent': UA } });
+    const arr = res.ok ? await res.json() : [];
+    await sleep(1100);
+    const best = arr.map((r) => ({ r, s: similar(p.name, r.name || r.display_name.split(',')[0]), d: km(here, [+r.lat, +r.lon]) })).filter((c) => c.s >= 0.75 && c.d <= 4).sort((a, b) => b.s - a.s)[0];
+    if (best) {
+      const nm = best.r.name || best.r.display_name.split(',')[0];
+      lines.push(`nomi   ${p.id}\t${p.name}\t→ ${nm} (${best.r.osm_type}/${best.r.osm_id}) 類似${best.s.toFixed(2)} ${best.d.toFixed(2)}km`);
+      if (!dry) { p.lat = +(+best.r.lat).toFixed(6); p.lng = +(+best.r.lon).toFixed(6); p.geo_precision = 'exact'; p.updated_at = today; p.editor_note = [p.editor_note, `位置: OpenStreetMap ${best.r.osm_type}/${best.r.osm_id}「${nm}」(${today})`].filter(Boolean).join(' / '); changed++; }
+      continue;
+    }
+  } catch (e) { lines.push(`nomierr ${p.id}\t${e.message}`); }
+  // 3) 国土地理院（番地まで一致したときだけ）
   const addr = String(p.address).replace(/[（(].*?[)）]/g, '').replace(/大字/g, '').replace(/\s+/g, '');
   try {
     const res = await fetch('https://msearch.gsi.go.jp/address-search/AddressSearch?q=' + encodeURIComponent(addr), { headers: { 'User-Agent': UA } });
@@ -86,7 +101,7 @@ for (const p of places) {
   } catch (e) { lines.push(`error  ${p.id}\t${p.name}\t${e.message}`); }
   await sleep(800);
 }
-const summary = `更新 ${changed} 件 / 対象 ${places.length} 件 / OSM 地物 ${osm.length} 件 (${new Date().toISOString()})`;
+const summary = `更新 ${changed} 件 / 対象 ${places.length} 件 / OSM 地物 ${osm.length} 件 ${osmErrors.join(' | ')} (${new Date().toISOString()})`;
 console.log(lines.join('\n') + '\n' + summary);
 mkdirSync(new URL('./out/', import.meta.url), { recursive: true });
 writeFileSync(new URL('./out/locate-report.txt', import.meta.url), lines.join('\n') + '\n' + summary + '\n');
