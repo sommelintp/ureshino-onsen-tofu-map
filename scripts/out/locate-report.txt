@@ -16,22 +16,22 @@ miss   rakuya	restaurant&cafe RAKUYA	住所: 佐賀県嬉野市塩田町  地理
 miss   rikyu	日本料理 利休（和多屋別荘）	住所: 佐賀県嬉野市嬉野町下宿乙738和多屋別荘内  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
 miss   risoan	李荘庵（旧 佐賀牛賓館・和多屋別荘）	住所: 佐賀県嬉野市嬉野町下宿乙738和多屋別荘内  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
 miss   warakado	創作膳 わらかど	住所: 佐賀県嬉野市嬉野町下宿乙918-1  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
-miss   ikkyusou	旅館 一休荘	住所: 佐賀県嬉野市嬉野町  地理院: 佐賀県嬉野市嬉野町  OSM最類似: -
+nomi   ikkyusou	旅館 一休荘	→ 旅館 一休荘 (node/13153908935) 類似1.00 0.46km
 miss   irifune	心ほぐす宿 入船荘	住所: 佐賀県嬉野市嬉野町  地理院: 佐賀県嬉野市嬉野町  OSM最類似: -
 miss   hachijuhachi	嬉野 八十八	住所: 佐賀県嬉野市嬉野町  地理院: 佐賀県嬉野市嬉野町  OSM最類似: -
 miss   motoyu	うれしの元湯	住所: 佐賀県嬉野市嬉野町下宿乙2202-8  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
 miss   ureshinokan	大江戸温泉物語 嬉野館	住所: 佐賀県嬉野市嬉野町下宿乙2091  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
 miss   oomuraya	旅館 大村屋	住所: 佐賀県嬉野市嬉野町下宿乙848  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
-miss   kasuien	ホテル華翠苑	住所: 佐賀県嬉野市嬉野町岩屋川内甲333  地理院: 佐賀県嬉野市嬉野町岩屋川内  OSM最類似: -
+nomi   kasuien	ホテル華翠苑	→ ホテル華翠苑 (node/14139613201) 類似1.00 0.66km
 miss   kisenkan	源泉かけ流しの宿 嬉泉館	住所: 佐賀県嬉野市嬉野町下宿乙2202-18  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
 miss   kujaku	お宿 紅舎宮	住所: 佐賀県嬉野市嬉野町岩屋川内甲310-3  地理院: 佐賀県嬉野市嬉野町岩屋川内  OSM最類似: -
 miss   koyokaku	佐賀牛の宿 ホテル光陽閣	住所: 佐賀県嬉野市嬉野町  地理院: 佐賀県嬉野市嬉野町  OSM最類似: -
 miss   kotan	嬉野温泉 枯淡嬉野	住所: 佐賀県嬉野市嬉野町  地理院: 佐賀県嬉野市嬉野町  OSM最類似: -
 miss   kotobukiya	ことぶき屋	住所: 佐賀県嬉野市嬉野町下宿乙817  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
-miss   sansui	山水グローバルイン	住所: 佐賀県嬉野市嬉野町  地理院: 佐賀県嬉野市嬉野町  OSM最類似: -
+nomi   sansui	山水グローバルイン	→ 山水グローバルイン駐車場 (node/6422949486) 類似0.90 0.60km
 miss   shiiba	大正屋 椎葉山荘（レストラン 山法師）	住所: 佐賀県嬉野市嬉野町岩屋川内乙1586  地理院: 佐賀県嬉野市嬉野町岩屋川内  OSM最類似: -
 miss   shoen	花とおもてなしの宿 松園	住所: 佐賀県嬉野市嬉野町  地理院: 佐賀県嬉野市嬉野町  OSM最類似: -
-miss   taishoya	大正屋	住所: 佐賀県嬉野市嬉野町下宿乙2276-1  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
+nomi   taishoya	大正屋	→ 大正屋 湯どうふ本舗 (node/5998956885) 類似0.90 0.52km
 miss   takasago	御宿 高砂	住所: 佐賀県嬉野市嬉野町  地理院: 佐賀県嬉野市嬉野町  OSM最類似: -
 miss   hatsune	旅館 初音荘	住所: 佐賀県嬉野市嬉野町  地理院: 佐賀県嬉野市嬉野町  OSM最類似: -
 miss   hamilton	ハミルトン宇礼志野	住所: 佐賀県嬉野市嬉野町岩屋川内甲288-1  地理院: 佐賀県嬉野市嬉野町岩屋川内  OSM最類似: -
@@ -41,11 +41,11 @@ miss   fairfield	フェアフィールド・バイ・マリオット・佐賀嬉
 miss   hotel-sakura	ホテル桜（和風レストラン 花月）	住所: 佐賀県嬉野市嬉野町下宿乙1021  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
 miss   yoshidaya	旅館 吉田屋（Dining 虚空蔵）	住所: 佐賀県嬉野市嬉野町岩屋川内甲379  地理院: 佐賀県嬉野市嬉野町岩屋川内  OSM最類似: -
 miss   riverpark	RIVERPARK HOTEL（リバーパークホテル）	住所: 佐賀県嬉野市嬉野町  地理院: 佐賀県嬉野市嬉野町  OSM最類似: -
-miss   wataya	和多屋別荘	住所: 佐賀県嬉野市嬉野町下宿乙738  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
-miss   warakuen	茶心の宿 和楽園	住所: 佐賀県嬉野市嬉野町下野甲33  地理院: 佐賀県嬉野市嬉野町下野  OSM最類似: -
+nomi   wataya	和多屋別荘	→ 和多屋別荘 (way/760139247) 類似1.00 0.52km
+nomi   warakuen	茶心の宿 和楽園	→ 茶心の宿 和楽園 (node/5937445185) 類似1.00 1.35km
 miss   konomenosato	このめの里	住所: 佐賀県嬉野市嬉野町下宿甲2094-15  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
 miss   hirakawaya-takeo	佐嘉平川屋 武雄温泉本店	住所: 佐賀県武雄市武雄町武雄7411  地理院: なし  OSM最類似: -
-miss   yudofu-honpo	大正屋 湯どうふ本舗	住所: 佐賀県嬉野市嬉野町下宿乙2302-3  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
+nomi   yudofu-honpo	大正屋 湯どうふ本舗	→ 大正屋 湯どうふ本舗 (node/5998956885) 類似1.00 0.52km
 miss   fukuda	福田豆腐店	住所: 佐賀県嬉野市嬉野町下宿丙110-2  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
 miss   fujikawa	藤川豆腐店	住所: 佐賀県嬉野市嬉野町下宿丙64-1  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
 miss   hirakawaya-wataya	佐嘉平川屋 和多屋別荘店	住所: 佐賀県嬉野市嬉野町下宿乙738  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
@@ -72,4 +72,4 @@ miss   azumaya	東屋	住所: 佐賀県嬉野市嬉野町下宿  地理院: 佐�
 miss   wara	温泉街道 輪来	住所: 佐賀県嬉野市嬉野町下宿乙915  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
 miss   kihako	嬉箱（KiHaKo）	住所: 佐賀県嬉野市嬉野町岩屋川内甲379  地理院: 佐賀県嬉野市嬉野町岩屋川内  OSM最類似: -
 miss   yuuzen	おんせんかふぇ yuuzen	住所: 佐賀県嬉野市嬉野町下宿乙871-5  地理院: 佐賀県嬉野市嬉野町下宿  OSM最類似: -
-更新 0 件 / 対象 75 件 / OSM 地物 0 件 (2026-10-17T02:29:59.577Z)
+更新 7 件 / 対象 75 件 / OSM 地物 0 件 https://overpass-api.de/api/interpreter: HTTP 502 | https://overpass.private.coffee/api/interpreter: HTTP 500 | https://maps.mail.ru/osm/tools/overpass/api/interpreter: HTTP 504 | https://overpass.kumi.systems/api/interpreter: HTTP 500 (2026-10-17T02:33:47.245Z)
