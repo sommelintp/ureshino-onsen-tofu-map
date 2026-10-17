@@ -4291,7 +4291,7 @@
    "name": "山水グローバルイン",
    "name_kana": "さんすいぐろーばるいん",
    "category": "hotel",
-   "status": "needs_review",
+   "status": "hidden",
    "yudofu": "unverified",
    "address": "佐賀県嬉野市嬉野町（番地未取得）",
    "lat": 33.099522,
@@ -4352,7 +4352,7 @@
    ],
    "confidence": "low",
    "updated_at": "2026-10-17",
-   "editor_note": "検索結果で閉館済みと表示（2026-10-16 調査）。要確認 / 位置: OpenStreetMap node/6422949486「山水グローバルイン駐車場」(2026-10-17) / 位置: OpenStreetMap node/6422949486「山水グローバルイン駐車場」(2026-10-17) / 自動調査の位置は別の店と同じ座標だったため不採用（2026-10-17）",
+   "editor_note": "検索結果で閉館済みと表示（2026-10-16 調査）。要確認 / 位置: OpenStreetMap node/6422949486「山水グローバルイン駐車場」(2026-10-17) / 位置: OpenStreetMap node/6422949486「山水グローバルイン駐車場」(2026-10-17) / 自動調査の位置は別の店と同じ座標だったため不採用（2026-10-17） / オーナー確認: 閉館（2026-10-17）",
    "google_place_id": "",
    "yudofu_style": {
     "tare": [],
@@ -8264,7 +8264,7 @@
    "name": "うれしの温泉秋まつり「温泉湯どうふフェスタ」（2026年11月1日）",
    "name_kana": "おんせんゆどうふふぇすた",
    "category": "other",
-   "status": "published",
+   "status": "hidden",
    "yudofu": "confirmed",
    "address": "佐賀県嬉野市嬉野町 嬉野温泉商店街メインストリート周辺",
    "lat": 33.099522,
@@ -8338,8 +8338,8 @@
     }
    ],
    "confidence": "medium",
-   "updated_at": "2026-10-16",
-   "editor_note": "",
+   "updated_at": "2026-10-17",
+   "editor_note": "オーナー確認: 店ではなく過去のイベント（参考 https://www.spa-ureshino.com/tofu/ivent.htm）のため非掲載（2026-10-17）",
    "yudofu_style": {
     "tare": [],
     "yakumi": [],
